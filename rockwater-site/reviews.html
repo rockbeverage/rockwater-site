@@ -206,21 +206,21 @@
           - Custom API: handle via fetch() in the submit handler below
           ==========================================
         -->
-        <form class="review-form" id="review-form" onsubmit="return false;" style="display: none;">
+        <form class="review-form" id="review-form" action="https://formspree.io/f/xzdjewza" method="POST" style="display: none;">
           <div class="review-form__row">
             <div class="review-form__field">
               <label class="review-form__label" for="review-name">Your Name</label>
-              <input type="text" id="review-name" class="review-form__input" placeholder="First name" required>
+              <input type="text" id="review-name" name="name" class="review-form__input" placeholder="First name" required>
             </div>
             <div class="review-form__field">
               <label class="review-form__label" for="review-email">Email <span style="color: var(--color-text-muted); font-weight: 400;">(optional)</span></label>
-              <input type="email" id="review-email" class="review-form__input" placeholder="your@email.com">
+              <input type="email" id="review-email" name="email" class="review-form__input" placeholder="your@email.com">
             </div>
           </div>
 
           <div class="review-form__field">
             <label class="review-form__label" for="review-context">Where did you try ROCK Water?</label>
-            <select id="review-context" class="review-form__input review-form__select">
+            <select id="review-context" name="context" class="review-form__input review-form__select">
               <option value="" disabled selected>Select one</option>
               <option value="Farmers Market">Farmers Market</option>
               <option value="Event">Event</option>
@@ -234,7 +234,7 @@
 
           <div class="review-form__field">
             <label class="review-form__label" for="review-comment">Your Feedback</label>
-            <textarea id="review-comment" class="review-form__input review-form__textarea" placeholder="What did you think?" rows="4" required></textarea>
+            <textarea id="review-comment" name="feedback" class="review-form__input review-form__textarea" placeholder="What did you think?" rows="4" required></textarea>
           </div>
 
           <button type="submit" class="btn btn--primary btn--lg review-form__submit">Submit Feedback</button>
@@ -244,6 +244,12 @@
         <div class="review-form__success" id="review-success" style="display: none;">
           <h3>Thank you!</h3>
           <p>Your feedback means the world to us. We appreciate you taking the time to share your experience with ROCK Water.</p>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div class="review-form__success" id="review-error" style="display: none;">
+          <h3 style="color: #c0392b;">Something went wrong</h3>
+          <p>Please try again or email us directly at support@rockbeverage.com</p>
         </div>
       </div>
     </div>
@@ -365,28 +371,31 @@
     });
 
     // ---- Feedback Form Submit Handler ----
-    // Replace this with your own backend integration (Formspree, Netlify, custom API, etc.)
     document.getElementById('review-form').addEventListener('submit', function(e) {
       e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      var submitBtn = form.querySelector('.review-form__submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
 
-      var name = document.getElementById('review-name').value;
-      var email = document.getElementById('review-email').value;
-      var context = document.getElementById('review-context').value;
-      var comment = document.getElementById('review-comment').value;
-
-      // Log to console for now — replace with your API call
-      console.log('Feedback submitted:', { name: name, email: email, context: context, comment: comment });
-
-      // Example: send to Formspree
-      // fetch('https://formspree.io/f/XXXXX', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ name: name, email: email, context: context, comment: comment })
-      // });
-
-      // Show success message, hide form
-      document.getElementById('review-form').style.display = 'none';
-      document.getElementById('review-success').style.display = '';
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('review-success').style.display = '';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }).catch(function() {
+        form.style.display = 'none';
+        document.getElementById('review-error').style.display = '';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Feedback';
+      });
     });
   </script>
 </body>

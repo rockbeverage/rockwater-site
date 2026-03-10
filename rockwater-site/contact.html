@@ -67,21 +67,27 @@
           <div class="contact-form__divider"></div>
         </div>
 
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mdawejka" method="POST">
           <div class="contact-form__group">
-            <input type="text" id="contact-name" class="contact-form__input" placeholder="Full Name" required>
+            <input type="text" id="contact-name" name="name" class="contact-form__input" placeholder="Full Name" required>
           </div>
 
           <div class="contact-form__group">
-            <input type="email" id="contact-email" class="contact-form__input" placeholder="Email" required>
+            <input type="email" id="contact-email" name="email" class="contact-form__input" placeholder="Email" required>
           </div>
 
           <div class="contact-form__group">
-            <textarea id="contact-message" class="contact-form__input contact-form__textarea" placeholder="Message" rows="6" required></textarea>
+            <textarea id="contact-message" name="message" class="contact-form__input contact-form__textarea" placeholder="Message" rows="6" required></textarea>
           </div>
 
           <button type="submit" class="contact-form__submit">SEND MESSAGE</button>
         </form>
+
+        <!-- Error message (hidden by default) -->
+        <div id="contact-error" style="display: none; text-align: center; padding: var(--space-lg) 0;">
+          <h3 style="color: #c0392b; margin-bottom: var(--space-sm);">Something went wrong</h3>
+          <p style="color: var(--color-text-light);">Please try again or email us directly at support@rockbeverage.com</p>
+        </div>
       </div>
     </div>
   </section>
@@ -173,23 +179,34 @@
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const name = document.getElementById('contact-name').value.trim();
-      const email = document.getElementById('contact-email').value.trim();
-      const message = document.getElementById('contact-message').value.trim();
+      var form = this;
+      var data = new FormData(form);
+      var submitBtn = form.querySelector('.contact-form__submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'SENDING...';
 
-      if (!name || !email || !message) return;
-
-      // Replace form with success message
-      const wrapper = document.querySelector('.contact-form-wrapper');
-      wrapper.innerHTML = `
-        <div class="contact-form__header">
-          <h1 class="contact-form__title">THANK YOU</h1>
-          <div class="contact-form__divider"></div>
-          <p style="margin-top: var(--space-lg); color: var(--color-text-light); font-size: var(--text-base);">
-            Your message has been sent. We'll get back to you soon.
-          </p>
-        </div>
-      `;
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          var wrapper = document.querySelector('.contact-form-wrapper');
+          wrapper.innerHTML =
+            '<div class="contact-form__header">' +
+            '<h1 class="contact-form__title">THANK YOU</h1>' +
+            '<div class="contact-form__divider"></div>' +
+            '<p style="margin-top: var(--space-lg); color: var(--color-text-light); font-size: var(--text-base);">Your message has been sent. We\'ll get back to you soon.</p>' +
+            '</div>';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }).catch(function() {
+        form.style.display = 'none';
+        document.getElementById('contact-error').style.display = '';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'SEND MESSAGE';
+      });
     });
   </script>
 </body>
