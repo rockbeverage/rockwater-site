@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product — ROCK Water</title>
-  <meta name="description" content="ROCK Water. Natural mountain spring water enhanced with electrolytes and trace minerals. No sugar. No calories. Nothing artificial.">
+  <title>Shop — ROCK Water</title>
+  <meta name="description" content="ROCK Water. Natural mountain spring water enhanced with electrolytes and trace minerals. Available in 12oz Sleek and 16oz Standard cans.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -28,6 +28,7 @@
         <a href="index.html">Home</a>
         <a href="shop.html" class="active">Shop</a>
         <a href="story.html">Our Story</a>
+        <a href="science.html">Benefits</a>
         <a href="ambassadors.html">Ambassadors</a>
       </nav>
 
@@ -55,22 +56,23 @@
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
+    <a href="science.html">Benefits</a>
     <a href="ambassadors.html">Ambassadors</a>
   </nav>
 
-  <!-- ============ PRODUCT DETAIL ============ -->
+  <!-- ============ PRODUCT 1: 12oz SLEEK ============ -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
-      <div class="product-detail" id="product-detail">
+      <div class="product-detail" id="product-detail-12oz">
         <!-- Gallery -->
         <div class="product-detail__gallery">
-          <div class="product-detail__main-image" id="product-image">
-            <!-- REPLACE: Large product image — ROCK Water can on clean background -->
+          <div class="product-detail__main-image">
+            <!-- REPLACE: Large product image — ROCK Water 12oz Sleek can -->
             <div class="product-can" style="max-width: 200px;">
-              <div class="product-can__image product-can__image--navy" id="product-can-visual">
+              <div class="product-can__image product-can__image--navy">
                 <span class="product-can__brand">ROCK</span>
                 <span class="product-can__sub">Water</span>
-                <span class="product-can__size" id="product-can-size">12 oz Sleek</span>
+                <span class="product-can__size">12 oz Sleek</span>
               </div>
             </div>
           </div>
@@ -79,10 +81,10 @@
         <!-- Info -->
         <div class="product-detail__info">
           <a href="shop.html" class="text-label" style="margin-bottom: var(--space-md); display: inline-block;">&larr; Back to Shop</a>
-          <h1 class="product-detail__title" id="product-title">ROCK Water — 12oz Sleek</h1>
-          <div class="product-detail__price" id="product-price">$2.49</div>
+          <h1 class="product-detail__title">ROCKWATER — 12oz Sleek</h1>
+          <div class="product-detail__price" id="price-12oz">$29.99</div>
 
-          <p class="product-detail__desc" id="product-desc">
+          <p class="product-detail__desc">
             Natural mountain spring water with trace minerals and electrolytes. Crisp, refreshing hydration designed for everyday movement.
           </p>
 
@@ -95,17 +97,98 @@
             <span class="product-detail__feature-tag">Naturally Alkaline</span>
           </div>
 
+          <!-- Pack Size Toggle -->
+          <div class="product-detail__pack-toggle">
+            <label>Pack Size</label>
+            <div class="pack-toggle" id="pack-toggle-12oz">
+              <button type="button" class="pack-toggle__btn pack-toggle__btn--active" data-pack="12">12-Pack</button>
+              <button type="button" class="pack-toggle__btn" data-pack="24">24-Pack</button>
+            </div>
+          </div>
+
           <div class="product-detail__quantity">
             <label>Quantity</label>
             <div class="quantity-selector">
-              <button type="button" id="qty-minus" aria-label="Decrease quantity">&minus;</button>
-              <input type="number" id="qty-input" value="1" min="1" max="99" aria-label="Quantity">
-              <button type="button" id="qty-plus" aria-label="Increase quantity">&plus;</button>
+              <button type="button" class="qty-minus" data-product="12oz" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" class="qty-input" id="qty-input-12oz" value="1" min="1" max="99" aria-label="Quantity">
+              <button type="button" class="qty-plus" data-product="12oz" aria-label="Increase quantity">&plus;</button>
             </div>
           </div>
 
           <div class="product-detail__actions">
-            <button class="btn btn--primary btn--lg" id="add-to-cart-btn">Add to Cart</button>
+            <button class="btn btn--primary btn--lg add-to-cart-btn" data-product="12oz">Add to Cart</button>
+          </div>
+
+          <div class="product-detail__ingredients">
+            <h4>Ingredients</h4>
+            <p>Natural spring water, magnesium sulfate, sodium citrate, potassium carbonate.</p>
+          </div>
+
+          <div class="product-detail__ingredients" style="border-top: none; padding-top: var(--space-md);">
+            <h4>Source</h4>
+            <p>Bottled at source — English Mountain Spring Water, Dandridge, Tennessee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT 2: 16oz STANDARD ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="product-detail" id="product-detail-16oz">
+        <!-- Gallery -->
+        <div class="product-detail__gallery">
+          <div class="product-detail__main-image">
+            <!-- REPLACE: Large product image — ROCK Water 16oz Standard can -->
+            <div class="product-can" style="max-width: 200px;">
+              <div class="product-can__image product-can__image--cream">
+                <span class="product-can__brand">ROCK</span>
+                <span class="product-can__sub">Water</span>
+                <span class="product-can__size">16 oz Standard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="product-detail__info">
+          <h2 class="product-detail__title">ROCKWATER — 16oz Standard</h2>
+          <div class="product-detail__price" id="price-16oz">$35.99</div>
+
+          <p class="product-detail__desc">
+            Pure mountain spring water enhanced with electrolytes for balanced hydration and clean taste. A bigger can for bigger days.
+          </p>
+
+          <div class="product-detail__features">
+            <span class="product-detail__feature-tag">Mountain Spring</span>
+            <span class="product-detail__feature-tag">Electrolytes</span>
+            <span class="product-detail__feature-tag">Trace Minerals</span>
+            <span class="product-detail__feature-tag">No Sugar</span>
+            <span class="product-detail__feature-tag">No Calories</span>
+            <span class="product-detail__feature-tag">Naturally Alkaline</span>
+          </div>
+
+          <!-- Pack Size Toggle -->
+          <div class="product-detail__pack-toggle">
+            <label>Pack Size</label>
+            <div class="pack-toggle" id="pack-toggle-16oz">
+              <button type="button" class="pack-toggle__btn pack-toggle__btn--active" data-pack="12">12-Pack</button>
+              <button type="button" class="pack-toggle__btn" data-pack="24">24-Pack</button>
+            </div>
+          </div>
+
+          <div class="product-detail__quantity">
+            <label>Quantity</label>
+            <div class="quantity-selector">
+              <button type="button" class="qty-minus" data-product="16oz" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" class="qty-input" id="qty-input-16oz" value="1" min="1" max="99" aria-label="Quantity">
+              <button type="button" class="qty-plus" data-product="16oz" aria-label="Increase quantity">&plus;</button>
+            </div>
+          </div>
+
+          <div class="product-detail__actions">
+            <button class="btn btn--primary btn--lg add-to-cart-btn" data-product="16oz">Add to Cart</button>
           </div>
 
           <div class="product-detail__ingredients">
@@ -258,7 +341,7 @@
           <h4 class="footer__heading">Support</h4>
           <div class="footer__links">
             <a href="contact.html">Contact Us</a>
-            <a href="#">Shipping & Returns</a>
+            <a href="shipping.html">Shipping & Returns</a>
             <a href="faq.html">FAQ</a>
             <a href="terms.html">Terms &amp; Conditions</a>
           </div>
@@ -318,71 +401,85 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Product page logic — reads URL params and swaps content
+    // Product page logic — handles both product sections
     document.addEventListener('DOMContentLoaded', function() {
-      const params = new URLSearchParams(window.location.search);
-      const productId = params.get('id');
 
-      const products = {
-        '12oz': {
-          title: 'ROCK Water — 12oz Sleek',
-          price: '$2.49',
-          priceNum: 2.49,
-          desc: 'Natural mountain spring water with trace minerals and electrolytes. Crisp, refreshing hydration designed for everyday movement.',
-          size: '12 oz Sleek',
-          canStyle: 'navy'
-        },
-        '16oz': {
-          title: 'ROCK Water — 16oz Standard',
-          price: '$2.99',
-          priceNum: 2.99,
-          desc: 'Pure mountain spring water enhanced with electrolytes for balanced hydration and clean taste.',
-          size: '16 oz Standard',
-          canStyle: 'cream'
-        }
+      // Pricing data
+      var pricing = {
+        '12oz': { 12: 29.99, 24: 54.99 },
+        '16oz': { 12: 35.99, 24: 64.99 }
       };
 
-      const product = products[productId] || products['12oz'];
+      // Track selected pack size per product
+      var selectedPack = { '12oz': 12, '16oz': 12 };
 
-      document.getElementById('product-title').textContent = product.title;
-      document.getElementById('product-price').textContent = product.price;
-      document.getElementById('product-desc').textContent = product.desc;
-      document.getElementById('product-can-size').textContent = product.size;
-      document.title = product.title + ' — ROCK Water';
+      // ---- Pack Size Toggles ----
+      document.querySelectorAll('.pack-toggle').forEach(function(toggle) {
+        var productId = toggle.id.replace('pack-toggle-', '');
+        toggle.querySelectorAll('.pack-toggle__btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            // Update active state
+            toggle.querySelectorAll('.pack-toggle__btn').forEach(function(b) {
+              b.classList.remove('pack-toggle__btn--active');
+            });
+            btn.classList.add('pack-toggle__btn--active');
 
-      // Swap can visual style
-      const canVisual = document.getElementById('product-can-visual');
-      if (product.canStyle === 'cream') {
-        canVisual.classList.remove('product-can__image--navy');
-        canVisual.classList.add('product-can__image--cream');
-      }
-
-      // Add to Cart button
-      document.getElementById('add-to-cart-btn').addEventListener('click', function() {
-        const qty = parseInt(document.getElementById('qty-input').value) || 1;
-        if (typeof addToCart === 'function') {
-          addToCart({
-            id: productId || '12oz',
-            title: product.title,
-            price: product.priceNum,
-            size: product.size,
-            quantity: qty
+            // Update price
+            var pack = parseInt(btn.getAttribute('data-pack'));
+            selectedPack[productId] = pack;
+            var priceEl = document.getElementById('price-' + productId);
+            priceEl.textContent = '$' + pricing[productId][pack].toFixed(2);
           });
-        }
+        });
       });
 
-      // Quantity controls
-      document.getElementById('qty-minus').addEventListener('click', function() {
-        const input = document.getElementById('qty-input');
-        const val = parseInt(input.value) || 1;
-        if (val > 1) input.value = val - 1;
+      // ---- Quantity Controls ----
+      document.querySelectorAll('.qty-minus').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var productId = btn.getAttribute('data-product');
+          var input = document.getElementById('qty-input-' + productId);
+          var val = parseInt(input.value) || 1;
+          if (val > 1) input.value = val - 1;
+        });
       });
 
-      document.getElementById('qty-plus').addEventListener('click', function() {
-        const input = document.getElementById('qty-input');
-        const val = parseInt(input.value) || 1;
-        if (val < 99) input.value = val + 1;
+      document.querySelectorAll('.qty-plus').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var productId = btn.getAttribute('data-product');
+          var input = document.getElementById('qty-input-' + productId);
+          var val = parseInt(input.value) || 1;
+          if (val < 99) input.value = val + 1;
+        });
       });
+
+      // ---- Add to Cart ----
+      document.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var productId = btn.getAttribute('data-product');
+          var pack = selectedPack[productId];
+          var qty = parseInt(document.getElementById('qty-input-' + productId).value) || 1;
+          var price = pricing[productId][pack];
+          var titles = {
+            '12oz': 'ROCKWATER — 12oz Sleek',
+            '16oz': 'ROCKWATER — 16oz Standard'
+          };
+          var sizes = {
+            '12oz': '12 oz Sleek',
+            '16oz': '16 oz Standard'
+          };
+
+          if (typeof addToCart === 'function') {
+            addToCart({
+              id: productId + '-' + pack + 'pk',
+              title: titles[productId] + ' (' + pack + '-Pack)',
+              price: price,
+              size: sizes[productId],
+              quantity: qty
+            });
+          }
+        });
+      });
+
     });
   </script>
 </body>
