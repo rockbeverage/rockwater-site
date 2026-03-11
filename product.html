@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — ROCK Water</title>
+  <meta name="description" content="ROCK Water. Natural mountain spring water enhanced with electrolytes and trace minerals. Available in 12oz Sleek and 16oz Standard cans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announcement-bar">
+    Free Shipping on Orders Over $100
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/rock-logo.png" alt="ROCK" class="header__logo-img">
+      </a>
+
+      <nav class="header__nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="science.html">Benefits</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="header__cart-count hidden" id="cart-count">0</span>
+        </button>
+
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="science.html">Benefits</a>
+  </nav>
+
+  <!-- ============ PRODUCT 1: 12oz SLEEK ============ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="product-detail" id="product-detail-12oz">
+        <!-- Gallery -->
+        <div class="product-detail__gallery">
+          <div class="product-detail__main-image">
+            <!-- REPLACE: Large product image — ROCK Water 12oz Sleek can -->
+            <div class="product-can" style="max-width: 200px;">
+              <div class="product-can__image product-can__image--navy">
+                <span class="product-can__brand">ROCK</span>
+                <span class="product-can__sub">Water</span>
+                <span class="product-can__size">12 oz Sleek</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="product-detail__info">
+          <a href="shop.html" class="text-label" style="margin-bottom: var(--space-md); display: inline-block;">&larr; Back to Shop</a>
+          <h1 class="product-detail__title">ROCKWATER — 12oz Sleek</h1>
+          <div class="product-detail__price" id="price-12oz">$29.99</div>
+
+          <p class="product-detail__desc">
+            Natural mountain spring water with trace minerals and electrolytes. Crisp, refreshing hydration designed for everyday movement.
+          </p>
+
+          <div class="product-detail__features">
+            <span class="product-detail__feature-tag">Mountain Spring</span>
+            <span class="product-detail__feature-tag">Electrolytes</span>
+            <span class="product-detail__feature-tag">Trace Minerals</span>
+            <span class="product-detail__feature-tag">No Sugar</span>
+            <span class="product-detail__feature-tag">No Calories</span>
+            <span class="product-detail__feature-tag">Naturally Alkaline</span>
+          </div>
+
+          <!-- Pack Size Toggle -->
+          <div class="product-detail__pack-toggle">
+            <label>Pack Size</label>
+            <div class="pack-toggle" id="pack-toggle-12oz">
+              <button type="button" class="pack-toggle__btn pack-toggle__btn--active" data-pack="12">12-Pack</button>
+              <button type="button" class="pack-toggle__btn" data-pack="24">24-Pack</button>
+            </div>
+          </div>
+
+          <div class="product-detail__quantity">
+            <label>Quantity</label>
+            <div class="quantity-selector">
+              <button type="button" class="qty-minus" data-product="12oz" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" class="qty-input" id="qty-input-12oz" value="1" min="1" max="99" aria-label="Quantity">
+              <button type="button" class="qty-plus" data-product="12oz" aria-label="Increase quantity">&plus;</button>
+            </div>
+          </div>
+
+          <div class="product-detail__actions">
+            <button class="btn btn--primary btn--lg add-to-cart-btn" data-product="12oz">Add to Cart</button>
+          </div>
+
+          <div class="product-detail__ingredients">
+            <h4>Ingredients</h4>
+            <p>Natural spring water, magnesium sulfate, sodium citrate, potassium carbonate.</p>
+          </div>
+
+          <div class="product-detail__ingredients" style="border-top: none; padding-top: var(--space-md);">
+            <h4>Source</h4>
+            <p>Bottled at source — English Mountain Spring Water, Dandridge, Tennessee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT 2: 16oz STANDARD ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="product-detail" id="product-detail-16oz">
+        <!-- Gallery -->
+        <div class="product-detail__gallery">
+          <div class="product-detail__main-image">
+            <!-- REPLACE: Large product image — ROCK Water 16oz Standard can -->
+            <div class="product-can" style="max-width: 200px;">
+              <div class="product-can__image product-can__image--cream">
+                <span class="product-can__brand">ROCK</span>
+                <span class="product-can__sub">Water</span>
+                <span class="product-can__size">16 oz Standard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="product-detail__info">
+          <h2 class="product-detail__title">ROCKWATER — 16oz Standard</h2>
+          <div class="product-detail__price" id="price-16oz">$35.99</div>
+
+          <p class="product-detail__desc">
+            Pure mountain spring water enhanced with electrolytes for balanced hydration and clean taste. A bigger can for bigger days.
+          </p>
+
+          <div class="product-detail__features">
+            <span class="product-detail__feature-tag">Mountain Spring</span>
+            <span class="product-detail__feature-tag">Electrolytes</span>
+            <span class="product-detail__feature-tag">Trace Minerals</span>
+            <span class="product-detail__feature-tag">No Sugar</span>
+            <span class="product-detail__feature-tag">No Calories</span>
+            <span class="product-detail__feature-tag">Naturally Alkaline</span>
+          </div>
+
+          <!-- Pack Size Toggle -->
+          <div class="product-detail__pack-toggle">
+            <label>Pack Size</label>
+            <div class="pack-toggle" id="pack-toggle-16oz">
+              <button type="button" class="pack-toggle__btn pack-toggle__btn--active" data-pack="12">12-Pack</button>
+              <button type="button" class="pack-toggle__btn" data-pack="24">24-Pack</button>
+            </div>
+          </div>
+
+          <div class="product-detail__quantity">
+            <label>Quantity</label>
+            <div class="quantity-selector">
+              <button type="button" class="qty-minus" data-product="16oz" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" class="qty-input" id="qty-input-16oz" value="1" min="1" max="99" aria-label="Quantity">
+              <button type="button" class="qty-plus" data-product="16oz" aria-label="Increase quantity">&plus;</button>
+            </div>
+          </div>
+
+          <div class="product-detail__actions">
+            <button class="btn btn--primary btn--lg add-to-cart-btn" data-product="16oz">Add to Cart</button>
+          </div>
+
+          <div class="product-detail__ingredients">
+            <h4>Ingredients</h4>
+            <p>Natural spring water, magnesium sulfate, sodium citrate, potassium carbonate.</p>
+          </div>
+
+          <div class="product-detail__ingredients" style="border-top: none; padding-top: var(--space-md);">
+            <h4>Source</h4>
+            <p>Bottled at source — English Mountain Spring Water, Dandridge, Tennessee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECOVERY STARTS HERE ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="split fade-in">
+        <div class="split__image">
+          <!-- REPLACE: Active recovery / workout lifestyle image -->
+          <div class="placeholder-img placeholder-img--lifestyle" style="min-height: 400px;">
+            <span class="placeholder-img__label">Recovery / Active Lifestyle (800 x 800)</span>
+          </div>
+        </div>
+        <div class="split__content">
+          <span class="text-eyebrow">Hydration</span>
+          <h2>Recovery Starts Here</h2>
+          <p>ROCK Water is natural mountain spring water enhanced with electrolytes and trace minerals to support balanced hydration.</p>
+          <p>No sugar. No calories. Nothing artificial. Just clean, refreshing water built for everyday life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST OF NATURE ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in">
+        <span class="text-eyebrow">Nature</span>
+        <h2>Best of Nature</h2>
+        <p>Sourced from natural mountain springs and balanced with essential minerals, ROCK Water delivers clean hydration the way nature intended.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST OF SCIENCE ============ -->
+  <section class="section section--navy">
+    <div class="container">
+      <div class="text-block fade-in" style="max-width: 600px;">
+        <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Science</span>
+        <h2>Best of Science</h2>
+        <p>Electrolytes help maintain fluid balance and support hydration during movement, recovery, and everyday life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STRENGTH IN SIMPLICITY ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="split split--reverse fade-in">
+        <div class="split__image">
+          <!-- REPLACE: Minimal, clean product or nature image -->
+          <div class="placeholder-img placeholder-img--cream" style="min-height: 400px;">
+            <span class="placeholder-img__label">Simplicity / Minimal (800 x 800)</span>
+          </div>
+        </div>
+        <div class="split__content">
+          <span class="text-eyebrow">Simplicity</span>
+          <h2>Strength in Simplicity</h2>
+          <p>We believe hydration should be simple. Pure water. Thoughtfully balanced minerals. Nothing else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTENTIONAL LIVING ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="split fade-in">
+        <div class="split__image">
+          <!-- REPLACE: Purpose-driven lifestyle image -->
+          <div class="placeholder-img placeholder-img--lifestyle" style="min-height: 400px;">
+            <span class="placeholder-img__label">Intentional Living (800 x 800)</span>
+          </div>
+        </div>
+        <div class="split__content">
+          <span class="text-eyebrow">Purpose</span>
+          <h2>Intentional Living</h2>
+          <p>ROCK Water is built for people who value movement, clarity, and living life with purpose.</p>
+          <p>Hydration that supports your foundation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+        <span class="text-eyebrow">Reviews</span>
+        <h2>What People Are Saying</h2>
+      </div>
+
+      <div class="testimonials fade-in">
+        <div class="testimonial">
+          <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial__text">"The cleanest water I've ever tasted. It's become my go-to for every workout and every morning. Simple, refreshing, and just right."</p>
+          <span class="testimonial__author">— Sarah M.</span>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial__text">"I love what ROCK stands for. Clean water, clean living, and giving back. The taste is crisp and you can tell it's sourced from something real."</p>
+          <span class="testimonial__author">— James T.</span>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial__text">"Finally a water brand that feels intentional. No gimmicks, no artificial nonsense — just pure, well-balanced hydration. I keep a case in my car at all times."</p>
+          <span class="testimonial__author">— Maya R.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo-bar">
+        <img src="images/rock-logo.png" alt="ROCK" class="footer__logo-img">
+      </div>
+
+      <div class="footer__columns">
+        <div>
+          <h4 class="footer__heading">Navigate</h4>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Our Story</a>
+            <a href="ambassadors.html">Ambassadors</a>
+            <a href="science.html">Science</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="wholesale.html">Become a Retailer</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Support</h4>
+          <div class="footer__links">
+            <a href="contact.html">Contact Us</a>
+            <a href="shipping.html">Shipping & Returns</a>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Stay Connected</h4>
+          <div class="footer__newsletter">
+            <p>Join the ROCK community for updates and exclusive offers.</p>
+            <form class="footer__newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="Your email address" aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2.66-.78 4.83 4.83 0 01-1.34-1.17V6.69h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter / X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16H20L8.267 4H4zM4 20l6.768-8M20 4l-6.768 8"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 ROCK Water. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ CART SIDEBAR ============ -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar__header">
+      <span class="cart-sidebar__title">Your Cart</span>
+      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-sidebar__items" id="cart-items">
+      <div class="cart-sidebar__empty" id="cart-empty">
+        <p>Your cart is empty</p>
+        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
+      </div>
+    </div>
+    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
+      <div class="cart-sidebar__total">
+        <span class="cart-sidebar__total-label">Subtotal</span>
+        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
+      </div>
+      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
+      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
+    </div>
+  </aside>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Product page logic — handles both product sections
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // Pricing data
+      var pricing = {
+        '12oz': { 12: 29.99, 24: 54.99 },
+        '16oz': { 12: 35.99, 24: 64.99 }
+      };
+
+      // Track selected pack size per product
+      var selectedPack = { '12oz': 12, '16oz': 12 };
+
+      // ---- Pack Size Toggles ----
+      document.querySelectorAll('.pack-toggle').forEach(function(toggle) {
+        var productId = toggle.id.replace('pack-toggle-', '');
+        toggle.querySelectorAll('.pack-toggle__btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            // Update active state
+            toggle.querySelectorAll('.pack-toggle__btn').forEach(function(b) {
+              b.classList.remove('pack-toggle__btn--active');
+            });
+            btn.classList.add('pack-toggle__btn--active');
+
+            // Update price
+            var pack = parseInt(btn.getAttribute('data-pack'));
+            selectedPack[productId] = pack;
+            var priceEl = document.getElementById('price-' + productId);
+            priceEl.textContent = '$' + pricing[productId][pack].toFixed(2);
+          });
+        });
+      });
+
+      // ---- Quantity Controls ----
+      document.querySelectorAll('.qty-minus').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var productId = btn.getAttribute('data-product');
+          var input = document.getElementById('qty-input-' + productId);
+          var val = parseInt(input.value) || 1;
+          if (val > 1) input.value = val - 1;
+        });
+      });
+
+      document.querySelectorAll('.qty-plus').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var productId = btn.getAttribute('data-product');
+          var input = document.getElementById('qty-input-' + productId);
+          var val = parseInt(input.value) || 1;
+          if (val < 99) input.value = val + 1;
+        });
+      });
+
+      // ---- Add to Cart ----
+      document.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var productId = btn.getAttribute('data-product');
+          var pack = selectedPack[productId];
+          var qty = parseInt(document.getElementById('qty-input-' + productId).value) || 1;
+          var price = pricing[productId][pack];
+          var titles = {
+            '12oz': 'ROCKWATER — 12oz Sleek',
+            '16oz': 'ROCKWATER — 16oz Standard'
+          };
+          var sizes = {
+            '12oz': '12 oz Sleek',
+            '16oz': '16 oz Standard'
+          };
+
+          if (typeof addToCart === 'function') {
+            addToCart({
+              id: productId + '-' + pack + 'pk',
+              title: titles[productId] + ' (' + pack + '-Pack)',
+              price: price,
+              size: sizes[productId],
+              quantity: qty
+            });
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

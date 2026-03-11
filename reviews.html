@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews — ROCK Water</title>
+  <meta name="description" content="Real feedback from tastings, markets, events, and everyday moments with ROCK Water. See what people are saying about clean, premium hydration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announcement-bar">
+    Free Shipping on Orders Over $100
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/rock-logo.png" alt="ROCK" class="header__logo-img">
+      </a>
+
+      <nav class="header__nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="science.html">Benefits</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="header__cart-count hidden" id="cart-count">0</span>
+        </button>
+
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="science.html">Benefits</a>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero hero--short">
+    <div class="hero__bg">
+      <div class="placeholder-img placeholder-img--lifestyle">
+        <span class="placeholder-img__label">Reviews Hero — Lifestyle / Community (1920 x 800)</span>
+      </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="text-eyebrow">Reviews</span>
+      <h1>What People<br>Are Saying</h1>
+      <p class="hero__tagline">Real feedback from tastings, markets, events, and everyday moments with ROCK Water.</p>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED TESTIMONIALS ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+        <span class="text-eyebrow">Community</span>
+        <h2>Voices from the Community</h2>
+      </div>
+
+      <!--
+        ==========================================
+        EDITABLE TESTIMONIALS
+        To add, remove, or edit reviews:
+        - Copy a .review-card block and paste it below
+        - Update the quote, name, and context tag
+        - Context examples: Farmers Market, Scottsdale Event, First Taste, Everyday Hydration, Gym, Pop-Up
+        ==========================================
+      -->
+
+      <div class="review-grid fade-in">
+
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Sarah M.</span>
+            <span class="review-card__context">Farmers Market</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">James T.</span>
+            <span class="review-card__context">Scottsdale Event</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Maya R.</span>
+            <span class="review-card__context">First Taste</span>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;This is the kind of can I'd keep in my car, gym bag, or on my desk. Simple, clean, and actually good.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Chris D.</span>
+            <span class="review-card__context">Everyday Hydration</span>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;I grabbed one at a pop-up and ended up ordering a case that night. The mineral balance is perfect.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Alyssa K.</span>
+            <span class="review-card__context">Pop-Up Event</span>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;Most water brands feel interchangeable. ROCK feels like it actually stands for something. And it tastes incredible.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Daniel W.</span>
+            <span class="review-card__context">Gym</span>
+          </div>
+        </div>
+
+        <!-- Review 7 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;Brought it to a hiking trip with friends. Everyone asked where I got it. Clean taste, great packaging, easy to carry.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Jordan P.</span>
+            <span class="review-card__context">Outdoor Adventure</span>
+          </div>
+        </div>
+
+        <!-- Review 8 -->
+        <div class="review-card">
+          <div class="review-card__quote">
+            <p>&ldquo;I keep coming back to it. No aftertaste, no weird additives. Just real water that actually hydrates.&rdquo;</p>
+          </div>
+          <div class="review-card__meta">
+            <span class="review-card__name">Nicole F.</span>
+            <span class="review-card__context">Everyday Hydration</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEAVE FEEDBACK FORM ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="review-cta fade-in">
+        <span class="text-eyebrow">Feedback</span>
+        <h2>Tried ROCK Water?</h2>
+        <p>We'd love to hear from you. Whether you found us at a farmers market, an event, or through a friend — your feedback helps us grow.</p>
+
+        <!-- Button that reveals the form -->
+        <button class="btn btn--primary btn--lg review-cta__btn" id="review-open-btn">Leave a Comment</button>
+
+        <!--
+          ==========================================
+          FEEDBACK FORM (hidden by default, revealed on button click)
+          To connect to a backend, replace the form action or
+          add your own JS handler:
+          - Formspree:  action="https://formspree.io/f/XXXXX" method="POST"
+          - Netlify:    add netlify attribute to the form tag
+          - Custom API: handle via fetch() in the submit handler below
+          ==========================================
+        -->
+        <form class="review-form" id="review-form" action="https://formspree.io/f/xzdjewza" method="POST" style="display: none;">
+          <div class="review-form__row">
+            <div class="review-form__field">
+              <label class="review-form__label" for="review-name">Your Name</label>
+              <input type="text" id="review-name" name="name" class="review-form__input" placeholder="First name" required>
+            </div>
+            <div class="review-form__field">
+              <label class="review-form__label" for="review-email">Email <span style="color: var(--color-text-muted); font-weight: 400;">(optional)</span></label>
+              <input type="email" id="review-email" name="email" class="review-form__input" placeholder="your@email.com">
+            </div>
+          </div>
+
+          <div class="review-form__field">
+            <label class="review-form__label" for="review-context">Where did you try ROCK Water?</label>
+            <select id="review-context" name="context" class="review-form__input review-form__select">
+              <option value="" disabled selected>Select one</option>
+              <option value="Farmers Market">Farmers Market</option>
+              <option value="Event">Event</option>
+              <option value="Pop-Up">Pop-Up</option>
+              <option value="Friend / Word of Mouth">Friend / Word of Mouth</option>
+              <option value="Online Order">Online Order</option>
+              <option value="Gym">Gym</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="review-form__field">
+            <label class="review-form__label" for="review-comment">Your Feedback</label>
+            <textarea id="review-comment" name="feedback" class="review-form__input review-form__textarea" placeholder="What did you think?" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg review-form__submit">Submit Feedback</button>
+        </form>
+
+        <!-- Success message (hidden by default) -->
+        <div class="review-form__success" id="review-success" style="display: none;">
+          <h3>Thank you!</h3>
+          <p>Your feedback means the world to us. We appreciate you taking the time to share your experience with ROCK Water.</p>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div class="review-form__success" id="review-error" style="display: none;">
+          <h3 style="color: #c0392b;">Something went wrong</h3>
+          <p>Please try again or email us directly at support@rockbeverage.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING — FROM THE MARKET ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in" style="max-width: 560px;">
+        <span class="text-eyebrow">Purpose</span>
+        <h2>From the Market to Everyday Life</h2>
+        <p>ROCK Water is built for daily rituals, movement, recovery, and intentional living. Every can is a reminder to stay grounded, stay hydrated, and build your life on a solid foundation.</p>
+        <div style="margin-top: var(--space-xl);">
+          <a href="shop.html" class="btn btn--secondary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo-bar">
+        <img src="images/rock-logo.png" alt="ROCK" class="footer__logo-img">
+      </div>
+
+      <div class="footer__columns">
+        <div>
+          <h4 class="footer__heading">Navigate</h4>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Our Story</a>
+            <a href="ambassadors.html">Ambassadors</a>
+            <a href="science.html">Science</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="wholesale.html">Become a Retailer</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Support</h4>
+          <div class="footer__links">
+            <a href="contact.html">Contact Us</a>
+            <a href="shipping.html">Shipping & Returns</a>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Stay Connected</h4>
+          <div class="footer__newsletter">
+            <p>Join the ROCK community for updates and exclusive offers.</p>
+            <form class="footer__newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="Your email address" aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2.66-.78 4.83 4.83 0 01-1.34-1.17V6.69h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter / X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16H20L8.267 4H4zM4 20l6.768-8M20 4l-6.768 8"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 ROCK Water. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ CART SIDEBAR ============ -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar__header">
+      <span class="cart-sidebar__title">Your Cart</span>
+      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-sidebar__items" id="cart-items">
+      <div class="cart-sidebar__empty" id="cart-empty">
+        <p>Your cart is empty</p>
+        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
+      </div>
+    </div>
+    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
+      <div class="cart-sidebar__total">
+        <span class="cart-sidebar__total-label">Subtotal</span>
+        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
+      </div>
+      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
+      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
+    </div>
+  </aside>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ---- "Leave a Comment" button reveals form ----
+    document.getElementById('review-open-btn').addEventListener('click', function() {
+      this.style.display = 'none';
+      var form = document.getElementById('review-form');
+      form.style.display = '';
+      form.style.opacity = '0';
+      form.style.transform = 'translateY(12px)';
+      // Trigger reflow then animate in
+      form.offsetHeight;
+      form.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      form.style.opacity = '1';
+      form.style.transform = 'translateY(0)';
+      // Focus the first field
+      document.getElementById('review-name').focus();
+    });
+
+    // ---- Feedback Form Submit Handler ----
+    document.getElementById('review-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      var submitBtn = form.querySelector('.review-form__submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('review-success').style.display = '';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }).catch(function() {
+        form.style.display = 'none';
+        document.getElementById('review-error').style.display = '';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Feedback';
+      });
+    });
+  </script>
+</body>
+</html>

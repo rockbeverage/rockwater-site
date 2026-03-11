@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wholesale — ROCK Water</title>
+  <meta name="description" content="Partner with ROCK Water to offer premium canned spring water designed for modern retail, fitness, hospitality, and wellness spaces.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--
+    ==========================================
+    WHOLESALE APPLICATION FORM
+    Form is built as a modal on this page. To connect to a backend,
+    replace the console.log in the submit handler with:
+    - Formspree:  fetch('https://formspree.io/f/XXXXX', ...)
+    - Netlify:    add netlify attribute to the form tag
+    - Custom API: send via fetch() to your endpoint
+    ==========================================
+  -->
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announcement-bar">
+    Free Shipping on Orders Over $100
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/rock-logo.png" alt="ROCK" class="header__logo-img">
+      </a>
+      <nav class="header__nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="science.html">Benefits</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="header__cart-count hidden" id="cart-count">0</span>
+        </button>
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="science.html">Benefits</a>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero hero--short">
+    <div class="hero__bg">
+      <div class="placeholder-img placeholder-img--nature">
+        <span class="placeholder-img__label">Wholesale Hero — Retail / Lifestyle (1920 x 800)</span>
+      </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="text-eyebrow">Wholesale</span>
+      <h1>Bring ROCK Water<br>to Your Shelves</h1>
+      <div style="margin-top: var(--space-lg);">
+        <button class="btn btn--white wholesale-open-modal">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ FULL-BLEED IMAGE ============ -->
+  <section class="ws-fullbleed fade-in">
+    <div class="placeholder-img placeholder-img--lifestyle" style="min-height: 500px;">
+      <span class="placeholder-img__label">Full-Bleed Lifestyle — ROCK Water in Retail / Café Setting (1920 x 700)</span>
+    </div>
+  </section>
+
+  <!-- ============ WHY PARTNER ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="ws-two-col fade-in">
+        <div class="ws-two-col__left">
+          <span class="text-eyebrow">Partnership</span>
+          <h2>Why Carry<br>ROCK Water</h2>
+        </div>
+        <div class="ws-two-col__right">
+          <div class="ws-point">
+            <h3>Elevated Brand Design</h3>
+            <p>Clean, modern packaging that looks and feels premium on any shelf, counter, or cooler. Built to stand out in environments that value aesthetics.</p>
+          </div>
+          <div class="ws-point">
+            <h3>A Product That Speaks for Itself</h3>
+            <p>Natural mountain spring water enhanced with electrolytes and trace minerals. No sugar, no calories, no artificial ingredients.</p>
+          </div>
+          <div class="ws-point">
+            <h3>Designed for Intentional Spaces</h3>
+            <p>From cafés and fitness studios to hotels and specialty markets — ROCK Water belongs wherever quality and experience matter.</p>
+          </div>
+          <div class="ws-point">
+            <h3>A Growing Community</h3>
+            <p>Strong lifestyle brand with active community engagement, ambassador partnerships, and grassroots presence. Your customers already want this product.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMAGE PAIR ============ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="ws-img-pair fade-in">
+        <div class="ws-img-pair__item">
+          <div class="placeholder-img placeholder-img--water" style="min-height: 400px;">
+            <span class="placeholder-img__label">Product / Lifestyle (800 x 600)</span>
+          </div>
+        </div>
+        <div class="ws-img-pair__item">
+          <div class="placeholder-img placeholder-img--nature" style="min-height: 400px;">
+            <span class="placeholder-img__label">Environment / Hospitality (800 x 600)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="ws-process fade-in">
+        <div class="ws-process__header">
+          <span class="text-eyebrow">Process</span>
+          <h2>How It Works</h2>
+        </div>
+        <div class="ws-process__steps">
+          <div class="ws-process__step">
+            <span class="ws-process__num">01</span>
+            <h3>Apply</h3>
+            <p>Tell us about your business, location, and what you're looking for.</p>
+          </div>
+          <div class="ws-process__step">
+            <span class="ws-process__num">02</span>
+            <h3>We Review</h3>
+            <p>Our team evaluates the fit based on alignment with the ROCK brand.</p>
+          </div>
+          <div class="ws-process__step">
+            <span class="ws-process__num">03</span>
+            <h3>We Connect</h3>
+            <p>We follow up with pricing, terms, and next steps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FULL-BLEED IMAGE 2 ============ -->
+  <section class="ws-fullbleed fade-in">
+    <div class="placeholder-img placeholder-img--lifestyle" style="min-height: 440px;">
+      <span class="placeholder-img__label">Full-Bleed Lifestyle — Fitness / Wellness / Event (1920 x 650)</span>
+    </div>
+  </section>
+
+  <!-- ============ WHOLESALE FAQ ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+        <h2>FAQ</h2>
+      </div>
+
+      <div class="faq fade-in">
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>How do I become a retail partner?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>Submit the wholesale application and our team will review your request. If it's a good fit, we'll follow up with next steps and ordering information.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Do you offer wholesale pricing?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>Yes. Approved retail partners receive access to wholesale pricing and ordering options once their application is reviewed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Where is ROCK Water sourced?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>ROCK Water is natural spring water sourced in the Smoky Mountains and bottled near the source in a NSF-certified facility, ensuring exceptional purity, safety, and quality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Is there a minimum order?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>Minimum order quantities may apply depending on location and fulfillment method. Details are shared after the application review.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>What types of spaces carry ROCK Water?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>ROCK Water fits naturally in thoughtful environments that care about quality and intentional living — from cafés and restaurants to fitness studios, hotels, specialty markets, and everyday gathering places.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>How long does it take to hear back after applying?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq__answer">
+            <div class="faq__answer-inner">
+              <p>We typically review wholesale inquiries within a few business days and will follow up with next steps if the partnership is a good fit.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOTTOM CTA ============ -->
+  <section class="section section--lg section--navy">
+    <div class="container">
+      <div class="text-block fade-in" style="max-width: 600px;">
+        <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Get Started</span>
+        <h2>Interested in Carrying ROCK Water?</h2>
+        <p>Tell us a bit about your store, concept, or location and we'll be in touch.</p>
+        <div style="margin-top: var(--space-xl);">
+          <button class="btn btn--white wholesale-open-modal">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLICATION FORM MODAL ============ -->
+  <div class="wf-modal-overlay" id="wf-modal-overlay">
+    <div class="wf-modal" id="wf-modal" role="dialog" aria-modal="true" aria-label="Wholesale Application">
+      <button class="wf-modal__close" id="wf-modal-close" aria-label="Close">&times;</button>
+
+      <div class="wf-modal__header">
+        <span class="text-eyebrow" style="margin-bottom: var(--space-xs);">Apply</span>
+        <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-xs);">Wholesale Application</h2>
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); max-width: 400px; margin: 0 auto;">Tell us about your business and we'll be in touch.</p>
+      </div>
+
+      <!-- Step Indicator -->
+      <div class="wf__steps-indicator">
+        <div class="wf__step-dot wf__step-dot--active" data-step="1">
+          <span class="wf__step-num">1</span>
+        </div>
+        <div class="wf__step-line"></div>
+        <div class="wf__step-dot" data-step="2">
+          <span class="wf__step-num">2</span>
+        </div>
+      </div>
+
+      <form class="wf__form" id="wholesale-app-form" action="https://formspree.io/f/xlgpjvdn" method="POST">
+
+        <!-- ======== STEP 1 ======== -->
+        <div class="wf__panel" id="wf-step-1">
+
+          <div class="wf__row">
+            <div class="wf__field">
+              <label class="wf__label" for="wf-name">Full Name <span class="wf__req">*</span></label>
+              <input type="text" id="wf-name" name="name" class="wf__input" placeholder="Your full name" required>
+            </div>
+            <div class="wf__field">
+              <label class="wf__label" for="wf-phone">Phone Number</label>
+              <input type="tel" id="wf-phone" name="phone" class="wf__input" placeholder="(555) 555-5555">
+            </div>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label">Business Contact Position <span class="wf__req">*</span></label>
+            <div class="wf__radio-group">
+              <label class="wf__radio"><input type="radio" name="position" value="Owner" required><span class="wf__radio-mark"></span>Owner</label>
+              <label class="wf__radio"><input type="radio" name="position" value="Manager"><span class="wf__radio-mark"></span>Manager</label>
+              <label class="wf__radio"><input type="radio" name="position" value="Team Member"><span class="wf__radio-mark"></span>Team Member</label>
+              <label class="wf__radio"><input type="radio" name="position" value="Other"><span class="wf__radio-mark"></span>Other</label>
+            </div>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label" for="wf-website">Business Website</label>
+            <input type="url" id="wf-website" name="website" class="wf__input" placeholder="https://yourbusiness.com">
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label">Do you have a physical store location? <span class="wf__req">*</span></label>
+            <div class="wf__radio-group wf__radio-group--inline">
+              <label class="wf__radio"><input type="radio" name="physical_location" value="Yes" required><span class="wf__radio-mark"></span>Yes</label>
+              <label class="wf__radio"><input type="radio" name="physical_location" value="No"><span class="wf__radio-mark"></span>No</label>
+            </div>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label" for="wf-address">Business Address <span class="wf__req">*</span></label>
+            <input type="text" id="wf-address" name="address" class="wf__input" placeholder="Street, City, State, ZIP" required>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label">Which best describes your business? <span class="wf__req">*</span></label>
+            <div class="wf__radio-group wf__radio-group--grid">
+              <label class="wf__radio"><input type="radio" name="business_type" value="Café / Coffee Shop" required><span class="wf__radio-mark"></span>Caf&eacute; / Coffee Shop</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Restaurant / Bar"><span class="wf__radio-mark"></span>Restaurant / Bar</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Fitness Studio / Gym"><span class="wf__radio-mark"></span>Fitness Studio / Gym</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Wellness / Recovery Studio"><span class="wf__radio-mark"></span>Wellness / Recovery Studio</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Golf Club / Recreation Facility"><span class="wf__radio-mark"></span>Golf Club / Recreation Facility</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Hotel / Hospitality"><span class="wf__radio-mark"></span>Hotel / Hospitality</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Specialty Retail / Market"><span class="wf__radio-mark"></span>Specialty Retail / Market</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Bottle Shop / Liquor Retailer"><span class="wf__radio-mark"></span>Bottle Shop / Liquor Retailer</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Lifestyle / Boutique Retail"><span class="wf__radio-mark"></span>Lifestyle / Boutique Retail</label>
+              <label class="wf__radio"><input type="radio" name="business_type" value="Other"><span class="wf__radio-mark"></span>Other</label>
+            </div>
+          </div>
+
+          <div class="wf__actions">
+            <button type="button" class="btn btn--primary btn--lg" id="wf-next">Continue</button>
+          </div>
+        </div>
+
+        <!-- ======== STEP 2 ======== -->
+        <div class="wf__panel" id="wf-step-2" style="display: none;">
+
+          <div class="wf__field">
+            <label class="wf__label" for="wf-hear">How did you hear about ROCK Water? <span class="wf__req">*</span></label>
+            <select id="wf-hear" name="how_heard" class="wf__input wf__select" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Friend / Word of Mouth">Friend / Word of Mouth</option>
+              <option value="Event / Pop-Up">Event / Pop-Up</option>
+              <option value="Google Search">Google Search</option>
+              <option value="Farmers Market">Farmers Market</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label" for="wf-locations">How many locations does your business have? <span class="wf__req">*</span></label>
+            <select id="wf-locations" name="locations" class="wf__input wf__select" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="1">1</option>
+              <option value="2-5">2 &ndash; 5</option>
+              <option value="6-10">6 &ndash; 10</option>
+              <option value="11-25">11 &ndash; 25</option>
+              <option value="25+">25+</option>
+            </select>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label" for="wf-instagram">Business Instagram Handle</label>
+            <input type="text" id="wf-instagram" name="instagram" class="wf__input" placeholder="@yourbusiness">
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__label" for="wf-notes">Anything else you'd like us to know?</label>
+            <textarea id="wf-notes" name="notes" class="wf__input wf__textarea" placeholder="Tell us more about your business, goals, or questions..." rows="4"></textarea>
+          </div>
+
+          <div class="wf__field">
+            <label class="wf__checkbox">
+              <input type="checkbox" id="wf-optin" name="marketing_optin" value="Yes">
+              <span class="wf__checkbox-mark"></span>
+              <span class="wf__checkbox-text">Yes, send me free marketing materials and product samples for my location.</span>
+            </label>
+          </div>
+
+          <div class="wf__actions wf__actions--split">
+            <button type="button" class="btn btn--secondary" id="wf-prev">&larr; Previous</button>
+            <button type="submit" class="btn btn--primary btn--lg">Submit Application</button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Success State -->
+      <div class="wf__success" id="wf-success" style="display: none;">
+        <div class="wf__success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+        </div>
+        <h3>Application Received</h3>
+        <p>Thank you for your interest in carrying ROCK Water. Our team will review your application and follow up within 2-3 business days.</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="wf__success" id="wf-error" style="display: none;">
+        <h3 style="color: #c0392b;">Something went wrong</h3>
+        <p>Please try again or email us directly at support@rockbeverage.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo-bar">
+        <img src="images/rock-logo.png" alt="ROCK" class="footer__logo-img">
+      </div>
+
+      <div class="footer__columns">
+        <div>
+          <h4 class="footer__heading">Navigate</h4>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Our Story</a>
+            <a href="ambassadors.html">Ambassadors</a>
+            <a href="science.html">Science</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="wholesale.html">Become a Retailer</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Support</h4>
+          <div class="footer__links">
+            <a href="contact.html">Contact Us</a>
+            <a href="shipping.html">Shipping & Returns</a>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Stay Connected</h4>
+          <div class="footer__newsletter">
+            <p>Join the ROCK community for updates and exclusive offers.</p>
+            <form class="footer__newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="Your email address" aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2.66-.78 4.83 4.83 0 01-1.34-1.17V6.69h3z"/></svg></a>
+            <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16H20L8.267 4H4zM4 20l6.768-8M20 4l-6.768 8"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 ROCK Water. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ CART SIDEBAR ============ -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar__header">
+      <span class="cart-sidebar__title">Your Cart</span>
+      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-sidebar__items" id="cart-items">
+      <div class="cart-sidebar__empty" id="cart-empty">
+        <p>Your cart is empty</p>
+        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
+      </div>
+    </div>
+    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
+      <div class="cart-sidebar__total">
+        <span class="cart-sidebar__total-label">Subtotal</span>
+        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
+      </div>
+      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
+      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
+    </div>
+  </aside>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var overlay = document.getElementById('wf-modal-overlay');
+      var modal = document.getElementById('wf-modal');
+      var step1 = document.getElementById('wf-step-1');
+      var step2 = document.getElementById('wf-step-2');
+      var dots = document.querySelectorAll('.wf__step-dot');
+      var line = document.querySelector('.wf__step-line');
+
+      // ---- FAQ Accordion ----
+      document.querySelectorAll('.faq__question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = this.parentElement;
+          var isOpen = item.classList.contains('faq__item--open');
+
+          // Close all
+          document.querySelectorAll('.faq__item--open').forEach(function(openItem) {
+            openItem.classList.remove('faq__item--open');
+            openItem.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked (if it wasn't already open)
+          if (!isOpen) {
+            item.classList.add('faq__item--open');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // ---- Modal Open / Close ----
+      function openModal() {
+        overlay.classList.add('wf-modal-overlay--active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function() {
+          document.getElementById('wf-name').focus();
+        }, 350);
+      }
+
+      function closeModal() {
+        overlay.classList.remove('wf-modal-overlay--active');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.wholesale-open-modal').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      document.getElementById('wf-modal-close').addEventListener('click', closeModal);
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('wf-modal-overlay--active')) {
+          closeModal();
+        }
+      });
+
+      // ---- Step Navigation ----
+      document.getElementById('wf-next').addEventListener('click', function() {
+        var requiredInputs = step1.querySelectorAll('[required]');
+        var valid = true;
+        requiredInputs.forEach(function(input) {
+          if (input.type === 'radio') {
+            var group = step1.querySelectorAll('input[name="' + input.name + '"]');
+            var checked = false;
+            group.forEach(function(r) { if (r.checked) checked = true; });
+            if (!checked) valid = false;
+          } else {
+            if (!input.value.trim()) valid = false;
+          }
+        });
+
+        if (!valid) {
+          var tempBtn = document.createElement('button');
+          tempBtn.type = 'submit';
+          tempBtn.style.display = 'none';
+          document.getElementById('wholesale-app-form').appendChild(tempBtn);
+          tempBtn.click();
+          tempBtn.remove();
+          return;
+        }
+
+        step1.style.display = 'none';
+        step2.style.display = '';
+        step2.style.opacity = '0';
+        step2.style.transform = 'translateY(12px)';
+        step2.offsetHeight;
+        step2.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        step2.style.opacity = '1';
+        step2.style.transform = 'translateY(0)';
+        dots[0].classList.remove('wf__step-dot--active');
+        dots[0].classList.add('wf__step-dot--done');
+        dots[1].classList.add('wf__step-dot--active');
+        line.classList.add('wf__step-line--done');
+        modal.scrollTop = 0;
+      });
+
+      document.getElementById('wf-prev').addEventListener('click', function() {
+        step2.style.display = 'none';
+        step1.style.display = '';
+        dots[1].classList.remove('wf__step-dot--active');
+        dots[0].classList.remove('wf__step-dot--done');
+        dots[0].classList.add('wf__step-dot--active');
+        line.classList.remove('wf__step-line--done');
+        modal.scrollTop = 0;
+      });
+
+      // ---- Form Submit ----
+      document.getElementById('wholesale-app-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var data = new FormData(form);
+        var submitBtn = step2.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+          if (response.ok) {
+            form.style.display = 'none';
+            document.querySelector('.wf__steps-indicator').style.display = 'none';
+            var success = document.getElementById('wf-success');
+            success.style.display = '';
+            success.style.opacity = '0';
+            success.style.transform = 'translateY(12px)';
+            success.offsetHeight;
+            success.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            success.style.opacity = '1';
+            success.style.transform = 'translateY(0)';
+            modal.scrollTop = 0;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        }).catch(function() {
+          form.style.display = 'none';
+          document.querySelector('.wf__steps-indicator').style.display = 'none';
+          document.getElementById('wf-error').style.display = '';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Application';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
