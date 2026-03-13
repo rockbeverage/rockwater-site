@@ -1236,6 +1236,92 @@ p {
   max-width: 480px;
 }
 
+/* Collection Grid (Shop Landing) */
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.collection-tile {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: var(--transition-base);
+}
+
+.collection-tile:hover {
+  transform: translateY(-4px);
+}
+
+.collection-tile__image {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-2xl) var(--space-lg);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+}
+
+.collection-tile:hover .collection-tile__image {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.collection-tile__info {
+  padding: 0 var(--space-sm);
+}
+
+.collection-tile__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.collection-tile__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 auto var(--space-md);
+}
+
+.collection-tile__meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.collection-tile__link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-dark);
+  padding-bottom: 2px;
+  transition: var(--transition-fast);
+}
+
+.collection-tile:hover .collection-tile__link {
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+@media (max-width: 640px) {
+  .collection-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    max-width: 400px;
+  }
+}
+
 /* Card Grid */
 .card-grid {
   display: grid;
