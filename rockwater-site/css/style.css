@@ -6,6 +6,23 @@
 /* ---------- Google Fonts loaded in HTML ---------- */
 /* DM Sans (headings), Inter (body), JetBrains Mono (details) */
 
+/* ---------- Custom Brand Fonts ---------- */
+@font-face {
+  font-family: 'Hamburg Hand';
+  src: url('../fonts/BN-Hamburg Hand.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hamburg Hand';
+  src: url('../fonts/BN-Hamburg Hand Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =========================
    1. CUSTOM PROPERTIES
    ========================= */
@@ -3310,7 +3327,7 @@ select:focus {
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: var(--radius-full);
-  background: #c98a7a;
+  background: var(--color-navy);
   color: var(--color-white);
   font-weight: 500;
   margin-left: var(--space-xs);
@@ -3435,6 +3452,121 @@ select:focus {
   .shop-pricing__label-group {
     flex-wrap: wrap;
     gap: 4px;
+  }
+}
+
+/* =========================
+   HYDRATION BANNER
+   ========================= */
+.hydration-banner {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hydration-banner__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hydration-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 65, 116, 0.5) 0%,
+    rgba(35, 31, 32, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.hydration-banner__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-white);
+  padding: var(--space-4xl) var(--space-lg);
+  max-width: 800px;
+}
+
+.hydration-banner__content h2 {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: var(--space-lg);
+  color: var(--color-white);
+}
+
+.hydration-banner__subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+  max-width: 520px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.hydration-banner__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3xl);
+}
+
+.hydration-banner__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hydration-banner__stat-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+}
+
+.hydration-banner__stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hydration-banner {
+    min-height: 70vh;
+  }
+
+  .hydration-banner__content h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .hydration-banner__stats {
+    gap: var(--space-xl);
+  }
+
+  .hydration-banner__stat-number {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .hydration-banner__stats {
+    flex-direction: column;
+    gap: var(--space-lg);
   }
 }
 
