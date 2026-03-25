@@ -207,6 +207,44 @@
   }
 
   // =========================
+  // SCROLL ZOOM EFFECT
+  // =========================
+  function initScrollZoom() {
+    var zoomSection = document.getElementById('scroll-zoom');
+    if (!zoomSection) return;
+
+    var zoomText = zoomSection.querySelector('.scroll-zoom__text');
+    if (!zoomText) return;
+
+    var startScale = 1.8;
+    var endScale = 1;
+
+    function updateZoom() {
+      var rect = zoomSection.getBoundingClientRect();
+      var windowHeight = window.innerHeight;
+
+      // Progress: 0 when top of section enters bottom of viewport
+      //           1 when section is centered in viewport
+      var sectionCenter = rect.top + rect.height / 2;
+      var viewportCenter = windowHeight / 2;
+
+      // Map: sectionCenter at windowHeight (just entered) → progress 0
+      //      sectionCenter at viewportCenter (centered) → progress 1
+      var progress = (windowHeight - sectionCenter) / (windowHeight - viewportCenter);
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Smoothstep easing for a natural feel
+      progress = progress * progress * (3 - 2 * progress);
+
+      var scale = startScale - (startScale - endScale) * progress;
+      zoomText.style.transform = 'scale(' + scale.toFixed(4) + ')';
+    }
+
+    window.addEventListener('scroll', updateZoom, { passive: true });
+    updateZoom();
+  }
+
+  // =========================
   // INITIALIZE
   // =========================
   document.addEventListener('DOMContentLoaded', function () {
@@ -243,6 +281,9 @@
 
     // Scroll animations
     initScrollAnimations();
+
+    // Scroll zoom effect
+    initScrollZoom();
 
     // Close mobile nav on link click
     var mobileNavLinks = document.querySelectorAll('.mobile-nav a');

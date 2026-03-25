@@ -91,10 +91,19 @@
             <span class="product-detail__feature-tag">Naturally Alkaline</span>
           </div>
 
+          <!-- Can Size Toggle -->
+          <div class="product-detail__pack-toggle">
+            <label>Size</label>
+            <div class="pack-toggle" id="size-toggle">
+              <button type="button" class="pack-toggle__btn pack-toggle__btn--active" data-size="12oz">12oz</button>
+              <button type="button" class="pack-toggle__btn" data-size="16oz">16oz</button>
+            </div>
+          </div>
+
           <!-- Pack Size Toggle -->
           <div class="product-detail__pack-toggle">
             <label>Pack Size</label>
-            <div class="pack-toggle" id="pack-toggle-12oz">
+            <div class="pack-toggle" id="pack-toggle">
               <button type="button" class="pack-toggle__btn pack-toggle__btn--active" data-pack="12">12-Pack</button>
               <button type="button" class="pack-toggle__btn" data-pack="24">24-Pack</button>
             </div>
@@ -206,38 +215,18 @@
         <span class="text-eyebrow">Reviews</span>
         <h2>What People Are Saying</h2>
       </div>
-      <div class="review-grid fade-in">
-        <div class="review-card">
-          <div class="review-card__quote">
-            <p>&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
-          </div>
-          <div class="review-card__meta">
-            <span class="review-card__name">Sarah M.</span>
-          </div>
+      <div class="review-mosaic fade-in">
+        <div class="review-mosaic__item">
+          <p class="review-mosaic__quote">&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
+          <span class="review-mosaic__name">Sarah M.</span>
         </div>
-        <div class="review-card">
-          <div class="review-card__quote">
-            <p>&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
-          </div>
-          <div class="review-card__meta">
-            <span class="review-card__name">James T.</span>
-          </div>
+        <div class="review-mosaic__item">
+          <p class="review-mosaic__quote">&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
+          <span class="review-mosaic__name">James T.</span>
         </div>
-        <div class="review-card">
-          <div class="review-card__quote">
-            <p>&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
-          </div>
-          <div class="review-card__meta">
-            <span class="review-card__name">Maya R.</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-card__quote">
-            <p>&ldquo;This is the kind of can I'd keep in my car, gym bag, or on my desk. Simple, clean, and actually good.&rdquo;</p>
-          </div>
-          <div class="review-card__meta">
-            <span class="review-card__name">Chris D.</span>
-          </div>
+        <div class="review-mosaic__item">
+          <p class="review-mosaic__quote">&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
+          <span class="review-mosaic__name">Maya R.</span>
         </div>
       </div>
     </div>
@@ -318,24 +307,51 @@
   <script src="js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var pricing = {
-        12: { onetime: 24.99, subscribe: 22.49 },
-        24: { onetime: 44.99, subscribe: 40.49 }
+      // Pricing: [size][pack] = { onetime, subscribe }
+      var allPricing = {
+        '12oz': {
+          12: { onetime: 24.99, subscribe: 22.49 },
+          24: { onetime: 44.99, subscribe: 40.49 }
+        },
+        '16oz': {
+          12: { onetime: 29.99, subscribe: 26.99 },
+          24: { onetime: 54.99, subscribe: 49.49 }
+        }
       };
+
+      var sizeLabels = { '12oz': '12oz Sleek', '16oz': '16oz Standard' };
+      var selectedSize = '12oz';
       var selectedPack = 12;
       var currentType = 'onetime';
 
       function updatePrices() {
-        var p = pricing[selectedPack];
+        var p = allPricing[selectedSize][selectedPack];
         document.getElementById('price-12oz').textContent = '$' + p[currentType].toFixed(2);
         document.getElementById('price-onetime').textContent = '$' + p.onetime.toFixed(2);
         document.getElementById('price-sub').textContent = '$' + p.subscribe.toFixed(2);
       }
 
-      // Pack toggle
-      document.querySelectorAll('#pack-toggle-12oz .pack-toggle__btn').forEach(function(btn) {
+      function updateTitle() {
+        document.querySelector('.product-detail__title').textContent = 'ROCKWATER — ' + sizeLabels[selectedSize];
+      }
+
+      // Size toggle
+      document.querySelectorAll('#size-toggle .pack-toggle__btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          document.querySelectorAll('#pack-toggle-12oz .pack-toggle__btn').forEach(function(b) {
+          document.querySelectorAll('#size-toggle .pack-toggle__btn').forEach(function(b) {
+            b.classList.remove('pack-toggle__btn--active');
+          });
+          btn.classList.add('pack-toggle__btn--active');
+          selectedSize = btn.getAttribute('data-size');
+          updatePrices();
+          updateTitle();
+        });
+      });
+
+      // Pack toggle
+      document.querySelectorAll('#pack-toggle .pack-toggle__btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#pack-toggle .pack-toggle__btn').forEach(function(b) {
             b.classList.remove('pack-toggle__btn--active');
           });
           btn.classList.add('pack-toggle__btn--active');
@@ -372,14 +388,14 @@
       // Add to cart
       document.querySelector('.add-to-cart-btn').addEventListener('click', function() {
         var qty = parseInt(document.getElementById('qty-input-12oz').value) || 1;
-        var price = pricing[selectedPack][currentType];
+        var price = allPricing[selectedSize][selectedPack][currentType];
         var suffix = currentType === 'subscribe' ? ' (Subscription)' : '';
         if (typeof addToCart === 'function') {
           addToCart({
-            id: '12oz-' + selectedPack + 'pk' + (currentType === 'subscribe' ? '-sub' : ''),
-            title: 'ROCKWATER \u2014 12oz Sleek (' + selectedPack + '-Pack)' + suffix,
+            id: selectedSize + '-' + selectedPack + 'pk' + (currentType === 'subscribe' ? '-sub' : ''),
+            title: 'ROCKWATER \u2014 ' + sizeLabels[selectedSize] + ' (' + selectedPack + '-Pack)' + suffix,
             price: price,
-            size: '12 oz Sleek',
+            size: sizeLabels[selectedSize],
             quantity: qty
           });
         }
