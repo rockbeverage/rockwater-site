@@ -1307,11 +1307,9 @@ p {
 
 /* Handwritten Quote Style */
 .handwritten {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   max-width: 700px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .handwritten__line {
@@ -1319,27 +1317,8 @@ p {
   color: var(--color-navy);
   font-weight: 400;
   display: block;
-  line-height: 1.3;
-}
-
-.handwritten__line--1 {
+  line-height: 1.4;
   font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-}
-
-.handwritten__line--2 {
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-}
-
-.handwritten__line--3 {
-  font-size: clamp(1.3rem, 2.6vw, 2rem);
-}
-
-.handwritten__line--4 {
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-}
-
-.handwritten__line--5 {
-  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
 }
 
 /* Collection Grid (Shop Landing) */
