@@ -97,15 +97,9 @@
       var div = document.createElement('div');
       div.className = 'cart-item';
 
-      var canClass = item.id === '16oz' ? 'product-can__image--cream' : 'product-can__image--navy';
-
       div.innerHTML =
         '<div class="cart-item__image">' +
-        '  <div class="product-can" style="max-width: 50px;">' +
-        '    <div class="product-can__image ' + canClass + '" style="aspect-ratio: 1/2; padding: 8px 4px; border-radius: 4px;">' +
-        '      <span class="product-can__brand" style="font-size: 0.55rem; letter-spacing: 0.2em;">ROCK</span>' +
-        '    </div>' +
-        '  </div>' +
+        '  <img src="images/product-lifestyle1.png" alt="ROCK Water" style="width: 50px; height: 65px; object-fit: cover; border-radius: 4px;">' +
         '</div>' +
         '<div class="cart-item__details">' +
         '  <span class="cart-item__name">' + item.title + '</span>' +
