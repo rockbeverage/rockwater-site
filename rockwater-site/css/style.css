@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ---------- Google Fonts loaded in HTML ---------- */
-/* DM Sans (headings), Inter (body), JetBrains Mono (details) */
+/* JetBrains Mono (details) */
 
 /* ---------- Custom Brand Fonts ---------- */
 @font-face {
@@ -19,6 +19,80 @@
   font-family: 'Hamburg Hand';
   src: url('../fonts/BN-Hamburg Hand Bold.otf') format('opentype');
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Brooklyn Font Family ---------- */
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn Normal 1.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn Bold 1.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn Heavy 1.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('../fonts/Brooklyn HeavyItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- Flapjack Font ---------- */
+@font-face {
+  font-family: 'Flapjack';
+  src: url('../fonts/TAYFlapjack.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -43,9 +117,10 @@
   --color-border: #e0dbd2;
 
   /* Typography */
-  --font-heading: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-handwritten: 'Flapjack', 'Hamburg Hand', cursive;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -1276,7 +1351,7 @@ p {
 }
 
 .product-intro__word {
-  font-family: 'Hamburg Hand', var(--font-heading);
+  font-family: var(--font-handwritten);
   color: var(--color-navy);
   line-height: 1.05;
   display: inline-block;
@@ -1313,7 +1388,7 @@ p {
 }
 
 .handwritten__line {
-  font-family: 'Hamburg Hand', var(--font-heading);
+  font-family: var(--font-handwritten);
   color: var(--color-navy);
   font-weight: 400;
   display: block;
@@ -1732,7 +1807,7 @@ p {
 }
 
 .review-mosaic__quote {
-  font-family: 'Hamburg Hand', var(--font-heading);
+  font-family: var(--font-handwritten);
   font-size: var(--text-lg);
   line-height: 1.5;
   color: var(--color-navy);
