@@ -1795,9 +1795,9 @@ p {
   }
 
   .article__hero-image {
-    width: calc(100% + var(--space-md) * 2);
-    margin-left: calc(-1 * var(--space-md));
-    margin-right: calc(-1 * var(--space-md));
+    width: calc(100% + var(--space-lg) * 2);
+    margin-left: calc(-1 * var(--space-lg));
+    margin-right: calc(-1 * var(--space-lg));
   }
 
   .article__footer {
