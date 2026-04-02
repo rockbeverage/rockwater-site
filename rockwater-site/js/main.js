@@ -291,22 +291,42 @@
       });
     });
 
-    // Ingredient tooltip tap-to-toggle (mobile)
+
+    // Ingredient tooltip — tap-to-toggle on mobile
     var tooltipTags = document.querySelectorAll('.product-detail__feature-tag[data-tooltip]');
     tooltipTags.forEach(function (tag) {
-      tag.addEventListener('click', function (e) {
+      var parent = tag.parentElement;
+      var inlineEl = parent.querySelector('.tooltip-inline-text');
+      if (!inlineEl) {
+        inlineEl = document.createElement('div');
+        inlineEl.className = 'tooltip-inline-text';
+        parent.appendChild(inlineEl);
+      }
+
+      tag.addEventListener('click', function () {
         var wasActive = tag.classList.contains('tooltip-active');
-        // Close all other tooltips first
+        var localInline = tag.parentElement.querySelector('.tooltip-inline-text');
         tooltipTags.forEach(function (t) { t.classList.remove('tooltip-active'); });
+        document.querySelectorAll('.tooltip-inline-text').forEach(function (el) {
+          el.classList.remove('visible');
+          el.textContent = '';
+        });
         if (!wasActive) {
           tag.classList.add('tooltip-active');
+          if (localInline) {
+            localInline.textContent = tag.getAttribute('data-tooltip');
+            localInline.classList.add('visible');
+          }
         }
       });
     });
-    // Tap anywhere else to close tooltips
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.product-detail__feature-tag[data-tooltip]')) {
         tooltipTags.forEach(function (t) { t.classList.remove('tooltip-active'); });
+        document.querySelectorAll('.tooltip-inline-text').forEach(function (el) {
+          el.classList.remove('visible');
+          el.textContent = '';
+        });
       }
     });
 
