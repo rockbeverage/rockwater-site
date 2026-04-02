@@ -291,6 +291,25 @@
       });
     });
 
+    // Ingredient tooltip tap-to-toggle (mobile)
+    var tooltipTags = document.querySelectorAll('.product-detail__feature-tag[data-tooltip]');
+    tooltipTags.forEach(function (tag) {
+      tag.addEventListener('click', function (e) {
+        var wasActive = tag.classList.contains('tooltip-active');
+        // Close all other tooltips first
+        tooltipTags.forEach(function (t) { t.classList.remove('tooltip-active'); });
+        if (!wasActive) {
+          tag.classList.add('tooltip-active');
+        }
+      });
+    });
+    // Tap anywhere else to close tooltips
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.product-detail__feature-tag[data-tooltip]')) {
+        tooltipTags.forEach(function (t) { t.classList.remove('tooltip-active'); });
+      }
+    });
+
     // ESC key closes cart and mobile nav
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {

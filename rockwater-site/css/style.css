@@ -1095,7 +1095,8 @@ p {
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.product-detail__feature-tag[data-tooltip]:hover {
+.product-detail__feature-tag[data-tooltip]:hover,
+.product-detail__feature-tag[data-tooltip].tooltip-active {
   border-color: var(--color-navy);
   color: var(--color-navy);
 }
@@ -1120,7 +1121,8 @@ p {
   transition: opacity 0.2s ease;
 }
 
-.product-detail__feature-tag[data-tooltip]:hover::after {
+.product-detail__feature-tag[data-tooltip]:hover::after,
+.product-detail__feature-tag[data-tooltip].tooltip-active::after {
   opacity: 1;
 }
 
