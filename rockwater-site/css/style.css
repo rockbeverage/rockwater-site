@@ -1800,6 +1800,11 @@ p {
     margin-right: calc(-1 * var(--space-lg));
   }
 
+  .article__hero-image > div[role="img"] {
+    min-height: 0 !important;
+    height: 100%;
+  }
+
   .article__footer {
     flex-direction: column;
     align-items: flex-start;
