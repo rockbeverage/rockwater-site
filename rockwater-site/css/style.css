@@ -4011,16 +4011,55 @@ select:focus {
 
   .footer__columns {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    text-align: center;
+    gap: 0;
+    text-align: left;
+  }
+
+  .footer__columns > div {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__columns > div:last-child {
+    border-bottom: 1px solid var(--color-border);
   }
 
   .footer__heading {
+    font-size: var(--text-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: var(--space-md) 0;
+    margin-bottom: 0;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .footer__heading::after {
+    content: '+';
+    font-family: var(--font-body);
     font-size: var(--text-xl);
+    font-weight: 400;
+    color: rgba(27, 65, 116, 0.4);
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+
+  .footer__heading.active::after {
+    content: '−';
   }
 
   .footer__links {
-    gap: 12px;
+    gap: 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0;
+  }
+
+  .footer__links.open {
+    max-height: 300px;
+    padding-bottom: var(--space-md);
   }
 
   .cart-sidebar {

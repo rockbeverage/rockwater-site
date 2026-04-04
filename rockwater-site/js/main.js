@@ -343,5 +343,29 @@
         }
       }
     });
+
+    // Footer accordion on mobile
+    var footerHeadings = document.querySelectorAll('.footer__heading');
+    footerHeadings.forEach(function (heading) {
+      heading.addEventListener('click', function () {
+        if (window.innerWidth > 768) return;
+        var links = heading.nextElementSibling;
+        if (!links) return;
+        var isOpen = links.classList.contains('open');
+
+        // Close all others
+        footerHeadings.forEach(function (h) {
+          h.classList.remove('active');
+          var l = h.nextElementSibling;
+          if (l) l.classList.remove('open');
+        });
+
+        // Toggle clicked one
+        if (!isOpen) {
+          heading.classList.add('active');
+          links.classList.add('open');
+        }
+      });
+    });
   });
 })();
