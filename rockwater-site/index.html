@@ -43,15 +43,6 @@
       </nav>
 
       <div class="header__actions">
-        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
-          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-          <span class="header__cart-count hidden" id="cart-count">0</span>
-        </button>
-
         <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -82,40 +73,12 @@
     </div>
   </section>
 
-  <!-- ============ HOOK TEXT ============ -->
+  <!-- ============ BRAND STATEMENT ============ -->
   <section class="section section--lg" id="hydration">
     <div class="container">
       <div class="handwritten fade-in">
-        <span class="handwritten__line handwritten__line--1">Nothing is more basic to the</span>
-        <span class="handwritten__line handwritten__line--2">quality of life and health of individuals</span>
-        <span class="handwritten__line handwritten__line--3">than the quality of the water they drink.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SECTION 2: HYDRATION VIDEO BANNER ============ -->
-  <section class="hydration-banner">
-    <video class="hydration-banner__video" autoplay muted loop playsinline>
-      <source src="videos/ocean-waves.mp4" type="video/mp4">
-    </video>
-    <div class="hydration-banner__overlay"></div>
-    <div class="hydration-banner__content fade-in">
-      <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Pure Hydration</span>
-      <h2>Water, The Way<br>Nature Intended</h2>
-      <p class="hydration-banner__subtitle">Sourced from deep within the Smoky Mountains, naturally filtered through ancient limestone, and bottled at the spring.</p>
-      <div class="hydration-banner__stats">
-        <div class="hydration-banner__stat">
-          <span class="hydration-banner__stat-number">7.8+</span>
-          <span class="hydration-banner__stat-label">Natural pH</span>
-        </div>
-        <div class="hydration-banner__stat">
-          <span class="hydration-banner__stat-number">3</span>
-          <span class="hydration-banner__stat-label">Key Electrolytes</span>
-        </div>
-        <div class="hydration-banner__stat">
-          <span class="hydration-banner__stat-number">100%</span>
-          <span class="hydration-banner__stat-label">Spring Water</span>
-        </div>
+        <span class="handwritten__line">Nothing is more basic to the quality of life</span>
+        <span class="handwritten__line">than the quality of the water you drink.</span>
       </div>
     </div>
   </section>
@@ -123,14 +86,28 @@
   <!-- ============ PRODUCT INTRODUCTION ============ -->
   <section class="section section--lg section--cream">
     <div class="container">
-      <div class="split fade-in">
-        <div class="split__image" role="img" aria-label="ROCK Water premium product lifestyle" style="background-image: url('images/product-lifestyle2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 500px;">
+      <div class="split split--product fade-in">
+        <div class="split__image" role="img" aria-label="ROCK Water premium product lifestyle" style="background-image: url('images/product-lifestyle2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 550px;">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">The Water</span>
           <h2>Refreshing.<br>Smooth.<br>Simple.</h2>
-          <p style="font-size: var(--text-sm); line-height: 1.8; color: var(--color-text-light); letter-spacing: 0.02em;">Crisp, mineral-balanced water in a can that's designed to fit any occasion.</p>
-          <div style="margin-top: var(--space-lg); display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+          <p>Crisp, mineral-balanced spring water in a can. Sourced from deep within the Smoky Mountains, naturally filtered through ancient limestone.</p>
+          <div class="product-stats">
+            <div class="product-stats__item">
+              <span class="product-stats__number">7.8+</span>
+              <span class="product-stats__label">Natural pH</span>
+            </div>
+            <div class="product-stats__item">
+              <span class="product-stats__number">3</span>
+              <span class="product-stats__label">Key Electrolytes</span>
+            </div>
+            <div class="product-stats__item">
+              <span class="product-stats__number">100%</span>
+              <span class="product-stats__label">Spring Water</span>
+            </div>
+          </div>
+          <div class="product-tags">
             <span class="product-detail__feature-tag">Naturally Alkaline</span>
             <span class="product-detail__feature-tag">Electrolytes</span>
             <span class="product-detail__feature-tag">Trace Minerals</span>
@@ -143,20 +120,10 @@
     </div>
   </section>
 
-  <!-- ============ HOOK QUOTE 2 ============ -->
-  <section class="section section--lg">
-    <div class="container">
-      <div class="handwritten fade-in">
-        <span class="handwritten__line handwritten__line--4">Your body is 60% water.</span>
-        <span class="handwritten__line handwritten__line--5">Make it the good stuff.</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ SECTION 3: HYDRATION BENEFITS ============ -->
-  <section class="section section--cream">
+  <section class="section">
     <div class="container">
-      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-3xl);">
         <span class="text-eyebrow">Live Well</span>
         <h2>Hydration for Every Moment</h2>
       </div>
@@ -201,84 +168,30 @@
   <!-- ============ SECTION 4: BRAND PHILOSOPHY ============ -->
   <section class="section section--lg">
     <div class="container">
-      <div class="split fade-in">
-        <div class="split__image" role="img" aria-label="ROCK Water brand lifestyle" style="background-image: url('images/brandlifestyle1-image.png'); background-size: cover; background-position: 25% 80%; min-height: 450px;">
+      <div class="split split--reverse fade-in">
+        <div class="split__image" role="img" aria-label="ROCK Water brand lifestyle" style="background-image: url('images/brandlifestyle1-image.png'); background-size: cover; background-position: 25% 80%; min-height: 500px;">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">Our Philosophy</span>
           <h2>Strength in Simplicity</h2>
-          <p>Refreshing hydration in a simple, timeless can that fits any occasion.</p>
+          <p>Your body is 60% water. Make it the good stuff. Refreshing hydration in a simple, timeless can that fits any occasion.</p>
           <a href="story.html" class="btn btn--secondary">Our Story</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 5: COMMUNITY & EVENTS ============ -->
-  <section class="section section--cream">
-    <div class="container">
-      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
-        <span class="text-eyebrow">Community</span>
-        <h2>Built Together</h2>
-      </div>
-
-      <div class="image-grid fade-in">
-        <!-- REPLACE: Community/lifestyle grid images outdoor, wellness, social, adventure -->
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--lifestyle">
-            <span class="placeholder-img__label">Outdoor / Adventure</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--water">
-            <span class="placeholder-img__label">Wellness / Water</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--nature">
-            <span class="placeholder-img__label">Social / Events</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--lifestyle">
-            <span class="placeholder-img__label">Active Lifestyle</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--hero">
-            <span class="placeholder-img__label">Mountain / Nature</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--water">
-            <span class="placeholder-img__label">Surfing / Beach</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--nature">
-            <span class="placeholder-img__label">Community Gathering</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--lifestyle">
-            <span class="placeholder-img__label">Travel / Exploration</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SECTION 6: GIVING BACK ============ -->
+  <!-- ============ SECTION 5: GIVING BACK ============ -->
   <section class="section section--lg section--navy">
     <div class="container">
       <div class="split split--reverse fade-in">
-        <div class="split__image" role="img" aria-label="Nature and environmental sustainability" style="background-image: url('images/nature-enviromental2.jpg'); background-size: cover; background-position: 58% 75%; min-height: 450px;">
+        <div class="split__image" role="img" aria-label="Nature and environmental sustainability" style="background-image: url('images/nature-enviromental2.jpg'); background-size: cover; background-position: 58% 75%; min-height: 500px;">
         </div>
         <div class="split__content">
-          <span class="text-eyebrow" style="color: rgba(255,255,255,0.6);">Sustainability</span>
+          <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Sustainability</span>
           <h2>Giving Back to Our Earth</h2>
           <p>1% of our sales are donated to support impactful environmental solutions worldwide.</p>
-          <a href="one-percent.html" class="btn btn--white" style="margin-top: var(--space-lg);">Learn More</a>
+          <a href="one-percent.html" class="btn btn--white" style="margin-top: var(--space-xl);">Learn More</a>
         </div>
       </div>
     </div>
@@ -335,29 +248,6 @@
 
     </div>
   </footer>
-
-  <!-- ============ CART SIDEBAR ============ -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <aside class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-sidebar__header">
-      <span class="cart-sidebar__title">Your Cart</span>
-      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
-    </div>
-    <div class="cart-sidebar__items" id="cart-items">
-      <div class="cart-sidebar__empty" id="cart-empty">
-        <p>Your cart is empty</p>
-        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
-      </div>
-    </div>
-    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
-      <div class="cart-sidebar__total">
-        <span class="cart-sidebar__total-label">Subtotal</span>
-        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
-      </div>
-      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
-      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
-    </div>
-  </aside>
 
   <script src="js/main.js"></script>
 </body>

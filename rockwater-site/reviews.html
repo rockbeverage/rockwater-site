@@ -32,15 +32,6 @@
       </nav>
 
       <div class="header__actions">
-        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
-          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-          <span class="header__cart-count hidden" id="cart-count">0</span>
-        </button>
-
         <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -264,30 +255,6 @@
 
     </div>
   </footer>
-
-  <!-- ============ CART SIDEBAR ============ -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <aside class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-sidebar__header">
-      <span class="cart-sidebar__title">Your Cart</span>
-      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
-    </div>
-    <div class="cart-sidebar__items" id="cart-items">
-      <div class="cart-sidebar__empty" id="cart-empty">
-        <p>Your cart is empty</p>
-        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
-      </div>
-    </div>
-    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
-      <div class="cart-sidebar__total">
-        <span class="cart-sidebar__total-label">Subtotal</span>
-        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
-      </div>
-      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
-      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
-    </div>
-  </aside>
-
   <script src="js/main.js"></script>
   <script>
     // ---- "Leave a Comment" button reveals form ----
