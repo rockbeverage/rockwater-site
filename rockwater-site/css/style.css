@@ -3917,6 +3917,9 @@ select:focus {
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: var(--space-2xl) 0 var(--space-lg);
+  }
   :root {
     --text-display: 2.75rem;
     --text-4xl: 2.25rem;
@@ -3985,20 +3988,39 @@ select:focus {
 
   .footer__row {
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
   }
 
   .footer__signup {
     max-width: 100%;
-  }
-
-  .footer__columns {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
+    text-align: center;
   }
 
   .footer__signup-title {
     font-size: var(--text-2xl);
+  }
+
+  .footer__signup-text {
+    font-size: var(--text-sm);
+  }
+
+  .footer__newsletter-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .footer__columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .footer__heading {
+    font-size: var(--text-xl);
+  }
+
+  .footer__links {
+    gap: 12px;
   }
 
   .cart-sidebar {
