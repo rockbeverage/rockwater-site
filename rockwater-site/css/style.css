@@ -2358,7 +2358,7 @@ p {
 
 /* -- Process / How It Works -- */
 .ws-process {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -2374,37 +2374,54 @@ p {
 .ws-process__steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  gap: 0;
   counter-reset: none;
 }
 
 .ws-process__step {
-  text-align: center;
-  padding: var(--space-xl) var(--space-md);
+  text-align: left;
+  padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-xl);
+  border-top: 2px solid var(--color-navy);
+  position: relative;
+}
+
+.ws-process__step:not(:last-child) {
+  border-right: 1px solid var(--color-border);
+}
+
+.ws-process__step:first-child {
+  padding-left: 0;
+}
+
+.ws-process__step:last-child {
+  padding-right: 0;
 }
 
 .ws-process__num {
-  display: inline-block;
+  display: block;
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--color-navy);
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-xs);
-  border-bottom: 2px solid var(--color-navy);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(27, 65, 116, 0.35);
+  margin-bottom: var(--space-lg);
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .ws-process__step h3 {
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-xs);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-sm);
+  line-height: 1.15;
 }
 
 .ws-process__step p {
   color: var(--color-text-light);
   line-height: 1.7;
   margin: 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
+  max-width: 300px;
 }
 
 /* -- Wholesale Editorial Responsive -- */
@@ -2429,7 +2446,39 @@ p {
 
   .ws-process__steps {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 0;
+  }
+
+  .ws-process__step {
+    padding: var(--space-lg) 0;
+    border-top: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ws-process__step:first-child {
+    border-top: 2px solid var(--color-navy);
+    padding-left: 0;
+  }
+
+  .ws-process__step:not(:last-child) {
+    border-right: none;
+  }
+
+  .ws-process__step:last-child {
+    padding-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ws-process__num {
+    margin-bottom: var(--space-sm);
+  }
+
+  .ws-process__step h3 {
+    font-size: var(--text-xl);
+  }
+
+  .ws-process__step p {
+    max-width: 100%;
   }
 
   .ws-prose__lead {
