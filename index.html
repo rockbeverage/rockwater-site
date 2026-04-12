@@ -21,17 +21,19 @@
   <meta name="twitter:description" content="Premium Spring Water">
   <meta name="twitter:image" content="https://drinkrockwater.com/images/og-preview.png">
 
+  <link rel="preload" href="fonts/TAYFlapjack.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/Brooklyn Normal 1.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/Brooklyn Bold 1.otf" as="font" type="font/otf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fonts-loading { opacity: 0; }
+    .fonts-ready { opacity: 1; transition: opacity 0.15s ease; }
+  </style>
 </head>
-<body>
-
-  <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Free Shipping on Orders Over $100
-  </div>
+<body class="fonts-loading">
 
   <!-- ============ HEADER ============ -->
   <header class="header header--transparent" id="header">
@@ -48,15 +50,6 @@
       </nav>
 
       <div class="header__actions">
-        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
-          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-          <span class="header__cart-count hidden" id="cart-count">0</span>
-        </button>
-
         <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -87,60 +80,159 @@
     </div>
   </section>
 
-  <!-- ============ SECTION 2: PURE HYDRATION ============ -->
+  <!-- ============ BRAND STATEMENT ============ -->
   <section class="section section--lg" id="hydration">
     <div class="container">
-      <div class="text-block fade-in">
-        <span class="text-eyebrow">Pure Hydration</span>
-        <h2>Water, The Way Nature Intended</h2>
+      <div class="handwritten fade-in">
+        <span class="handwritten__line">Nothing is more basic to the quality of life</span>
+        <span class="handwritten__line">than the quality of the water you drink.</span>
       </div>
     </div>
   </section>
 
-  <!-- ============ PRODUCT INTRODUCTION ============ -->
+  <!-- ============ THE WATER: INTRO ============ -->
   <section class="section section--lg section--cream">
     <div class="container">
-      <div class="split fade-in">
-        <div class="split__image" role="img" aria-label="ROCK Water — premium product lifestyle" style="background-image: url('images/product-lifestyle1.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 500px;">
-        </div>
-        <div class="split__content">
+      <div class="water-hero fade-in">
+        <div class="water-hero__content">
           <span class="text-eyebrow">The Water</span>
-          <h2>Refreshing.<br>Smooth.<br>Simple.</h2>
-          <p>Our water flows from a protected source 2,500 feet beneath the Smoky Mountains, naturally filtered through layers of stone. Smooth, balanced spring water with electrolytes.</p>
-          <div style="display: flex; gap: var(--space-lg); align-items: center; margin-top: var(--space-xs);">
-            <span style="font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light);">12oz Sleek</span>
-            <span style="color: var(--color-border);">/</span>
-            <span style="font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light);">16oz Standard</span>
-          </div>
-          <a href="shop.html" class="btn btn--secondary" style="margin-top: var(--space-xl);">Explore</a>
+          <h2>Pure Water.<br>Real Minerals.<br>No Plastic.</h2>
+          <a href="shop.html" class="btn btn--secondary">Shop Now</a>
+        </div>
+        <div class="water-hero__image water-hero__placeholder">
+          <span>Product Image</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Strip + CTA -->
-  <section class="section">
+  <!-- ============ THE WATER: STATS BAR ============ -->
+  <section class="stats-bar fade-in">
     <div class="container">
-      <div class="feature-strip fade-in">
-        <span>Mountain Spring</span>
-        <span class="feature-strip__dot">&middot;</span>
-        <span>Electrolytes</span>
-        <span class="feature-strip__dot">&middot;</span>
-        <span>Trace Minerals</span>
-        <span class="feature-strip__dot">&middot;</span>
-        <span>No Sugar</span>
-        <span class="feature-strip__dot">&middot;</span>
-        <span>No Calories</span>
-        <span class="feature-strip__dot">&middot;</span>
-        <span>Naturally Refreshing</span>
+      <div class="stats-bar__inner">
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">7.8+</span>
+          <span class="stats-bar__label">Natural pH</span>
+        </div>
+        <div class="stats-bar__divider"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">3</span>
+          <span class="stats-bar__label">Key Electrolytes</span>
+        </div>
+        <div class="stats-bar__divider"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">100%</span>
+          <span class="stats-bar__label">Spring Water</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS MARQUEE ============ -->
+  <div class="marquee fade-in">
+    <div class="marquee__track">
+      <span class="marquee__item">Naturally Alkaline</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Real Electrolytes</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Trace Minerals</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Infinitely Recyclable</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">No Plastic</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Spring Sourced</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Smoky Mountains</span>
+      <span class="marquee__sep">&bull;</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee__item">Naturally Alkaline</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Real Electrolytes</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Trace Minerals</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Infinitely Recyclable</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">No Plastic</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Spring Sourced</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Smoky Mountains</span>
+      <span class="marquee__sep">&bull;</span>
+    </div>
+  </div>
+
+  <!-- ============ EDUCATIONAL: WHY ROCK ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+        <span class="text-eyebrow">Why It Matters</span>
+        <h2>Not All Water Is the Same</h2>
+      </div>
+
+      <div class="edu-split fade-in">
+        <div class="edu-split__image">
+          <div class="edu-split__placeholder">
+            <span>Product Image</span>
+          </div>
+        </div>
+        <div class="edu-split__accordion">
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Spring Sourced</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>From a protected spring deep in the Smoky Mountains. Naturally filtered through ancient limestone for thousands of years.</p>
+            </div>
+          </div>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Real Minerals + Electrolytes</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>Naturally occurring calcium and magnesium from the source, plus added electrolytes for enhanced hydration.</p>
+            </div>
+          </div>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Alkaline by Nature</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>7.8+ pH with zero additives. The limestone does the work, we just can it.</p>
+            </div>
+          </div>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Exclusively in Aluminum</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>Infinitely recyclable aluminum cans. No plastic, no microplastics, no compromise. Better for you and better for the planet.</p>
+            </div>
+          </div>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Third-Party Tested &amp; Certified</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>Our water is independently tested to meet the highest standards for purity and quality. Certified clean, so you never have to wonder what's in your water.</p>
+            </div>
+          </div>
+          <a href="science.html" class="btn btn--secondary" style="margin-top: var(--space-lg);">Learn More</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ SECTION 3: HYDRATION BENEFITS ============ -->
-  <section class="section section--cream">
+  <section class="section">
     <div class="container">
-      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-3xl);">
         <span class="text-eyebrow">Live Well</span>
         <h2>Hydration for Every Moment</h2>
       </div>
@@ -149,7 +241,7 @@
         <!-- Card 1: Movement -->
         <div class="card">
           <div class="card__image">
-            <img src="images/movement-image.png" alt="Active lifestyle — movement and hydration">
+            <img src="images/movement-image.png" alt="Active lifestyle movement and hydration">
           </div>
           <div class="card__body">
             <h3>Movement</h3>
@@ -160,7 +252,7 @@
         <!-- Card 2: Recovery -->
         <div class="card">
           <div class="card__image">
-            <img src="images/recovery-image.png" alt="Recovery and wellness — balanced hydration">
+            <img src="images/recovery-image.png" alt="Recovery and wellness balanced hydration">
           </div>
           <div class="card__body">
             <h3>Recovery</h3>
@@ -171,7 +263,7 @@
         <!-- Card 3: Everyday Living -->
         <div class="card">
           <div class="card__image">
-            <img src="images/everyday-image.png" alt="Everyday living — casual hydration">
+            <img src="images/everyday-image.png" alt="Everyday living casual hydration">
           </div>
           <div class="card__body">
             <h3>Everyday Living</h3>
@@ -185,84 +277,62 @@
   <!-- ============ SECTION 4: BRAND PHILOSOPHY ============ -->
   <section class="section section--lg">
     <div class="container">
-      <div class="split fade-in">
-        <div class="split__image" role="img" aria-label="ROCK Water — brand lifestyle" style="background-image: url('images/brandlifestyle1-image.png'); background-size: cover; background-position: 25% 80%; min-height: 450px;">
+      <div class="split split--reverse fade-in">
+        <div class="split__image" role="img" aria-label="ROCK Water brand lifestyle" style="background-image: url('images/brandlifestyle1-image.png'); background-size: cover; background-position: 25% 80%; min-height: 500px;">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">Our Philosophy</span>
           <h2>Strength in Simplicity</h2>
-          <p>Refreshing hydration in a simple, timeless can that fits any occasion.</p>
+          <p>Your body is 60% water. Make it the good stuff. Refreshing hydration in a simple, timeless can that fits any occasion.</p>
           <a href="story.html" class="btn btn--secondary">Our Story</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 5: COMMUNITY & EVENTS ============ -->
-  <section class="section section--cream">
+  <!-- ============ REVIEWS ============ -->
+  <section class="section section--lg section--cream">
     <div class="container">
       <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
-        <span class="text-eyebrow">Community</span>
-        <h2>Built Together</h2>
+        <span class="text-eyebrow">Reviews</span>
+        <h2>What People Are Saying</h2>
       </div>
 
-      <div class="image-grid fade-in">
-        <!-- REPLACE: Community/lifestyle grid images — outdoor, wellness, social, adventure -->
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--lifestyle">
-            <span class="placeholder-img__label">Outdoor / Adventure</span>
+      <div class="reviews-carousel fade-in" id="reviews-carousel">
+        <div class="reviews-carousel__track">
+          <div class="review-slide">
+            <p class="review-slide__quote">"Honestly the smoothest water I've ever had. You can taste the difference immediately. No chemical aftertaste, just clean."</p>
+            <span class="review-slide__author">Sarah M., Nashville, TN</span>
+          </div>
+          <div class="review-slide">
+            <p class="review-slide__quote">"I switched from plastic bottles and haven't looked back. The can keeps it colder longer and I feel better about the waste."</p>
+            <span class="review-slide__author">James R., Austin, TX</span>
+          </div>
+          <div class="review-slide">
+            <p class="review-slide__quote">"My go-to for hiking and the gym. The electrolytes are natural and you can actually feel the hydration difference."</p>
+            <span class="review-slide__author">Mia L., Denver, CO</span>
+          </div>
+          <div class="review-slide">
+            <p class="review-slide__quote">"We keep a case in the fridge at all times now. The whole family loves it. Simple, clean, and tastes incredible."</p>
+            <span class="review-slide__author">David K., Atlanta, GA</span>
           </div>
         </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--water">
-            <span class="placeholder-img__label">Wellness / Water</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--nature">
-            <span class="placeholder-img__label">Social / Events</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--lifestyle">
-            <span class="placeholder-img__label">Active Lifestyle</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--hero">
-            <span class="placeholder-img__label">Mountain / Nature</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--water">
-            <span class="placeholder-img__label">Surfing / Beach</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--nature">
-            <span class="placeholder-img__label">Community Gathering</span>
-          </div>
-        </div>
-        <div class="image-grid__item">
-          <div class="placeholder-img placeholder-img--lifestyle">
-            <span class="placeholder-img__label">Travel / Exploration</span>
-          </div>
-        </div>
+        <div class="reviews-carousel__dots" id="reviews-dots"></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SECTION 6: GIVING BACK ============ -->
+  <!-- ============ SECTION 5: GIVING BACK ============ -->
   <section class="section section--lg section--navy">
     <div class="container">
       <div class="split split--reverse fade-in">
-        <div class="split__image" role="img" aria-label="Nature and environmental sustainability" style="background-image: url('images/nature-enviromental2.jpg'); background-size: cover; background-position: 58% 75%; min-height: 450px;">
+        <div class="split__image" role="img" aria-label="Nature and environmental sustainability" style="background-image: url('images/nature-enviromental2.jpg'); background-size: cover; background-position: 58% 75%; min-height: 500px;">
         </div>
         <div class="split__content">
-          <span class="text-eyebrow" style="color: rgba(255,255,255,0.6);">Sustainability</span>
+          <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Sustainability</span>
           <h2>Giving Back to Our Earth</h2>
           <p>1% of our sales are donated to support impactful environmental solutions worldwide.</p>
-          <a href="one-percent.html" class="btn btn--white" style="margin-top: var(--space-lg);">Learn More</a>
+          <a href="one-percent.html" class="btn btn--white" style="margin-top: var(--space-xl);">Learn More</a>
         </div>
       </div>
     </div>
@@ -271,86 +341,66 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__logo-bar">
-        <img src="images/rock-logo.png" alt="ROCK" class="footer__logo-img">
-      </div>
 
-      <div class="footer__columns">
-        <div>
-          <h4 class="footer__heading">Navigate</h4>
-          <div class="footer__links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="story.html">Our Story</a>
-            <a href="ambassadors.html">Ambassadors</a>
-            <a href="science.html">Science</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="wholesale.html">Become a Retailer</a>
-          </div>
+      <div class="footer__row">
+        <!-- Newsletter signup (left) -->
+        <div class="footer__signup">
+          <h3 class="footer__signup-title">Join the Community</h3>
+          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
+          <form class="footer__newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="Email" aria-label="Email address">
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
 
-        <div>
-          <h4 class="footer__heading">Support</h4>
-          <div class="footer__links">
-            <a href="contact.html">Contact Us</a>
-            <a href="shipping.html">Shipping & Returns</a>
-            <a href="faq.html">FAQ</a>
-            <a href="terms.html">Terms &amp; Conditions</a>
+        <!-- Link columns (right) -->
+        <div class="footer__columns">
+          <div>
+            <h4 class="footer__heading">Navigate</h4>
+            <div class="footer__links">
+              <a href="shop.html">Shop</a>
+              <a href="story.html">Our Story</a>
+              <a href="science.html">Benefits</a>
+              <a href="reviews.html">Reviews</a>
+              <a href="wholesale.html">Become a Retailer</a>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h4 class="footer__heading">Stay Connected</h4>
-          <div class="footer__newsletter">
-            <p>Join the ROCK community for updates and exclusive offers.</p>
-            <form class="footer__newsletter-form" onsubmit="return false;">
-              <input type="email" placeholder="Your email address" aria-label="Email address">
-              <button type="submit">Join</button>
-            </form>
+          <div>
+            <h4 class="footer__heading">Support</h4>
+            <div class="footer__links">
+              <a href="contact.html">Contact</a>
+              <a href="faq.html">FAQs</a>
+              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms & Conditions</a>
+            </div>
           </div>
-          <div class="footer__social">
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2.66-.78 4.83 4.83 0 01-1.34-1.17V6.69h3z"/></svg>
-            </a>
-            <a href="#" aria-label="Twitter / X">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16H20L8.267 4H4zM4 20l6.768-8M20 4l-6.768 8"/></svg>
-            </a>
+
+          <div>
+            <h4 class="footer__heading">Social</h4>
+            <div class="footer__links">
+              <a href="https://www.instagram.com/drinkrockwater" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.tiktok.com/@drinkrockwater" target="_blank" rel="noopener noreferrer">TikTok</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 ROCK Water. All rights reserved.</p>
-      </div>
     </div>
   </footer>
 
-  <!-- ============ CART SIDEBAR ============ -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <aside class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-sidebar__header">
-      <span class="cart-sidebar__title">Your Cart</span>
-      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
-    </div>
-    <div class="cart-sidebar__items" id="cart-items">
-      <div class="cart-sidebar__empty" id="cart-empty">
-        <p>Your cart is empty</p>
-        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
-      </div>
-    </div>
-    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
-      <div class="cart-sidebar__total">
-        <span class="cart-sidebar__total-label">Subtotal</span>
-        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
-      </div>
-      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
-      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
-    </div>
-  </aside>
-
   <script src="js/main.js"></script>
+  <script>
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() {
+        document.body.classList.remove('fonts-loading');
+        document.body.classList.add('fonts-ready');
+      });
+    } else {
+      document.body.classList.remove('fonts-loading');
+      document.body.classList.add('fonts-ready');
+    }
+  </script>
 </body>
 </html>

@@ -3,19 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop — ROCK Water</title>
-  <meta name="description" content="Shop ROCK Water. Natural mountain spring water in 12oz Sleek and 16oz Standard cans. Clean hydration, delivered.">
+  <title>Shop ROCK Water</title>
+  <meta name="description" content="Shop ROCK Water. Natural mountain spring water with electrolytes. Available in 12oz and 16oz cans.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Free Shipping on Orders Over $100
-  </div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -32,15 +27,6 @@
       </nav>
 
       <div class="header__actions">
-        <button class="header__cart-btn" id="cart-toggle" aria-label="Open cart">
-          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-          <span class="header__cart-count hidden" id="cart-count">0</span>
-        </button>
-
         <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -58,49 +44,125 @@
     <a href="science.html">Benefits</a>
   </nav>
 
-  <!-- ============ SHOP HERO ============ -->
-  <section class="hero hero--short">
-    <div class="hero__bg">
-      <!-- REPLACE: Clean product/lifestyle hero image for shop page -->
-      <div class="placeholder-img placeholder-img--water">
-        <span class="placeholder-img__label">Shop Hero — Product Lifestyle (1920 x 800)</span>
+  <!-- ============ PRODUCT ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="shop-simple fade-in">
+
+        <!-- Product Gallery -->
+        <div class="shop-simple__gallery">
+          <div class="shop-simple__main-image" style="position: relative;">
+            <img src="images/product-lifestyle1.png" alt="ROCK Water Premium Spring Water" class="gallery-slide gallery-slide--active" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: opacity 0.4s ease;">
+            <img src="images/ice-bucket.jpg" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <button class="gallery-arrow gallery-arrow--left" aria-label="Previous image" style="position: absolute; top: 50%; left: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #1a1a1a; opacity: 0; transition: opacity 0.3s ease; z-index: 2;">&#8249;</button>
+            <button class="gallery-arrow gallery-arrow--right" aria-label="Next image" style="position: absolute; top: 50%; right: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #1a1a1a; opacity: 0; transition: opacity 0.3s ease; z-index: 2;">&#8250;</button>
+          </div>
+          <div class="gallery-dots" style="display: flex; justify-content: center; gap: 8px; margin-top: var(--space-sm);">
+            <button class="gallery-dot gallery-dot--active" data-index="0" aria-label="Image 1" style="width: 8px; height: 8px; border-radius: 50%; border: none; background: #1a1a1a; cursor: pointer; transition: background 0.3s ease; padding: 0;"></button>
+            <button class="gallery-dot" data-index="1" aria-label="Image 2" style="width: 8px; height: 8px; border-radius: 50%; border: none; background: #ccc; cursor: pointer; transition: background 0.3s ease; padding: 0;"></button>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="shop-simple__info">
+          <span class="text-eyebrow">ROCK Water</span>
+          <h1 class="shop-simple__title" id="shop-title">Premium Spring Water</h1>
+          <p class="shop-simple__desc">Natural mountain spring water with electrolytes and trace minerals. Sourced from the Smoky Mountains, naturally filtered through ancient limestone.</p>
+
+          <div class="shop-simple__features">
+            <span class="product-detail__feature-tag">Naturally Alkaline</span>
+            <span class="product-detail__feature-tag">Electrolytes</span>
+            <span class="product-detail__feature-tag">Trace Minerals</span>
+            <span class="product-detail__feature-tag">No Plastic</span>
+          </div>
+
+          <!-- Size Toggle -->
+          <div class="shop-simple__size">
+            <span class="shop-simple__size-label">Size</span>
+            <div class="shop-simple__size-options" id="size-toggle">
+              <button type="button" class="shop-simple__size-btn shop-simple__size-btn--active" data-size="12oz">
+                <span class="shop-simple__size-name">12oz</span>
+                <span class="shop-simple__size-detail">Sleek Can</span>
+              </button>
+              <button type="button" class="shop-simple__size-btn" data-size="16oz">
+                <span class="shop-simple__size-name">16oz</span>
+                <span class="shop-simple__size-detail">Standard Can</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Buy on Amazon -->
+          <a href="#" class="btn btn--primary btn--lg shop-simple__buy" id="amazon-btn" target="_blank" rel="noopener noreferrer">
+            Buy on Amazon
+          </a>
+          <p class="shop-simple__note">Free shipping with Prime</p>
+        </div>
+
       </div>
-    </div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <span class="text-eyebrow">Shop</span>
-      <h1>Clean Hydration</h1>
-      <p class="hero__tagline">Nothing is more basic to the life and health of individuals than the quality of the water they drink.</p>
     </div>
   </section>
 
-  <!-- ============ PRODUCT COLLECTION ============ -->
+  <!-- ============ BEST OF NATURE ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="split fade-in">
+        <div class="split__image" role="img" aria-label="Mountain spring source" style="background-image: url('images/mountain-source1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 450px;">
+        </div>
+        <div class="split__content">
+          <span class="text-eyebrow">Nature</span>
+          <h2>Best of Nature</h2>
+          <p>Natural mountain spring water bottled at the source in the Smoky Mountains of Tennessee.</p>
+          <div class="product-tags">
+            <span class="product-detail__feature-tag">Mountain Spring</span>
+            <span class="product-detail__feature-tag">Naturally Filtered</span>
+            <span class="product-detail__feature-tag">Bottled at Source</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEST OF SCIENCE ============ -->
   <section class="section section--lg">
     <div class="container">
-      <div class="collection-grid fade-in">
+      <div class="split split--reverse fade-in">
+        <div class="split__image" role="img" aria-label="Product science detail" style="background-image: url('images/Product-Science.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 450px;">
+        </div>
+        <div class="split__content">
+          <span class="text-eyebrow">Science</span>
+          <h2>Best of Science</h2>
+          <p>Electrolytes help maintain fluid balance and support hydration during movement, recovery, and everyday life.</p>
+          <div class="product-tags">
+            <span class="product-detail__feature-tag">Magnesium Sulfate</span>
+            <span class="product-detail__feature-tag">Sodium Citrate</span>
+            <span class="product-detail__feature-tag">Potassium Carbonate</span>
+          </div>
+          <a href="science.html" class="btn btn--secondary" style="margin-top: var(--space-xl);">Explore the Science</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Product Tile: 12oz Sleek -->
-        <a href="product-12oz.html" class="collection-tile">
-          <div class="collection-tile__image">
-            <img src="images/product-lifestyle1.png" alt="ROCK Water — 12oz Sleek" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transform: scale(1.05);">
-          </div>
-          <div class="collection-tile__info">
-            <span class="collection-tile__meta">Starting at $29.99</span>
-            <span class="collection-tile__link">Shop 12oz &rarr;</span>
-          </div>
-        </a>
-
-        <!-- Product Tile: 16oz Standard -->
-        <a href="product-16oz.html" class="collection-tile">
-          <div class="collection-tile__image">
-            <img src="images/product-lifestyle1.png" alt="ROCK Water — 16oz Standard" style="width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transform: scale(1.05);">
-          </div>
-          <div class="collection-tile__info">
-            <span class="collection-tile__meta">Starting at $35.99</span>
-            <span class="collection-tile__link">Shop 16oz &rarr;</span>
-          </div>
-        </a>
-
+  <!-- ============ REVIEWS ============ -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-3xl);">
+        <span class="text-eyebrow">Reviews</span>
+        <h2>What People Are Saying</h2>
+      </div>
+      <div class="review-mosaic fade-in">
+        <div class="review-mosaic__item">
+          <p class="review-mosaic__quote">&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
+          <span class="review-mosaic__name">Sarah M.</span>
+        </div>
+        <div class="review-mosaic__item">
+          <p class="review-mosaic__quote">&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
+          <span class="review-mosaic__name">James T.</span>
+        </div>
+        <div class="review-mosaic__item">
+          <p class="review-mosaic__quote">&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
+          <span class="review-mosaic__name">Maya R.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -108,86 +170,113 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__logo-bar">
-        <img src="images/rock-logo.png" alt="ROCK" class="footer__logo-img">
-      </div>
-
-      <div class="footer__columns">
-        <div>
-          <h4 class="footer__heading">Navigate</h4>
-          <div class="footer__links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="story.html">Our Story</a>
-            <a href="ambassadors.html">Ambassadors</a>
-            <a href="science.html">Science</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="wholesale.html">Become a Retailer</a>
-          </div>
+      <div class="footer__row">
+        <div class="footer__signup">
+          <h3 class="footer__signup-title">Join the Community</h3>
+          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
+          <form class="footer__newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="Email" aria-label="Email address">
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
 
-        <div>
-          <h4 class="footer__heading">Support</h4>
-          <div class="footer__links">
-            <a href="contact.html">Contact Us</a>
-            <a href="shipping.html">Shipping & Returns</a>
-            <a href="faq.html">FAQ</a>
-            <a href="terms.html">Terms &amp; Conditions</a>
+        <div class="footer__columns">
+          <div>
+            <h4 class="footer__heading">Navigate</h4>
+            <div class="footer__links">
+              <a href="shop.html">Shop</a>
+              <a href="story.html">Our Story</a>
+              <a href="science.html">Benefits</a>
+              <a href="reviews.html">Reviews</a>
+              <a href="wholesale.html">Become a Retailer</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer__heading">Support</h4>
+            <div class="footer__links">
+              <a href="contact.html">Contact</a>
+              <a href="faq.html">FAQs</a>
+              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer__heading">Social</h4>
+            <div class="footer__links">
+              <a href="https://www.instagram.com/drinkrockwater" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.tiktok.com/@drinkrockwater" target="_blank" rel="noopener noreferrer">TikTok</a>
+            </div>
           </div>
         </div>
-
-        <div>
-          <h4 class="footer__heading">Stay Connected</h4>
-          <div class="footer__newsletter">
-            <p>Join the ROCK community for updates and exclusive offers.</p>
-            <form class="footer__newsletter-form" onsubmit="return false;">
-              <input type="email" placeholder="Your email address" aria-label="Email address">
-              <button type="submit">Join</button>
-            </form>
-          </div>
-          <div class="footer__social">
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2.66-.78 4.83 4.83 0 01-1.34-1.17V6.69h3z"/></svg>
-            </a>
-            <a href="#" aria-label="Twitter / X">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16H20L8.267 4H4zM4 20l6.768-8M20 4l-6.768 8"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 ROCK Water. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ============ CART SIDEBAR ============ -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <aside class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-sidebar__header">
-      <span class="cart-sidebar__title">Your Cart</span>
-      <button class="cart-sidebar__close" id="cart-close" aria-label="Close cart">&times;</button>
-    </div>
-    <div class="cart-sidebar__items" id="cart-items">
-      <div class="cart-sidebar__empty" id="cart-empty">
-        <p>Your cart is empty</p>
-        <a href="shop.html" class="btn btn--primary btn--sm">Shop Now</a>
-      </div>
-    </div>
-    <div class="cart-sidebar__footer" id="cart-footer" style="display: none;">
-      <div class="cart-sidebar__total">
-        <span class="cart-sidebar__total-label">Subtotal</span>
-        <span class="cart-sidebar__total-price" id="cart-total">$0.00</span>
-      </div>
-      <button class="btn btn--primary cart-sidebar__checkout">Checkout</button>
-      <p class="cart-sidebar__note">Shipping calculated at checkout</p>
-    </div>
-  </aside>
-
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var selectedSize = '12oz';
+
+      // Amazon URLs — replace with your actual Amazon links
+      var amazonLinks = {
+        '12oz': 'https://amazon.com',
+        '16oz': 'https://amazon.com'
+      };
+
+      // Size toggle
+      document.querySelectorAll('#size-toggle .shop-simple__size-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#size-toggle .shop-simple__size-btn').forEach(function(b) {
+            b.classList.remove('shop-simple__size-btn--active');
+          });
+          btn.classList.add('shop-simple__size-btn--active');
+          selectedSize = btn.getAttribute('data-size');
+          document.getElementById('amazon-btn').href = amazonLinks[selectedSize];
+        });
+      });
+
+      // Image Gallery Slider
+      var slides = document.querySelectorAll('.gallery-slide');
+      var dots = document.querySelectorAll('.gallery-dot');
+      var arrows = document.querySelectorAll('.gallery-arrow');
+      var imageContainer = document.querySelector('.shop-simple__main-image');
+      var currentSlide = 0;
+
+      function goToSlide(index) {
+        slides.forEach(function(s, i) {
+          s.style.opacity = i === index ? '1' : '0';
+          if (i === index) s.classList.add('gallery-slide--active');
+          else s.classList.remove('gallery-slide--active');
+        });
+        dots.forEach(function(d, i) {
+          d.style.background = i === index ? '#1a1a1a' : '#ccc';
+          if (i === index) d.classList.add('gallery-dot--active');
+          else d.classList.remove('gallery-dot--active');
+        });
+        currentSlide = index;
+      }
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          goToSlide(parseInt(dot.getAttribute('data-index')));
+        });
+      });
+
+      document.querySelector('.gallery-arrow--left').addEventListener('click', function() {
+        goToSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+      });
+      document.querySelector('.gallery-arrow--right').addEventListener('click', function() {
+        goToSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+      });
+
+      imageContainer.addEventListener('mouseenter', function() {
+        arrows.forEach(function(a) { a.style.opacity = '1'; });
+      });
+      imageContainer.addEventListener('mouseleave', function() {
+        arrows.forEach(function(a) { a.style.opacity = '0'; });
+      });
+    });
+  </script>
 </body>
 </html>

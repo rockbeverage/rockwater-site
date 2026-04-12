@@ -97,15 +97,9 @@
       var div = document.createElement('div');
       div.className = 'cart-item';
 
-      var canClass = item.id === '16oz' ? 'product-can__image--cream' : 'product-can__image--navy';
-
       div.innerHTML =
         '<div class="cart-item__image">' +
-        '  <div class="product-can" style="max-width: 50px;">' +
-        '    <div class="product-can__image ' + canClass + '" style="aspect-ratio: 1/2; padding: 8px 4px; border-radius: 4px;">' +
-        '      <span class="product-can__brand" style="font-size: 0.55rem; letter-spacing: 0.2em;">ROCK</span>' +
-        '    </div>' +
-        '  </div>' +
+        '  <img src="images/product-lifestyle1.png" alt="ROCK Water" style="width: 50px; height: 65px; object-fit: cover; border-radius: 4px;">' +
         '</div>' +
         '<div class="cart-item__details">' +
         '  <span class="cart-item__name">' + item.title + '</span>' +
@@ -207,6 +201,44 @@
   }
 
   // =========================
+  // SCROLL ZOOM EFFECT
+  // =========================
+  function initScrollZoom() {
+    var zoomSection = document.getElementById('scroll-zoom');
+    if (!zoomSection) return;
+
+    var zoomText = zoomSection.querySelector('.scroll-zoom__text');
+    if (!zoomText) return;
+
+    var startScale = 1.8;
+    var endScale = 1;
+
+    function updateZoom() {
+      var rect = zoomSection.getBoundingClientRect();
+      var windowHeight = window.innerHeight;
+
+      // Progress: 0 when top of section enters bottom of viewport
+      //           1 when section is centered in viewport
+      var sectionCenter = rect.top + rect.height / 2;
+      var viewportCenter = windowHeight / 2;
+
+      // Map: sectionCenter at windowHeight (just entered) → progress 0
+      //      sectionCenter at viewportCenter (centered) → progress 1
+      var progress = (windowHeight - sectionCenter) / (windowHeight - viewportCenter);
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Smoothstep easing for a natural feel
+      progress = progress * progress * (3 - 2 * progress);
+
+      var scale = startScale - (startScale - endScale) * progress;
+      zoomText.style.transform = 'scale(' + scale.toFixed(4) + ')';
+    }
+
+    window.addEventListener('scroll', updateZoom, { passive: true });
+    updateZoom();
+  }
+
+  // =========================
   // INITIALIZE
   // =========================
   document.addEventListener('DOMContentLoaded', function () {
@@ -244,6 +276,9 @@
     // Scroll animations
     initScrollAnimations();
 
+    // Scroll zoom effect
+    initScrollZoom();
+
     // Close mobile nav on link click
     var mobileNavLinks = document.querySelectorAll('.mobile-nav a');
     mobileNavLinks.forEach(function (link) {
@@ -254,6 +289,45 @@
         if (menuBtn) menuBtn.classList.remove('active');
         document.body.style.overflow = '';
       });
+    });
+
+
+    // Ingredient tooltip — tap-to-toggle on mobile
+    var tooltipTags = document.querySelectorAll('.product-detail__feature-tag[data-tooltip]');
+    tooltipTags.forEach(function (tag) {
+      var parent = tag.parentElement;
+      var inlineEl = parent.querySelector('.tooltip-inline-text');
+      if (!inlineEl) {
+        inlineEl = document.createElement('div');
+        inlineEl.className = 'tooltip-inline-text';
+        parent.appendChild(inlineEl);
+      }
+
+      tag.addEventListener('click', function () {
+        var wasActive = tag.classList.contains('tooltip-active');
+        var localInline = tag.parentElement.querySelector('.tooltip-inline-text');
+        tooltipTags.forEach(function (t) { t.classList.remove('tooltip-active'); });
+        document.querySelectorAll('.tooltip-inline-text').forEach(function (el) {
+          el.classList.remove('visible');
+          el.textContent = '';
+        });
+        if (!wasActive) {
+          tag.classList.add('tooltip-active');
+          if (localInline) {
+            localInline.textContent = tag.getAttribute('data-tooltip');
+            localInline.classList.add('visible');
+          }
+        }
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.product-detail__feature-tag[data-tooltip]')) {
+        tooltipTags.forEach(function (t) { t.classList.remove('tooltip-active'); });
+        document.querySelectorAll('.tooltip-inline-text').forEach(function (el) {
+          el.classList.remove('visible');
+          el.textContent = '';
+        });
+      }
     });
 
     // ESC key closes cart and mobile nav
@@ -269,5 +343,119 @@
         }
       }
     });
+
+    // Footer accordion on mobile
+    var footerHeadings = document.querySelectorAll('.footer__heading');
+    footerHeadings.forEach(function (heading) {
+      heading.addEventListener('click', function () {
+        if (window.innerWidth > 768) return;
+        var links = heading.nextElementSibling;
+        if (!links) return;
+        var isOpen = links.classList.contains('open');
+
+        // Close all others
+        footerHeadings.forEach(function (h) {
+          h.classList.remove('active');
+          var l = h.nextElementSibling;
+          if (l) l.classList.remove('open');
+        });
+
+        // Toggle clicked one
+        if (!isOpen) {
+          heading.classList.add('active');
+          links.classList.add('open');
+        }
+      });
+    });
   });
 })();
+
+/* ========== Reviews Carousel ========== */
+(function() {
+  var carousel = document.getElementById('reviews-carousel');
+  if (!carousel) return;
+
+  var track = carousel.querySelector('.reviews-carousel__track');
+  var slides = track.querySelectorAll('.review-slide');
+  var dotsContainer = document.getElementById('reviews-dots');
+  var current = 0;
+  var total = slides.length;
+  var interval;
+
+  // Build dots
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'reviews-carousel__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+    dot.dataset.index = i;
+    dot.addEventListener('click', function() {
+      goTo(parseInt(this.dataset.index));
+      resetAutoplay();
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    var dots = dotsContainer.querySelectorAll('.reviews-carousel__dot');
+    dots.forEach(function(d, j) {
+      d.classList.toggle('active', j === current);
+    });
+  }
+
+  function next() {
+    goTo((current + 1) % total);
+  }
+
+  function resetAutoplay() {
+    clearInterval(interval);
+    interval = setInterval(next, 5000);
+  }
+
+  // Touch/swipe support
+  var startX = 0;
+  var deltaX = 0;
+  track.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    deltaX = 0;
+  }, { passive: true });
+  track.addEventListener('touchmove', function(e) {
+    deltaX = e.touches[0].clientX - startX;
+  }, { passive: true });
+  track.addEventListener('touchend', function() {
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) goTo(Math.min(current + 1, total - 1));
+      else goTo(Math.max(current - 1, 0));
+      resetAutoplay();
+    }
+  });
+
+  interval = setInterval(next, 5000);
+})();
+
+/* ========== Educational Accordion ========== */
+document.addEventListener('DOMContentLoaded', function() {
+  var items = document.querySelectorAll('.edu-accordion__item');
+  if (!items.length) return;
+
+  items.forEach(function(item) {
+    var trigger = item.querySelector('.edu-accordion__trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var isActive = item.classList.contains('active');
+
+      // Close all
+      items.forEach(function(i) {
+        i.classList.remove('active');
+      });
+
+      // Open clicked if it wasn't already open
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+});
