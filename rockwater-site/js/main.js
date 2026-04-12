@@ -369,3 +369,93 @@
     });
   });
 })();
+
+/* ========== Reviews Carousel ========== */
+(function() {
+  var carousel = document.getElementById('reviews-carousel');
+  if (!carousel) return;
+
+  var track = carousel.querySelector('.reviews-carousel__track');
+  var slides = track.querySelectorAll('.review-slide');
+  var dotsContainer = document.getElementById('reviews-dots');
+  var current = 0;
+  var total = slides.length;
+  var interval;
+
+  // Build dots
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'reviews-carousel__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+    dot.dataset.index = i;
+    dot.addEventListener('click', function() {
+      goTo(parseInt(this.dataset.index));
+      resetAutoplay();
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    var dots = dotsContainer.querySelectorAll('.reviews-carousel__dot');
+    dots.forEach(function(d, j) {
+      d.classList.toggle('active', j === current);
+    });
+  }
+
+  function next() {
+    goTo((current + 1) % total);
+  }
+
+  function resetAutoplay() {
+    clearInterval(interval);
+    interval = setInterval(next, 5000);
+  }
+
+  // Touch/swipe support
+  var startX = 0;
+  var deltaX = 0;
+  track.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    deltaX = 0;
+  }, { passive: true });
+  track.addEventListener('touchmove', function(e) {
+    deltaX = e.touches[0].clientX - startX;
+  }, { passive: true });
+  track.addEventListener('touchend', function() {
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) goTo(Math.min(current + 1, total - 1));
+      else goTo(Math.max(current - 1, 0));
+      resetAutoplay();
+    }
+  });
+
+  interval = setInterval(next, 5000);
+})();
+
+/* ========== Educational Accordion ========== */
+document.addEventListener('DOMContentLoaded', function() {
+  var items = document.querySelectorAll('.edu-accordion__item');
+  if (!items.length) return;
+
+  items.forEach(function(item) {
+    var trigger = item.querySelector('.edu-accordion__trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var isActive = item.classList.contains('active');
+
+      // Close all
+      items.forEach(function(i) {
+        i.classList.remove('active');
+      });
+
+      // Open clicked if it wasn't already open
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+});

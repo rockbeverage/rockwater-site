@@ -21,12 +21,19 @@
   <meta name="twitter:description" content="Premium Spring Water">
   <meta name="twitter:image" content="https://drinkrockwater.com/images/og-preview.png">
 
+  <link rel="preload" href="fonts/TAYFlapjack.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/Brooklyn Normal 1.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/Brooklyn Bold 1.otf" as="font" type="font/otf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fonts-loading { opacity: 0; }
+    .fonts-ready { opacity: 1; transition: opacity 0.15s ease; }
+  </style>
 </head>
-<body>
+<body class="fonts-loading">
 
   <!-- ============ HEADER ============ -->
   <header class="header header--transparent" id="header">
@@ -83,38 +90,140 @@
     </div>
   </section>
 
-  <!-- ============ PRODUCT INTRODUCTION ============ -->
+  <!-- ============ THE WATER: INTRO ============ -->
   <section class="section section--lg section--cream">
     <div class="container">
-      <div class="split split--product fade-in">
-        <div class="split__image" role="img" aria-label="ROCK Water premium product lifestyle" style="background-image: url('images/product-lifestyle2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 550px;">
-        </div>
-        <div class="split__content">
+      <div class="water-hero fade-in">
+        <div class="water-hero__content">
           <span class="text-eyebrow">The Water</span>
-          <h2>Refreshing.<br>Smooth.<br>Simple.</h2>
-          <p>Crisp, mineral-balanced spring water in a can. Sourced from deep within the Smoky Mountains, naturally filtered through ancient limestone.</p>
-          <div class="product-stats">
-            <div class="product-stats__item">
-              <span class="product-stats__number">7.8+</span>
-              <span class="product-stats__label">Natural pH</span>
-            </div>
-            <div class="product-stats__item">
-              <span class="product-stats__number">3</span>
-              <span class="product-stats__label">Key Electrolytes</span>
-            </div>
-            <div class="product-stats__item">
-              <span class="product-stats__number">100%</span>
-              <span class="product-stats__label">Spring Water</span>
+          <h2>Pure Water.<br>Real Minerals.<br>No Plastic.</h2>
+          <a href="shop.html" class="btn btn--secondary">Shop Now</a>
+        </div>
+        <div class="water-hero__image water-hero__placeholder">
+          <span>Product Image</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE WATER: STATS BAR ============ -->
+  <section class="stats-bar fade-in">
+    <div class="container">
+      <div class="stats-bar__inner">
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">7.8+</span>
+          <span class="stats-bar__label">Natural pH</span>
+        </div>
+        <div class="stats-bar__divider"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">3</span>
+          <span class="stats-bar__label">Key Electrolytes</span>
+        </div>
+        <div class="stats-bar__divider"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">100%</span>
+          <span class="stats-bar__label">Spring Water</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS MARQUEE ============ -->
+  <div class="marquee fade-in">
+    <div class="marquee__track">
+      <span class="marquee__item">Naturally Alkaline</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Real Electrolytes</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Trace Minerals</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Infinitely Recyclable</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">No Plastic</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Spring Sourced</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Smoky Mountains</span>
+      <span class="marquee__sep">&bull;</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee__item">Naturally Alkaline</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Real Electrolytes</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Trace Minerals</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Infinitely Recyclable</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">No Plastic</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Spring Sourced</span>
+      <span class="marquee__sep">&bull;</span>
+      <span class="marquee__item">Smoky Mountains</span>
+      <span class="marquee__sep">&bull;</span>
+    </div>
+  </div>
+
+  <!-- ============ EDUCATIONAL: WHY ROCK ============ -->
+  <section class="section section--lg">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+        <span class="text-eyebrow">Why It Matters</span>
+        <h2>Not All Water Is the Same</h2>
+      </div>
+
+      <div class="edu-split fade-in">
+        <div class="edu-split__image">
+          <div class="edu-split__placeholder">
+            <span>Product Image</span>
+          </div>
+        </div>
+        <div class="edu-split__accordion">
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Spring Sourced</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>From a protected spring deep in the Smoky Mountains. Naturally filtered through ancient limestone for thousands of years.</p>
             </div>
           </div>
-          <div class="product-tags">
-            <span class="product-detail__feature-tag">Naturally Alkaline</span>
-            <span class="product-detail__feature-tag">Electrolytes</span>
-            <span class="product-detail__feature-tag">Trace Minerals</span>
-            <span class="product-detail__feature-tag">Infinitely Recyclable</span>
-            <span class="product-detail__feature-tag">No Plastic</span>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Real Minerals + Electrolytes</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>Naturally occurring calcium and magnesium from the source, plus added electrolytes for enhanced hydration.</p>
+            </div>
           </div>
-          <a href="shop.html" class="btn btn--secondary" style="margin-top: var(--space-xl);">Explore</a>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Alkaline by Nature</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>7.8+ pH with zero additives. The limestone does the work, we just can it.</p>
+            </div>
+          </div>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Exclusively in Aluminum</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>Infinitely recyclable aluminum cans. No plastic, no microplastics, no compromise. Better for you and better for the planet.</p>
+            </div>
+          </div>
+          <div class="edu-accordion__item">
+            <button class="edu-accordion__trigger">
+              <span>Third-Party Tested &amp; Certified</span>
+              <span class="edu-accordion__icon">+</span>
+            </button>
+            <div class="edu-accordion__panel">
+              <p>Our water is independently tested to meet the highest standards for purity and quality. Certified clean, so you never have to wonder what's in your water.</p>
+            </div>
+          </div>
+          <a href="science.html" class="btn btn--secondary" style="margin-top: var(--space-lg);">Learn More</a>
         </div>
       </div>
     </div>
@@ -177,6 +286,38 @@
           <p>Your body is 60% water. Make it the good stuff. Refreshing hydration in a simple, timeless can that fits any occasion.</p>
           <a href="story.html" class="btn btn--secondary">Our Story</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section section--lg section--cream">
+    <div class="container">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-2xl);">
+        <span class="text-eyebrow">Reviews</span>
+        <h2>What People Are Saying</h2>
+      </div>
+
+      <div class="reviews-carousel fade-in" id="reviews-carousel">
+        <div class="reviews-carousel__track">
+          <div class="review-slide">
+            <p class="review-slide__quote">"Honestly the smoothest water I've ever had. You can taste the difference immediately. No chemical aftertaste, just clean."</p>
+            <span class="review-slide__author">Sarah M., Nashville, TN</span>
+          </div>
+          <div class="review-slide">
+            <p class="review-slide__quote">"I switched from plastic bottles and haven't looked back. The can keeps it colder longer and I feel better about the waste."</p>
+            <span class="review-slide__author">James R., Austin, TX</span>
+          </div>
+          <div class="review-slide">
+            <p class="review-slide__quote">"My go-to for hiking and the gym. The electrolytes are natural and you can actually feel the hydration difference."</p>
+            <span class="review-slide__author">Mia L., Denver, CO</span>
+          </div>
+          <div class="review-slide">
+            <p class="review-slide__quote">"We keep a case in the fridge at all times now. The whole family loves it. Simple, clean, and tastes incredible."</p>
+            <span class="review-slide__author">David K., Atlanta, GA</span>
+          </div>
+        </div>
+        <div class="reviews-carousel__dots" id="reviews-dots"></div>
       </div>
     </div>
   </section>
@@ -250,5 +391,16 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function() {
+        document.body.classList.remove('fonts-loading');
+        document.body.classList.add('fonts-ready');
+      });
+    } else {
+      document.body.classList.remove('fonts-loading');
+      document.body.classList.add('fonts-ready');
+    }
+  </script>
 </body>
 </html>
