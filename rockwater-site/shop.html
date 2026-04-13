@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop ROCK Water</title>
-  <meta name="description" content="Shop ROCK Water. Natural mountain spring water with electrolytes. Available in 12oz and 16oz cans.">
+  <meta name="description" content="Shop ROCK Water. Premium spring water with electrolytes in an infinitely recyclable aluminum can. 12 Pack - $24.00.">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,9 +66,14 @@
 
         <!-- Product Info -->
         <div class="shop-simple__info">
-          <span class="text-eyebrow">ROCK Water</span>
-          <h1 class="shop-simple__title" id="shop-title">Premium Spring Water</h1>
-          <p class="shop-simple__desc">Natural mountain spring water with electrolytes and trace minerals. Sourced from the Smoky Mountains, naturally filtered through ancient limestone.</p>
+          <span class="shop-simple__brand">ROCK Water</span>
+          <h1 class="shop-simple__title">Premium Spring Water</h1>
+          <p class="shop-simple__subtitle">12 Pack</p>
+          <button class="shop-simple__reviews-link" id="reviews-toggle">
+            <span class="shop-simple__reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="shop-simple__reviews-count">Reviews</span>
+          </button>
+          <p class="shop-simple__desc">Premium spring water with electrolytes. Sourced from the Smoky Mountains, naturally filtered through ancient limestone.</p>
 
           <div class="shop-simple__features">
             <span class="product-detail__feature-tag">Naturally Alkaline</span>
@@ -77,26 +82,69 @@
             <span class="product-detail__feature-tag">No Plastic</span>
           </div>
 
-          <!-- Size Toggle -->
-          <div class="shop-simple__size">
-            <span class="shop-simple__size-label">Size</span>
-            <div class="shop-simple__size-options" id="size-toggle">
-              <button type="button" class="shop-simple__size-btn shop-simple__size-btn--active" data-size="12oz">
-                <span class="shop-simple__size-name">12oz</span>
-                <span class="shop-simple__size-detail">Sleek Can</span>
-              </button>
-              <button type="button" class="shop-simple__size-btn" data-size="16oz">
-                <span class="shop-simple__size-name">16oz</span>
-                <span class="shop-simple__size-detail">Standard Can</span>
-              </button>
+          <!-- Buying Frequency -->
+          <div class="buy-frequency">
+            <p class="buy-frequency__label">Choose your buying frequency</p>
+
+            <div class="buy-frequency__option buy-frequency__option--active" data-type="subscribe">
+              <div class="buy-frequency__header">
+                <div class="buy-frequency__radio">
+                  <span class="buy-frequency__radio-dot"></span>
+                </div>
+                <span class="buy-frequency__name">Subscription</span>
+                <span class="buy-frequency__badge">Save 30%</span>
+                <span class="buy-frequency__prices">
+                  <span class="buy-frequency__original">$34.00</span>
+                  <span class="buy-frequency__sale">$23.80</span>
+                </span>
+              </div>
+              <div class="buy-frequency__details">
+                <div class="buy-frequency__frequency">
+                  <select id="frequency-select" aria-label="Delivery frequency">
+                    <option value="1month">Deliver every: 1 month</option>
+                    <option value="2months">Deliver every: 2 months</option>
+                    <option value="2weeks">Deliver every: 2 weeks</option>
+                  </select>
+                </div>
+                <p class="buy-frequency__cancel">Cancel anytime. No commitment required.</p>
+              </div>
+            </div>
+
+            <div class="buy-frequency__option" data-type="onetime">
+              <div class="buy-frequency__header">
+                <div class="buy-frequency__radio">
+                  <span class="buy-frequency__radio-dot"></span>
+                </div>
+                <span class="buy-frequency__name">One-time</span>
+                <span class="buy-frequency__prices">
+                  <span class="buy-frequency__sale">$34.00</span>
+                </span>
+              </div>
             </div>
           </div>
 
-          <!-- Buy on Amazon -->
-          <a href="#" class="btn btn--primary btn--lg shop-simple__buy" id="amazon-btn" target="_blank" rel="noopener noreferrer">
-            Buy on Amazon
+          <div class="shop-simple__cart-row">
+            <div class="shop-simple__qty">
+              <select id="qty-select" aria-label="Quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <button class="btn btn--primary btn--lg shop-simple__buy" id="buy-btn">
+              Add to Cart
+            </button>
+          </div>
+
+
+          <a href="#" class="shop-simple__store-link" id="store-link">
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 5.25 7.13 11.38 7.43 11.64a.75.75 0 0 0 .96.02C8.72 19.38 16 13.25 16 8c0-4.42-3.58-8-8-8Zm0 11.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/>
+            </svg>
+            Find Your Nearest Store
           </a>
-          <p class="shop-simple__note">Free shipping with Prime</p>
         </div>
 
       </div>
@@ -214,29 +262,62 @@
     </div>
   </footer>
 
+  <!-- Reviews Panel -->
+  <div class="reviews-panel__overlay" id="reviews-overlay"></div>
+  <div class="reviews-panel" id="reviews-panel">
+    <div class="reviews-panel__header">
+      <h3 class="reviews-panel__title">Customers Say</h3>
+      <button class="reviews-panel__close" id="reviews-close" aria-label="Close reviews">&times;</button>
+    </div>
+    <p class="reviews-panel__subtitle">What customers are saying about ROCK Water.</p>
+
+    <div class="reviews-panel__highlights">
+      <div class="reviews-panel__topic">
+        <div>
+          <h4 class="reviews-panel__topic-title">Taste</h4>
+          <p class="reviews-panel__topic-desc">Customers describe it as clean, crisp, smooth, and genuinely refreshing.</p>
+        </div>
+      </div>
+      <div class="reviews-panel__topic">
+        <div>
+          <h4 class="reviews-panel__topic-title">Water Quality</h4>
+          <p class="reviews-panel__topic-desc">The natural mineral content and mountain spring sourcing sets it apart.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-panel__divider"></div>
+
+    <h4 class="reviews-panel__section-title">Review Highlights</h4>
+
+    <div class="reviews-panel__quote">
+      <div class="reviews-panel__quote-bar"></div>
+      <div>
+        <p>&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
+        <span class="reviews-panel__author">Sarah M.</span>
+      </div>
+    </div>
+    <div class="reviews-panel__quote">
+      <div class="reviews-panel__quote-bar"></div>
+      <div>
+        <p>&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
+        <span class="reviews-panel__author">James T.</span>
+      </div>
+    </div>
+    <div class="reviews-panel__quote">
+      <div class="reviews-panel__quote-bar"></div>
+      <div>
+        <p>&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
+        <span class="reviews-panel__author">Maya R.</span>
+      </div>
+    </div>
+
+    <a href="reviews.html" class="reviews-panel__read-all">Read All Reviews</a>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var selectedSize = '12oz';
-
-      // Amazon URLs — replace with your actual Amazon links
-      var amazonLinks = {
-        '12oz': 'https://amazon.com',
-        '16oz': 'https://amazon.com'
-      };
-
-      // Size toggle
-      document.querySelectorAll('#size-toggle .shop-simple__size-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('#size-toggle .shop-simple__size-btn').forEach(function(b) {
-            b.classList.remove('shop-simple__size-btn--active');
-          });
-          btn.classList.add('shop-simple__size-btn--active');
-          selectedSize = btn.getAttribute('data-size');
-          document.getElementById('amazon-btn').href = amazonLinks[selectedSize];
-        });
-      });
-
       // Image Gallery Slider
       var slides = document.querySelectorAll('.gallery-slide');
       var dots = document.querySelectorAll('.gallery-dot');
@@ -277,6 +358,55 @@
       imageContainer.addEventListener('mouseleave', function() {
         arrows.forEach(function(a) { a.style.opacity = '0'; });
       });
+
+      // Buy frequency toggle
+      var frequencyOptions = document.querySelectorAll('.buy-frequency__option');
+      frequencyOptions.forEach(function(option) {
+        option.addEventListener('click', function() {
+          frequencyOptions.forEach(function(o) { o.classList.remove('buy-frequency__option--active'); });
+          option.classList.add('buy-frequency__option--active');
+        });
+      });
+
+      // Buy button placeholder
+      document.getElementById('buy-btn').addEventListener('click', function() {
+        var qty = document.getElementById('qty-select').value;
+        var activeOption = document.querySelector('.buy-frequency__option--active');
+        var type = activeOption.getAttribute('data-type');
+        if (type === 'subscribe') {
+          var freq = document.getElementById('frequency-select').value;
+          alert('Checkout coming soon! ' + qty + 'x 12 Pack subscription (' + freq + '). Stripe integration in progress.');
+        } else {
+          alert('Checkout coming soon! ' + qty + 'x 12 Pack one-time purchase. Stripe integration in progress.');
+        }
+      });
+
+      // Store locator placeholder
+      document.getElementById('store-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Store locator coming soon!');
+      });
+
+      // Reviews panel
+      var reviewsPanel = document.getElementById('reviews-panel');
+      var reviewsOverlay = document.getElementById('reviews-overlay');
+      var reviewsToggle = document.getElementById('reviews-toggle');
+      var reviewsClose = document.getElementById('reviews-close');
+
+      function openReviews() {
+        reviewsPanel.classList.add('reviews-panel--open');
+        reviewsOverlay.classList.add('reviews-panel__overlay--active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeReviews() {
+        reviewsPanel.classList.remove('reviews-panel--open');
+        reviewsOverlay.classList.remove('reviews-panel__overlay--active');
+        document.body.style.overflow = '';
+      }
+
+      reviewsToggle.addEventListener('click', openReviews);
+      reviewsClose.addEventListener('click', closeReviews);
+      reviewsOverlay.addEventListener('click', closeReviews);
     });
   </script>
 </body>
