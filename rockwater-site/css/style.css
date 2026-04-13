@@ -2206,14 +2206,23 @@ p {
   }
 
   .article__hero-image {
-    width: calc(100% + var(--space-lg) * 2);
-    margin-left: calc(-1 * var(--space-lg));
-    margin-right: calc(-1 * var(--space-lg));
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
   }
 
   .article__hero-image > div[role="img"] {
     min-height: 0 !important;
     height: 100%;
+  }
+
+  .article__hero-image img {
+    height: 280px !important;
+    width: 100% !important;
+    object-position: center 70% !important;
+    border-radius: var(--radius-md) !important;
   }
 
   .article__footer {
@@ -4650,8 +4659,13 @@ select:focus {
 
   .shop-simple__gallery {
     position: static;
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
+  }
+
+  .shop-simple__main-image {
+    min-height: auto !important;
+    aspect-ratio: 3 / 4;
   }
 
   .shop-simple__info {
@@ -4660,6 +4674,35 @@ select:focus {
 
   .shop-simple__title {
     font-size: var(--text-2xl);
+  }
+
+  /* Buy frequency mobile */
+  .buy-frequency__header {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .buy-frequency__prices {
+    margin-left: 0;
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .buy-frequency__badge {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .buy-frequency__name {
+    font-size: var(--text-xs);
+  }
+
+  .shop-simple__cart-row {
+    flex-direction: row;
+  }
+
+  .shop-simple__qty select {
+    min-width: 70px;
   }
 }
 
