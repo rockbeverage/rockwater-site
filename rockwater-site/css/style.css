@@ -2905,6 +2905,7 @@ p {
   z-index: 9999;
   background: rgba(0, 0, 0, 0);
   display: flex;
+  pointer-events: none;
   align-items: center;
   justify-content: center;
   visibility: hidden;
@@ -2914,6 +2915,7 @@ p {
 .wf-modal-overlay--active {
   background: rgba(0, 0, 0, 0.55);
   visibility: visible;
+  pointer-events: auto;
   transition: background 0.35s ease, visibility 0s linear 0s;
 }
 
@@ -3494,15 +3496,14 @@ p {
 
 .footer__newsletter-form {
   display: flex;
-  gap: 0;
+  gap: var(--space-xs);
 }
 
 .footer__newsletter-form input {
   flex: 1;
   padding: 14px 18px;
   border: 1px solid rgba(27, 65, 116, 0.2);
-  border-right: none;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--color-navy);
   font-family: var(--font-body);
@@ -3521,10 +3522,10 @@ p {
 
 .footer__newsletter-form button {
   padding: 14px 24px;
-  background: var(--color-navy);
-  color: var(--color-white);
+  background: transparent;
+  color: var(--color-navy);
   border: 1px solid var(--color-navy);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-size: 0.65rem;
   font-weight: 700;
@@ -3536,8 +3537,8 @@ p {
 }
 
 .footer__newsletter-form button:hover {
-  background: transparent;
-  color: var(--color-navy);
+  background: var(--color-navy);
+  color: var(--color-white);
 }
 
 /* Link columns */
