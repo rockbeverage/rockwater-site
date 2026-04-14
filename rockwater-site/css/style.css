@@ -4145,7 +4145,7 @@ select:focus {
   padding: 0.75rem 2.5rem 0.75rem 1rem;
   border: 1.5px solid #ddd;
   border-radius: var(--radius-sm, 4px);
-  background: var(--color-cream, #f8f2e1);
+  background: #fff;
   color: var(--color-dark);
   cursor: pointer;
   outline: none;
