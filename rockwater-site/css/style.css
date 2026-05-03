@@ -5569,3 +5569,44 @@ select:focus {
     padding-right: var(--space-sm);
   }
 }
+
+/* Founder Personal Note */
+.founder-note__text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--color-text-light);
+  letter-spacing: 0.005em;
+  margin-bottom: 0.85rem;
+}
+
+.founder-note__sign {
+  margin-top: var(--space-lg);
+}
+
+.founder-note__name {
+  font-family: 'Caveat', cursive;
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.founder-note__title {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .founder-note__text {
+    font-size: 1.25rem;
+  }
+  .founder-note__name {
+    font-size: 1.65rem;
+  }
+}
