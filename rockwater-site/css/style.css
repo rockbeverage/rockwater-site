@@ -5643,9 +5643,10 @@ select:focus {
 }
 
 /* Story shelf image - cropped consistently on desktop + mobile */
-.story-shelf-img {
+.split__image img.story-shelf-img {
   width: 100%;
   height: 600px;
+  min-height: 0;
   display: block;
   border-radius: var(--radius-md);
   object-fit: cover;
@@ -5653,7 +5654,7 @@ select:focus {
 }
 
 @media (max-width: 768px) {
-  .story-shelf-img {
+  .split__image img.story-shelf-img {
     height: 380px;
   }
 }
