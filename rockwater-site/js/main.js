@@ -156,6 +156,18 @@
     } else {
       header.classList.remove('header--scrolled');
     }
+
+    // Hide announcement bar after scrolling
+    var bar = document.querySelector('.announcement-bar');
+    if (bar) {
+      if (window.scrollY > 50) {
+        bar.classList.add('announcement-bar--hidden');
+        document.body.classList.add('announcement-hidden');
+      } else {
+        bar.classList.remove('announcement-bar--hidden');
+        document.body.classList.remove('announcement-hidden');
+      }
+    }
   }
 
   // =========================
@@ -241,7 +253,42 @@
   // =========================
   // INITIALIZE
   // =========================
+  // =========================
+  // GLOBAL CART ICON (all pages)
+  // =========================
+  function injectGlobalCartIcon() {
+    var actions = document.querySelector('.header__actions');
+    if (!actions) return;
+    if (document.getElementById('global-cart-btn')) return; // already exists
+    if (document.getElementById('header-cart-btn')) return; // shop page has its own
+
+    var btn = document.createElement('a');
+    btn.id = 'global-cart-btn';
+    btn.href = 'shop.html?openCart=1';
+    btn.className = 'header__cart-btn';
+    btn.setAttribute('aria-label', 'View cart');
+    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="header__cart-count" id="global-cart-count" style="display: none;">0</span>';
+
+    actions.insertBefore(btn, actions.firstChild);
+
+    // Update badge from localStorage
+    var raw = localStorage.getItem('rockCart');
+    if (raw) {
+      try {
+        var data = JSON.parse(raw);
+        var total = (data.waterQty || 0) + (data.hatQty || 0);
+        if (data.checkoutUrl && total > 0) {
+          var count = document.getElementById('global-cart-count');
+          count.textContent = total;
+          count.style.display = 'flex';
+        }
+      } catch (e) {}
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    injectGlobalCartIcon();
+
     // Cart UI
     updateCartUI();
 
