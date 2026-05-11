@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop ROCK Water</title>
   <meta name="description" content="Shop ROCK Water. Premium spring water with electrolytes in an infinitely recyclable aluminum can. 12 Pack - $24.00.">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -66,16 +66,14 @@
         <!-- Product Gallery -->
         <div class="shop-simple__gallery">
           <div class="shop-simple__main-image" style="position: relative;">
-            <img src="images/uno.png" alt="ROCK Water Premium Spring Water" class="gallery-slide gallery-slide--active" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: opacity 0.4s ease;">
-            <img src="images/dos.png" alt="ROCK Water on ice" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
-            <img src="images/tres.png" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: 25% center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <img src="images/product-lifestyle1.png" alt="ROCK Water Premium Spring Water" class="gallery-slide gallery-slide--active" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: opacity 0.4s ease;">
+            <img src="images/shopify22.jpeg" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
             <button class="gallery-arrow gallery-arrow--left" aria-label="Previous image" style="position: absolute; top: 50%; left: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #1a1a1a; opacity: 0; transition: opacity 0.3s ease; z-index: 2;">&#8249;</button>
             <button class="gallery-arrow gallery-arrow--right" aria-label="Next image" style="position: absolute; top: 50%; right: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #1a1a1a; opacity: 0; transition: opacity 0.3s ease; z-index: 2;">&#8250;</button>
           </div>
           <div class="gallery-dots" style="display: flex; justify-content: center; gap: 8px; margin-top: var(--space-sm);">
             <button class="gallery-dot gallery-dot--active" data-index="0" aria-label="Image 1" style="width: 8px; height: 8px; border-radius: 50%; border: none; background: #1a1a1a; cursor: pointer; transition: background 0.3s ease; padding: 0;"></button>
             <button class="gallery-dot" data-index="1" aria-label="Image 2" style="width: 8px; height: 8px; border-radius: 50%; border: none; background: #ccc; cursor: pointer; transition: background 0.3s ease; padding: 0;"></button>
-            <button class="gallery-dot" data-index="2" aria-label="Image 3" style="width: 8px; height: 8px; border-radius: 50%; border: none; background: #ccc; cursor: pointer; transition: background 0.3s ease; padding: 0;"></button>
           </div>
         </div>
 
@@ -303,7 +301,7 @@
     <div class="cart-drawer__body" id="cart-body">
       <div class="cart-drawer__item">
         <div class="cart-drawer__item-img">
-          <img src="images/uno.png" alt="ROCK Water 12 Pack">
+          <img src="images/product-lifestyle1.png" alt="ROCK Water 12 Pack">
         </div>
         <div class="cart-drawer__item-info">
           <p class="cart-drawer__item-brand">ROCK Water</p>
@@ -389,21 +387,27 @@
         });
       });
 
-      document.querySelector('.gallery-arrow--left').addEventListener('click', function() {
-        goToSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
-      });
-      document.querySelector('.gallery-arrow--right').addEventListener('click', function() {
-        goToSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
-      });
+      var leftArrow = document.querySelector('.gallery-arrow--left');
+      var rightArrow = document.querySelector('.gallery-arrow--right');
+      if (leftArrow) {
+        leftArrow.addEventListener('click', function() {
+          goToSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+        });
+      }
+      if (rightArrow) {
+        rightArrow.addEventListener('click', function() {
+          goToSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+        });
+      }
 
-      imageContainer.addEventListener('mouseenter', function() {
-        arrows.forEach(function(a) { a.style.opacity = '1'; });
-      });
-      imageContainer.addEventListener('mouseleave', function() {
-        arrows.forEach(function(a) { a.style.opacity = '0'; });
-      });
-
-      // (Subscription toggle removed for now)
+      if (imageContainer) {
+        imageContainer.addEventListener('mouseenter', function() {
+          arrows.forEach(function(a) { a.style.opacity = '1'; });
+        });
+        imageContainer.addEventListener('mouseleave', function() {
+          arrows.forEach(function(a) { a.style.opacity = '0'; });
+        });
+      }
 
       // Shopify Storefront API Integration
       var SHOPIFY_DOMAIN = 'e1zq1s-cw.myshopify.com';
