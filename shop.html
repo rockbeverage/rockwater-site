@@ -4,19 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop ROCK Water</title>
-  <meta name="description" content="Shop ROCK Water. Premium spring water with electrolytes in an infinitely recyclable aluminum can. 12 Pack - $24.00.">
+  <meta name="description" content="Shop ROCK Water. Premium spring water with electrolytes in an infinitely recyclable aluminum can. 12 Pack - $29.99.">
   <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Purchase Type */
+    .purchase-type { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .purchase-type__opt {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 16px; background: #fff; border: 1.5px solid #e0e0e0;
+      border-radius: 10px; cursor: pointer; transition: border-color 0.2s; text-align: left;
+      width: 100%;
+    }
+    .purchase-type__opt--active { border-color: #1b3a6b; }
+    .purchase-type__radio {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid #ccc; flex-shrink: 0; display: flex;
+      align-items: center; justify-content: center; transition: border-color 0.2s;
+      margin-top: 2px;
+    }
+    .purchase-type__opt--active .purchase-type__radio {
+      border-color: #1b3a6b;
+    }
+    .purchase-type__radio-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #1b3a6b; display: none;
+    }
+    .purchase-type__opt--active .purchase-type__radio-dot { display: block; }
+    .purchase-type__body { flex: 1; }
+    .purchase-type__row { display: flex; align-items: center; gap: 8px; }
+    .purchase-type__opt-title {
+      font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.01em;
+    }
+    .purchase-type__opt-badge {
+      font-size: 11px; font-weight: 700; color: #1a1a1a;
+      background: #f5c518; padding: 3px 9px; border-radius: 20px; letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .purchase-type__opt-popular {
+      font-size: 10px; font-weight: 600; color: #1b3a6b;
+      letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 2px;
+    }
+    .purchase-type__price {
+      font-size: 15px; font-weight: 600; color: #1a1a1a; margin-left: auto; flex-shrink: 0;
+    }
+    /* Frequency row */
+    .purchase-frequency {
+      margin-bottom: 0; padding: 8px 0 0 0;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .purchase-frequency__label {
+      font-size: 14px; font-weight: 400; color: #666;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .freq-select-wrap { position: relative; display: inline-flex; align-items: center; }
+    .freq-select {
+      appearance: none; -webkit-appearance: none;
+      padding: 8px 36px 8px 14px;
+      border: 1.5px solid #d0d0d0; border-radius: 24px;
+      background: #fff; font-size: 13px; font-weight: 500; color: #1a1a1a;
+      cursor: pointer; outline: none;
+      font-family: inherit;
+    }
+    .freq-select-chevron {
+      position: absolute; right: 12px; pointer-events: none;
+      color: #666;
+    }
+    /* Cart subscribe badge */
+    .cart-drawer__item-sub {
+      font-size: 11px; color: #1b3a6b; font-weight: 500;
+      margin-top: 2px; letter-spacing: 0.02em;
+    }
+  </style>
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body>
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -56,6 +142,7 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ PRODUCT ============ -->
@@ -67,7 +154,11 @@
         <div class="shop-simple__gallery">
           <div class="shop-simple__main-image" style="position: relative;">
             <img src="images/newproductshot.png" alt="ROCK Water Premium Spring Water" class="gallery-slide gallery-slide--active" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: opacity 0.4s ease;">
-            <img src="images/shopify22.jpeg" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <img src="images/slide2.png" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <img src="images/slide3.png" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <img src="images/slide4.png" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <img src="images/slide5.png" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
+            <img src="images/slide6.png" alt="ROCK Water lifestyle" class="gallery-slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease;">
             <button class="gallery-arrow gallery-arrow--left" aria-label="Previous image" style="position: absolute; top: 50%; left: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #1a1a1a; opacity: 0; transition: opacity 0.3s ease; z-index: 2;">&#8249;</button>
             <button class="gallery-arrow gallery-arrow--right" aria-label="Next image" style="position: absolute; top: 50%; right: 12px; transform: translateY(-50%); background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #1a1a1a; opacity: 0; transition: opacity 0.3s ease; z-index: 2;">&#8250;</button>
           </div>
@@ -81,39 +172,126 @@
         <div class="shop-simple__info">
           <span class="shop-simple__brand">ROCK Water</span>
           <h1 class="shop-simple__title">Premium Spring Water</h1>
-          <p class="shop-simple__subtitle">12 Pack</p>
+          <p class="shop-simple__subtitle" id="shop-subtitle">12 Pack</p>
           <button class="shop-simple__reviews-link" id="reviews-toggle">
             <span class="shop-simple__reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <span class="shop-simple__reviews-count">Reviews</span>
           </button>
           <p class="shop-simple__desc">Premium spring water with electrolytes. Sourced from the Smoky Mountains, naturally filtered through ancient limestone.</p>
 
-          <div class="shop-simple__features">
-            <span class="product-detail__feature-tag">Naturally Alkaline</span>
-            <span class="product-detail__feature-tag">Electrolytes</span>
-            <span class="product-detail__feature-tag">Trace Minerals</span>
-            <span class="product-detail__feature-tag">No Plastic</span>
+          <p class="shop-simple__price" id="shop-price">$29.99</p>
+
+          <div class="product-accordion">
+            <button class="product-accordion__trigger" aria-expanded="false">
+              <span>Why You'll Love It</span>
+              <span class="product-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="product-accordion__panel">
+              <div class="product-accordion__inner">
+                <div class="product-accordion__item">
+                  <button class="product-accordion__sub-trigger" aria-expanded="false">
+                    <span>Naturally Alkaline</span>
+                    <span class="product-accordion__icon" aria-hidden="true">+</span>
+                  </button>
+                  <div class="product-accordion__sub-panel">
+                    <div class="product-accordion__sub-inner">
+                      <p>A balanced 7.8+ pH straight from the source. No chemicals, no additives. Drink the way nature designed it.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-accordion__item">
+                  <button class="product-accordion__sub-trigger" aria-expanded="false">
+                    <span>Real Electrolytes</span>
+                    <span class="product-accordion__icon" aria-hidden="true">+</span>
+                  </button>
+                  <div class="product-accordion__sub-panel">
+                    <div class="product-accordion__sub-inner">
+                      <p>Magnesium, sodium, and potassium occurring naturally in every can. Real hydration that actually replenishes.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-accordion__item">
+                  <button class="product-accordion__sub-trigger" aria-expanded="false">
+                    <span>Trace Minerals</span>
+                    <span class="product-accordion__icon" aria-hidden="true">+</span>
+                  </button>
+                  <div class="product-accordion__sub-panel">
+                    <div class="product-accordion__sub-inner">
+                      <p>Naturally filtered through ancient limestone in the Smoky Mountains. The mountain does the work.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-accordion__item">
+                  <button class="product-accordion__sub-trigger" aria-expanded="false">
+                    <span>No Plastic</span>
+                    <span class="product-accordion__icon" aria-hidden="true">+</span>
+                  </button>
+                  <div class="product-accordion__sub-panel">
+                    <div class="product-accordion__sub-inner">
+                      <p>Infinitely recyclable aluminum. Better for you, better for the planet. No microplastics, no compromise.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="shop-simple__pricing">
-            <span class="shop-simple__price">$24.00</span>
+          <!-- Purchase Type Selector -->
+          <div class="purchase-type" id="purchase-type">
+            <button type="button" class="purchase-type__opt" id="pt-onetime">
+              <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
+              <span class="purchase-type__body">
+                <span class="purchase-type__row">
+                  <span class="purchase-type__opt-title">One-time purchase</span>
+                </span>
+              </span>
+              <span class="purchase-type__price" id="pt-onetime-price">$29.99</span>
+            </button>
+            <div class="purchase-type__opt purchase-type__opt--active" id="pt-subscribe" role="radio" aria-checked="true" tabindex="0">
+              <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
+              <span class="purchase-type__body">
+                <span class="purchase-type__opt-popular">Most Popular</span>
+                <span class="purchase-type__row">
+                  <span class="purchase-type__opt-title">Subscribe &amp; Save</span>
+                  <span class="purchase-type__opt-badge" id="subscribe-badge">20% off</span>
+                </span>
+                <!-- Frequency Selector — inside the card -->
+                <div class="purchase-frequency" id="purchase-frequency" style="margin-top:10px;">
+                  <span class="purchase-frequency__label">Deliver every</span>
+                  <div class="freq-select-wrap">
+                    <select class="freq-select" id="frequency-select">
+                      <option value="">Every 2 weeks</option>
+                      <option value="">Every 4 weeks</option>
+                    </select>
+                    <svg class="freq-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+              </span>
+              <span class="purchase-type__price" id="pt-subscribe-price">$23.99</span>
+            </div>
           </div>
 
           <div class="shop-simple__cart-row">
-            <div class="shop-simple__qty">
-              <select id="qty-select" aria-label="Quantity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+            <div class="qty-dropdown" id="qty-dropdown">
+              <button type="button" class="qty-dropdown__btn" id="qty-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
+                <span id="qty-dropdown-label">1</span>
+                <svg class="qty-dropdown__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="qty-dropdown__menu" id="qty-dropdown-menu" role="listbox" aria-label="Quantity">
+                <li role="option" data-value="1" aria-selected="true">1</li>
+                <li role="option" data-value="2">2</li>
+                <li role="option" data-value="3">3</li>
+                <li role="option" data-value="4">4</li>
+                <li role="option" data-value="5">5</li>
+              </ul>
+              <input type="hidden" id="qty-select" value="1">
             </div>
             <button class="btn btn--primary btn--lg shop-simple__buy" id="buy-btn">
               Add to Cart
             </button>
           </div>
-
 
           <a href="#" class="shop-simple__store-link" id="store-link">
             <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,22 +305,74 @@
     </div>
   </section>
 
-  <!-- ============ BEST OF NATURE ============ -->
-  <section class="section section--cream">
+  <!-- ============ MARQUEE BAR ============ -->
+  <div class="marquee marquee--bold">
+    <div class="marquee__track">
+      <span class="marquee__group" aria-hidden="false">
+        <span>Electrolytes</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Trace Minerals</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Infinitely Recyclable</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>No Plastic</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Spring Sourced</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Smoky Mountains</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Naturally Alkaline</span>
+        <span class="marquee__dot">&bull;</span>
+      </span>
+      <span class="marquee__group" aria-hidden="true">
+        <span>Electrolytes</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Trace Minerals</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Infinitely Recyclable</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>No Plastic</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Spring Sourced</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Smoky Mountains</span>
+        <span class="marquee__dot">&bull;</span>
+        <span>Naturally Alkaline</span>
+        <span class="marquee__dot">&bull;</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============ STANDARDS SECTION (Bloom-style) ============ -->
+  <section class="standards fade-in">
     <div class="container">
-      <div class="split fade-in">
-        <div class="split__image" role="img" aria-label="Mountain spring source" style="background-image: url('images/mountain-source1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 450px;">
+      <div class="standards__stats">
+        <div class="standards__stat">
+          <span class="standards__stat-top">pH</span>
+          <span class="standards__stat-num">7.8+</span>
+          <span class="standards__stat-bottom">Naturally Alkaline</span>
         </div>
-        <div class="split__content">
-          <span class="text-eyebrow">Nature</span>
-          <h2>Best of Nature</h2>
-          <p>Natural mountain spring water bottled at the source in the Smoky Mountains of Tennessee.</p>
-          <div class="product-tags">
-            <span class="product-detail__feature-tag">Mountain Spring</span>
-            <span class="product-detail__feature-tag">Naturally Filtered</span>
-            <span class="product-detail__feature-tag">Bottled at Source</span>
-          </div>
+        <div class="standards__stat">
+          <span class="standards__stat-top">Calories</span>
+          <span class="standards__stat-num">0</span>
+          <span class="standards__stat-bottom">Per Can</span>
         </div>
+        <div class="standards__stat">
+          <span class="standards__stat-top">Plastic</span>
+          <span class="standards__stat-num">0%</span>
+          <span class="standards__stat-bottom">Aluminum Only</span>
+        </div>
+        <div class="standards__stat">
+          <span class="standards__stat-top">Electrolytes</span>
+          <span class="standards__stat-num">3</span>
+          <span class="standards__stat-bottom">Natural Minerals</span>
+        </div>
+      </div>
+
+      <div class="standards__copy">
+        <h2 class="standards__title">best of nature</h2>
+        <p class="standards__lede">Natural mountain spring water bottled at the source in the Smoky Mountains of Tennessee. Naturally filtered through ancient limestone for thousands of years.</p>
+        <p class="standards__ingredients"><strong>Ingredients:</strong> Natural Spring Water, Magnesium Sulfate, Sodium Citrate, Potassium Carbonate.</p>
       </div>
     </div>
   </section>
@@ -151,7 +381,7 @@
   <section class="section section--lg">
     <div class="container">
       <div class="split split--reverse fade-in">
-        <div class="split__image" role="img" aria-label="Product science detail" style="background-image: url('images/Product-Science.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 450px;">
+        <div class="split__image" role="img" aria-label="Product science detail" style="background-image: url('images/DCDC.JPG'); background-size: cover; background-position: center bottom; background-repeat: no-repeat; min-height: 450px;">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">Science</span>
@@ -171,23 +401,87 @@
   <!-- ============ REVIEWS ============ -->
   <section class="section section--cream">
     <div class="container">
-      <div class="text-block fade-in" style="margin-bottom: var(--space-3xl);">
+      <div class="text-block fade-in" style="margin-bottom: var(--space-xl);">
         <span class="text-eyebrow">Reviews</span>
         <h2>What People Are Saying</h2>
       </div>
-      <div class="review-mosaic fade-in">
+
+      <!-- Reviews Summary -->
+      <div class="reviews-summary reviews-summary--compact fade-in" style="margin-bottom: var(--space-2xl);">
+        <div class="reviews-summary__rating">
+          <span class="reviews-summary__score">5.0</span>
+          <span class="reviews-summary__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="reviews-summary__count">Based on 9 reviews</span>
+        </div>
+        <div class="reviews-summary__bars">
+          <div class="reviews-summary__bar"><span>5</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:100%;"></div></div><span class="reviews-summary__bar-count">9</span></div>
+          <div class="reviews-summary__bar"><span>4</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+          <div class="reviews-summary__bar"><span>3</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+          <div class="reviews-summary__bar"><span>2</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+          <div class="reviews-summary__bar"><span>1</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+        </div>
+      </div>
+
+      <div class="review-mosaic fade-in" id="shop-review-mosaic">
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Tastes Like the Mountain</h3>
           <p class="review-mosaic__quote">&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
           <span class="review-mosaic__name">Sarah M.</span>
         </div>
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Smooth, Crisp, Different</h3>
           <p class="review-mosaic__quote">&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
           <span class="review-mosaic__name">James T.</span>
         </div>
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Every Detail Thought Through</h3>
           <p class="review-mosaic__quote">&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
           <span class="review-mosaic__name">Maya R.</span>
         </div>
+
+        <div class="review-mosaic__item review-mosaic__item--hidden">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">My Everyday Can</h3>
+          <p class="review-mosaic__quote">&ldquo;This is the kind of can I'd keep in my car, gym bag, or on my desk. Simple, clean, and actually good.&rdquo;</p>
+          <span class="review-mosaic__name">Chris D.</span>
+        </div>
+        <div class="review-mosaic__item review-mosaic__item--hidden">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Perfect Mineral Balance</h3>
+          <p class="review-mosaic__quote">&ldquo;I grabbed one at a pop-up and ended up ordering a case that night. The mineral balance is perfect.&rdquo;</p>
+          <span class="review-mosaic__name">Alyssa K.</span>
+        </div>
+        <div class="review-mosaic__item review-mosaic__item--hidden">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Stands for Something</h3>
+          <p class="review-mosaic__quote">&ldquo;Most water brands feel interchangeable. ROCK feels like it actually stands for something. And it tastes incredible.&rdquo;</p>
+          <span class="review-mosaic__name">Daniel W.</span>
+        </div>
+        <div class="review-mosaic__item review-mosaic__item--hidden">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Crowd Favorite</h3>
+          <p class="review-mosaic__quote">&ldquo;Brought it to a hiking trip with friends. Everyone asked where I got it. Clean taste, great packaging, easy to carry.&rdquo;</p>
+          <span class="review-mosaic__name">Jordan P.</span>
+        </div>
+        <div class="review-mosaic__item review-mosaic__item--hidden">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Real Hydration</h3>
+          <p class="review-mosaic__quote">&ldquo;I keep coming back to it. No aftertaste, no weird additives. Just real water that actually hydrates.&rdquo;</p>
+          <span class="review-mosaic__name">Nicole F.</span>
+        </div>
+        <div class="review-mosaic__item review-mosaic__item--hidden">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Clean Through &amp; Through</h3>
+          <p class="review-mosaic__quote">&ldquo;Finally a water brand that gets it. Clean source, clean can, clean taste. Nothing more, nothing less.&rdquo;</p>
+          <span class="review-mosaic__name">Tyler B.</span>
+        </div>
+      </div>
+
+      <div class="reviews-cta-wrap fade-in" style="text-align: center; margin-top: var(--space-2xl);">
+        <button type="button" class="btn btn--secondary" id="shop-reviews-toggle" aria-expanded="false" aria-controls="shop-review-mosaic">Show More</button>
       </div>
     </div>
   </section>
@@ -198,10 +492,11 @@
       <div class="footer__row">
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -221,7 +516,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms &amp; Conditions</a>
             </div>
@@ -245,8 +540,6 @@
       <h3 class="reviews-panel__title">Customers Say</h3>
       <button class="reviews-panel__close" id="reviews-close" aria-label="Close reviews">&times;</button>
     </div>
-    <p class="reviews-panel__subtitle">What customers are saying about ROCK Water.</p>
-
     <div class="reviews-panel__highlights">
       <div class="reviews-panel__topic">
         <div>
@@ -291,6 +584,24 @@
     <a href="reviews.html" class="reviews-panel__read-all">Read All Reviews</a>
   </div>
 
+  <!-- Store Locator Panel -->
+  <div class="store-panel__overlay" id="store-overlay"></div>
+  <div class="store-panel" id="store-panel">
+    <div class="store-panel__header">
+      <h3 class="store-panel__title">Find Your Nearest Store</h3>
+      <button class="store-panel__close" id="store-close" aria-label="Close store locator">&times;</button>
+    </div>
+
+    <form class="store-panel__search" id="store-search-form" novalidate>
+      <input type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}"
+             class="store-panel__input" id="store-zip-input"
+             placeholder="Enter zip code" autocomplete="postal-code" required>
+      <button type="submit" class="store-panel__search-btn">Search</button>
+    </form>
+
+    <div class="store-panel__results" id="store-results"></div>
+  </div>
+
   <!-- Cart Drawer -->
   <div class="cart-drawer__overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer">
@@ -299,37 +610,83 @@
       <button class="cart-drawer__close" id="cart-close" aria-label="Close cart">&times;</button>
     </div>
     <div class="cart-drawer__body" id="cart-body">
-      <div class="cart-drawer__item">
+      <!-- Empty state -->
+      <div class="cart-drawer__empty" id="cart-empty" style="display: none;">
+        <p class="cart-drawer__empty-title">Your cart is empty</p>
+        <button type="button" class="btn btn--primary" id="cart-empty-shop">Shop Now</button>
+      </div>
+
+      <!-- 12-pack Line Item -->
+      <div class="cart-drawer__item" id="cart-12pack-item" style="display: none;">
         <div class="cart-drawer__item-img">
           <img src="images/newproductshot.png" alt="ROCK Water 12 Pack">
         </div>
         <div class="cart-drawer__item-info">
-          <p class="cart-drawer__item-brand">ROCK Water</p>
+          <p class="cart-drawer__item-brand">Rock Water</p>
           <p class="cart-drawer__item-name">Premium Spring Water</p>
           <p class="cart-drawer__item-meta">12 Pack</p>
+          <p class="cart-drawer__item-sub" id="cart-12pack-sub-tag" style="display:none;">↻ Subscribe</p>
           <div class="cart-qty-control">
-            <button class="cart-qty-btn" id="cart-qty-decrease" aria-label="Decrease quantity">&minus;</button>
-            <span class="cart-qty-value" id="cart-qty">1</span>
-            <button class="cart-qty-btn" id="cart-qty-increase" aria-label="Increase quantity">+</button>
+            <button class="cart-qty-btn" id="cart-12pack-qty-decrease" aria-label="Decrease 12-pack quantity">&minus;</button>
+            <span class="cart-qty-value" id="cart-12pack-qty">1</span>
+            <button class="cart-qty-btn" id="cart-12pack-qty-increase" aria-label="Increase 12-pack quantity">+</button>
           </div>
+          <button class="cart-drawer__remove" id="cart-remove-12pack">Remove</button>
         </div>
-        <div class="cart-drawer__item-price" id="cart-item-price">$24.00</div>
+        <div class="cart-drawer__item-price" id="cart-12pack-item-price">$29.99</div>
       </div>
 
-      <!-- Hat Upsell -->
-      <div class="cart-upsell" id="cart-hat-upsell">
+      <!-- 8-pack Line Item -->
+      <div class="cart-drawer__item" id="cart-8pack-item" style="display: none;">
+        <div class="cart-drawer__item-img">
+          <img src="images/newproductshot.png" alt="ROCK Water 8 Pack">
+        </div>
+        <div class="cart-drawer__item-info">
+          <p class="cart-drawer__item-brand">Rock Water</p>
+          <p class="cart-drawer__item-name">Premium Spring Water</p>
+          <p class="cart-drawer__item-meta">8 Pack</p>
+          <div class="cart-qty-control">
+            <button class="cart-qty-btn" id="cart-8pack-qty-decrease" aria-label="Decrease 8-pack quantity">&minus;</button>
+            <span class="cart-qty-value" id="cart-8pack-qty">1</span>
+            <button class="cart-qty-btn" id="cart-8pack-qty-increase" aria-label="Increase 8-pack quantity">+</button>
+          </div>
+          <button class="cart-drawer__remove" id="cart-remove-8pack">Remove</button>
+        </div>
+        <div class="cart-drawer__item-price" id="cart-8pack-item-price">$21.99</div>
+      </div>
+
+      <!-- Upsells -->
+      <div class="cart-upsell" id="cart-upsell-section" style="display: none;">
         <p class="cart-upsell__label">You may also like</p>
-        <div class="cart-upsell__item">
+
+        <!-- Hat Upsell -->
+        <div class="cart-upsell__item cart-upsell__item--soldout" id="cart-hat-upsell">
           <div class="cart-upsell__img">
             <img src="images/hat.png" alt="ROCK Hat">
           </div>
           <div class="cart-upsell__info">
             <p class="cart-upsell__brand">ROCK</p>
-            <p class="cart-upsell__name">ROCK Hat</p>
+            <p class="cart-upsell__name">Hat</p>
             <p class="cart-upsell__price">$45.00</p>
+            <p class="cart-upsell__tag cart-upsell__tag--soldout">&#9671; Out of Stock</p>
           </div>
-          <button class="cart-upsell__add" id="cart-add-hat" aria-label="Add hat to cart">+</button>
+          <button class="cart-upsell__add" id="cart-add-hat" aria-label="Hat sold out" disabled>+</button>
         </div>
+
+        <!-- Sauna Cap Upsell -->
+        <div class="cart-upsell__item" id="cart-saunacap-upsell">
+          <div class="cart-upsell__img">
+            <img src="images/saunacap.png" alt="ROCK Sauna Cap">
+          </div>
+          <div class="cart-upsell__info">
+            <p class="cart-upsell__brand">ROCK</p>
+            <p class="cart-upsell__name">Sauna Cap</p>
+            <p class="cart-upsell__price">$40.00</p>
+            <p class="cart-upsell__tag">&#9671; Limited Supply</p>
+          </div>
+          <button class="cart-upsell__add" id="cart-add-saunacap" aria-label="Add sauna cap to cart">+</button>
+        </div>
+
       </div>
 
       <!-- Hat Added (shown after adding) -->
@@ -339,17 +696,42 @@
         </div>
         <div class="cart-drawer__item-info">
           <p class="cart-drawer__item-brand">ROCK</p>
-          <p class="cart-drawer__item-name">ROCK Hat</p>
+          <p class="cart-drawer__item-name">Hat</p>
           <p class="cart-drawer__item-meta">One Size</p>
+          <div class="cart-qty-control">
+            <button class="cart-qty-btn" id="cart-hat-qty-decrease" aria-label="Decrease hat quantity">&minus;</button>
+            <span class="cart-qty-value" id="cart-hat-qty">1</span>
+            <button class="cart-qty-btn" id="cart-hat-qty-increase" aria-label="Increase hat quantity">+</button>
+          </div>
           <button class="cart-drawer__remove" id="cart-remove-hat">Remove</button>
         </div>
-        <div class="cart-drawer__item-price">$45.00</div>
+        <div class="cart-drawer__item-price" id="cart-hat-item-price">$45.00</div>
       </div>
+
+      <!-- Sauna Cap Added (shown after adding) -->
+      <div class="cart-drawer__item" id="cart-saunacap-item" style="display: none;">
+        <div class="cart-drawer__item-img">
+          <img src="images/saunacap.png" alt="ROCK Sauna Cap">
+        </div>
+        <div class="cart-drawer__item-info">
+          <p class="cart-drawer__item-brand">ROCK</p>
+          <p class="cart-drawer__item-name">Sauna Cap</p>
+          <p class="cart-drawer__item-meta">One Size</p>
+          <div class="cart-qty-control">
+            <button class="cart-qty-btn" id="cart-saunacap-qty-decrease" aria-label="Decrease sauna cap quantity">&minus;</button>
+            <span class="cart-qty-value" id="cart-saunacap-qty">1</span>
+            <button class="cart-qty-btn" id="cart-saunacap-qty-increase" aria-label="Increase sauna cap quantity">+</button>
+          </div>
+          <button class="cart-drawer__remove" id="cart-remove-saunacap">Remove</button>
+        </div>
+        <div class="cart-drawer__item-price" id="cart-saunacap-item-price">$40.00</div>
+      </div>
+
     </div>
-    <div class="cart-drawer__footer">
+    <div class="cart-drawer__footer" id="cart-footer">
       <div class="cart-drawer__subtotal">
         <span>Subtotal</span>
-        <span id="cart-subtotal">$24.00</span>
+        <span id="cart-subtotal">$0.00</span>
       </div>
       <p class="cart-drawer__shipping-note">Shipping calculated at checkout</p>
       <button class="btn btn--primary btn--lg cart-drawer__checkout" id="cart-checkout">Checkout</button>
@@ -358,8 +740,81 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/stores.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Product accordion ("Why You'll Love It") + nested sub-items
+      (function() {
+        var triggers = document.querySelectorAll('.product-accordion__trigger, .product-accordion__sub-trigger');
+        triggers.forEach(function(t) {
+          t.addEventListener('click', function() {
+            var open = t.getAttribute('aria-expanded') === 'true';
+            t.setAttribute('aria-expanded', open ? 'false' : 'true');
+          });
+        });
+      })();
+
+      // Pack selector (8-pack / 12-pack)
+      (function() {
+        var cards = document.querySelectorAll('.pack-card');
+        var priceEl = document.getElementById('shop-price');
+        var subtitleEl = document.getElementById('shop-subtitle');
+        if (!cards.length) return;
+
+        cards.forEach(function(card) {
+          card.addEventListener('click', function() {
+            if (card.disabled || card.classList.contains('pack-card--disabled')) return;
+            var pack = parseInt(card.getAttribute('data-pack'), 10);
+            // update visual selection
+            cards.forEach(function(c) {
+              c.classList.remove('pack-card--active');
+              c.setAttribute('aria-pressed', 'false');
+            });
+            card.classList.add('pack-card--active');
+            card.setAttribute('aria-pressed', 'true');
+            // update state + displays
+            currentPack = pack;
+            productVariantId = (pack === 8) ? variantId8pack : variantId12pack;
+            if (priceEl) priceEl.textContent = '$' + packPrice[pack].toFixed(2);
+            if (subtitleEl) subtitleEl.textContent = pack + ' Pack';
+          });
+        });
+      })();
+
+      // Quantity dropdown (custom, pill-style)
+      (function() {
+        var wrap = document.getElementById('qty-dropdown');
+        var btn = document.getElementById('qty-dropdown-btn');
+        var label = document.getElementById('qty-dropdown-label');
+        var menu = document.getElementById('qty-dropdown-menu');
+        var hidden = document.getElementById('qty-select');
+        if (!wrap || !btn || !menu) return;
+
+        function close() {
+          wrap.classList.remove('qty-dropdown--open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var open = wrap.classList.toggle('qty-dropdown--open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        menu.querySelectorAll('li').forEach(function(li) {
+          li.addEventListener('click', function() {
+            menu.querySelectorAll('li').forEach(function(other) {
+              other.removeAttribute('aria-selected');
+            });
+            li.setAttribute('aria-selected', 'true');
+            label.textContent = li.textContent;
+            hidden.value = li.getAttribute('data-value');
+            close();
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!wrap.contains(e.target)) close();
+        });
+      })();
+
       // Image Gallery Slider
       var slides = document.querySelectorAll('.gallery-slide');
       var dots = document.querySelectorAll('.gallery-dot');
@@ -367,18 +822,33 @@
       var imageContainer = document.querySelector('.shop-simple__main-image');
       var currentSlide = 0;
 
-      function goToSlide(index) {
-        slides.forEach(function(s, i) {
-          s.style.opacity = i === index ? '1' : '0';
-          if (i === index) s.classList.add('gallery-slide--active');
-          else s.classList.remove('gallery-slide--active');
-        });
+      // Mobile uses native horizontal scroll-snap; desktop uses fade carousel.
+      var mobileScrollQuery = window.matchMedia('(max-width: 768px)');
+      function isScrollMode() { return mobileScrollQuery.matches; }
+
+      function updateDots(index) {
         dots.forEach(function(d, i) {
           d.style.background = i === index ? '#1a1a1a' : '#ccc';
           if (i === index) d.classList.add('gallery-dot--active');
           else d.classList.remove('gallery-dot--active');
         });
         currentSlide = index;
+      }
+
+      function goToSlide(index) {
+        if (isScrollMode() && imageContainer && slides[index]) {
+          // Native scroll: smoothly scroll the target slide into view.
+          imageContainer.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+          updateDots(index);
+          return;
+        }
+        // Desktop fade carousel
+        slides.forEach(function(s, i) {
+          s.style.opacity = i === index ? '1' : '0';
+          if (i === index) s.classList.add('gallery-slide--active');
+          else s.classList.remove('gallery-slide--active');
+        });
+        updateDots(index);
       }
 
       dots.forEach(function(dot) {
@@ -402,23 +872,58 @@
 
       if (imageContainer) {
         imageContainer.addEventListener('mouseenter', function() {
+          if (isScrollMode()) return; // no hover arrows on mobile
           arrows.forEach(function(a) { a.style.opacity = '1'; });
         });
         imageContainer.addEventListener('mouseleave', function() {
           arrows.forEach(function(a) { a.style.opacity = '0'; });
         });
+
+        // Sync the active dot with the user's native finger-scroll on mobile.
+        // Native scroll-snap handles the swipe + release behavior — JS only mirrors it.
+        var scrollSyncTimer = null;
+        imageContainer.addEventListener('scroll', function() {
+          if (!isScrollMode()) return;
+          if (scrollSyncTimer) clearTimeout(scrollSyncTimer);
+          scrollSyncTimer = setTimeout(function() {
+            var center = imageContainer.scrollLeft + imageContainer.clientWidth / 2;
+            var closest = 0;
+            var minDist = Infinity;
+            slides.forEach(function(s, i) {
+              var slideCenter = s.offsetLeft + s.offsetWidth / 2;
+              var dist = Math.abs(slideCenter - center);
+              if (dist < minDist) { minDist = dist; closest = i; }
+            });
+            updateDots(closest);
+          }, 80);
+        }, { passive: true });
       }
 
       // Shopify Storefront API Integration
       var SHOPIFY_DOMAIN = 'e1zq1s-cw.myshopify.com';
       var SHOPIFY_TOKEN = '03b89e7d424e00e12f09045648f5440a';
-      var PRODUCT_ID = 'gid://shopify/Product/9552967631089';
+      var PRODUCT_ID = 'gid://shopify/Product/9552967631089'; // 12-pack
+      var PRODUCT_8PACK_ID = 'gid://shopify/Product/9591834706161'; // 8-pack
       var HAT_PRODUCT_ID = 'gid://shopify/Product/9580733989105';
-      var productVariantId = null;
+      var SAUNACAP_PRODUCT_ID = 'gid://shopify/Product/9589858500849';
+      var productVariantId = null;       // currently selected pack's variant id (for Add to Cart)
+      var variantId12pack = null;
+      var variantId8pack = null;
+      var currentPack = 12; // 8 or 12 — which one Add to Cart will send
+      var packPrice = { 8: 21.99, 12: 29.99 };
+      var qty12pack = 0;
+      var qty8pack = 0;
       var hatVariantId = null;
+      var saunacapVariantId = null;
       var currentCartId = null;
       var hatQty = 0;
-      var waterQty = 1;
+      var saunacapQty = 0;
+      // Subscription state
+      var selectedPurchaseType = 'subscribe'; // 'onetime' | 'subscribe'
+      var sellingPlans = []; // [{id, name, price}]
+      var selectedSellingPlanId = null;
+      var activeSellingPlanId12pack = null; // what's actually in the cart
+      var subscriptionPrice12pack = null;
 
       // GraphQL helper
       function shopifyFetch(query, variables) {
@@ -432,20 +937,97 @@
         }).then(function(r) { return r.json(); });
       }
 
-      // Fetch product on load (variant first, then try selling plans)
+      // Fetch product data via Shopify AJAX API — no token/scope needed, works everywhere
       (function() {
-        // Step 1: Get variant ID (always works)
-        var variantQuery = '{ product(id: "' + PRODUCT_ID + '") { variants(first: 1) { edges { node { id } } } } }';
-        shopifyFetch(variantQuery).then(function(data) {
-          if (!data.data || !data.data.product) {
-            console.error('Product not found.');
-            return;
+        fetch('https://' + SHOPIFY_DOMAIN + '/products/premium-spring-water-12-pack-12oz.js')
+          .then(function(r) { return r.json(); })
+          .then(function(product) {
+            // Variant ID
+            if (product.variants && product.variants.length) {
+              variantId12pack = 'gid://shopify/ProductVariant/' + product.variants[0].id;
+              if (currentPack === 12) productVariantId = variantId12pack;
+            }
+            // Selling plans
+            sellingPlans = [];
+            if (product.selling_plan_groups) {
+              product.selling_plan_groups.forEach(function(group) {
+                group.selling_plans.forEach(function(plan) {
+                  // Use options[0].value for frequency (e.g. "4 weeks") — more reliable than plan name
+                  var optVal = (plan.options && plan.options[0] && plan.options[0].value) || plan.name || '';
+                  var weekMatch = optVal.match(/(\d+)\s*week/i);
+                  if (!weekMatch) return; // skip month/other intervals
+                  var weeks = parseInt(weekMatch[1]);
+                  // Use first-order discount (order_count:1) for display price; fallback to first adjustment
+                  var pct = 0;
+                  if (plan.price_adjustments) {
+                    var firstOrder = plan.price_adjustments.filter(function(a) { return a.order_count === 1; })[0]
+                                  || plan.price_adjustments[0];
+                    if (firstOrder && firstOrder.value_type === 'percentage') pct = firstOrder.value;
+                  }
+                  var shortName = 'Every ' + weeks + ' week' + (weeks > 1 ? 's' : '');
+                  sellingPlans.push({
+                    id: 'gid://shopify/SellingPlan/' + plan.id,
+                    name: shortName,
+                    weeks: weeks,
+                    pct: pct,
+                    price: parseFloat((packPrice[12] * (1 - pct / 100)).toFixed(2))
+                  });
+                });
+              });
+            }
+            // Deduplicate: for each frequency keep the plan with the SMALLEST discount pct
+            // (20% first-order plan, not 15% recurring or any 30% extras from tiered rules)
+            var byFreq = {};
+            sellingPlans.forEach(function(p) {
+              if (!byFreq[p.name] || p.pct < byFreq[p.name].pct) byFreq[p.name] = p;
+            });
+            // Only keep the 2-week and 4-week plans (the two rules we created in Seal)
+            var keep = [2, 4];
+            var byWeeks = {};
+            sellingPlans.forEach(function(p) {
+              if (keep.indexOf(p.weeks) === -1) return;
+              if (!byWeeks[p.weeks] || p.pct < byWeeks[p.weeks].pct) byWeeks[p.weeks] = p;
+            });
+            sellingPlans = keep.map(function(w) { return byWeeks[w]; }).filter(Boolean);
+            if (sellingPlans.length) {
+              selectedSellingPlanId = sellingPlans[0].id;
+              renderFrequencyChips();
+              var first = sellingPlans[0];
+              var discountPct = Math.round((1 - first.price / packPrice[12]) * 100);
+              var badge = document.getElementById('subscribe-badge');
+              if (badge && discountPct > 0) badge.textContent = discountPct + '% off';
+              var subPriceEl = document.getElementById('pt-subscribe-price');
+              if (subPriceEl) subPriceEl.textContent = '$' + first.price.toFixed(2);
+              if (selectedPurchaseType === 'subscribe') {
+                var shopPriceEl = document.getElementById('shop-price');
+                if (shopPriceEl) shopPriceEl.innerHTML = '<span style="text-decoration:line-through;color:#aaa;font-size:0.82em;font-weight:400;">$' + packPrice[12].toFixed(2) + '</span> $' + first.price.toFixed(2);
+              }
+            }
+          }).catch(function(err) { console.error('Product load failed:', err); });
+
+        // 8-pack variant (placeholder until product exists in Shopify)
+        var eightPackPlaceholder = (PRODUCT_8PACK_ID.indexOf('PLACEHOLDER') !== -1);
+        if (eightPackPlaceholder) {
+          // Disable 8-pack card visually but keep it visible
+          var card8 = document.querySelector('.pack-card[data-pack="8"]');
+          if (card8) {
+            card8.classList.add('pack-card--disabled');
+            card8.disabled = true;
+            card8.title = 'Coming soon — Shopify product not yet set up';
           }
-          productVariantId = data.data.product.variants.edges[0].node.id;
-          console.log('Variant loaded:', productVariantId);
-        }).catch(function(err) {
-          console.error('Failed to load product:', err);
-        });
+        } else {
+          var variantQuery8 = '{ product(id: "' + PRODUCT_8PACK_ID + '") { variants(first: 1) { edges { node { id } } } } }';
+          shopifyFetch(variantQuery8).then(function(data) {
+            if (data.data && data.data.product) {
+              variantId8pack = data.data.product.variants.edges[0].node.id;
+              console.log('8-pack variant loaded:', variantId8pack);
+            } else {
+              console.log('8-pack product not found.');
+              var card8 = document.querySelector('.pack-card[data-pack="8"]');
+              if (card8) { card8.classList.add('pack-card--disabled'); card8.disabled = true; }
+            }
+          });
+        }
 
         // Fetch hat variant by product ID
         var hatQuery = '{ product(id: "' + HAT_PRODUCT_ID + '") { variants(first: 1) { edges { node { id } } } } }';
@@ -459,12 +1041,35 @@
             if (hatUpsell) hatUpsell.style.display = 'none';
           }
         });
+
+        // Fetch sauna cap variant by product ID
+        // If product doesn't exist (placeholder ID), keep visible but disable add button
+        var saunacapPlaceholder = (SAUNACAP_PRODUCT_ID.indexOf('PLACEHOLDER') !== -1);
+        if (saunacapPlaceholder) {
+          var scBtn = document.getElementById('cart-add-saunacap');
+          if (scBtn) { scBtn.disabled = true; scBtn.title = 'Coming soon — Shopify product not yet set up'; }
+        } else {
+          var saunacapQuery = '{ product(id: "' + SAUNACAP_PRODUCT_ID + '") { variants(first: 1) { edges { node { id } } } } }';
+          shopifyFetch(saunacapQuery).then(function(data) {
+            if (data.data && data.data.product) {
+              saunacapVariantId = data.data.product.variants.edges[0].node.id;
+              console.log('Sauna cap variant loaded:', saunacapVariantId);
+            } else {
+              console.log('Sauna cap product not found.');
+              var scBtn = document.getElementById('cart-add-saunacap');
+              if (scBtn) scBtn.disabled = true;
+            }
+          });
+        }
+
       })();
 
       // Update cart subtotal display
       function updateCartTotals() {
-        var total = (24.00 * waterQty) + (45.00 * hatQty);
+        var price12 = (activeSellingPlanId12pack && subscriptionPrice12pack) ? subscriptionPrice12pack : 29.99;
+        var total = (price12 * qty12pack) + (21.99 * qty8pack) + (45.00 * hatQty) + (40.00 * saunacapQty);
         document.getElementById('cart-subtotal').textContent = '$' + total.toFixed(2);
+        updateUpsellVisibility();
       }
 
       // Cart state
@@ -478,11 +1083,51 @@
         var data = {
           checkoutUrl: cartCheckoutUrl,
           cartId: currentCartId,
-          waterQty: waterQty,
-          hatQty: hatQty
+          qty12pack: qty12pack,
+          qty8pack: qty8pack,
+          hatQty: hatQty,
+          saunacapQty: saunacapQty,
+          activeSellingPlanId12pack: activeSellingPlanId12pack,
+          subscriptionPrice12pack: subscriptionPrice12pack,
+          savedAt: Date.now()
         };
         localStorage.setItem('rockCart', JSON.stringify(data));
         updateHeaderCartBadge();
+      }
+
+      function renderPackLineItem(pack) {
+        var qty = (pack === 12) ? qty12pack : qty8pack;
+        var unitPrice = packPrice[pack];
+        var itemEl = document.getElementById('cart-' + pack + 'pack-item');
+        var qtyEl = document.getElementById('cart-' + pack + 'pack-qty');
+        var priceEl = document.getElementById('cart-' + pack + 'pack-item-price');
+        var dec = document.getElementById('cart-' + pack + 'pack-qty-decrease');
+        if (!itemEl) return;
+        if (pack === 12 && activeSellingPlanId12pack && subscriptionPrice12pack) {
+          unitPrice = subscriptionPrice12pack;
+        }
+        if (qty > 0) {
+          itemEl.style.display = 'flex';
+          if (qtyEl) qtyEl.textContent = qty;
+          if (priceEl) priceEl.textContent = '$' + (unitPrice * qty).toFixed(2);
+          var subTag = document.getElementById('cart-12pack-sub-tag');
+          if (subTag) subTag.style.display = (pack === 12 && activeSellingPlanId12pack) ? '' : 'none';
+          if (dec) dec.disabled = qty <= 1;
+        } else {
+          itemEl.style.display = 'none';
+        }
+        // Toggle the "You may also like" section based on whether any water pack is in cart
+        updateUpsellVisibility();
+      }
+
+      function updateUpsellVisibility() {
+        var upsell = document.getElementById('cart-upsell-section');
+        var empty = document.getElementById('cart-empty');
+        var footer = document.getElementById('cart-footer');
+        var hasItems = (qty12pack + qty8pack + hatQty + saunacapQty) > 0;
+        if (upsell) upsell.style.display = (qty12pack > 0 || qty8pack > 0) ? '' : 'none';
+        if (empty) empty.style.display = hasItems ? 'none' : '';
+        if (footer) footer.style.display = hasItems ? '' : 'none';
       }
 
       function loadCartFromStorage() {
@@ -492,19 +1137,36 @@
           var data = JSON.parse(raw);
           cartCheckoutUrl = data.checkoutUrl || null;
           currentCartId = data.cartId || null;
-          waterQty = data.waterQty || 1;
+          qty12pack = data.qty12pack || 0;
+          qty8pack = data.qty8pack || 0;
           hatQty = data.hatQty || 0;
+          saunacapQty = data.saunacapQty || 0;
+          activeSellingPlanId12pack = data.activeSellingPlanId12pack || null;
+          subscriptionPrice12pack = data.subscriptionPrice12pack || null;
+          // Show subscribe badge in cart if restored
+          var subTag = document.getElementById('cart-12pack-sub-tag');
+          if (subTag) subTag.style.display = activeSellingPlanId12pack ? '' : 'none';
           // Update drawer UI
           if (cartCheckoutUrl) {
-            document.getElementById('cart-qty').textContent = waterQty;
-            document.getElementById('cart-item-price').textContent = '$' + (24 * waterQty).toFixed(2);
+            renderPackLineItem(12);
+            renderPackLineItem(8);
             updateCartTotals();
             if (hatQty > 0) {
               document.getElementById('cart-hat-upsell').style.display = 'none';
               document.getElementById('cart-hat-item').style.display = 'flex';
+              document.getElementById('cart-hat-qty').textContent = hatQty;
+              document.getElementById('cart-hat-item-price').textContent = '$' + (45 * hatQty).toFixed(2);
+              var hd = document.getElementById('cart-hat-qty-decrease');
+              if (hd) hd.disabled = hatQty <= 1;
             }
-            var dec = document.getElementById('cart-qty-decrease');
-            if (dec) dec.disabled = waterQty <= 1;
+            if (saunacapQty > 0) {
+              document.getElementById('cart-saunacap-upsell').style.display = 'none';
+              document.getElementById('cart-saunacap-item').style.display = 'flex';
+              document.getElementById('cart-saunacap-qty').textContent = saunacapQty;
+              document.getElementById('cart-saunacap-item-price').textContent = '$' + (40 * saunacapQty).toFixed(2);
+              var sd = document.getElementById('cart-saunacap-qty-decrease');
+              if (sd) sd.disabled = saunacapQty <= 1;
+            }
           }
           updateHeaderCartBadge();
         } catch (e) {
@@ -514,7 +1176,7 @@
 
       function updateHeaderCartBadge() {
         if (!cartCountEl) return;
-        var totalItems = waterQty + hatQty;
+        var totalItems = qty12pack + qty8pack + hatQty + saunacapQty;
         if (cartCheckoutUrl && totalItems > 0) {
           cartCountEl.textContent = totalItems;
           cartCountEl.style.display = 'flex';
@@ -538,53 +1200,96 @@
         document.body.style.overflow = '';
       }
 
-      // Quantity controls in cart drawer
-      function updateWaterQty(newQty) {
-        if (newQty < 1 || !productVariantId) return;
-        var qtyDecrease = document.getElementById('cart-qty-decrease');
-        var qtyIncrease = document.getElementById('cart-qty-increase');
-        if (qtyDecrease) qtyDecrease.disabled = true;
-        if (qtyIncrease) qtyIncrease.disabled = true;
+      // Quantity controls for water packs in cart drawer
+      function updatePackQty(pack, newQty) {
+        if (newQty < 1) return;
+        var dec = document.getElementById('cart-' + pack + 'pack-qty-decrease');
+        var inc = document.getElementById('cart-' + pack + 'pack-qty-increase');
+        if (dec) dec.disabled = true;
+        if (inc) inc.disabled = true;
 
-        // Recreate cart with new water qty (preserves hat if present)
-        var lines = [{ merchandiseId: productVariantId, quantity: newQty }];
-        if (hatQty > 0 && hatVariantId) {
-          lines.push({ merchandiseId: hatVariantId, quantity: hatQty });
-        }
+        if (pack === 12) qty12pack = newQty;
+        else qty8pack = newQty;
 
-        var newMutation = 'mutation cartCreate($input: CartInput!) { cartCreate(input: $input) { cart { id checkoutUrl } } }';
-        var newVars = { input: { lines: lines } };
-
-        shopifyFetch(newMutation, newVars).then(function(data) {
-          if (data.data.cartCreate.cart) {
-            currentCartId = data.data.cartCreate.cart.id;
-            cartCheckoutUrl = data.data.cartCreate.cart.checkoutUrl;
-            waterQty = newQty;
-            document.getElementById('cart-qty').textContent = waterQty;
-            document.getElementById('cart-item-price').textContent = '$' + (24 * waterQty).toFixed(2);
-            updateCartTotals();
-            saveCartToStorage();
-          }
-          if (qtyDecrease) qtyDecrease.disabled = waterQty <= 1;
-          if (qtyIncrease) qtyIncrease.disabled = false;
+        rebuildCart(function() {
+          renderPackLineItem(pack);
+          updateCartTotals();
+        }).then(function() {
+          if (dec) dec.disabled = ((pack === 12 ? qty12pack : qty8pack) <= 1);
+          if (inc) inc.disabled = false;
         }).catch(function() {
-          if (qtyDecrease) qtyDecrease.disabled = false;
-          if (qtyIncrease) qtyIncrease.disabled = false;
+          if (dec) dec.disabled = false;
+          if (inc) inc.disabled = false;
         });
       }
 
-      var qtyDecreaseBtn = document.getElementById('cart-qty-decrease');
-      var qtyIncreaseBtn = document.getElementById('cart-qty-increase');
-      if (qtyDecreaseBtn) {
-        qtyDecreaseBtn.addEventListener('click', function() {
-          if (waterQty > 1) updateWaterQty(waterQty - 1);
+      function removePack(pack) {
+        if (pack === 12) qty12pack = 0;
+        else qty8pack = 0;
+        rebuildCart(function() {
+          renderPackLineItem(pack);
+          updateCartTotals();
         });
       }
-      if (qtyIncreaseBtn) {
-        qtyIncreaseBtn.addEventListener('click', function() {
-          updateWaterQty(waterQty + 1);
+
+      [12, 8].forEach(function(pack) {
+        var dec = document.getElementById('cart-' + pack + 'pack-qty-decrease');
+        var inc = document.getElementById('cart-' + pack + 'pack-qty-increase');
+        var rm  = document.getElementById('cart-remove-' + pack + 'pack');
+        if (dec) dec.addEventListener('click', function() {
+          var current = (pack === 12) ? qty12pack : qty8pack;
+          if (current > 1) updatePackQty(pack, current - 1);
+        });
+        if (inc) inc.addEventListener('click', function() {
+          var current = (pack === 12) ? qty12pack : qty8pack;
+          updatePackQty(pack, current + 1);
+        });
+        if (rm) rm.addEventListener('click', function() { removePack(pack); });
+      });
+
+      // Hat / Sauna Cap quantity updates (uses rebuildCart, defined below)
+      function updateHatQty(newQty) {
+        if (newQty < 1 || hatQty === newQty) return;
+        var dec = document.getElementById('cart-hat-qty-decrease');
+        var inc = document.getElementById('cart-hat-qty-increase');
+        if (dec) dec.disabled = true;
+        if (inc) inc.disabled = true;
+        hatQty = newQty;
+        rebuildCart(function() {
+          document.getElementById('cart-hat-qty').textContent = hatQty;
+          document.getElementById('cart-hat-item-price').textContent = '$' + (45 * hatQty).toFixed(2);
+          updateCartTotals();
+        }).then(function() {
+          if (dec) dec.disabled = hatQty <= 1;
+          if (inc) inc.disabled = false;
         });
       }
+      function updateSaunacapQty(newQty) {
+        if (newQty < 1 || saunacapQty === newQty) return;
+        var dec = document.getElementById('cart-saunacap-qty-decrease');
+        var inc = document.getElementById('cart-saunacap-qty-increase');
+        if (dec) dec.disabled = true;
+        if (inc) inc.disabled = true;
+        saunacapQty = newQty;
+        rebuildCart(function() {
+          document.getElementById('cart-saunacap-qty').textContent = saunacapQty;
+          document.getElementById('cart-saunacap-item-price').textContent = '$' + (40 * saunacapQty).toFixed(2);
+          updateCartTotals();
+        }).then(function() {
+          if (dec) dec.disabled = saunacapQty <= 1;
+          if (inc) inc.disabled = false;
+        });
+      }
+
+      var hatDec = document.getElementById('cart-hat-qty-decrease');
+      var hatInc = document.getElementById('cart-hat-qty-increase');
+      if (hatDec) hatDec.addEventListener('click', function() { if (hatQty > 1) updateHatQty(hatQty - 1); });
+      if (hatInc) hatInc.addEventListener('click', function() { updateHatQty(hatQty + 1); });
+
+      var scDec = document.getElementById('cart-saunacap-qty-decrease');
+      var scInc = document.getElementById('cart-saunacap-qty-increase');
+      if (scDec) scDec.addEventListener('click', function() { if (saunacapQty > 1) updateSaunacapQty(saunacapQty - 1); });
+      if (scInc) scInc.addEventListener('click', function() { updateSaunacapQty(saunacapQty + 1); });
 
       // Header cart icon - open drawer if cart exists
       if (headerCartBtn) {
@@ -600,6 +1305,7 @@
 
       // Restore cart on page load
       loadCartFromStorage();
+      updateUpsellVisibility();
 
       // Auto-open cart if returning from another page
       if (window.location.search.indexOf('openCart=1') !== -1 && cartCheckoutUrl) {
@@ -622,46 +1328,33 @@
 
         btn.disabled = true;
 
-        var line = {
-          merchandiseId: productVariantId,
-          quantity: qty
-        };
-
-        // Create cart via Storefront API
-        var mutation = 'mutation cartCreate($input: CartInput!) { cartCreate(input: $input) { cart { checkoutUrl } userErrors { field message } } }';
-        var variables = {
-          input: {
-            lines: [line]
-          }
-        };
-
-        // Create cart with cart ID for adding hat later
-        var fullMutation = 'mutation cartCreate($input: CartInput!) { cartCreate(input: $input) { cart { id checkoutUrl } userErrors { field message } } }';
-
-        shopifyFetch(fullMutation, variables).then(function(data) {
-          if (data.data.cartCreate.cart && data.data.cartCreate.cart.checkoutUrl) {
-            currentCartId = data.data.cartCreate.cart.id;
-            cartCheckoutUrl = data.data.cartCreate.cart.checkoutUrl;
-            waterQty = qty;
-            hatQty = 0;
-            // Reset hat display
-            document.getElementById('cart-hat-item').style.display = 'none';
-            document.getElementById('cart-hat-upsell').style.display = '';
-            // Update drawer contents
-            var price = 24.00 * qty;
-            document.getElementById('cart-qty').textContent = qty;
-            document.getElementById('cart-item-price').textContent = '$' + price.toFixed(2);
-            updateCartTotals();
-            saveCartToStorage();
-            btn.disabled = false;
-            openCart();
+        // Capture subscription selection for 12-pack
+        if (currentPack === 12) {
+          if (selectedPurchaseType === 'subscribe' && selectedSellingPlanId) {
+            activeSellingPlanId12pack = selectedSellingPlanId;
+            var activePlan = sellingPlans.find(function(p) { return p.id === selectedSellingPlanId; });
+            subscriptionPrice12pack = activePlan ? activePlan.price : null;
           } else {
-            console.error('Cart errors:', data.data.cartCreate.userErrors);
-            btn.disabled = false;
-            alert('Something went wrong. Please try again.');
+            activeSellingPlanId12pack = null;
+            subscriptionPrice12pack = null;
           }
+        }
+        // Increment the selected pack's qty (additive — doesn't wipe other items in cart)
+        if (currentPack === 12) qty12pack += qty;
+        else qty8pack += qty;
+
+        rebuildCart(function() {
+          renderPackLineItem(12);
+          renderPackLineItem(8);
+          updateCartTotals();
+          openCart();
+        }).then(function() {
+          btn.disabled = false;
         }).catch(function(err) {
           console.error('Checkout error:', err);
+          // Roll back the qty change on failure
+          if (currentPack === 12) qty12pack -= qty;
+          else qty8pack -= qty;
           btn.disabled = false;
           alert('Something went wrong. Please try again.');
         });
@@ -687,6 +1380,10 @@
               hatQty = 1;
               document.getElementById('cart-hat-upsell').style.display = 'none';
               document.getElementById('cart-hat-item').style.display = 'flex';
+              document.getElementById('cart-hat-qty').textContent = '1';
+              document.getElementById('cart-hat-item-price').textContent = '$45.00';
+              var hd = document.getElementById('cart-hat-qty-decrease');
+              if (hd) hd.disabled = true;
               updateCartTotals();
               saveCartToStorage();
             } else {
@@ -697,34 +1394,96 @@
         });
       }
 
+      // Helper: rebuild cart from current state (water + any add-ons still active)
+      function rebuildCart(onSuccess) {
+        var lines = [];
+        if (qty12pack > 0 && variantId12pack) {
+          var line12 = { merchandiseId: variantId12pack, quantity: qty12pack };
+          if (activeSellingPlanId12pack) line12.sellingPlanId = activeSellingPlanId12pack;
+          lines.push(line12);
+        }
+        if (qty8pack > 0 && variantId8pack) lines.push({ merchandiseId: variantId8pack, quantity: qty8pack });
+        if (hatQty > 0 && hatVariantId) lines.push({ merchandiseId: hatVariantId, quantity: hatQty });
+        if (saunacapQty > 0 && saunacapVariantId) lines.push({ merchandiseId: saunacapVariantId, quantity: saunacapQty });
+
+        if (lines.length === 0) {
+          // Cart is empty — clear out
+          currentCartId = null;
+          cartCheckoutUrl = null;
+          saveCartToStorage();
+          if (onSuccess) onSuccess();
+          return Promise.resolve();
+        }
+
+        var newMutation = 'mutation cartCreate($input: CartInput!) { cartCreate(input: $input) { cart { id checkoutUrl } } }';
+        var newVars = { input: { lines: lines } };
+
+        return shopifyFetch(newMutation, newVars).then(function(data) {
+          if (data.data.cartCreate.cart) {
+            currentCartId = data.data.cartCreate.cart.id;
+            cartCheckoutUrl = data.data.cartCreate.cart.checkoutUrl;
+            if (onSuccess) onSuccess();
+            saveCartToStorage();
+          }
+        });
+      }
+
       // Remove hat from cart
       var removeHatBtn = document.getElementById('cart-remove-hat');
       if (removeHatBtn) {
         removeHatBtn.addEventListener('click', function() {
-          // Recreate cart without hat
-          if (!productVariantId) return;
           var btn = this;
           btn.disabled = true;
+          hatQty = 0;
+          rebuildCart(function() {
+            document.getElementById('cart-hat-item').style.display = 'none';
+            document.getElementById('cart-hat-upsell').style.display = '';
+            updateCartTotals();
+          }).then(function() { btn.disabled = false; });
+        });
+      }
 
-          var newMutation = 'mutation cartCreate($input: CartInput!) { cartCreate(input: $input) { cart { id checkoutUrl } } }';
-          var newVars = {
-            input: {
-              lines: [{ merchandiseId: productVariantId, quantity: waterQty }]
-            }
-          };
-
-          shopifyFetch(newMutation, newVars).then(function(data) {
-            if (data.data.cartCreate.cart) {
-              currentCartId = data.data.cartCreate.cart.id;
-              cartCheckoutUrl = data.data.cartCreate.cart.checkoutUrl;
-              hatQty = 0;
-              document.getElementById('cart-hat-item').style.display = 'none';
-              document.getElementById('cart-hat-upsell').style.display = '';
+      // Add sauna cap to cart
+      var addSaunacapBtn = document.getElementById('cart-add-saunacap');
+      if (addSaunacapBtn) {
+        addSaunacapBtn.addEventListener('click', function() {
+          if (!saunacapVariantId || !currentCartId) return;
+          var btn = this;
+          btn.disabled = true;
+          var addMutation = 'mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) { cartLinesAdd(cartId: $cartId, lines: $lines) { cart { checkoutUrl } userErrors { field message } } }';
+          var addVars = { cartId: currentCartId, lines: [{ merchandiseId: saunacapVariantId, quantity: 1 }] };
+          shopifyFetch(addMutation, addVars).then(function(data) {
+            if (data.data.cartLinesAdd.cart) {
+              cartCheckoutUrl = data.data.cartLinesAdd.cart.checkoutUrl;
+              saunacapQty = 1;
+              document.getElementById('cart-saunacap-upsell').style.display = 'none';
+              document.getElementById('cart-saunacap-item').style.display = 'flex';
+              document.getElementById('cart-saunacap-qty').textContent = '1';
+              document.getElementById('cart-saunacap-item-price').textContent = '$40.00';
+              var sd = document.getElementById('cart-saunacap-qty-decrease');
+              if (sd) sd.disabled = true;
               updateCartTotals();
               saveCartToStorage();
+            } else {
+              console.error('Add sauna cap errors:', data.data.cartLinesAdd.userErrors);
             }
             btn.disabled = false;
           });
+        });
+      }
+
+      // Remove sauna cap from cart
+      var removeSaunacapBtn = document.getElementById('cart-remove-saunacap');
+      if (removeSaunacapBtn) {
+        removeSaunacapBtn.addEventListener('click', function() {
+          var btn = this;
+          btn.disabled = true;
+          saunacapQty = 0;
+          rebuildCart(function() {
+            document.getElementById('cart-saunacap-item').style.display = 'none';
+            document.getElementById('cart-saunacap-upsell').style.display = '';
+            updateCartTotals();
+          }).then(function() { btn.disabled = false; });
         });
       }
 
@@ -732,17 +1491,106 @@
       document.getElementById('cart-close').addEventListener('click', closeCart);
       document.getElementById('cart-overlay').addEventListener('click', closeCart);
       document.getElementById('cart-continue').addEventListener('click', closeCart);
+      var emptyShopBtn = document.getElementById('cart-empty-shop');
+      if (emptyShopBtn) emptyShopBtn.addEventListener('click', closeCart);
       document.getElementById('cart-checkout').addEventListener('click', function() {
         if (cartCheckoutUrl) {
           window.location.href = cartCheckoutUrl;
         }
       });
 
-      // Store locator placeholder
-      document.getElementById('store-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('Store locator coming soon!');
-      });
+      // Store locator
+      (function() {
+        var STORES = window.ROCK_STORES || [];
+        var panel = document.getElementById('store-panel');
+        var overlay = document.getElementById('store-overlay');
+        var openBtn = document.getElementById('store-link');
+        var closeBtn = document.getElementById('store-close');
+        var form = document.getElementById('store-search-form');
+        var input = document.getElementById('store-zip-input');
+        var results = document.getElementById('store-results');
+
+        function openPanel() {
+          panel.classList.add('store-panel--open');
+          overlay.classList.add('store-panel__overlay--active');
+          document.body.style.overflow = 'hidden';
+          renderAll();
+          setTimeout(function() { input.focus(); }, 350);
+        }
+        function closePanel() {
+          panel.classList.remove('store-panel--open');
+          overlay.classList.remove('store-panel__overlay--active');
+          document.body.style.overflow = '';
+        }
+        function haversine(lat1, lng1, lat2, lng2) {
+          var toRad = function(d) { return d * Math.PI / 180; };
+          var R = 3958.8; // miles
+          var dLat = toRad(lat2 - lat1);
+          var dLng = toRad(lng2 - lng1);
+          var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                  Math.sin(dLng / 2) * Math.sin(dLng / 2);
+          return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+        function storeHtml(s, distance) {
+          var addr = s.address + ', ' + s.city + ', ' + s.state + ' ' + s.zip;
+          var mapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(addr);
+          var distStr = (distance !== null && distance !== undefined) ? distance.toFixed(1) + ' mi away' : '';
+          return '<div class="store-panel__result">' +
+            '<div class="store-panel__result-name">' + s.name + '</div>' +
+            (distStr ? '<div class="store-panel__result-distance">' + distStr + '</div>' : '') +
+            '<div class="store-panel__result-address">' + addr + '</div>' +
+            '<a href="' + mapsUrl + '" target="_blank" rel="noopener" class="store-panel__directions">Get Directions</a>' +
+            '</div>';
+        }
+        function renderAll() {
+          if (!STORES.length) {
+            results.innerHTML = '<p class="store-panel__empty">No stores listed yet &mdash; check back soon.</p>';
+            return;
+          }
+          results.innerHTML = STORES.map(function(s) { return storeHtml(s, null); }).join('');
+        }
+        function renderSorted(userLat, userLng) {
+          var sorted = STORES.map(function(s) {
+            return { store: s, distance: haversine(userLat, userLng, s.lat, s.lng) };
+          }).sort(function(a, b) { return a.distance - b.distance; });
+          results.innerHTML = sorted.map(function(x) { return storeHtml(x.store, x.distance); }).join('');
+        }
+
+        if (openBtn) {
+          openBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openPanel();
+          });
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closePanel);
+        if (overlay) overlay.addEventListener('click', closePanel);
+
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var zip = input.value.trim();
+            if (!/^\d{5}$/.test(zip)) {
+              results.innerHTML = '<p class="store-panel__error">Please enter a valid 5-digit zip code.</p>';
+              return;
+            }
+            results.innerHTML = '<p class="store-panel__empty">Searching&hellip;</p>';
+            fetch('https://api.zippopotam.us/us/' + zip)
+              .then(function(r) {
+                if (!r.ok) throw new Error('not found');
+                return r.json();
+              })
+              .then(function(data) {
+                var p = data.places && data.places[0];
+                if (!p) throw new Error('no place');
+                renderSorted(parseFloat(p.latitude), parseFloat(p.longitude));
+              })
+              .catch(function() {
+                results.innerHTML = '<p class="store-panel__error">Couldn\'t find that zip code. Please try another.</p>';
+              });
+          });
+        }
+      })();
 
       // Reviews panel
       var reviewsPanel = document.getElementById('reviews-panel');
@@ -764,6 +1612,86 @@
       reviewsToggle.addEventListener('click', openReviews);
       reviewsClose.addEventListener('click', closeReviews);
       reviewsOverlay.addEventListener('click', closeReviews);
+
+      // Purchase type toggle (one-time / subscribe)
+      (function() {
+        var ptOnetime = document.getElementById('pt-onetime');
+        var ptSubscribe = document.getElementById('pt-subscribe');
+        var freqSection = document.getElementById('purchase-frequency');
+        var shopPriceEl = document.getElementById('shop-price');
+
+        function setOneTime() {
+          selectedPurchaseType = 'onetime';
+          ptOnetime.classList.add('purchase-type__opt--active');
+          ptSubscribe.classList.remove('purchase-type__opt--active');
+          if (freqSection) freqSection.style.display = 'none';
+          // Restore one-time price and update the sub label
+          var onetimeSub = ptOnetime.querySelector('.purchase-type__opt-sub');
+          if (shopPriceEl) shopPriceEl.innerHTML = '$' + packPrice[currentPack].toFixed(2);
+          if (onetimeSub) onetimeSub.textContent = '$' + packPrice[currentPack].toFixed(2);
+        }
+        function setSubscribe() {
+          selectedPurchaseType = 'subscribe';
+          ptSubscribe.classList.add('purchase-type__opt--active');
+          ptOnetime.classList.remove('purchase-type__opt--active');
+          if (freqSection) freqSection.style.display = '';
+          if (!sellingPlans.length) return; // price will update once plans load
+          var plan = sellingPlans.find(function(p) { return p.id === selectedSellingPlanId; }) || sellingPlans[0];
+          if (plan && shopPriceEl) {
+            shopPriceEl.innerHTML =
+              '<span style="text-decoration:line-through;color:#aaa;font-size:0.82em;font-weight:400;">$' + packPrice[currentPack].toFixed(2) + '</span> $' + plan.price.toFixed(2);
+          }
+        }
+        if (ptOnetime) ptOnetime.addEventListener('click', setOneTime);
+        if (ptSubscribe) ptSubscribe.addEventListener('click', setSubscribe);
+      })();
+
+      // Render selling plan frequency chips (called after plans load from API)
+
+      // Wire up the frequency select dropdown
+      (function() {
+        var sel = document.getElementById('frequency-select');
+        if (!sel) return;
+        sel.addEventListener('change', function() {
+          var idx = sel.selectedIndex;
+          if (sellingPlans[idx]) {
+            selectedSellingPlanId = sellingPlans[idx].id;
+            if (selectedPurchaseType === 'subscribe' && sellingPlans[idx].price) {
+              var shopPriceEl = document.getElementById('shop-price');
+              if (shopPriceEl) shopPriceEl.innerHTML =
+                '<span style="text-decoration:line-through;color:#aaa;font-size:0.82em;font-weight:400;">$' + packPrice[currentPack].toFixed(2) + '</span> $' + sellingPlans[idx].price.toFixed(2);
+              var subPriceEl = document.getElementById('pt-subscribe-price');
+              if (subPriceEl) subPriceEl.textContent = '$' + sellingPlans[idx].price.toFixed(2);
+            }
+          }
+        });
+      })();
+
+      function renderFrequencyChips() {
+        if (!sellingPlans.length) return;
+        // Populate the select with real plan data
+        var sel = document.getElementById('frequency-select');
+        if (!sel) return;
+        sel.innerHTML = '';
+        sellingPlans.forEach(function(plan) {
+          var opt = document.createElement('option');
+          opt.value = plan.id;
+          opt.textContent = plan.name;
+          sel.appendChild(opt);
+        });
+        selectedSellingPlanId = sellingPlans[0].id;
+      }
+
+      // Inline "Show More" toggle for the shop reviews mosaic
+      var shopReviewsToggle = document.getElementById('shop-reviews-toggle');
+      var shopReviewMosaic = document.getElementById('shop-review-mosaic');
+      if (shopReviewsToggle && shopReviewMosaic) {
+        shopReviewsToggle.addEventListener('click', function () {
+          var expanded = shopReviewMosaic.classList.toggle('is-expanded');
+          shopReviewsToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          shopReviewsToggle.textContent = expanded ? 'Show Less' : 'Show More';
+        });
+      }
     });
   </script>
 </body>
