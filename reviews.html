@@ -10,13 +10,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body>
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -48,17 +65,8 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
-
-  <!-- ============ HERO ============ -->
-  <section class="hero hero--short" style="background: linear-gradient(180deg, #1b4174 0%, #152f55 100%);">
-    <div class="hero__bg"></div>
-    <div class="hero__content">
-      <span class="text-eyebrow">Reviews</span>
-      <h1>What People<br>Are Saying</h1>
-      <p class="hero__tagline">Real feedback from tastings, markets, events, and everyday moments with ROCK Water.</p>
-    </div>
-  </section>
 
   <!-- ============ FEATURED TESTIMONIALS ============ -->
   <section class="section section--lg">
@@ -78,58 +86,92 @@
         ==========================================
       -->
 
+      <!-- Reviews Summary -->
+      <div class="reviews-summary fade-in">
+        <div class="reviews-summary__rating">
+          <span class="reviews-summary__score">5.0</span>
+          <span class="reviews-summary__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="reviews-summary__count">Based on 9 reviews</span>
+        </div>
+        <div class="reviews-summary__bars">
+          <div class="reviews-summary__bar"><span>5</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:100%;"></div></div><span class="reviews-summary__bar-count">9</span></div>
+          <div class="reviews-summary__bar"><span>4</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+          <div class="reviews-summary__bar"><span>3</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+          <div class="reviews-summary__bar"><span>2</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+          <div class="reviews-summary__bar"><span>1</span><div class="reviews-summary__bar-track"><div class="reviews-summary__bar-fill" style="width:0%;"></div></div><span class="reviews-summary__bar-count">0</span></div>
+        </div>
+      </div>
+
       <div class="review-mosaic fade-in">
 
         <!-- Featured Review -->
         <div class="review-mosaic__item review-mosaic__item--featured">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Source Matters</h3>
           <p class="review-mosaic__quote">&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
           <span class="review-mosaic__name">Sarah M.</span>
           <span class="review-mosaic__context">Farmers Market</span>
         </div>
 
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Genuinely Refreshing</h3>
           <p class="review-mosaic__quote">&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
           <span class="review-mosaic__name">James T.</span>
           <span class="review-mosaic__context">Scottsdale Event</span>
         </div>
 
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Built with Intention</h3>
           <p class="review-mosaic__quote">&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
           <span class="review-mosaic__name">Maya R.</span>
           <span class="review-mosaic__context">First Taste</span>
         </div>
 
         <div class="review-mosaic__item review-mosaic__item--featured">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">My Everyday Can</h3>
           <p class="review-mosaic__quote">&ldquo;This is the kind of can I'd keep in my car, gym bag, or on my desk. Simple, clean, and actually good.&rdquo;</p>
           <span class="review-mosaic__name">Chris D.</span>
           <span class="review-mosaic__context">Everyday Hydration</span>
         </div>
 
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Perfect Mineral Balance</h3>
           <p class="review-mosaic__quote">&ldquo;I grabbed one at a pop-up and ended up ordering a case that night. The mineral balance is perfect.&rdquo;</p>
           <span class="review-mosaic__name">Alyssa K.</span>
           <span class="review-mosaic__context">Pop-Up Event</span>
         </div>
 
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Stands for Something</h3>
           <p class="review-mosaic__quote">&ldquo;Most water brands feel interchangeable. ROCK feels like it actually stands for something. And it tastes incredible.&rdquo;</p>
           <span class="review-mosaic__name">Daniel W.</span>
           <span class="review-mosaic__context">Gym</span>
         </div>
 
         <div class="review-mosaic__item review-mosaic__item--featured">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Crowd Favorite</h3>
           <p class="review-mosaic__quote">&ldquo;Brought it to a hiking trip with friends. Everyone asked where I got it. Clean taste, great packaging, easy to carry.&rdquo;</p>
           <span class="review-mosaic__name">Jordan P.</span>
           <span class="review-mosaic__context">Outdoor Adventure</span>
         </div>
 
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Real Hydration</h3>
           <p class="review-mosaic__quote">&ldquo;I keep coming back to it. No aftertaste, no weird additives. Just real water that actually hydrates.&rdquo;</p>
           <span class="review-mosaic__name">Nicole F.</span>
           <span class="review-mosaic__context">Everyday Hydration</span>
         </div>
 
         <div class="review-mosaic__item">
+          <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <h3 class="review-mosaic__title">Clean Through &amp; Through</h3>
           <p class="review-mosaic__quote">&ldquo;Finally a water brand that gets it. Clean source, clean can, clean taste. Nothing more, nothing less.&rdquo;</p>
           <span class="review-mosaic__name">Tyler B.</span>
           <span class="review-mosaic__context">Online Order</span>
@@ -157,6 +199,8 @@
           ==========================================
         -->
         <form class="review-form" id="review-form" action="https://formspree.io/f/xzdjewza" method="POST" style="display: none;">
+          <h3 class="review-form__title">Where did you try Rock Water?</h3>
+
           <div class="review-form__row">
             <div class="review-form__field">
               <label class="review-form__label" for="review-name">Your Name</label>
@@ -169,17 +213,8 @@
           </div>
 
           <div class="review-form__field">
-            <label class="review-form__label" for="review-context">Where did you try ROCK Water?</label>
-            <select id="review-context" name="context" class="review-form__input review-form__select">
-              <option value="" disabled selected>Select one</option>
-              <option value="Farmers Market">Farmers Market</option>
-              <option value="Event">Event</option>
-              <option value="Pop-Up">Pop-Up</option>
-              <option value="Friend / Word of Mouth">Friend / Word of Mouth</option>
-              <option value="Online Order">Online Order</option>
-              <option value="Gym">Gym</option>
-              <option value="Other">Other</option>
-            </select>
+            <label class="review-form__label" for="review-title">Review Title</label>
+            <input type="text" id="review-title" name="title" class="review-form__input" placeholder="Give your review a title" required>
           </div>
 
           <div class="review-form__field">
@@ -187,13 +222,16 @@
             <textarea id="review-comment" name="feedback" class="review-form__input review-form__textarea" placeholder="What did you think?" rows="4" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn--primary btn--lg review-form__submit">Submit Feedback</button>
+          <div class="review-form__actions">
+            <button type="button" class="btn btn--secondary review-form__cancel" id="review-cancel-btn">Cancel</button>
+            <button type="submit" class="btn btn--primary btn--lg review-form__submit">Submit Feedback</button>
+          </div>
         </form>
 
         <!-- Success message (hidden by default) -->
         <div class="review-form__success" id="review-success" style="display: none;">
           <h3>Thank you!</h3>
-          <p>Your feedback means the world to us. We appreciate you taking the time to share your experience with ROCK Water.</p>
+          <p>Your feedback means the world to us. We appreciate you taking the time to share your experience with Rock Water.</p>
         </div>
 
         <!-- Error message (hidden by default) -->
@@ -213,10 +251,11 @@
         <!-- Newsletter signup (left) -->
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -238,7 +277,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms &amp; Conditions</a>
             </div>
@@ -259,7 +298,10 @@
   <script src="js/main.js"></script>
   <script>
     // ---- "Leave a Comment" button reveals form ----
-    document.getElementById('review-open-btn').addEventListener('click', function() {
+    var reviewOpenBtn = document.getElementById('review-open-btn');
+    var reviewCancelBtn = document.getElementById('review-cancel-btn');
+
+    reviewOpenBtn.addEventListener('click', function() {
       this.style.display = 'none';
       var form = document.getElementById('review-form');
       form.style.display = '';
@@ -272,6 +314,14 @@
       form.style.transform = 'translateY(0)';
       // Focus the first field
       document.getElementById('review-name').focus();
+    });
+
+    // ---- Cancel button hides the form and restores the open button ----
+    reviewCancelBtn.addEventListener('click', function() {
+      var form = document.getElementById('review-form');
+      form.style.display = 'none';
+      reviewOpenBtn.style.display = '';
+      reviewOpenBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
     // ---- Feedback Form Submit Handler ----

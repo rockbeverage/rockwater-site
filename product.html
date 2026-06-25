@@ -10,13 +10,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body>
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -48,6 +65,7 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ PRODUCT 1: 12oz SLEEK ============ -->
@@ -208,7 +226,7 @@
         <div class="split__content">
           <span class="text-eyebrow">Hydration</span>
           <h2>Recovery Starts Here</h2>
-          <p>ROCK Water is natural mountain spring water enhanced with electrolytes and trace minerals to support balanced hydration.</p>
+          <p>Rock Water is natural mountain spring water enhanced with electrolytes and trace minerals to support balanced hydration.</p>
           <p>No sugar. No calories. Nothing artificial. Just clean, refreshing water built for everyday life.</p>
         </div>
       </div>
@@ -221,7 +239,7 @@
       <div class="text-block fade-in">
         <span class="text-eyebrow">Nature</span>
         <h2>Best of Nature</h2>
-        <p>Sourced from natural mountain springs and balanced with essential minerals, ROCK Water delivers clean hydration the way nature intended.</p>
+        <p>Sourced from natural mountain springs and balanced with essential minerals, Rock Water delivers clean hydration the way nature intended.</p>
       </div>
     </div>
   </section>
@@ -269,7 +287,7 @@
         <div class="split__content">
           <span class="text-eyebrow">Purpose</span>
           <h2>Intentional Living</h2>
-          <p>ROCK Water is built for people who value movement, clarity, and living life with purpose.</p>
+          <p>Rock Water is built for people who value movement, clarity, and living life with purpose.</p>
           <p>Hydration that supports your foundation.</p>
         </div>
       </div>
@@ -314,10 +332,11 @@
         <!-- Newsletter signup (left) -->
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -339,7 +358,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms &amp; Conditions</a>
             </div>

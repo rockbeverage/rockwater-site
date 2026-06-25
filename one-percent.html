@@ -10,13 +10,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body>
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -43,6 +60,7 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ ARTICLE ============ -->
@@ -53,7 +71,7 @@
     <h1 class="article__title">1% for the Planet</h1>
     <p class="article__deck">1% of our sales are donated to support impactful environmental solutions worldwide.</p>
 
-    <div class="article__hero-image" style="background-image: url('images/impact22.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 400px; border-radius: var(--radius-md);">
+    <div class="article__hero-image" style="background-image: url('images/new11.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 400px; border-radius: var(--radius-md);">
     </div>
 
     <div class="article__body">
@@ -64,10 +82,10 @@
       <p>Environmental challenges affect the landscapes, waterways, and outdoor spaces that inspire everyday life. Supporting long-term solutions helps protect the natural systems that communities, wildlife, and future generations depend on.</p>
 
       <h2>Our Commitment</h2>
-      <p>At ROCK Water, this commitment reflects our belief that business should give back to the places that give us so much. By contributing 1% of sales, we aim to support organizations working to preserve ecosystems, protect clean water, and strengthen environmental resilience.</p>
+      <p>At Rock Water, this commitment reflects our belief that business should give back to the places that give us so much. By contributing 1% of sales, we aim to support organizations working to preserve ecosystems, protect clean water, and strengthen environmental resilience.</p>
 
       <h2>Looking Ahead</h2>
-      <p>As ROCK Water grows, so does our responsibility. Our goal is to keep building a brand that supports a healthier relationship between people, water, and the outdoors.</p>
+      <p>As Rock Water grows, so does our responsibility. Our goal is to keep building a brand that supports a healthier relationship between people, water, and the outdoors.</p>
     </div>
 
     <div class="article__footer">
@@ -86,10 +104,11 @@
         <!-- Newsletter signup (left) -->
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -111,7 +130,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms &amp; Conditions</a>
             </div>

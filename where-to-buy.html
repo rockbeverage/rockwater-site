@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where to Buy ROCK Water</title>
+  <meta name="description" content="Find ROCK Water in stores near you. Currently available in Arizona and shipping nationwide.">
+  <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Leaflet (map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/rock-logo.png" alt="ROCK" class="header__logo-img">
+      </a>
+      <nav class="header__nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="science.html">Benefits</a>
+      </nav>
+      <div class="header__actions">
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="science.html">Benefits</a>
+  </nav>
+
+  <!-- ============ STORE LOCATOR ============ -->
+  <section class="section section--lg wtb-locator-section fade-in">
+    <div class="container">
+      <div class="wtb-locator">
+        <div class="wtb-locator__panel">
+          <form class="wtb-locator__search" id="wtb-search-form" novalidate>
+            <div class="wtb-locator__search-input-wrap">
+              <svg class="wtb-locator__search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="text" id="wtb-zip-input" placeholder="Enter a location" autocomplete="postal-code">
+              <button type="button" class="wtb-locator__geo-btn" id="wtb-geo-btn" aria-label="Use my current location" title="Use my current location">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <circle cx="12" cy="12" r="9"/>
+                  <line x1="12" y1="1" x2="12" y2="4"/>
+                  <line x1="12" y1="20" x2="12" y2="23"/>
+                  <line x1="1" y1="12" x2="4" y2="12"/>
+                  <line x1="20" y1="12" x2="23" y2="12"/>
+                </svg>
+              </button>
+            </div>
+            <div class="wtb-radius" id="wtb-radius-wrap">
+              <button type="button" class="wtb-radius__btn" id="wtb-radius-btn" aria-haspopup="listbox" aria-expanded="false">
+                <span id="wtb-radius-label">25 mi</span>
+                <svg class="wtb-radius__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="wtb-radius__menu" id="wtb-radius-menu" role="listbox" aria-label="Search radius">
+                <li role="option" data-value="5">5 mi</li>
+                <li role="option" data-value="10">10 mi</li>
+                <li role="option" data-value="25" aria-selected="true">25 mi</li>
+                <li role="option" data-value="50">50 mi</li>
+                <li role="option" data-value="100">100 mi</li>
+                <li role="option" data-value="0">Any</li>
+              </ul>
+              <input type="hidden" id="wtb-radius" value="25">
+            </div>
+          </form>
+          <div class="wtb-locator__list" id="wtb-store-list"></div>
+        </div>
+        <div class="wtb-locator__map" id="wtb-map"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOTTOM CTA ============ -->
+  <section class="section section--lg section--navy">
+    <div class="container">
+      <div class="text-block fade-in" style="max-width: 600px;">
+        <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Retailers</span>
+        <h2>Want to Carry Rock Water?</h2>
+        <div style="margin-top: var(--space-xl);">
+          <a href="wholesale.html" class="btn btn--white">Become a Retailer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div class="footer__signup">
+          <h3 class="footer__signup-title">Join the Community</h3>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
+          </form>
+        </div>
+        <div class="footer__columns">
+          <div>
+            <h4 class="footer__heading">Navigate</h4>
+            <div class="footer__links">
+              <a href="shop.html">Shop</a>
+              <a href="story.html">Our Story</a>
+              <a href="science.html">Benefits</a>
+              <a href="reviews.html">Reviews</a>
+              <a href="wholesale.html">Become a Retailer</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer__heading">Support</h4>
+            <div class="footer__links">
+              <a href="contact.html">Contact</a>
+              <a href="faq.html">FAQs</a>
+              <a href="ambassadors.html">Ambassadors</a>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer__heading">Social</h4>
+            <div class="footer__links">
+              <a href="https://www.instagram.com/drinkrockwater" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.tiktok.com/@drinkrockwater" target="_blank" rel="noopener noreferrer">TikTok</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/stores.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var STORES = window.ROCK_STORES || [];
+      var mapEl = document.getElementById('wtb-map');
+      var listEl = document.getElementById('wtb-store-list');
+      var form = document.getElementById('wtb-search-form');
+      var input = document.getElementById('wtb-zip-input');
+      var radiusSel = document.getElementById('wtb-radius');
+      if (!mapEl || typeof L === 'undefined') return;
+
+      // Custom radius dropdown
+      (function() {
+        var wrap = document.getElementById('wtb-radius-wrap');
+        var btn = document.getElementById('wtb-radius-btn');
+        var label = document.getElementById('wtb-radius-label');
+        var menu = document.getElementById('wtb-radius-menu');
+        if (!wrap || !btn || !menu) return;
+
+        function close() {
+          wrap.classList.remove('wtb-radius--open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var open = wrap.classList.toggle('wtb-radius--open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        menu.querySelectorAll('li').forEach(function(li) {
+          li.addEventListener('click', function() {
+            menu.querySelectorAll('li').forEach(function(other) {
+              other.removeAttribute('aria-selected');
+            });
+            li.setAttribute('aria-selected', 'true');
+            label.textContent = li.textContent;
+            radiusSel.value = li.getAttribute('data-value');
+            close();
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!wrap.contains(e.target)) close();
+        });
+      })();
+
+      // Default center — Phoenix (first market)
+      var defaultCenter = STORES.length ? [STORES[0].lat, STORES[0].lng] : [33.4484, -112.0740];
+      var map = L.map('wtb-map', { scrollWheelZoom: true }).setView(defaultCenter, STORES.length > 1 ? 6 : 11);
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd'
+      }).addTo(map);
+
+      // Pin-style marker — clearly a store location, not user's position
+      var rockIcon = L.divIcon({
+        className: 'wtb-marker',
+        html: '<svg viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+                '<path d="M12 0C5.4 0 0 5.4 0 12c0 8 12 20 12 20s12-12 12-20C24 5.4 18.6 0 12 0z" fill="currentColor"/>' +
+                '<circle cx="12" cy="12" r="4.5" fill="#fff"/>' +
+              '</svg>',
+        iconSize: [28, 36],
+        iconAnchor: [14, 36],
+        popupAnchor: [0, -32]
+      });
+
+      // Cluster group — groups nearby pins into a count bubble when zoomed out
+      var clusterGroup = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: true,
+        maxClusterRadius: 60,
+        iconCreateFunction: function(cluster) {
+          var count = cluster.getChildCount();
+          return L.divIcon({
+            className: 'wtb-cluster',
+            html: '<div class="wtb-cluster__inner">' + count + '</div>',
+            iconSize: [44, 44]
+          });
+        }
+      });
+
+      var storeMarkers = STORES.map(function(s) {
+        var marker = L.marker([s.lat, s.lng], { icon: rockIcon });
+        var addr = s.address + ', ' + s.city + ', ' + s.state + ' ' + s.zip;
+        var mapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(addr);
+        marker.bindPopup(
+          '<div class="wtb-popup">' +
+            '<strong>' + s.name + '</strong><br>' +
+            addr + '<br>' +
+            '<a href="' + mapsUrl + '" target="_blank" rel="noopener">Get Directions</a>' +
+          '</div>'
+        );
+        clusterGroup.addLayer(marker);
+        return { store: s, marker: marker };
+      });
+      map.addLayer(clusterGroup);
+
+      function haversine(lat1, lng1, lat2, lng2) {
+        var toRad = function(d) { return d * Math.PI / 180; };
+        var R = 3958.8;
+        var dLat = toRad(lat2 - lat1);
+        var dLng = toRad(lng2 - lng1);
+        var a = Math.sin(dLat/2)*Math.sin(dLat/2) +
+                Math.cos(toRad(lat1))*Math.cos(toRad(lat2)) *
+                Math.sin(dLng/2)*Math.sin(dLng/2);
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      }
+
+      function renderList(items) {
+        if (!items.length) {
+          listEl.innerHTML = '<p class="wtb-locator__empty">No stores found in this area. Try expanding your search radius.</p>';
+          return;
+        }
+        listEl.innerHTML = items.map(function(item) {
+          var s = item.store || item;
+          var dist = item.distance;
+          var addr = s.address + ', ' + s.city + ', ' + s.state + ' ' + s.zip;
+          var mapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(addr);
+          return '<div class="wtb-store">' +
+            '<h3 class="wtb-store__name">' + s.name + '</h3>' +
+            (dist !== undefined ? '<p class="wtb-store__distance">' + dist.toFixed(1) + ' mi</p>' : '') +
+            '<p class="wtb-store__addr">' + s.address + '<br>' + s.city + ', ' + s.state + ' ' + s.zip + '</p>' +
+            '<a href="' + mapsUrl + '" target="_blank" rel="noopener" class="wtb-store__btn">Directions</a>' +
+            '</div>';
+        }).join('');
+      }
+
+      // Initial render — all stores
+      renderList(STORES.map(function(s) { return { store: s }; }));
+      if (STORES.length > 1) {
+        map.fitBounds(STORES.map(function(s) { return [s.lat, s.lng]; }), { padding: [40, 40] });
+      }
+
+      // "Use my current location" button
+      function searchByCoords(userLat, userLng) {
+        var radius = parseInt(radiusSel.value, 10);
+        var sorted = STORES.map(function(s) {
+          return { store: s, distance: haversine(userLat, userLng, s.lat, s.lng) };
+        }).sort(function(a, b) { return a.distance - b.distance; });
+        if (radius > 0) sorted = sorted.filter(function(x) { return x.distance <= radius; });
+        renderList(sorted);
+        map.setView([userLat, userLng], radius > 50 ? 7 : (radius > 25 ? 9 : 10));
+      }
+
+      var geoBtn = document.getElementById('wtb-geo-btn');
+      if (geoBtn) {
+        geoBtn.addEventListener('click', function() {
+          if (!navigator.geolocation) {
+            listEl.innerHTML = '<p class="wtb-locator__error">Your browser doesn\'t support location detection.</p>';
+            return;
+          }
+          listEl.innerHTML = '<p class="wtb-locator__empty">Finding your location&hellip;</p>';
+          geoBtn.classList.add('wtb-locator__geo-btn--active');
+          navigator.geolocation.getCurrentPosition(
+            function(pos) {
+              geoBtn.classList.remove('wtb-locator__geo-btn--active');
+              searchByCoords(pos.coords.latitude, pos.coords.longitude);
+            },
+            function() {
+              geoBtn.classList.remove('wtb-locator__geo-btn--active');
+              listEl.innerHTML = '<p class="wtb-locator__error">Couldn\'t access your location. Try entering a zip code instead.</p>';
+            },
+            { timeout: 10000, maximumAge: 60000 }
+          );
+        });
+      }
+
+      function runLocationSearch(userLat, userLng) {
+        var radius = parseInt(radiusSel.value, 10);
+        var sorted = STORES.map(function(s) {
+          return { store: s, distance: haversine(userLat, userLng, s.lat, s.lng) };
+        }).sort(function(a, b) { return a.distance - b.distance; });
+        if (radius > 0) sorted = sorted.filter(function(x) { return x.distance <= radius; });
+        renderList(sorted);
+        map.setView([userLat, userLng], radius > 50 ? 7 : (radius > 25 ? 9 : 10));
+      }
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var query = (input.value || '').trim();
+          if (!query) {
+            listEl.innerHTML = '<p class="wtb-locator__error">Please enter a location.</p>';
+            return;
+          }
+          listEl.innerHTML = '<p class="wtb-locator__empty">Searching&hellip;</p>';
+
+          // If it's a 5-digit zip, use the fast Zippopotam endpoint
+          if (/^\d{5}$/.test(query)) {
+            fetch('https://api.zippopotam.us/us/' + query)
+              .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+              .then(function(data) {
+                var p = data.places && data.places[0];
+                if (!p) throw new Error();
+                runLocationSearch(parseFloat(p.latitude), parseFloat(p.longitude));
+              })
+              .catch(fallbackToNominatim);
+          } else {
+            fallbackToNominatim();
+          }
+
+          // Free-text geocoding for cities, addresses, etc. (uses OpenStreetMap Nominatim)
+          function fallbackToNominatim() {
+            fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=' + encodeURIComponent(query))
+              .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
+              .then(function(results) {
+                if (!results || !results.length) throw new Error();
+                runLocationSearch(parseFloat(results[0].lat), parseFloat(results[0].lon));
+              })
+              .catch(function() {
+                listEl.innerHTML = '<p class="wtb-locator__error">Couldn\'t find that location. Please try a zip code or city.</p>';
+              });
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

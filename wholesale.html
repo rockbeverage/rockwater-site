@@ -10,6 +10,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body>
 
@@ -25,9 +44,7 @@
   -->
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -54,6 +71,7 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ HERO ============ -->
@@ -61,7 +79,7 @@
     <div class="hero__bg"></div>
     <div class="hero__content">
       <span class="text-eyebrow">Wholesale</span>
-      <h1>Bring ROCK Water<br>to Your Shelves</h1>
+      <h1>Bring Rock Water<br>to Your Shelves</h1>
       <div style="margin-top: var(--space-lg);">
         <button class="btn btn--white wholesale-open-modal">Apply Now</button>
       </div>
@@ -75,7 +93,7 @@
       <div class="ws-two-col fade-in">
         <div class="ws-two-col__left">
           <span class="text-eyebrow">Partnership</span>
-          <h2>Why Carry<br>ROCK Water</h2>
+          <h2>Why Carry<br>Rock Water</h2>
         </div>
         <div class="ws-two-col__right">
           <div class="faq">
@@ -129,10 +147,17 @@
     </div>
   </section>
 
-  <!-- ============ FULL-BLEED IMAGE 2 ============ -->
-  <section class="ws-fullbleed fade-in">
-    <div class="placeholder-img placeholder-img--lifestyle" style="min-height: 440px;">
-      <span class="placeholder-img__label">Full-Bleed Lifestyle Fitness / Wellness / Event (1920 x 650)</span>
+  <!-- ============ TWO-IMAGE LIFESTYLE ============ -->
+  <section class="section section--lg fade-in">
+    <div class="container">
+      <div class="ws-image-pair">
+        <div class="ws-image-pair__item">
+          <img src="images/rolex.jpg" alt="ROCK Water on retail shelves">
+        </div>
+        <div class="ws-image-pair__item">
+          <img src="images/brandonfilm.jpeg" alt="ROCK Water lifestyle">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -171,12 +196,12 @@
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            <span>Where is ROCK Water sourced?</span>
+            <span>Where is Rock Water sourced?</span>
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq__answer">
             <div class="faq__answer-inner">
-              <p>ROCK Water is natural spring water sourced in the Smoky Mountains and bottled near the source in a NSF-certified facility, ensuring exceptional purity, safety, and quality.</p>
+              <p>Rock Water is natural spring water sourced in the Smoky Mountains and bottled near the source in a NSF-certified facility, ensuring exceptional purity, safety, and quality.</p>
             </div>
           </div>
         </div>
@@ -195,12 +220,12 @@
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            <span>What types of spaces carry ROCK Water?</span>
+            <span>What types of spaces carry Rock Water?</span>
             <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq__answer">
             <div class="faq__answer-inner">
-              <p>ROCK Water fits naturally in thoughtful environments that care about quality and intentional living from cafés and restaurants to fitness studios, hotels, specialty markets, and everyday gathering places.</p>
+              <p>Rock Water fits naturally in thoughtful environments that care about quality and intentional living from cafés and restaurants to fitness studios, hotels, specialty markets, and everyday gathering places.</p>
             </div>
           </div>
         </div>
@@ -226,7 +251,7 @@
     <div class="container">
       <div class="text-block fade-in" style="max-width: 600px;">
         <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Get Started</span>
-        <h2>Interested in Carrying ROCK Water?</h2>
+        <h2>Interested in Carrying Rock Water?</h2>
         <p>Tell us a bit about your store, concept, or location and we'll be in touch.</p>
         <div style="margin-top: var(--space-xl);">
           <button class="btn btn--white wholesale-open-modal">Apply Now</button>
@@ -383,7 +408,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
         </div>
         <h3>Application Received</h3>
-        <p>Thank you for your interest in carrying ROCK Water. Our team will review your application and follow up within 2-3 business days.</p>
+        <p>Thank you for your interest in carrying Rock Water. Our team will review your application and follow up within 2-3 business days.</p>
       </div>
 
       <!-- Error State -->
@@ -402,10 +427,11 @@
         <!-- Newsletter signup (left) -->
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -427,7 +453,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms &amp; Conditions</a>
             </div>

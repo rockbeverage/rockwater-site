@@ -33,13 +33,30 @@
     .fonts-loading { opacity: 0; }
     .fonts-ready { opacity: 1; transition: opacity 0.15s ease; }
   </style>
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body class="fonts-loading">
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header header--transparent" id="header">
@@ -71,6 +88,7 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ SECTION 1: HERO ============ -->
@@ -106,29 +124,7 @@
           <a href="shop.html" class="btn btn--secondary">Shop Now</a>
         </div>
         <div class="water-hero__image">
-          <img src="images/water.jpg" alt="Pure water" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius-md);">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ THE WATER: STATS BAR ============ -->
-  <section class="stats-bar fade-in">
-    <div class="container">
-      <div class="stats-bar__inner">
-        <div class="stats-bar__item">
-          <span class="stats-bar__number">7.8+</span>
-          <span class="stats-bar__label">Natural pH</span>
-        </div>
-        <div class="stats-bar__divider"></div>
-        <div class="stats-bar__item">
-          <span class="stats-bar__number">3</span>
-          <span class="stats-bar__label">Key Electrolytes</span>
-        </div>
-        <div class="stats-bar__divider"></div>
-        <div class="stats-bar__item">
-          <span class="stats-bar__number">100%</span>
-          <span class="stats-bar__label">Spring Water</span>
+          <img src="images/newproductshot.png" alt="ROCK Water can" style="width: 100%; height: 540px; object-fit: cover; object-position: center 60%; display: block; border-radius: var(--radius-md);">
         </div>
       </div>
     </div>
@@ -169,6 +165,28 @@
     </div>
   </div>
 
+  <!-- ============ THE WATER: STATS BAR ============ -->
+  <section class="stats-bar fade-in">
+    <div class="container">
+      <div class="stats-bar__inner">
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">7.8+</span>
+          <span class="stats-bar__label">Natural pH</span>
+        </div>
+        <div class="stats-bar__divider"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">3</span>
+          <span class="stats-bar__label">Key Electrolytes</span>
+        </div>
+        <div class="stats-bar__divider"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">100%</span>
+          <span class="stats-bar__label">Spring Water</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ EDUCATIONAL: WHY ROCK ============ -->
   <section class="section section--lg">
     <div class="container">
@@ -178,8 +196,8 @@
       </div>
 
       <div class="edu-split fade-in">
-        <div class="edu-split__image">
-          <img src="images/rand.jpg" alt="ROCK Water" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius-md);">
+        <div class="edu-split__image" style="display: flex; justify-content: center; align-items: center;">
+          <img src="images/brandonfilm.jpeg" alt="ROCK Water" style="width: auto; max-width: 100%; height: auto; max-height: 480px; display: block; border-radius: var(--radius-md);">
         </div>
         <div class="edu-split__accordion">
           <div class="edu-accordion__item">
@@ -233,6 +251,35 @@
     </div>
   </section>
 
+  <!-- ============ SECTION 2.5: SCROLL COUNTER ============ -->
+  <section class="section section--lg counter-section" id="counter-section">
+    <div class="container">
+      <div class="counter-grid fade-in">
+        <div class="counter-item">
+          <span class="counter-number" data-target="2500" data-suffix="+ FT">0</span>
+          <span class="counter-label">Below the Earth's Surface</span>
+          <span class="counter-caption">Naturally filtered through ancient limestone in the Smoky Mountains.</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" data-target="0" data-prefix="" data-static="0">0</span>
+          <span class="counter-label">Microplastics, Ever</span>
+          <span class="counter-caption">Aluminum cans only. No plastic, no compromise.</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" data-target="1" data-suffix="%">0</span>
+          <span class="counter-label">of Sales Given Back</span>
+          <span class="counter-caption">Funding environmental solutions worldwide</span>
+        </div>
+      </div>
+
+      <!-- Rotating fun fact — environmental / plastics impact -->
+      <div class="fact-ticker fade-in" aria-live="polite">
+        <span class="fact-ticker__eyebrow">Did You Know</span>
+        <p class="fact-ticker__text" id="fact-ticker-text">Spring water supports muscle function and cellular hydration, key for active lifestyles.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SECTION 3: HYDRATION BENEFITS ============ -->
   <section class="section">
     <div class="container">
@@ -245,7 +292,7 @@
         <!-- Card 1: Movement -->
         <div class="card">
           <div class="card__image">
-            <img src="images/movement-image.png" alt="Active lifestyle movement and hydration">
+            <img src="images/por.jpg" alt="Active lifestyle movement and hydration" style="object-position: center 75%;">
           </div>
           <div class="card__body">
             <h3>Movement</h3>
@@ -256,7 +303,7 @@
         <!-- Card 2: Recovery -->
         <div class="card">
           <div class="card__image">
-            <img src="images/recovery-image.png" alt="Recovery and wellness balanced hydration">
+            <img src="images/POOLREL.jpg" alt="Recovery and wellness balanced hydration">
           </div>
           <div class="card__body">
             <h3>Recovery</h3>
@@ -287,7 +334,7 @@
         <div class="split__content">
           <span class="text-eyebrow">Our Philosophy</span>
           <h2>Strength in Simplicity</h2>
-          <p>Your body is 60% water. Make it the good stuff. Refreshing hydration in a simple, timeless can that fits any occasion.</p>
+          <p>Refreshing hydration in a simple, timeless can that fits any occasion.</p>
           <a href="story.html" class="btn btn--secondary">Our Story</a>
         </div>
       </div>
@@ -330,7 +377,7 @@
   <section class="section section--lg section--navy">
     <div class="container">
       <div class="split split--reverse fade-in">
-        <div class="split__image" role="img" aria-label="Nature and environmental sustainability" style="background-image: url('images/impact22.png'); background-size: cover; background-position: center; min-height: 500px;">
+        <div class="split__image" role="img" aria-label="Nature and environmental sustainability" style="background-image: url('images/new11.jpg'); background-size: cover; background-position: center; min-height: 500px;">
         </div>
         <div class="split__content">
           <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Sustainability</span>
@@ -350,10 +397,11 @@
         <!-- Newsletter signup (left) -->
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -375,7 +423,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms & Conditions</a>
             </div>

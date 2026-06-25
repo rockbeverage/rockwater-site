@@ -10,13 +10,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ============ Analytics & Tracking ============ -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wrlc23b7w0");
+  </script>
+  <!-- ============ End Analytics ============ -->
+
 </head>
 <body>
 
   <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="announcement-bar">
-    Now shipping nationwide
-  </div>
+  <div class="announcement-bar"><span class="announcement-bar__text" id="announcement-text">Now shipping nationwide</span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -48,6 +65,7 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
+    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ SECTION 1: HERO ============ -->
@@ -64,7 +82,7 @@
     <div class="container">
       <div class="split fade-in">
         <div class="split__image">
-          <img src="images/founder-portrait.jpeg" alt="ROCK Water founder" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md); object-fit: cover;">
+          <img src="images/founder-portrait.jpeg" alt="ROCK Water founder" class="story-img">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">Where It Started</span>
@@ -80,7 +98,7 @@
     <div class="container">
       <div class="split split--reverse fade-in">
         <div class="split__image">
-          <img src="images/shelff.jpg" alt="Searching the shelf" class="story-shelf-img">
+          <img src="images/rolex.jpg" alt="Searching the shelf" class="story-shelf-img">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">The Search</span>
@@ -96,7 +114,7 @@
     <div class="container">
       <div class="split fade-in">
         <div class="split__image">
-          <img src="images/connect.jpg" alt="Building ROCK" style="width: 100%; height: 600px; display: block; border-radius: var(--radius-md); object-fit: cover; object-position: center;">
+          <img src="images/brandonfilm.jpeg" alt="Building ROCK" class="story-img">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">The Decision</span>
@@ -112,7 +130,7 @@
     <div class="container">
       <div class="split split--reverse fade-in">
         <div class="split__image">
-          <img src="images/identity.jpg" alt="ROCK community" style="width: 100%; height: 600px; display: block; border-radius: var(--radius-md); object-fit: cover; object-position: center;">
+          <img src="images/golfid.jpg" alt="ROCK community" class="story-img">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">The Identity</span>
@@ -128,7 +146,7 @@
     <div class="container">
       <div class="split fade-in">
         <div class="split__image">
-          <img src="images/hilly.jpg" alt="Adventure and travel" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md); object-fit: cover;">
+          <img src="images/hilly.jpg" alt="Adventure and travel" class="story-img">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">The Life</span>
@@ -147,16 +165,10 @@
   <!-- ============ SECTION 4: GIVING BACK ============ -->
   <section class="section section--lg section--navy">
     <div class="container">
-      <div class="split fade-in">
-        <div class="split__image">
-          <img src="images/impact22.png" alt="1% for the planet" style="width: 100%; height: 500px; display: block; border-radius: var(--radius-md); object-fit: cover; object-position: center;">
-        </div>
-        <div class="split__content">
-          <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Sustainability</span>
-          <h2>Giving Back to Our Earth</h2>
-          <p>1% of our sales are donated to support impactful environmental solutions worldwide.</p>
-          <a href="one-percent.html" class="btn btn--white" style="margin-top: var(--space-lg);">Learn More</a>
-        </div>
+      <div class="text-block fade-in" style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Sustainability</span>
+        <h2 style="margin-bottom: var(--space-lg);">Every Sip Gives Back to the Planet</h2>
+        <a href="one-percent.html" class="btn btn--white" style="margin-top: var(--space-md);">Learn More</a>
       </div>
     </div>
   </section>
@@ -169,10 +181,11 @@
         <!-- Newsletter signup (left) -->
         <div class="footer__signup">
           <h3 class="footer__signup-title">Join the Community</h3>
-          <p class="footer__signup-text">Stay up to date with all things ROCK.</p>
-          <form class="footer__newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Email" aria-label="Email address">
-            <button type="submit">Subscribe</button>
+          <p class="footer__signup-text">Get on the list for updates about exclusive offers, product launches, and more.</p>
+          <form class="footer__newsletter-form" action="https://formspree.io/f/xkoqjeje" method="POST">
+            <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+            <input type="hidden" name="source" value="footer">
+            <button type="submit">Stay in Touch</button>
           </form>
         </div>
 
@@ -194,7 +207,7 @@
             <div class="footer__links">
               <a href="contact.html">Contact</a>
               <a href="faq.html">FAQs</a>
-              <a href="ambassadors.html">Ambassador Program</a>
+              <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
               <a href="terms.html">Terms &amp; Conditions</a>
             </div>
