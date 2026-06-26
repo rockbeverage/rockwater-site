@@ -5609,7 +5609,9 @@ body {
   .shop-simple__gallery {
     position: static;
     max-width: 100%;
+    width: 100%;
     margin: 0 auto;
+    overflow: hidden;
   }
 
   .shop-simple__main-image {
