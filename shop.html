@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop ROCK Water</title>
-  <meta name="description" content="Shop ROCK Water. Premium spring water with electrolytes in an infinitely recyclable aluminum can. 12 Pack - $29.99.">
+  <meta name="description" content="Shop ROCK Water. Premium spring water with electrolytes in an infinitely recyclable aluminum can. 12 Pack - $34.00.">
   <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,7 +179,7 @@
           </button>
           <p class="shop-simple__desc">Premium spring water with electrolytes. Sourced from the Smoky Mountains, naturally filtered through ancient limestone.</p>
 
-          <p class="shop-simple__price" id="shop-price">$29.99</p>
+          <p class="shop-simple__price" id="shop-price">$34.00</p>
 
           <div class="product-accordion">
             <button class="product-accordion__trigger" aria-expanded="false">
@@ -245,7 +245,7 @@
                   <span class="purchase-type__opt-title">One-time purchase</span>
                 </span>
               </span>
-              <span class="purchase-type__price" id="pt-onetime-price">$29.99</span>
+              <span class="purchase-type__price" id="pt-onetime-price">$34.00</span>
             </button>
             <div class="purchase-type__opt purchase-type__opt--active" id="pt-subscribe" role="radio" aria-checked="true" tabindex="0">
               <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
@@ -633,7 +633,7 @@
           </div>
           <button class="cart-drawer__remove" id="cart-remove-12pack">Remove</button>
         </div>
-        <div class="cart-drawer__item-price" id="cart-12pack-item-price">$29.99</div>
+        <div class="cart-drawer__item-price" id="cart-12pack-item-price">$34.00</div>
       </div>
 
       <!-- 8-pack Line Item -->
@@ -910,7 +910,7 @@
       var variantId12pack = null;
       var variantId8pack = null;
       var currentPack = 12; // 8 or 12 — which one Add to Cart will send
-      var packPrice = { 8: 21.99, 12: 29.99 };
+      var packPrice = { 8: 21.99, 12: 34.00 };
       var qty12pack = 0;
       var qty8pack = 0;
       var hatVariantId = null;
@@ -1066,7 +1066,7 @@
 
       // Update cart subtotal display
       function updateCartTotals() {
-        var price12 = (activeSellingPlanId12pack && subscriptionPrice12pack) ? subscriptionPrice12pack : 29.99;
+        var price12 = (activeSellingPlanId12pack && subscriptionPrice12pack) ? subscriptionPrice12pack : 34.00;
         var total = (price12 * qty12pack) + (21.99 * qty8pack) + (45.00 * hatQty) + (40.00 * saunacapQty);
         document.getElementById('cart-subtotal').textContent = '$' + total.toFixed(2);
         updateUpsellVisibility();
