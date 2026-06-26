@@ -5600,8 +5600,8 @@ body {
 
 @media (max-width: 768px) {
   .section--lg:has(.shop-simple) .container {
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .shop-simple {
