@@ -182,16 +182,32 @@
 
         <!-- Product Info -->
         <div class="shop-simple__info">
-          <span class="shop-simple__brand">ROCK Water</span>
-          <h1 class="shop-simple__title">Premium Spring Water</h1>
-          <p class="shop-simple__subtitle" id="shop-subtitle">12 Pack</p>
+          <span class="shop-simple__brand">Premium Daily Hydration</span>
+          <h1 class="shop-simple__title">Spring Water + Electrolytes</h1>
           <button class="shop-simple__reviews-link" id="reviews-toggle">
             <span class="shop-simple__reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <span class="shop-simple__reviews-count">Reviews</span>
           </button>
           <p class="shop-simple__desc">Naturally alkaline spring water from the Smoky Mountains with key electrolytes.</p>
 
-          <p class="shop-simple__price" id="shop-price">$34.00</p>
+          <div class="product-stats">
+            <div class="product-stat">
+              <span class="product-stat__value">7.8+</span>
+              <span class="product-stat__label">pH Naturally<br>Alkaline</span>
+            </div>
+            <div class="product-stat">
+              <span class="product-stat__value">0</span>
+              <span class="product-stat__label">Calories<br>Per Can</span>
+            </div>
+            <div class="product-stat">
+              <span class="product-stat__value">0%</span>
+              <span class="product-stat__label">Plastic<br>Aluminum Only</span>
+            </div>
+            <div class="product-stat">
+              <span class="product-stat__value">3</span>
+              <span class="product-stat__label">Key<br>Electrolytes</span>
+            </div>
+          </div>
 
           <div class="product-accordion">
             <button class="product-accordion__trigger" aria-expanded="false">
@@ -1351,6 +1367,24 @@
       }
 
       // Add to Cart -> Open Drawer
+      // Expose cart internals for sticky Buy Now button
+      window._rock = {
+        getCheckoutUrl: function() { return cartCheckoutUrl; },
+        rebuildCart: function(cb) { return rebuildCart(cb); },
+        getState: function() { return { selectedPurchaseType: selectedPurchaseType, selectedSellingPlanId: selectedSellingPlanId, sellingPlans: sellingPlans, productVariantId: productVariantId, currentPack: currentPack }; },
+        setSubscription: function() {
+          var subEl = document.getElementById('pt-subscribe');
+          if (subEl && subEl.getAttribute('aria-checked') !== 'true') subEl.click();
+          if (selectedPurchaseType === 'subscribe' && selectedSellingPlanId) {
+            activeSellingPlanId12pack = selectedSellingPlanId;
+            var plan = sellingPlans.find(function(p) { return p.id === selectedSellingPlanId; });
+            subscriptionPrice12pack = plan ? plan.price : null;
+          }
+          qty12pack += 1;
+        },
+        rollback: function() { qty12pack -= 1; }
+      };
+
       document.getElementById('buy-btn').addEventListener('click', function() {
         var btn = this;
         var qty = parseInt(document.getElementById('qty-select').value);
@@ -1768,52 +1802,30 @@
   </script>
 
   <!-- Sticky Buy Bar -->
-  <div id="sticky-buy-bar" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:999; background:#fff; border-top:1px solid #e8e8e8; padding:12px 20px; box-shadow:0 -4px 20px rgba(0,0,0,0.08);">
-    <div style="max-width:600px; margin:0 auto; display:flex; gap:10px;">
-      <button id="sticky-onetime-btn" style="flex:1; padding:14px; border-radius:50px; border:1.5px solid #1a1a1a; background:#fff; font-size:14px; font-weight:600; color:#1a1a1a; cursor:pointer; font-family:inherit;">Add to Cart</button>
-      <button id="sticky-subscribe-btn" style="flex:2; padding:14px; border-radius:50px; border:none; background:#1b3a6b; font-size:14px; font-weight:700; color:#fff; cursor:pointer; font-family:inherit; letter-spacing:0.03em;">Subscribe — $<span id="sticky-sub-price">23.80</span>/order</button>
-    </div>
+  <div id="sticky-buy-bar" style="position:fixed; bottom:24px; right:32px; z-index:999;">
+    <button id="sticky-buy-btn" style="padding:14px 36px; border-radius:50px; border:none; background:#1b3a6b; font-size:15px; font-weight:700; color:#fff; cursor:pointer; font-family:inherit; letter-spacing:0.03em; box-shadow:0 4px 20px rgba(0,0,0,0.18); white-space:nowrap;">Buy Now</button>
   </div>
 
   <script>
     (function() {
       var bar = document.getElementById('sticky-buy-bar');
-      var anchor = document.getElementById('buy-btn-anchor');
-      if (!bar || !anchor) return;
+      if (!bar) return;
 
-      function checkScroll() {
-        var rect = anchor.getBoundingClientRect();
-        // Show when the buy button has scrolled off screen (below viewport top)
-        bar.style.display = rect.bottom < 0 ? 'block' : 'none';
-      }
-      window.addEventListener('scroll', checkScroll, { passive: true });
+      document.getElementById('sticky-buy-btn').addEventListener('click', function() {
+        var r = window._rock;
+        if (!r) return;
+        var state = r.getState();
+        if (!state.productVariantId) return;
 
-      // Sticky buttons trigger the same buy flow
-      document.getElementById('sticky-onetime-btn').addEventListener('click', function() {
-        // Select one-time then click buy
-        var otBtn = document.getElementById('pt-onetime');
-        if (otBtn) otBtn.click();
-        var buyBtn = document.getElementById('buy-btn');
-        if (buyBtn) buyBtn.click();
-      });
-      document.getElementById('sticky-subscribe-btn').addEventListener('click', function() {
-        // Select subscribe then click buy
-        var subBtn = document.getElementById('pt-subscribe');
-        if (subBtn) subBtn.click();
-        var buyBtn = document.getElementById('buy-btn');
-        if (buyBtn) buyBtn.click();
-      });
+        r.setSubscription();
 
-      // Keep sticky price in sync
-      var subPriceEl = document.getElementById('pt-subscribe-price');
-      if (subPriceEl) {
-        var observer = new MutationObserver(function() {
-          var txt = subPriceEl.textContent.replace('$','').trim();
-          var stickyPrice = document.getElementById('sticky-sub-price');
-          if (stickyPrice) stickyPrice.textContent = txt;
+        r.rebuildCart(function() {}).then(function() {
+          var url = r.getCheckoutUrl();
+          if (url) window.location.href = url;
+        }).catch(function() {
+          r.rollback();
         });
-        observer.observe(subPriceEl, { childList: true, characterData: true, subtree: true });
-      }
+      });
     })();
   </script>
 </body>
