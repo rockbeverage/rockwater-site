@@ -14,70 +14,82 @@
     /* Purchase Type */
     .purchase-type { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
     .purchase-type__opt {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 12px 16px; background: #fff; border: 1.5px solid #e0e0e0;
-      border-radius: 10px; cursor: pointer; transition: border-color 0.2s; text-align: left;
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; background: #fff; border: 1.5px solid #e0e0e0;
+      border-radius: 12px; cursor: pointer; transition: border-color 0.2s; text-align: left;
       width: 100%;
     }
     .purchase-type__opt--active { border-color: #1b3a6b; }
+    .purchase-type__opt--sub { flex-direction: column; align-items: stretch; gap: 0; padding: 16px; }
+    .purchase-type__opt--onetime { display: flex; align-items: center; }
     .purchase-type__radio {
       width: 18px; height: 18px; border-radius: 50%;
       border: 2px solid #ccc; flex-shrink: 0; display: flex;
       align-items: center; justify-content: center; transition: border-color 0.2s;
-      margin-top: 2px;
     }
-    .purchase-type__opt--active .purchase-type__radio {
-      border-color: #1b3a6b;
-    }
+    .purchase-type__opt--active .purchase-type__radio { border-color: #1b3a6b; }
     .purchase-type__radio-dot {
       width: 9px; height: 9px; border-radius: 50%;
       background: #1b3a6b; display: none;
     }
     .purchase-type__opt--active .purchase-type__radio-dot { display: block; }
-    .purchase-type__body { flex: 1; }
-    .purchase-type__row { display: flex; align-items: center; gap: 8px; }
-    .purchase-type__opt-title {
-      font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.01em;
-    }
+    .purchase-type__opt-title { font-size: 15px; font-weight: 600; color: #1a1a1a; }
     .purchase-type__opt-badge {
       font-size: 11px; font-weight: 700; color: #1a1a1a;
-      background: #f5c518; padding: 3px 9px; border-radius: 20px; letter-spacing: 0.02em;
-      text-transform: uppercase;
+      background: #f5c518; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.02em;
+      text-transform: uppercase; flex-shrink: 0;
     }
-    .purchase-type__opt-popular {
-      font-size: 10px; font-weight: 600; color: #1b3a6b;
-      letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 2px;
+    .purchase-type__price { font-size: 15px; font-weight: 600; color: #1a1a1a; margin-left: auto; flex-shrink: 0; }
+
+    /* Subscribe card header row */
+    .pt-sub__header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .pt-sub__title { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+    .pt-sub__prices { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+    .pt-sub__original { font-size: 13px; color: #aaa; text-decoration: line-through; }
+    .pt-sub__price { font-size: 16px; font-weight: 700; color: #1a1a1a; }
+
+    /* Frequency row — dark pill */
+    .purchase-frequency { margin-bottom: 14px; }
+    .freq-select-wrap { position: relative; display: flex; align-items: center; }
+    /* Custom frequency dropdown */
+    .purchase-frequency { position: relative; margin-bottom: 14px; }
+    .freq-custom { position: relative; }
+    .freq-custom__trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #1a1a1a; border-radius: 50px; padding: 13px 20px;
+      cursor: pointer; user-select: none;
     }
-    .purchase-type__price {
-      font-size: 15px; font-weight: 600; color: #1a1a1a; margin-left: auto; flex-shrink: 0;
+    .freq-custom__label-group { display: flex; align-items: center; gap: 8px; }
+    .freq-custom__prefix { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); }
+    .freq-custom__selected-freq { font-size: 14px; font-weight: 700; color: #fff; }
+    .freq-custom__selected-save { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.55); }
+    .freq-custom__chevron { color: #fff; transition: transform 0.2s; flex-shrink: 0; }
+    .freq-custom--open .freq-custom__chevron { transform: rotate(180deg); }
+    .freq-custom__menu {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+      background: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+      overflow: hidden; z-index: 50;
     }
-    /* Frequency row */
-    .purchase-frequency {
-      margin-bottom: 0; padding: 8px 0 0 0;
-      display: flex; align-items: center; gap: 10px;
+    .freq-custom--open .freq-custom__menu { display: block; }
+    .freq-custom__option {
+      display: flex; align-items: center; gap: 10px; padding: 14px 20px;
+      cursor: pointer; border-bottom: 1px solid #f0f0f0; transition: background 0.15s;
     }
-    .purchase-frequency__label {
-      font-size: 14px; font-weight: 400; color: #666;
-      white-space: nowrap; flex-shrink: 0;
-    }
-    .freq-select-wrap { position: relative; display: inline-flex; align-items: center; }
-    .freq-select {
-      appearance: none; -webkit-appearance: none;
-      padding: 8px 36px 8px 14px;
-      border: 1.5px solid #d0d0d0; border-radius: 24px;
-      background: #fff; font-size: 13px; font-weight: 500; color: #1a1a1a;
-      cursor: pointer; outline: none;
-      font-family: inherit;
-    }
-    .freq-select-chevron {
-      position: absolute; right: 12px; pointer-events: none;
-      color: #666;
-    }
+    .freq-custom__option:last-child { border-bottom: none; }
+    .freq-custom__option:hover { background: #f7f7f7; }
+    .freq-custom__option--selected { background: #f0f3f8; }
+    .freq-custom__opt-freq { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+    .freq-custom__opt-save { font-size: 13px; font-weight: 400; color: #888; }
+    /* Hide native select */
+    .freq-select { display: none; }
+
+    /* Benefits list */
+    .pt-sub__benefits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #f0f0f0; padding-top: 12px; }
+    .pt-sub__benefits li { font-size: 12px; color: #555; padding-left: 18px; position: relative; }
+    .pt-sub__benefits li::before { content: "✓"; position: absolute; left: 0; color: #1b3a6b; font-weight: 700; }
+
     /* Cart subscribe badge */
-    .cart-drawer__item-sub {
-      font-size: 11px; color: #1b3a6b; font-weight: 500;
-      margin-top: 2px; letter-spacing: 0.02em;
-    }
+    .cart-drawer__item-sub { font-size: 11px; color: #1b3a6b; font-weight: 500; margin-top: 2px; letter-spacing: 0.02em; }
   </style>
   <!-- ============ Analytics & Tracking ============ -->
   <!-- Google Analytics 4 -->
@@ -201,7 +213,7 @@
                 </div>
                 <div class="product-accordion__item">
                   <button class="product-accordion__sub-trigger" aria-expanded="false">
-                    <span>Real Electrolytes</span>
+                    <span>Key Electrolytes</span>
                     <span class="product-accordion__icon" aria-hidden="true">+</span>
                   </button>
                   <div class="product-accordion__sub-panel">
@@ -237,40 +249,53 @@
           </div>
 
           <!-- Purchase Type Selector -->
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#1a1a1a; margin:0 0 10px;">Subscribe &amp; Save:</p>
           <div class="purchase-type" id="purchase-type">
-            <button type="button" class="purchase-type__opt" id="pt-onetime">
-              <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
-              <span class="purchase-type__body">
-                <span class="purchase-type__row">
-                  <span class="purchase-type__opt-title">One-time purchase</span>
+
+            <!-- Subscribe card — first and prominent -->
+            <div class="purchase-type__opt purchase-type__opt--active purchase-type__opt--sub" id="pt-subscribe" role="radio" aria-checked="true" tabindex="0">
+              <div class="pt-sub__header">
+                <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
+                <span class="pt-sub__title">Subscription</span>
+                <span class="purchase-type__opt-badge" id="subscribe-badge">Save 30%</span>
+                <span class="pt-sub__prices">
+                  <span class="pt-sub__original" id="pt-onetime-price-strike">$34.00</span>
+                  <span class="pt-sub__price" id="pt-subscribe-price">$23.80</span>
+
                 </span>
-              </span>
+              </div>
+              <!-- Frequency Selector — custom dark dropdown -->
+              <div class="purchase-frequency" id="purchase-frequency">
+                <select class="freq-select" id="frequency-select" style="display:none;"></select>
+                <div class="freq-custom" id="freq-custom">
+                  <div class="freq-custom__trigger" id="freq-custom-trigger">
+                    <div class="freq-custom__label-group">
+                      <span class="freq-custom__prefix">Deliver every:</span>
+                      <span class="freq-custom__selected-freq" id="freq-custom-freq">1 month</span>
+                      <span class="freq-custom__selected-save" id="freq-custom-save" style="display:none;"></span>
+                    </div>
+                    <svg class="freq-custom__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                  <div class="freq-custom__menu" id="freq-custom-menu"></div>
+                </div>
+              </div>
+              <!-- Benefits -->
+              <ul class="pt-sub__benefits">
+                <li>Cancel or pause anytime</li>
+              </ul>
+            </div>
+
+            <!-- One-time — simple row below -->
+            <button type="button" class="purchase-type__opt purchase-type__opt--onetime" id="pt-onetime">
+              <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
+              <span class="purchase-type__opt-title">One-time</span>
               <span class="purchase-type__price" id="pt-onetime-price">$34.00</span>
             </button>
-            <div class="purchase-type__opt purchase-type__opt--active" id="pt-subscribe" role="radio" aria-checked="true" tabindex="0">
-              <span class="purchase-type__radio"><span class="purchase-type__radio-dot"></span></span>
-              <span class="purchase-type__body">
-                <span class="purchase-type__opt-popular">Most Popular</span>
-                <span class="purchase-type__row">
-                  <span class="purchase-type__opt-title">Subscribe &amp; Save</span>
-                  <span class="purchase-type__opt-badge" id="subscribe-badge">20% off</span>
-                </span>
-                <!-- Frequency Selector — inside the card -->
-                <div class="purchase-frequency" id="purchase-frequency" style="margin-top:10px;">
-                  <span class="purchase-frequency__label">Deliver every</span>
-                  <div class="freq-select-wrap">
-                    <select class="freq-select" id="frequency-select">
-                      <option value="">Every 2 weeks</option>
-                      <option value="">Every 4 weeks</option>
-                    </select>
-                    <svg class="freq-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                  </div>
-                </div>
-              </span>
-              <span class="purchase-type__price" id="pt-subscribe-price">$23.99</span>
-            </div>
+
           </div>
 
+          <!-- Anchor for sticky bar visibility -->
+          <div id="buy-btn-anchor"></div>
           <div class="shop-simple__cart-row">
             <div class="qty-dropdown" id="qty-dropdown">
               <button type="button" class="qty-dropdown__btn" id="qty-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
@@ -952,50 +977,59 @@
             if (product.selling_plan_groups) {
               product.selling_plan_groups.forEach(function(group) {
                 group.selling_plans.forEach(function(plan) {
-                  // Use options[0].value for frequency (e.g. "4 weeks") — more reliable than plan name
                   var optVal = (plan.options && plan.options[0] && plan.options[0].value) || plan.name || '';
+                  var planName = plan.name || '';
+                  // Detect weeks or months from option value
                   var weekMatch = optVal.match(/(\d+)\s*week/i);
-                  if (!weekMatch) return; // skip month/other intervals
-                  var weeks = parseInt(weekMatch[1]);
-                  // Use first-order discount (order_count:1) for display price; fallback to first adjustment
+                  var monthMatch = optVal.match(/(\d+)\s*month/i) || planName.match(/(\d+)\s*month/i);
+                  if (!weekMatch && !monthMatch) return; // skip unknown intervals
+                  // Use first-order discount for display price
                   var pct = 0;
                   if (plan.price_adjustments) {
                     var firstOrder = plan.price_adjustments.filter(function(a) { return a.order_count === 1; })[0]
                                   || plan.price_adjustments[0];
                     if (firstOrder && firstOrder.value_type === 'percentage') pct = firstOrder.value;
                   }
-                  var shortName = 'Every ' + weeks + ' week' + (weeks > 1 ? 's' : '');
+                  var sortKey, label;
+                  if (monthMatch) {
+                    var months = parseInt(monthMatch[1]);
+                    sortKey = months * 30; // approximate days for sorting
+                    label = months === 1 ? '1 month' : months + ' months';
+                  } else {
+                    var weeks = parseInt(weekMatch[1]);
+                    sortKey = weeks * 7;
+                    label = weeks === 1 ? '1 week' : weeks + ' weeks';
+                  }
                   sellingPlans.push({
                     id: 'gid://shopify/SellingPlan/' + plan.id,
-                    name: shortName,
-                    weeks: weeks,
+                    name: label,
+                    sortKey: sortKey,
                     pct: pct,
                     price: parseFloat((packPrice[12] * (1 - pct / 100)).toFixed(2))
                   });
                 });
               });
             }
-            // Deduplicate: for each frequency keep the plan with the SMALLEST discount pct
-            // (20% first-order plan, not 15% recurring or any 30% extras from tiered rules)
-            var byFreq = {};
+            // Deduplicate by label, keep lowest pct (first-order discount)
+            var byLabel = {};
             sellingPlans.forEach(function(p) {
-              if (!byFreq[p.name] || p.pct < byFreq[p.name].pct) byFreq[p.name] = p;
+              if (!byLabel[p.name] || p.pct < byLabel[p.name].pct) byLabel[p.name] = p;
             });
-            // Only keep the 2-week and 4-week plans (the two rules we created in Seal)
-            var keep = [2, 4];
-            var byWeeks = {};
-            sellingPlans.forEach(function(p) {
-              if (keep.indexOf(p.weeks) === -1) return;
-              if (!byWeeks[p.weeks] || p.pct < byWeeks[p.weeks].pct) byWeeks[p.weeks] = p;
+            // Sort: months first (ascending), then weeks (ascending)
+            sellingPlans = Object.keys(byLabel).map(function(k) { return byLabel[k]; }).sort(function(a, b) {
+              var aMonth = a.name.indexOf('month') !== -1;
+              var bMonth = b.name.indexOf('month') !== -1;
+              if (aMonth && !bMonth) return -1;
+              if (!aMonth && bMonth) return 1;
+              return a.sortKey - b.sortKey;
             });
-            sellingPlans = keep.map(function(w) { return byWeeks[w]; }).filter(Boolean);
             if (sellingPlans.length) {
               selectedSellingPlanId = sellingPlans[0].id;
               renderFrequencyChips();
               var first = sellingPlans[0];
               var discountPct = Math.round((1 - first.price / packPrice[12]) * 100);
               var badge = document.getElementById('subscribe-badge');
-              if (badge && discountPct > 0) badge.textContent = discountPct + '% off';
+              if (badge && discountPct > 0) badge.textContent = 'Save ' + discountPct + '%';
               var subPriceEl = document.getElementById('pt-subscribe-price');
               if (subPriceEl) subPriceEl.textContent = '$' + first.price.toFixed(2);
               if (selectedPurchaseType === 'subscribe') {
@@ -1669,17 +1703,55 @@
 
       function renderFrequencyChips() {
         if (!sellingPlans.length) return;
-        // Populate the select with real plan data
-        var sel = document.getElementById('frequency-select');
-        if (!sel) return;
-        sel.innerHTML = '';
-        sellingPlans.forEach(function(plan) {
-          var opt = document.createElement('option');
-          opt.value = plan.id;
-          opt.textContent = plan.name;
-          sel.appendChild(opt);
+        var menu = document.getElementById('freq-custom-menu');
+        if (!menu) return;
+        menu.innerHTML = '';
+
+        function selectPlan(idx) {
+          var plan = sellingPlans[idx];
+          selectedSellingPlanId = plan.id;
+          // Update trigger display
+          document.getElementById('freq-custom-freq').textContent = plan.name;
+          document.getElementById('freq-custom-save').textContent = plan.pct > 0 ? 'save ' + plan.pct + '%' : '';
+          // Update price displays
+          var subPriceEl = document.getElementById('pt-subscribe-price');
+          if (subPriceEl) subPriceEl.textContent = '$' + plan.price.toFixed(2);
+          var stickyPrice = document.getElementById('sticky-sub-price');
+          if (stickyPrice) stickyPrice.textContent = plan.price.toFixed(2);
+          if (selectedPurchaseType === 'subscribe') {
+            var shopPriceEl = document.getElementById('shop-price');
+            if (shopPriceEl) shopPriceEl.innerHTML = '<span style="text-decoration:line-through;color:#aaa;font-size:0.82em;font-weight:400;">$' + packPrice[currentPack].toFixed(2) + '</span> $' + plan.price.toFixed(2);
+          }
+          // Update selected state in menu
+          menu.querySelectorAll('.freq-custom__option').forEach(function(el, i) {
+            el.classList.toggle('freq-custom__option--selected', i === idx);
+          });
+          // Close menu
+          document.getElementById('freq-custom').classList.remove('freq-custom--open');
+        }
+
+        sellingPlans.forEach(function(plan, idx) {
+          var opt = document.createElement('div');
+          opt.className = 'freq-custom__option' + (idx === 0 ? ' freq-custom__option--selected' : '');
+          opt.innerHTML = '<span class="freq-custom__opt-freq">' + plan.name + '</span>' +
+                          (plan.pct > 0 ? '<span class="freq-custom__opt-save">save ' + plan.pct + '%</span>' : '');
+          opt.addEventListener('click', function() { selectPlan(idx); });
+          menu.appendChild(opt);
         });
-        selectedSellingPlanId = sellingPlans[0].id;
+
+        // Set initial display
+        selectPlan(0);
+
+        // Toggle open/close
+        var trigger = document.getElementById('freq-custom-trigger');
+        var custom = document.getElementById('freq-custom');
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          custom.classList.toggle('freq-custom--open');
+        });
+        document.addEventListener('click', function() {
+          custom.classList.remove('freq-custom--open');
+        });
       }
 
       // Inline "Show More" toggle for the shop reviews mosaic
@@ -1693,6 +1765,56 @@
         });
       }
     });
+  </script>
+
+  <!-- Sticky Buy Bar -->
+  <div id="sticky-buy-bar" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:999; background:#fff; border-top:1px solid #e8e8e8; padding:12px 20px; box-shadow:0 -4px 20px rgba(0,0,0,0.08);">
+    <div style="max-width:600px; margin:0 auto; display:flex; gap:10px;">
+      <button id="sticky-onetime-btn" style="flex:1; padding:14px; border-radius:50px; border:1.5px solid #1a1a1a; background:#fff; font-size:14px; font-weight:600; color:#1a1a1a; cursor:pointer; font-family:inherit;">Add to Cart</button>
+      <button id="sticky-subscribe-btn" style="flex:2; padding:14px; border-radius:50px; border:none; background:#1b3a6b; font-size:14px; font-weight:700; color:#fff; cursor:pointer; font-family:inherit; letter-spacing:0.03em;">Subscribe — $<span id="sticky-sub-price">23.80</span>/order</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var bar = document.getElementById('sticky-buy-bar');
+      var anchor = document.getElementById('buy-btn-anchor');
+      if (!bar || !anchor) return;
+
+      function checkScroll() {
+        var rect = anchor.getBoundingClientRect();
+        // Show when the buy button has scrolled off screen (below viewport top)
+        bar.style.display = rect.bottom < 0 ? 'block' : 'none';
+      }
+      window.addEventListener('scroll', checkScroll, { passive: true });
+
+      // Sticky buttons trigger the same buy flow
+      document.getElementById('sticky-onetime-btn').addEventListener('click', function() {
+        // Select one-time then click buy
+        var otBtn = document.getElementById('pt-onetime');
+        if (otBtn) otBtn.click();
+        var buyBtn = document.getElementById('buy-btn');
+        if (buyBtn) buyBtn.click();
+      });
+      document.getElementById('sticky-subscribe-btn').addEventListener('click', function() {
+        // Select subscribe then click buy
+        var subBtn = document.getElementById('pt-subscribe');
+        if (subBtn) subBtn.click();
+        var buyBtn = document.getElementById('buy-btn');
+        if (buyBtn) buyBtn.click();
+      });
+
+      // Keep sticky price in sync
+      var subPriceEl = document.getElementById('pt-subscribe-price');
+      if (subPriceEl) {
+        var observer = new MutationObserver(function() {
+          var txt = subPriceEl.textContent.replace('$','').trim();
+          var stickyPrice = document.getElementById('sticky-sub-price');
+          if (stickyPrice) stickyPrice.textContent = txt;
+        });
+        observer.observe(subPriceEl, { childList: true, characterData: true, subtree: true });
+      }
+    })();
   </script>
 </body>
 </html>
