@@ -5608,9 +5608,9 @@ body {
 
   .shop-simple__gallery {
     position: static;
-    width: calc(100% + 2 * var(--space-2xl));
-    margin-left: calc(-1 * var(--space-2xl));
-    margin-right: calc(-1 * var(--space-2xl));
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
     overflow: hidden;
   }
 
