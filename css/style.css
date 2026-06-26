@@ -5599,6 +5599,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .section--lg:has(.shop-simple) .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
   .shop-simple {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
