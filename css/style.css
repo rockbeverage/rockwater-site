@@ -4481,10 +4481,13 @@ body {
   .product-stat {
     flex: 0 0 80px;
     min-width: 80px;
-    padding: 10px 6px;
+    padding: 10px 4px;
   }
   .product-stat__value {
     font-size: 1.2rem;
+  }
+  .product-stat__label {
+    font-size: 9px;
   }
   /* Move Buy Now above the Add to Cart row on mobile */
   #sticky-buy-bar {
