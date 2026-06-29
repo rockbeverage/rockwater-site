@@ -701,17 +701,16 @@
         <p class="cart-upsell__label">You may also like</p>
 
         <!-- Hat Upsell -->
-        <div class="cart-upsell__item cart-upsell__item--soldout" id="cart-hat-upsell">
+        <div class="cart-upsell__item" id="cart-hat-upsell">
           <div class="cart-upsell__img">
             <img src="images/hat.png" alt="ROCK Hat">
           </div>
           <div class="cart-upsell__info">
             <p class="cart-upsell__brand">ROCK</p>
             <p class="cart-upsell__name">Hat</p>
-            <p class="cart-upsell__price">$45.00</p>
-            <p class="cart-upsell__tag cart-upsell__tag--soldout">&#9671; Out of Stock</p>
+            <p class="cart-upsell__price">$55.00</p>
           </div>
-          <button class="cart-upsell__add" id="cart-add-hat" aria-label="Hat sold out" disabled>+</button>
+          <button class="cart-upsell__add" id="cart-add-hat" aria-label="Add hat to cart">+</button>
         </div>
 
         <!-- Sauna Cap Upsell -->
@@ -746,7 +745,7 @@
           </div>
           <button class="cart-drawer__remove" id="cart-remove-hat">Remove</button>
         </div>
-        <div class="cart-drawer__item-price" id="cart-hat-item-price">$45.00</div>
+        <div class="cart-drawer__item-price" id="cart-hat-item-price">$55.00</div>
       </div>
 
       <!-- Sauna Cap Added (shown after adding) -->
@@ -1117,7 +1116,7 @@
       // Update cart subtotal display
       function updateCartTotals() {
         var price12 = (activeSellingPlanId12pack && subscriptionPrice12pack) ? subscriptionPrice12pack : 34.00;
-        var total = (price12 * qty12pack) + (21.99 * qty8pack) + (45.00 * hatQty) + (40.00 * saunacapQty);
+        var total = (price12 * qty12pack) + (21.99 * qty8pack) + (55.00 * hatQty) + (40.00 * saunacapQty);
         document.getElementById('cart-subtotal').textContent = '$' + total.toFixed(2);
         updateUpsellVisibility();
       }
@@ -1205,7 +1204,7 @@
               document.getElementById('cart-hat-upsell').style.display = 'none';
               document.getElementById('cart-hat-item').style.display = 'flex';
               document.getElementById('cart-hat-qty').textContent = hatQty;
-              document.getElementById('cart-hat-item-price').textContent = '$' + (45 * hatQty).toFixed(2);
+              document.getElementById('cart-hat-item-price').textContent = '$' + (55 * hatQty).toFixed(2);
               var hd = document.getElementById('cart-hat-qty-decrease');
               if (hd) hd.disabled = hatQty <= 1;
             }
@@ -1307,7 +1306,7 @@
         hatQty = newQty;
         rebuildCart(function() {
           document.getElementById('cart-hat-qty').textContent = hatQty;
-          document.getElementById('cart-hat-item-price').textContent = '$' + (45 * hatQty).toFixed(2);
+          document.getElementById('cart-hat-item-price').textContent = '$' + (55 * hatQty).toFixed(2);
           updateCartTotals();
         }).then(function() {
           if (dec) dec.disabled = hatQty <= 1;
@@ -1449,7 +1448,7 @@
               document.getElementById('cart-hat-upsell').style.display = 'none';
               document.getElementById('cart-hat-item').style.display = 'flex';
               document.getElementById('cart-hat-qty').textContent = '1';
-              document.getElementById('cart-hat-item-price').textContent = '$45.00';
+              document.getElementById('cart-hat-item-price').textContent = '$55.00';
               var hd = document.getElementById('cart-hat-qty-decrease');
               if (hd) hd.disabled = true;
               updateCartTotals();
