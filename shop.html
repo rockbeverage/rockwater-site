@@ -154,7 +154,6 @@
     <a href="shop.html">Shop</a>
     <a href="story.html">Our Story</a>
     <a href="science.html">Benefits</a>
-    <a href="where-to-buy.html">Where to Buy</a>
   </nav>
 
   <!-- ============ PRODUCT ============ -->
@@ -334,12 +333,6 @@
             </button>
           </div>
 
-          <a href="#" class="shop-simple__store-link" id="store-link">
-            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 5.25 7.13 11.38 7.43 11.64a.75.75 0 0 0 .96.02C8.72 19.38 16 13.25 16 8c0-4.42-3.58-8-8-8Zm0 11.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/>
-            </svg>
-            Find Your Nearest Store
-          </a>
         </div>
 
       </div>
@@ -466,56 +459,47 @@
       <div class="review-mosaic fade-in" id="shop-review-mosaic">
         <div class="review-mosaic__item">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Tastes Like the Mountain</h3>
           <p class="review-mosaic__quote">&ldquo;Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters.&rdquo;</p>
           <span class="review-mosaic__name">Sarah M.</span>
         </div>
         <div class="review-mosaic__item">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Smooth, Crisp, Different</h3>
           <p class="review-mosaic__quote">&ldquo;Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing.&rdquo;</p>
           <span class="review-mosaic__name">James T.</span>
         </div>
         <div class="review-mosaic__item">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Every Detail Thought Through</h3>
           <p class="review-mosaic__quote">&ldquo;You can tell this was built with intention. Everything from the can to the taste feels thought through.&rdquo;</p>
           <span class="review-mosaic__name">Maya R.</span>
         </div>
 
         <div class="review-mosaic__item review-mosaic__item--hidden">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">My Everyday Can</h3>
           <p class="review-mosaic__quote">&ldquo;This is the kind of can I'd keep in my car, gym bag, or on my desk. Simple, clean, and actually good.&rdquo;</p>
           <span class="review-mosaic__name">Chris D.</span>
         </div>
         <div class="review-mosaic__item review-mosaic__item--hidden">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Perfect Mineral Balance</h3>
           <p class="review-mosaic__quote">&ldquo;I grabbed one at a pop-up and ended up ordering a case that night. The mineral balance is perfect.&rdquo;</p>
           <span class="review-mosaic__name">Alyssa K.</span>
         </div>
         <div class="review-mosaic__item review-mosaic__item--hidden">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Stands for Something</h3>
           <p class="review-mosaic__quote">&ldquo;Most water brands feel interchangeable. ROCK feels like it actually stands for something. And it tastes incredible.&rdquo;</p>
           <span class="review-mosaic__name">Daniel W.</span>
         </div>
         <div class="review-mosaic__item review-mosaic__item--hidden">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Crowd Favorite</h3>
           <p class="review-mosaic__quote">&ldquo;Brought it to a hiking trip with friends. Everyone asked where I got it. Clean taste, great packaging, easy to carry.&rdquo;</p>
           <span class="review-mosaic__name">Jordan P.</span>
         </div>
         <div class="review-mosaic__item review-mosaic__item--hidden">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Real Hydration</h3>
           <p class="review-mosaic__quote">&ldquo;I keep coming back to it. No aftertaste, no weird additives. Just real water that actually hydrates.&rdquo;</p>
           <span class="review-mosaic__name">Nicole F.</span>
         </div>
         <div class="review-mosaic__item review-mosaic__item--hidden">
           <span class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <h3 class="review-mosaic__title">Clean Through &amp; Through</h3>
           <p class="review-mosaic__quote">&ldquo;Finally a water brand that gets it. Clean source, clean can, clean taste. Nothing more, nothing less.&rdquo;</p>
           <span class="review-mosaic__name">Tyler B.</span>
         </div>
@@ -1431,33 +1415,51 @@
       var addHatBtn = document.getElementById('cart-add-hat');
       if (addHatBtn) {
         addHatBtn.addEventListener('click', function() {
-          if (!hatVariantId || !currentCartId) return;
+          if (!hatVariantId) return;
           var btn = this;
           btn.disabled = true;
 
-          var addMutation = 'mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) { cartLinesAdd(cartId: $cartId, lines: $lines) { cart { checkoutUrl } userErrors { field message } } }';
-          var addVars = {
-            cartId: currentCartId,
-            lines: [{ merchandiseId: hatVariantId, quantity: 1 }]
-          };
+          function doAddHat() {
+            var addMutation = 'mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) { cartLinesAdd(cartId: $cartId, lines: $lines) { cart { checkoutUrl } userErrors { field message } } }';
+            shopifyFetch(addMutation, { cartId: currentCartId, lines: [{ merchandiseId: hatVariantId, quantity: 1 }] }).then(function(data) {
+              if (data.data.cartLinesAdd.cart) {
+                cartCheckoutUrl = data.data.cartLinesAdd.cart.checkoutUrl;
+                hatQty = 1;
+                document.getElementById('cart-hat-upsell').style.display = 'none';
+                document.getElementById('cart-hat-item').style.display = 'flex';
+                document.getElementById('cart-hat-qty').textContent = '1';
+                document.getElementById('cart-hat-item-price').textContent = '$55.00';
+                var hd = document.getElementById('cart-hat-qty-decrease');
+                if (hd) hd.disabled = true;
+                updateCartTotals();
+                saveCartToStorage();
+              }
+              btn.disabled = false;
+            }).catch(function() { btn.disabled = false; });
+          }
 
-          shopifyFetch(addMutation, addVars).then(function(data) {
-            if (data.data.cartLinesAdd.cart) {
-              cartCheckoutUrl = data.data.cartLinesAdd.cart.checkoutUrl;
-              hatQty = 1;
-              document.getElementById('cart-hat-upsell').style.display = 'none';
-              document.getElementById('cart-hat-item').style.display = 'flex';
-              document.getElementById('cart-hat-qty').textContent = '1';
-              document.getElementById('cart-hat-item-price').textContent = '$55.00';
-              var hd = document.getElementById('cart-hat-qty-decrease');
-              if (hd) hd.disabled = true;
-              updateCartTotals();
-              saveCartToStorage();
-            } else {
-              console.error('Add hat errors:', data.data.cartLinesAdd.userErrors);
-            }
-            btn.disabled = false;
-          });
+          if (currentCartId) {
+            doAddHat();
+          } else {
+            // No cart yet — create one with just the hat
+            var newMutation = 'mutation cartCreate($input: CartInput!) { cartCreate(input: $input) { cart { id checkoutUrl } } }';
+            shopifyFetch(newMutation, { input: { lines: [{ merchandiseId: hatVariantId, quantity: 1 }] } }).then(function(data) {
+              if (data.data.cartCreate.cart) {
+                currentCartId = data.data.cartCreate.cart.id;
+                cartCheckoutUrl = data.data.cartCreate.cart.checkoutUrl;
+                hatQty = 1;
+                document.getElementById('cart-hat-upsell').style.display = 'none';
+                document.getElementById('cart-hat-item').style.display = 'flex';
+                document.getElementById('cart-hat-qty').textContent = '1';
+                document.getElementById('cart-hat-item-price').textContent = '$55.00';
+                var hd = document.getElementById('cart-hat-qty-decrease');
+                if (hd) hd.disabled = true;
+                updateCartTotals();
+                saveCartToStorage();
+              }
+              btn.disabled = false;
+            }).catch(function() { btn.disabled = false; });
+          }
         });
       }
 

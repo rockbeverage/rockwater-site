@@ -70,7 +70,17 @@
   <!-- ============ STORE LOCATOR ============ -->
   <section class="section section--lg wtb-locator-section fade-in">
     <div class="container">
-      <div class="wtb-locator">
+      <div class="wtb-locator" style="position: relative;">
+        <!-- Coming soon overlay -->
+        <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 500; background: rgba(255,255,255,0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: inherit; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; pointer-events: auto;">
+          <div style="max-width: 480px;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #0b2a5b; opacity: 0.7; margin-bottom: 12px;">Store Locator</div>
+            <h2 style="font-size: clamp(28px, 4vw, 44px); line-height: 1.1; color: #0b2a5b; margin: 0 0 20px;">Coming Soon</h2>
+            <div>
+              <a href="shop.html" style="display: inline-block; background: #0b2a5b; color: #fff; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-family: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;">Shop Now</a>
+            </div>
+          </div>
+        </div>
         <div class="wtb-locator__panel">
           <form class="wtb-locator__search" id="wtb-search-form" novalidate>
             <div class="wtb-locator__search-input-wrap">
