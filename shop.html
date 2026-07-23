@@ -458,24 +458,27 @@
 
   <!-- ============ CLOSING CTA (last-scroll conversion moment) ============ -->
   <style>
-    .close-cta { position: relative; padding: 96px 0; background: #fff; overflow: hidden; border-top: 1px solid var(--color-border); }
-    .close-cta__inner { position: relative; z-index: 2; text-align: center; max-width: 640px; margin: 0 auto; padding: 0 var(--space-lg); color: var(--color-dark); }
-    .close-cta__eyebrow { display: block; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-navy); margin-bottom: 14px; }
-    .close-cta h2 { color: var(--color-dark); margin-bottom: 16px; line-height: 1.05; }
-    .close-cta p { color: var(--color-text-light); font-size: 1.05rem; line-height: 1.55; margin-bottom: 28px; }
+    .close-cta { position: relative; min-height: 620px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000; }
+    .close-cta__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .close-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.75) 100%); z-index: 2; }
+    .close-cta__inner { position: relative; z-index: 3; text-align: center; max-width: 640px; margin: 0 auto; padding: 96px var(--space-lg); color: #fff; }
+    .close-cta__eyebrow { display: block; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; opacity: 0.9; margin-bottom: 14px; }
+    .close-cta h2 { color: #fff; margin-bottom: 16px; line-height: 1.05; }
+    .close-cta p { color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.55; margin-bottom: 28px; }
     .close-cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .close-cta__btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 16px 32px; border-radius: 999px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease; line-height: 1.15; text-align: center; min-width: 200px; }
     .close-cta__btn-price { font-family: var(--font-body); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.02em; text-transform: none; opacity: 0.85; }
-    .close-cta__btn--sub { background: var(--color-navy); color: #fff; }
-    .close-cta__btn--sub:hover { background: var(--color-dark); transform: translateY(-2px); }
-    .close-cta__btn--buy { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-dark); }
-    .close-cta__btn--buy:hover { background: var(--color-dark); color: #fff; transform: translateY(-2px); }
-    .close-cta__perks { margin-top: 22px; font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--color-text-light); }
+    .close-cta__btn--sub { background: #fff; color: var(--color-navy); }
+    .close-cta__btn--sub:hover { background: var(--color-navy); color: #fff; transform: translateY(-2px); }
+    .close-cta__btn--buy { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.85); }
+    .close-cta__btn--buy:hover { background: #fff; color: var(--color-dark); transform: translateY(-2px); }
+    .close-cta__perks { margin-top: 22px; font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.85); }
     .close-cta__perks span { margin: 0 8px; }
-    .close-cta__perks span::before { content: '✓ '; color: var(--color-navy); font-weight: 700; }
-    @media (max-width: 600px) { .close-cta { padding: 72px 0; } .close-cta__btn { min-width: 100%; } }
+    .close-cta__perks span::before { content: '✓ '; color: #fff; font-weight: 700; }
+    @media (max-width: 600px) { .close-cta { min-height: 560px; } .close-cta__inner { padding: 72px var(--space-lg); } .close-cta__btn { min-width: 100%; } }
   </style>
   <section class="close-cta">
+    <video class="close-cta__video" src="videos/close-cta.mp4" autoplay muted loop playsinline preload="metadata"></video>
     <div class="close-cta__inner">
       <span class="close-cta__eyebrow">★★★★★ Trusted Nationwide</span>
       <h2>Ready to Hydrate the Right Way?</h2>
