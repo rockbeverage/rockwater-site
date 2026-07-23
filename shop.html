@@ -183,10 +183,7 @@
         <div class="shop-simple__info">
           <span class="shop-simple__brand">Premium Daily Hydration</span>
           <h1 class="shop-simple__title">Spring Water + Electrolytes</h1>
-          <button class="shop-simple__reviews-link" id="reviews-toggle">
-            <span class="shop-simple__reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="shop-simple__reviews-count">Reviews</span>
-          </button>
+          <div class="shop-simple__price" id="shop-price" style="font-family: var(--font-body); font-size: 22px; font-weight: 700; color: #1a1a1a; margin: 4px 0 12px; letter-spacing: -0.01em;">$23.80</div>
           <p class="shop-simple__desc">Naturally alkaline spring water from the Smoky Mountains with key electrolytes.</p>
 
           <div class="product-stats">
@@ -205,61 +202,6 @@
             <div class="product-stat">
               <span class="product-stat__value">3</span>
               <span class="product-stat__label">Key<br>Electrolytes</span>
-            </div>
-          </div>
-
-          <div class="product-accordion">
-            <button class="product-accordion__trigger" aria-expanded="false">
-              <span>Why You'll Love It</span>
-              <span class="product-accordion__icon" aria-hidden="true">+</span>
-            </button>
-            <div class="product-accordion__panel">
-              <div class="product-accordion__inner">
-                <div class="product-accordion__item">
-                  <button class="product-accordion__sub-trigger" aria-expanded="false">
-                    <span>Naturally Alkaline</span>
-                    <span class="product-accordion__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="product-accordion__sub-panel">
-                    <div class="product-accordion__sub-inner">
-                      <p>A balanced 7.8+ pH straight from the source. No chemicals, no additives. Drink the way nature designed it.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-accordion__item">
-                  <button class="product-accordion__sub-trigger" aria-expanded="false">
-                    <span>Key Electrolytes</span>
-                    <span class="product-accordion__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="product-accordion__sub-panel">
-                    <div class="product-accordion__sub-inner">
-                      <p>Magnesium, sodium, and potassium occurring naturally in every can. Real hydration that actually replenishes.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-accordion__item">
-                  <button class="product-accordion__sub-trigger" aria-expanded="false">
-                    <span>Trace Minerals</span>
-                    <span class="product-accordion__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="product-accordion__sub-panel">
-                    <div class="product-accordion__sub-inner">
-                      <p>Naturally filtered through ancient limestone in the Smoky Mountains. The mountain does the work.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-accordion__item">
-                  <button class="product-accordion__sub-trigger" aria-expanded="false">
-                    <span>No Plastic</span>
-                    <span class="product-accordion__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="product-accordion__sub-panel">
-                    <div class="product-accordion__sub-inner">
-                      <p>Infinitely recyclable aluminum. Better for you, better for the planet. No microplastics, no compromise.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -377,36 +319,39 @@
     </div>
   </div>
 
-  <!-- ============ STANDARDS SECTION (Bloom-style) ============ -->
-  <section class="standards fade-in">
+  <!-- ============ BEST OF NATURE ============ -->
+  <section class="section section--lg">
     <div class="container">
-      <div class="standards__stats">
-        <div class="standards__stat">
-          <span class="standards__stat-top">pH</span>
-          <span class="standards__stat-num">7.8+</span>
-          <span class="standards__stat-bottom">Naturally Alkaline</span>
+      <div class="split fade-in">
+        <div class="split__image" role="img" aria-label="Smoky Mountain source" style="background-image: url('images/mountain-source1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 500px; border-radius: 24px;">
         </div>
-        <div class="standards__stat">
-          <span class="standards__stat-top">Calories</span>
-          <span class="standards__stat-num">0</span>
-          <span class="standards__stat-bottom">Per Can</span>
+        <div class="split__content">
+          <span class="text-eyebrow">Nature</span>
+          <h2>Best of Nature</h2>
+          <p>Natural mountain spring water bottled at the source in the Smoky Mountains of Tennessee. Naturally filtered through ancient limestone for thousands of years.</p>
+          <div class="standards__stats" style="margin: var(--space-xl) 0 var(--space-lg); grid-template-columns: repeat(2, 1fr); justify-items: start; gap: var(--space-md);">
+            <div class="standards__stat">
+              <span class="standards__stat-top">pH</span>
+              <span class="standards__stat-num">7.8+</span>
+              <span class="standards__stat-bottom">Naturally Alkaline</span>
+            </div>
+            <div class="standards__stat">
+              <span class="standards__stat-top">Calories</span>
+              <span class="standards__stat-num">0</span>
+              <span class="standards__stat-bottom">Per Can</span>
+            </div>
+            <div class="standards__stat">
+              <span class="standards__stat-top">Plastic</span>
+              <span class="standards__stat-num">0%</span>
+              <span class="standards__stat-bottom">Aluminum Only</span>
+            </div>
+            <div class="standards__stat">
+              <span class="standards__stat-top">Electrolytes</span>
+              <span class="standards__stat-num">3</span>
+              <span class="standards__stat-bottom">Natural Minerals</span>
+            </div>
+          </div>
         </div>
-        <div class="standards__stat">
-          <span class="standards__stat-top">Plastic</span>
-          <span class="standards__stat-num">0%</span>
-          <span class="standards__stat-bottom">Aluminum Only</span>
-        </div>
-        <div class="standards__stat">
-          <span class="standards__stat-top">Electrolytes</span>
-          <span class="standards__stat-num">3</span>
-          <span class="standards__stat-bottom">Natural Minerals</span>
-        </div>
-      </div>
-
-      <div class="standards__copy">
-        <h2 class="standards__title">best of nature</h2>
-        <p class="standards__lede">Natural mountain spring water bottled at the source in the Smoky Mountains of Tennessee. Naturally filtered through ancient limestone for thousands of years.</p>
-        <p class="standards__ingredients"><strong>Ingredients:</strong> Natural Spring Water, Magnesium Sulfate, Sodium Citrate, Potassium Carbonate.</p>
       </div>
     </div>
   </section>
@@ -415,7 +360,7 @@
   <section class="section section--lg">
     <div class="container">
       <div class="split split--reverse fade-in">
-        <div class="split__image" role="img" aria-label="Product science detail" style="background-image: url('images/DCDC.JPG'); background-size: cover; background-position: center bottom; background-repeat: no-repeat; min-height: 450px;">
+        <div class="split__image" role="img" aria-label="Product science detail" style="background-image: url('images/DCDC.JPG'); background-size: cover; background-position: center bottom; background-repeat: no-repeat; min-height: 500px; border-radius: 24px;">
         </div>
         <div class="split__content">
           <span class="text-eyebrow">Science</span>
@@ -433,7 +378,7 @@
   </section>
 
   <!-- ============ REVIEWS ============ -->
-  <section class="section section--cream">
+  <section class="section">
     <div class="container">
       <div class="text-block fade-in" style="margin-bottom: var(--space-xl);">
         <span class="text-eyebrow">Reviews</span>
@@ -507,6 +452,48 @@
 
       <div class="reviews-cta-wrap fade-in" style="text-align: center; margin-top: var(--space-2xl);">
         <button type="button" class="btn btn--secondary" id="shop-reviews-toggle" aria-expanded="false" aria-controls="shop-review-mosaic">Show More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA (last-scroll conversion moment) ============ -->
+  <style>
+    .close-cta { position: relative; padding: 96px 0; background: #fff; overflow: hidden; border-top: 1px solid var(--color-border); }
+    .close-cta__inner { position: relative; z-index: 2; text-align: center; max-width: 640px; margin: 0 auto; padding: 0 var(--space-lg); color: var(--color-dark); }
+    .close-cta__eyebrow { display: block; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-navy); margin-bottom: 14px; }
+    .close-cta h2 { color: var(--color-dark); margin-bottom: 16px; line-height: 1.05; }
+    .close-cta p { color: var(--color-text-light); font-size: 1.05rem; line-height: 1.55; margin-bottom: 28px; }
+    .close-cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .close-cta__btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 16px 32px; border-radius: 999px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease; line-height: 1.15; text-align: center; min-width: 200px; }
+    .close-cta__btn-price { font-family: var(--font-body); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.02em; text-transform: none; opacity: 0.85; }
+    .close-cta__btn--sub { background: var(--color-navy); color: #fff; }
+    .close-cta__btn--sub:hover { background: var(--color-dark); transform: translateY(-2px); }
+    .close-cta__btn--buy { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-dark); }
+    .close-cta__btn--buy:hover { background: var(--color-dark); color: #fff; transform: translateY(-2px); }
+    .close-cta__perks { margin-top: 22px; font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--color-text-light); }
+    .close-cta__perks span { margin: 0 8px; }
+    .close-cta__perks span::before { content: '✓ '; color: var(--color-navy); font-weight: 700; }
+    @media (max-width: 600px) { .close-cta { padding: 72px 0; } .close-cta__btn { min-width: 100%; } }
+  </style>
+  <section class="close-cta">
+    <div class="close-cta__inner">
+      <span class="close-cta__eyebrow">★★★★★ Trusted Nationwide</span>
+      <h2>Ready to Hydrate the Right Way?</h2>
+      <p>Naturally alkaline spring water from the Smoky Mountains. Real electrolytes. Zero plastic. Delivered to your door.</p>
+      <div class="close-cta__buttons">
+        <a href="#pt-subscribe" class="close-cta__btn close-cta__btn--sub" onclick="document.getElementById('pt-subscribe')?.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(function(){document.getElementById('pt-subscribe')?.click();}, 600); return false;">
+          <span>Subscribe &amp; Save 30%</span>
+          <span class="close-cta__btn-price">$23.80 · Monthly</span>
+        </a>
+        <a href="#buy-btn" class="close-cta__btn close-cta__btn--buy" onclick="document.getElementById('pt-onetime')?.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(function(){document.getElementById('pt-onetime')?.click();}, 600); return false;">
+          <span>Buy One-Time</span>
+          <span class="close-cta__btn-price">$34.00</span>
+        </a>
+      </div>
+      <div class="close-cta__perks">
+        <span>Cancel Anytime</span>
+        <span>Ships Fresh</span>
+        <span>1% For The Planet</span>
       </div>
     </div>
   </section>
@@ -924,7 +911,7 @@
       }
 
       // Shopify Storefront API Integration
-      var SHOPIFY_DOMAIN = 'e1zq1s-cw.myshopify.com';
+      var SHOPIFY_DOMAIN = 'rock-1234314.myshopify.com';
       var SHOPIFY_TOKEN = '03b89e7d424e00e12f09045648f5440a';
       var PRODUCT_ID = 'gid://shopify/Product/9552967631089'; // 12-pack
       var PRODUCT_8PACK_ID = 'gid://shopify/Product/9591834706161'; // 8-pack
@@ -961,54 +948,27 @@
         }).then(function(r) { return r.json(); });
       }
 
-      // Fetch product data via Shopify AJAX API — no token/scope needed, works everywhere
+      // Fetch product variant via Storefront GraphQL; selling plan is known/hardcoded
+      // (Storefront token lacks unauthenticated_read_selling_plans scope, so we can't query plans directly)
       (function() {
-        fetch('https://' + SHOPIFY_DOMAIN + '/products/premium-spring-water-12-pack-12oz.js')
-          .then(function(r) { return r.json(); })
-          .then(function(product) {
-            // Variant ID
-            if (product.variants && product.variants.length) {
-              variantId12pack = 'gid://shopify/ProductVariant/' + product.variants[0].id;
+        var productQuery = '{ product(id: "' + PRODUCT_ID + '") { variants(first: 1) { edges { node { id } } } } }';
+        shopifyFetch(productQuery)
+          .then(function(res) {
+            var product = res && res.data && res.data.product;
+            if (!product) throw new Error('product not found');
+            var vEdge = product.variants && product.variants.edges && product.variants.edges[0];
+            if (vEdge) {
+              variantId12pack = vEdge.node.id;
               if (currentPack === 12) productVariantId = variantId12pack;
             }
-            // Selling plans
-            sellingPlans = [];
-            if (product.selling_plan_groups) {
-              product.selling_plan_groups.forEach(function(group) {
-                group.selling_plans.forEach(function(plan) {
-                  var optVal = (plan.options && plan.options[0] && plan.options[0].value) || plan.name || '';
-                  var planName = plan.name || '';
-                  // Detect weeks or months from option value
-                  var weekMatch = optVal.match(/(\d+)\s*week/i);
-                  var monthMatch = optVal.match(/(\d+)\s*month/i) || planName.match(/(\d+)\s*month/i);
-                  if (!weekMatch && !monthMatch) return; // skip unknown intervals
-                  // Use first-order discount for display price
-                  var pct = 0;
-                  if (plan.price_adjustments) {
-                    var firstOrder = plan.price_adjustments.filter(function(a) { return a.order_count === 1; })[0]
-                                  || plan.price_adjustments[0];
-                    if (firstOrder && firstOrder.value_type === 'percentage') pct = firstOrder.value;
-                  }
-                  var sortKey, label;
-                  if (monthMatch) {
-                    var months = parseInt(monthMatch[1]);
-                    sortKey = months * 30; // approximate days for sorting
-                    label = months === 1 ? '1 month' : months + ' months';
-                  } else {
-                    var weeks = parseInt(weekMatch[1]);
-                    sortKey = weeks * 7;
-                    label = weeks === 1 ? '1 week' : weeks + ' weeks';
-                  }
-                  sellingPlans.push({
-                    id: 'gid://shopify/SellingPlan/' + plan.id,
-                    name: label,
-                    sortKey: sortKey,
-                    pct: pct,
-                    price: parseFloat((packPrice[12] * (1 - pct / 100)).toFixed(2))
-                  });
-                });
-              });
-            }
+            // Hardcoded selling plan (monthly, 30% off first order)
+            sellingPlans = [{
+              id: 'gid://shopify/SellingPlan/5425037553',
+              name: '1 month',
+              sortKey: 30,
+              pct: 30,
+              price: parseFloat((packPrice[12] * 0.70).toFixed(2))
+            }];
             // Deduplicate by label, keep lowest pct (first-order discount)
             var byLabel = {};
             sellingPlans.forEach(function(p) {
@@ -1678,9 +1638,9 @@
         document.body.style.overflow = '';
       }
 
-      reviewsToggle.addEventListener('click', openReviews);
-      reviewsClose.addEventListener('click', closeReviews);
-      reviewsOverlay.addEventListener('click', closeReviews);
+      if (reviewsToggle) reviewsToggle.addEventListener('click', openReviews);
+      if (reviewsClose) reviewsClose.addEventListener('click', closeReviews);
+      if (reviewsOverlay) reviewsOverlay.addEventListener('click', closeReviews);
 
       // Purchase type toggle (one-time / subscribe)
       (function() {
