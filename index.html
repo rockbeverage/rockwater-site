@@ -223,7 +223,8 @@
 
  <style>
  .subcard { border: 1.5px solid var(--color-navy); border-radius: 16px; padding: 22px 22px; background: #fff; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
- .subcard__save { position: absolute; top: -10px; left: 20px; background: #fdd835; color: var(--color-dark); font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; }
+ .subcard__save { position: absolute; top: -10px; right: 20px; background: #fdd835; color: var(--color-dark); font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; }
+ .subcard__caption { display: block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-dark); margin-bottom: 10px; text-align: left; }
  .subcard__price { display: flex; align-items: baseline; gap: 8px; }
  .subcard__price-now { font-family: var(--font-body); font-size: 2rem; font-weight: 700; color: var(--color-dark); line-height: 1; letter-spacing: -0.01em; }
  .subcard__price-strike { font-family: var(--font-body); font-size: 0.95rem; color: #aaa; text-decoration: line-through; }
@@ -235,6 +236,7 @@
  .shop-now__onetime { display: block; text-align: center; margin-top: 14px; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); text-decoration: underline; text-underline-offset: 4px; }
  .shop-now__onetime:hover { color: var(--color-dark); }
  </style>
+ <span class="subcard__caption">Subscribe &amp; Save:</span>
  <div class="subcard">
  <span class="subcard__save">Save 30%</span>
  <div class="subcard__price">
@@ -244,7 +246,7 @@
  </div>
  <span class="subcard__serving">$1.98 / can</span>
  </div>
- <button type="button" class="shop-now__cta" id="shop-now-subscribe">Subscribe &amp; Save 30%</button>
+ <button type="button" class="shop-now__cta" id="shop-now-subscribe">Buy Now &amp; Save 30%</button>
  <a href="https://rock-1234314.myshopify.com/cart/48041430679793:1" class="shop-now__onetime">One-time purchase $34.00</a>
  <script>
  (function() {
