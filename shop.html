@@ -463,8 +463,7 @@
     .close-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.75) 100%); z-index: 2; }
     .close-cta__inner { position: relative; z-index: 3; text-align: center; max-width: 640px; margin: 0 auto; padding: 96px var(--space-lg); color: #fff; }
     .close-cta__eyebrow { display: block; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; opacity: 0.9; margin-bottom: 14px; }
-    .close-cta h2 { color: #fff; margin-bottom: 16px; line-height: 1.05; }
-    .close-cta p { color: rgba(255,255,255,0.88); font-size: 1.05rem; line-height: 1.55; margin-bottom: 28px; }
+    .close-cta h2 { color: #fff; margin-bottom: 32px; line-height: 1.05; }
     .close-cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .close-cta__btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 16px 32px; border-radius: 999px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease; line-height: 1.15; text-align: center; min-width: 200px; }
     .close-cta__btn-price { font-family: var(--font-body); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.02em; text-transform: none; opacity: 0.85; }
@@ -480,23 +479,12 @@
   <section class="close-cta">
     <video class="close-cta__video" src="videos/close-cta.mp4" autoplay muted loop playsinline preload="metadata"></video>
     <div class="close-cta__inner">
-      <span class="close-cta__eyebrow">★★★★★ Trusted Nationwide</span>
       <h2>Ready to Hydrate the Right Way?</h2>
-      <p>Naturally alkaline spring water from the Smoky Mountains. Real electrolytes. Zero plastic. Delivered to your door.</p>
       <div class="close-cta__buttons">
         <a href="#pt-subscribe" class="close-cta__btn close-cta__btn--sub" onclick="document.getElementById('pt-subscribe')?.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(function(){document.getElementById('pt-subscribe')?.click();}, 600); return false;">
           <span>Subscribe &amp; Save 30%</span>
           <span class="close-cta__btn-price">$23.80 · Monthly</span>
         </a>
-        <a href="#buy-btn" class="close-cta__btn close-cta__btn--buy" onclick="document.getElementById('pt-onetime')?.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(function(){document.getElementById('pt-onetime')?.click();}, 600); return false;">
-          <span>Buy One-Time</span>
-          <span class="close-cta__btn-price">$34.00</span>
-        </a>
-      </div>
-      <div class="close-cta__perks">
-        <span>Cancel Anytime</span>
-        <span>Ships Fresh</span>
-        <span>1% For The Planet</span>
       </div>
     </div>
   </section>
