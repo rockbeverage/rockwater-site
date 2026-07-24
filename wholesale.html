@@ -73,89 +73,66 @@
     <a href="science.html">Benefits</a>
   </nav>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero hero--short" style="background: linear-gradient(180deg, #1b4174 0%, #152f55 100%);">
-    <div class="hero__bg"></div>
-    <div class="hero__content">
-      <span class="text-eyebrow">Wholesale</span>
-      <h1>Bring Rock Water<br>to Your Shelves</h1>
-      <div style="margin-top: var(--space-lg);">
-        <button class="btn btn--white wholesale-open-modal">Apply Now</button>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============ WHY PARTNER ============ -->
-  <section class="section section--lg">
+  <!-- ============ VIDEO + SIMPLE APPLY FORM ============ -->
+  <section class="section" style="padding-top: var(--space-2xl); padding-bottom: 0;">
     <div class="container">
-      <div class="ws-two-col fade-in">
-        <div class="ws-two-col__left">
-          <span class="text-eyebrow">Partnership</span>
-          <h2>Why Carry<br>Rock Water</h2>
-        </div>
-        <div class="ws-two-col__right">
-          <div class="faq">
-            <div class="faq__item">
-              <button class="faq__question" aria-expanded="false">
-                <span>Premium Packaging</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>Clean, modern design that stands out on any shelf or cooler.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item">
-              <button class="faq__question" aria-expanded="false">
-                <span>Quality Product</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>Natural spring water enhanced with three key electrolytes: Magnesium Sulfate, Sodium Citrate, and Potassium Carbonate. No sugar, no calories, nothing artificial.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item">
-              <button class="faq__question" aria-expanded="false">
-                <span>Made for Intentional Spaces</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>Cafés, fitness studios, hotels, specialty markets, anywhere quality matters.</p>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item">
-              <button class="faq__question" aria-expanded="false">
-                <span>Growing Community</span>
-                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>Active brand engagement, ambassador partnerships, and grassroots presence.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div style="width: 100%; border-radius: var(--radius-md); overflow: hidden; background: #000; margin-bottom: var(--space-2xl);">
+        <video src="videos/wholesale.mp4" autoplay muted loop playsinline preload="metadata" style="width: 100%; height: auto; display: block;"></video>
       </div>
-    </div>
-  </section>
 
-  <!-- ============ TWO-IMAGE LIFESTYLE ============ -->
-  <section class="section section--lg fade-in">
-    <div class="container">
-      <div class="ws-image-pair">
-        <div class="ws-image-pair__item">
-          <img src="images/rolex.jpg" alt="ROCK Water on retail shelves">
+      <div class="text-block fade-in" style="max-width: 560px; margin: 0 auto var(--space-lg); text-align: center;">
+        <h2 style="margin-bottom: var(--space-sm);">Carry ROCK Water</h2>
+        <p style="color: var(--color-text-light);">A few quick details and we'll be in touch.</p>
+      </div>
+
+      <form class="wf__form" id="wholesale-app-form" action="https://formspree.io/f/xlgpjvdn" method="POST" style="max-width: 480px; margin: 0 auto var(--space-3xl);">
+        <div class="wf__field">
+          <label class="wf__label" for="ws-email">Email <span class="wf__req">*</span></label>
+          <input type="email" id="ws-email" name="email" class="wf__input" placeholder="you@business.com" required>
         </div>
-        <div class="ws-image-pair__item">
-          <img src="images/brandonfilm.jpeg" alt="ROCK Water lifestyle">
+
+        <div class="wf__field">
+          <label class="wf__label" for="ws-phone">Phone <span style="color: var(--color-text-light); font-weight: 400;">(optional)</span></label>
+          <input type="tel" id="ws-phone" name="phone" class="wf__input" placeholder="(555) 555-5555">
         </div>
+
+        <div class="wf__field">
+          <label class="wf__label" for="ws-type">Type of retailer <span class="wf__req">*</span></label>
+          <select id="ws-type" name="business_type" class="wf__input wf__select" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Café / Coffee Shop">Café / Coffee Shop</option>
+            <option value="Restaurant / Bar">Restaurant / Bar</option>
+            <option value="Fitness Studio / Gym">Fitness Studio / Gym</option>
+            <option value="Wellness / Recovery Studio">Wellness / Recovery Studio</option>
+            <option value="Golf Club / Recreation">Golf Club / Recreation</option>
+            <option value="Hotel / Hospitality">Hotel / Hospitality</option>
+            <option value="Specialty Retail / Market">Specialty Retail / Market</option>
+            <option value="Bottle Shop / Liquor">Bottle Shop / Liquor</option>
+            <option value="Lifestyle / Boutique">Lifestyle / Boutique</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="wf__field">
+          <label class="wf__label" for="ws-state">State <span class="wf__req">*</span></label>
+          <select id="ws-state" name="state" class="wf__input wf__select" required>
+            <option value="" disabled selected>Select state</option>
+            <option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option>
+          </select>
+        </div>
+
+        <div class="wf__actions" style="margin-top: var(--space-lg);">
+          <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">Submit Application</button>
+        </div>
+      </form>
+
+      <div class="wf__success" id="wf-success" style="display: none; max-width: 480px; margin: 0 auto var(--space-3xl); text-align: center;">
+        <h3>Application Received</h3>
+        <p>Thank you for your interest in carrying ROCK Water. Our team will follow up within 2-3 business days.</p>
+      </div>
+      <div class="wf__success" id="wf-error" style="display: none; max-width: 480px; margin: 0 auto var(--space-3xl); text-align: center;">
+        <h3 style="color: #c0392b;">Something went wrong</h3>
+        <p>Please try again or email us at support@rockbeverage.com</p>
       </div>
     </div>
   </section>
@@ -245,178 +222,6 @@
     </div>
   </section>
 
-  <!-- ============ BOTTOM CTA ============ -->
-  <section class="section section--lg section--navy">
-    <div class="container">
-      <div class="text-block fade-in" style="max-width: 600px;">
-        <span class="text-eyebrow" style="color: rgba(255,255,255,0.5);">Get Started</span>
-        <h2>Interested in Carrying Rock Water?</h2>
-        <p>Tell us a bit about your store, concept, or location and we'll be in touch.</p>
-        <div style="margin-top: var(--space-xl);">
-          <button class="btn btn--white wholesale-open-modal">Apply Now</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ APPLICATION FORM MODAL ============ -->
-  <div class="wf-modal-overlay" id="wf-modal-overlay">
-    <div class="wf-modal" id="wf-modal" role="dialog" aria-modal="true" aria-label="Wholesale Application">
-      <button class="wf-modal__close" id="wf-modal-close" aria-label="Close">&times;</button>
-
-      <div class="wf-modal__header">
-        <span class="text-eyebrow" style="margin-bottom: var(--space-xs);">Apply</span>
-        <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-xs);">Wholesale Application</h2>
-        <p style="font-size: var(--text-sm); color: var(--color-text-light); max-width: 400px; margin: 0 auto;">Tell us about your business and we'll be in touch.</p>
-      </div>
-
-      <!-- Step Indicator -->
-      <div class="wf__steps-indicator">
-        <div class="wf__step-dot wf__step-dot--active" data-step="1">
-          <span class="wf__step-num">1</span>
-        </div>
-        <div class="wf__step-line"></div>
-        <div class="wf__step-dot" data-step="2">
-          <span class="wf__step-num">2</span>
-        </div>
-      </div>
-
-      <form class="wf__form" id="wholesale-app-form" action="https://formspree.io/f/xlgpjvdn" method="POST">
-
-        <!-- ======== STEP 1 ======== -->
-        <div class="wf__panel" id="wf-step-1">
-
-          <div class="wf__row">
-            <div class="wf__field">
-              <label class="wf__label" for="wf-name">Full Name <span class="wf__req">*</span></label>
-              <input type="text" id="wf-name" name="name" class="wf__input" placeholder="Your full name" required>
-            </div>
-            <div class="wf__field">
-              <label class="wf__label" for="wf-phone">Phone Number</label>
-              <input type="tel" id="wf-phone" name="phone" class="wf__input" placeholder="(555) 555-5555">
-            </div>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label">Business Contact Position <span class="wf__req">*</span></label>
-            <div class="wf__radio-group">
-              <label class="wf__radio"><input type="radio" name="position" value="Owner" required><span class="wf__radio-mark"></span>Owner</label>
-              <label class="wf__radio"><input type="radio" name="position" value="Manager"><span class="wf__radio-mark"></span>Manager</label>
-              <label class="wf__radio"><input type="radio" name="position" value="Team Member"><span class="wf__radio-mark"></span>Team Member</label>
-              <label class="wf__radio"><input type="radio" name="position" value="Other"><span class="wf__radio-mark"></span>Other</label>
-            </div>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label" for="wf-website">Business Website</label>
-            <input type="url" id="wf-website" name="website" class="wf__input" placeholder="https://yourbusiness.com">
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label">Do you have a physical store location? <span class="wf__req">*</span></label>
-            <div class="wf__radio-group wf__radio-group--inline">
-              <label class="wf__radio"><input type="radio" name="physical_location" value="Yes" required><span class="wf__radio-mark"></span>Yes</label>
-              <label class="wf__radio"><input type="radio" name="physical_location" value="No"><span class="wf__radio-mark"></span>No</label>
-            </div>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label" for="wf-address">Business Address <span class="wf__req">*</span></label>
-            <input type="text" id="wf-address" name="address" class="wf__input" placeholder="Street, City, State, ZIP" required>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label">Which best describes your business? <span class="wf__req">*</span></label>
-            <div class="wf__radio-group wf__radio-group--grid">
-              <label class="wf__radio"><input type="radio" name="business_type" value="Café / Coffee Shop" required><span class="wf__radio-mark"></span>Caf&eacute; / Coffee Shop</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Restaurant / Bar"><span class="wf__radio-mark"></span>Restaurant / Bar</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Fitness Studio / Gym"><span class="wf__radio-mark"></span>Fitness Studio / Gym</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Wellness / Recovery Studio"><span class="wf__radio-mark"></span>Wellness / Recovery Studio</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Golf Club / Recreation Facility"><span class="wf__radio-mark"></span>Golf Club / Recreation Facility</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Hotel / Hospitality"><span class="wf__radio-mark"></span>Hotel / Hospitality</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Specialty Retail / Market"><span class="wf__radio-mark"></span>Specialty Retail / Market</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Bottle Shop / Liquor Retailer"><span class="wf__radio-mark"></span>Bottle Shop / Liquor Retailer</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Lifestyle / Boutique Retail"><span class="wf__radio-mark"></span>Lifestyle / Boutique Retail</label>
-              <label class="wf__radio"><input type="radio" name="business_type" value="Other"><span class="wf__radio-mark"></span>Other</label>
-            </div>
-          </div>
-
-          <div class="wf__actions">
-            <button type="button" class="btn btn--primary btn--lg" id="wf-next">Continue</button>
-          </div>
-        </div>
-
-        <!-- ======== STEP 2 ======== -->
-        <div class="wf__panel" id="wf-step-2" style="display: none;">
-
-          <div class="wf__field">
-            <label class="wf__label" for="wf-hear">How did you hear about ROCK Water? <span class="wf__req">*</span></label>
-            <select id="wf-hear" name="how_heard" class="wf__input wf__select" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="Instagram">Instagram</option>
-              <option value="TikTok">TikTok</option>
-              <option value="Friend / Word of Mouth">Friend / Word of Mouth</option>
-              <option value="Event / Pop-Up">Event / Pop-Up</option>
-              <option value="Google Search">Google Search</option>
-              <option value="Farmers Market">Farmers Market</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label" for="wf-locations">How many locations does your business have? <span class="wf__req">*</span></label>
-            <select id="wf-locations" name="locations" class="wf__input wf__select" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="1">1</option>
-              <option value="2-5">2 &ndash; 5</option>
-              <option value="6-10">6 &ndash; 10</option>
-              <option value="11-25">11 &ndash; 25</option>
-              <option value="25+">25+</option>
-            </select>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label" for="wf-instagram">Business Instagram Handle</label>
-            <input type="text" id="wf-instagram" name="instagram" class="wf__input" placeholder="@yourbusiness">
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__label" for="wf-notes">Anything else you'd like us to know?</label>
-            <textarea id="wf-notes" name="notes" class="wf__input wf__textarea" placeholder="Tell us more about your business, goals, or questions..." rows="4"></textarea>
-          </div>
-
-          <div class="wf__field">
-            <label class="wf__checkbox">
-              <input type="checkbox" id="wf-optin" name="marketing_optin" value="Yes">
-              <span class="wf__checkbox-mark"></span>
-              <span class="wf__checkbox-text">Yes, send me free marketing materials and product samples for my location.</span>
-            </label>
-          </div>
-
-          <div class="wf__actions wf__actions--split">
-            <button type="button" class="btn btn--secondary" id="wf-prev">&larr; Previous</button>
-            <button type="submit" class="btn btn--primary btn--lg">Submit Application</button>
-          </div>
-        </div>
-
-      </form>
-
-      <!-- Success State -->
-      <div class="wf__success" id="wf-success" style="display: none;">
-        <div class="wf__success-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-        </div>
-        <h3>Application Received</h3>
-        <p>Thank you for your interest in carrying Rock Water. Our team will review your application and follow up within 2-3 business days.</p>
-      </div>
-
-      <!-- Error State -->
-      <div class="wf__success" id="wf-error" style="display: none;">
-        <h3 style="color: #c0392b;">Something went wrong</h3>
-        <p>Please try again or email us directly at support@rockbeverage.com</p>
-      </div>
-    </div>
-  </div>
 
   <!-- ============ FOOTER ============ -->
     <footer class="footer">
@@ -473,26 +278,15 @@
   <script src="js/main.js"></script>
   <script>
     (function() {
-      var overlay = document.getElementById('wf-modal-overlay');
-      var modal = document.getElementById('wf-modal');
-      var step1 = document.getElementById('wf-step-1');
-      var step2 = document.getElementById('wf-step-2');
-      var dots = document.querySelectorAll('.wf__step-dot');
-      var line = document.querySelector('.wf__step-line');
-
       // ---- FAQ Accordion ----
       document.querySelectorAll('.faq__question').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var item = this.parentElement;
           var isOpen = item.classList.contains('faq__item--open');
-
-          // Close all
           document.querySelectorAll('.faq__item--open').forEach(function(openItem) {
             openItem.classList.remove('faq__item--open');
             openItem.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
           });
-
-          // Open clicked (if it wasn't already open)
           if (!isOpen) {
             item.classList.add('faq__item--open');
             this.setAttribute('aria-expanded', 'true');
@@ -500,126 +294,33 @@
         });
       });
 
-      // ---- Modal Open / Close ----
-      function openModal() {
-        overlay.classList.add('wf-modal-overlay--active');
-        document.body.style.overflow = 'hidden';
-        setTimeout(function() {
-          document.getElementById('wf-name').focus();
-        }, 350);
-      }
-
-      function closeModal() {
-        overlay.classList.remove('wf-modal-overlay--active');
-        document.body.style.overflow = '';
-      }
-
-      document.querySelectorAll('.wholesale-open-modal').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
+      // ---- Wholesale form submit ----
+      var form = document.getElementById('wholesale-app-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
           e.preventDefault();
-          openModal();
-        });
-      });
+          var data = new FormData(form);
+          var submitBtn = form.querySelector('button[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
 
-      document.getElementById('wf-modal-close').addEventListener('click', closeModal);
-
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeModal();
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && overlay.classList.contains('wf-modal-overlay--active')) {
-          closeModal();
-        }
-      });
-
-      // ---- Step Navigation ----
-      document.getElementById('wf-next').addEventListener('click', function() {
-        var requiredInputs = step1.querySelectorAll('[required]');
-        var valid = true;
-        requiredInputs.forEach(function(input) {
-          if (input.type === 'radio') {
-            var group = step1.querySelectorAll('input[name="' + input.name + '"]');
-            var checked = false;
-            group.forEach(function(r) { if (r.checked) checked = true; });
-            if (!checked) valid = false;
-          } else {
-            if (!input.value.trim()) valid = false;
-          }
-        });
-
-        if (!valid) {
-          var tempBtn = document.createElement('button');
-          tempBtn.type = 'submit';
-          tempBtn.style.display = 'none';
-          document.getElementById('wholesale-app-form').appendChild(tempBtn);
-          tempBtn.click();
-          tempBtn.remove();
-          return;
-        }
-
-        step1.style.display = 'none';
-        step2.style.display = '';
-        step2.style.opacity = '0';
-        step2.style.transform = 'translateY(12px)';
-        step2.offsetHeight;
-        step2.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        step2.style.opacity = '1';
-        step2.style.transform = 'translateY(0)';
-        dots[0].classList.remove('wf__step-dot--active');
-        dots[0].classList.add('wf__step-dot--done');
-        dots[1].classList.add('wf__step-dot--active');
-        line.classList.add('wf__step-line--done');
-        modal.scrollTop = 0;
-      });
-
-      document.getElementById('wf-prev').addEventListener('click', function() {
-        step2.style.display = 'none';
-        step1.style.display = '';
-        dots[1].classList.remove('wf__step-dot--active');
-        dots[0].classList.remove('wf__step-dot--done');
-        dots[0].classList.add('wf__step-dot--active');
-        line.classList.remove('wf__step-line--done');
-        modal.scrollTop = 0;
-      });
-
-      // ---- Form Submit ----
-      document.getElementById('wholesale-app-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var form = this;
-        var data = new FormData(form);
-        var submitBtn = step2.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-
-        fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        }).then(function(response) {
-          if (response.ok) {
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          }).then(function(response) {
+            if (response.ok) {
+              form.style.display = 'none';
+              document.getElementById('wf-success').style.display = '';
+            } else {
+              throw new Error('Form submission failed');
+            }
+          }).catch(function() {
             form.style.display = 'none';
-            document.querySelector('.wf__steps-indicator').style.display = 'none';
-            var success = document.getElementById('wf-success');
-            success.style.display = '';
-            success.style.opacity = '0';
-            success.style.transform = 'translateY(12px)';
-            success.offsetHeight;
-            success.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            success.style.opacity = '1';
-            success.style.transform = 'translateY(0)';
-            modal.scrollTop = 0;
-          } else {
-            throw new Error('Form submission failed');
-          }
-        }).catch(function() {
-          form.style.display = 'none';
-          document.querySelector('.wf__steps-indicator').style.display = 'none';
-          document.getElementById('wf-error').style.display = '';
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Application';
+            document.getElementById('wf-error').style.display = '';
+          });
         });
-      });
+      }
     })();
   </script>
 </body>
