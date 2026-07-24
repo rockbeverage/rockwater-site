@@ -221,17 +221,55 @@
  <div class="ingredient-benefit" id="ingredient-benefit" aria-live="polite"></div>
  </div>
 
- <div class="shop-now__buttons">
- <a href="https://rock-1234314.myshopify.com/cart/48041430679793:1" class="shop-now__btn shop-now__btn--buy">
- <span>Buy Now</span>
- <span class="shop-now__btn-price">$34.00 · One-Time</span>
- </a>
- <a href="https://rock-1234314.myshopify.com/cart/48041430679793:1?selling_plan=5569478897" class="shop-now__btn shop-now__btn--sub">
- <span class="shop-now__badge">Save 30%</span>
- <span>Subscribe &amp; Save</span>
- <span class="shop-now__btn-price">$23.80 · Monthly</span>
- </a>
+ <style>
+ .subcard { border: 1.5px solid var(--color-navy); border-radius: 16px; padding: 18px 20px; background: #fff; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+ .subcard__save { position: absolute; top: -10px; left: 20px; background: #fdd835; color: var(--color-dark); font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; }
+ .subcard__label { display: flex; flex-direction: column; gap: 4px; }
+ .subcard__title { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-dark); letter-spacing: 0.02em; }
+ .subcard__sub { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-text-light); }
+ .subcard__price { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+ .subcard__price-strike { font-family: var(--font-body); font-size: 0.85rem; color: #aaa; text-decoration: line-through; }
+ .subcard__price-now { font-family: var(--font-body); font-size: 1.35rem; font-weight: 700; color: var(--color-dark); line-height: 1; }
+ .shop-now__cta { display: block; width: 100%; text-align: center; padding: 18px 20px; margin-top: 16px; background: var(--color-navy); color: #fff; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.15s ease, transform 0.15s ease; }
+ .shop-now__cta:hover { background: var(--color-dark); transform: translateY(-1px); }
+ .shop-now__cta:disabled { opacity: 0.7; pointer-events: none; }
+ .shop-now__onetime { display: block; text-align: center; margin-top: 14px; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); text-decoration: underline; text-underline-offset: 4px; }
+ .shop-now__onetime:hover { color: var(--color-dark); }
+ </style>
+ <div class="subcard">
+ <span class="subcard__save">Save 30%</span>
+ <div class="subcard__label">
+ <span class="subcard__title">Subscribe &amp; Save</span>
+ <span class="subcard__sub">Deliver every month · Cancel anytime</span>
  </div>
+ <div class="subcard__price">
+ <span class="subcard__price-strike">$34.00</span>
+ <span class="subcard__price-now">$23.80</span>
+ </div>
+ </div>
+ <button type="button" class="shop-now__cta" id="shop-now-subscribe">Subscribe &amp; Save 30%</button>
+ <a href="https://rock-1234314.myshopify.com/cart/48041430679793:1" class="shop-now__onetime">One-time purchase $34.00</a>
+ <script>
+ (function() {
+   var btn = document.getElementById('shop-now-subscribe');
+   if (!btn) return;
+   btn.addEventListener('click', function() {
+     btn.disabled = true;
+     var original = btn.textContent;
+     btn.textContent = 'Loading…';
+     var q = 'mutation { cartCreate(input:{lines:[{merchandiseId:"gid://shopify/ProductVariant/48041430679793", quantity:1, sellingPlanId:"gid://shopify/SellingPlan/5569478897"}]}) { cart { checkoutUrl } userErrors { message } } }';
+     fetch('https://rock-1234314.myshopify.com/api/2025-01/graphql.json', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': '03b89e7d424e00e12f09045648f5440a' },
+       body: JSON.stringify({ query: q })
+     }).then(function(r) { return r.json(); }).then(function(res) {
+       var url = res && res.data && res.data.cartCreate && res.data.cartCreate.cart && res.data.cartCreate.cart.checkoutUrl;
+       if (url) window.location.href = url;
+       else { btn.disabled = false; btn.textContent = original; alert('Something went wrong. Please try again.'); }
+     }).catch(function() { btn.disabled = false; btn.textContent = original; alert('Something went wrong. Please try again.'); });
+   });
+ })();
+ </script>
  </div>
  </div>
  </div>
