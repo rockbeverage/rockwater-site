@@ -152,12 +152,16 @@
  .shop-now__grid {
  grid-template-columns: 1fr;
  grid-template-areas: "top" "media" "bottom";
- gap: 20px;
+ gap: 24px;
  }
  .shop-now__col { display: contents; }
  .shop-now__media { grid-area: media; }
- .shop-now__top { grid-area: top; }
- .shop-now__bottom { grid-area: bottom; }
+ .shop-now__top { grid-area: top; text-align: center; }
+ .shop-now__bottom { grid-area: bottom; text-align: center; }
+ .shop-now__block { align-items: center; }
+ .shop-now__highlights,
+ .shop-now__actives-row { justify-content: center; }
+ .shop-now__buttons { max-width: 420px; margin-left: auto; margin-right: auto; width: 100%; }
  }
  .shop-now__proof { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--color-text-light); letter-spacing: 0.02em; }
  .shop-now__stars { color: #ffc043; letter-spacing: 2px; font-size: 0.9rem; }
