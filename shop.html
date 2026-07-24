@@ -377,6 +377,42 @@
     </div>
   </section>
 
+  <!-- ============ FILMSTRIP MARQUEE (lifestyle above reviews) ============ -->
+  <style>
+    .filmstrip { padding: 32px 0 56px; overflow: hidden; background: #fff; }
+    .filmstrip__track { display: flex; gap: 20px; width: max-content; animation: filmstrip-scroll 60s linear infinite; }
+    .filmstrip:hover .filmstrip__track { animation-play-state: paused; }
+    .filmstrip__frame { flex: 0 0 auto; width: 220px; height: 300px; background: #fff; padding: 10px 10px 40px; border-radius: 3px; box-shadow: 0 6px 18px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06); display: block; transform: rotate(-1deg); transition: transform 0.3s ease; }
+    .filmstrip__frame:nth-child(2n) { transform: rotate(1.5deg); }
+    .filmstrip__frame:nth-child(3n) { transform: rotate(-0.5deg); }
+    .filmstrip__frame:nth-child(5n) { transform: rotate(1deg); }
+    .filmstrip__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @keyframes filmstrip-scroll { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    @media (max-width: 700px) { .filmstrip__frame { width: 160px; height: 220px; padding: 8px 8px 28px; } }
+  </style>
+  <section class="filmstrip" aria-label="ROCK Water community moments">
+    <div class="filmstrip__track">
+      <div class="filmstrip__frame"><img src="images/DSC03287.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC01565-3.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/IMG_2559.JPG" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC03124 (1).jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC03743.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04103.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04757.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04921.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04691.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC03287.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC01565-3.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/IMG_2559.JPG" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC03124 (1).jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC03743.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04103.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04757.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04921.jpg" alt=""></div>
+      <div class="filmstrip__frame"><img src="images/DSC04691.jpg" alt=""></div>
+    </div>
+  </section>
+
   <!-- ============ REVIEWS ============ -->
   <section class="section">
     <div class="container">
