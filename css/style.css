@@ -5,6 +5,7 @@
 
 /* ---------- Google Fonts loaded in HTML ---------- */
 /* JetBrains Mono (details) */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 /* ---------- Custom Brand Fonts ---------- */
 @font-face {
@@ -117,7 +118,7 @@
   --color-border: #e0dbd2;
 
   /* Typography */
-  --font-heading: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Anton', 'Impact', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
   --font-handwritten: 'Flapjack', 'Hamburg Hand', cursive;
@@ -223,9 +224,9 @@ ul, ol {
    ========================= */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--color-dark);
 }
