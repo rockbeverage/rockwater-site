@@ -246,6 +246,10 @@
         </div>
 
       </div>
+
+      <div style="display: flex; justify-content: center; margin-top: var(--space-2xl);">
+        <button type="button" class="ws-hero__apply" id="ws-apply-btn-2">Apply</button>
+      </div>
     </div>
   </section>
 
@@ -339,6 +343,8 @@
           applyBtn.style.display = '';
         }
         applyBtn.addEventListener('click', openForm);
+        var applyBtn2 = document.getElementById('ws-apply-btn-2');
+        if (applyBtn2) applyBtn2.addEventListener('click', openForm);
         var closeBtn = document.getElementById('ws-form-close');
         if (closeBtn) closeBtn.addEventListener('click', closeForm);
       }
