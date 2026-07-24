@@ -140,6 +140,14 @@
  .shop-now__head { text-align: center; margin-bottom: 32px; }
  .shop-now__head h2 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(1.8rem, 3.2vw, 2.8rem); color: var(--color-dark); letter-spacing: 0.01em; }
  .shop-now__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1040px; margin: 0 auto; }
+ .shop-now__media { position: relative; aspect-ratio: 1 / 1; overflow: visible; background: transparent; cursor: pointer; display: block; }
+ .shop-now__media img,
+ .shop-now__media video { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.45s ease; mix-blend-mode: darken; }
+ .shop-now__media:hover img,
+ .shop-now__media:hover video { transform: scale(1.05); }
+ .shop-now__col { display: flex; flex-direction: column; gap: 20px; }
+ .shop-now__top { display: flex; flex-direction: column; gap: 16px; }
+ .shop-now__bottom { display: flex; flex-direction: column; gap: 20px; }
  @media (max-width: 900px) {
  .shop-now__grid {
  grid-template-columns: 1fr;
@@ -147,19 +155,10 @@
  gap: 20px;
  }
  .shop-now__col { display: contents; }
- .shop-now__media { grid-area: media; order: 0; }
- .shop-now__top { grid-area: top; order: 0; }
- .shop-now__bottom { grid-area: bottom; order: 0; }
+ .shop-now__media { grid-area: media; }
+ .shop-now__top { grid-area: top; }
+ .shop-now__bottom { grid-area: bottom; }
  }
- .shop-now__media { position: relative; aspect-ratio: 1 / 1; overflow: visible; background: transparent; cursor: pointer; display: block; }
- .shop-now__media img,
- .shop-now__media video { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.45s ease; mix-blend-mode: darken; }
- .shop-now__media:hover img,
- .shop-now__media:hover video { transform: scale(1.05); }
-
- .shop-now__col { display: flex; flex-direction: column; gap: 20px; }
- .shop-now__top { display: flex; flex-direction: column; gap: 16px; }
- .shop-now__bottom { display: flex; flex-direction: column; gap: 20px; }
  .shop-now__proof { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--color-text-light); letter-spacing: 0.02em; }
  .shop-now__stars { color: #ffc043; letter-spacing: 2px; font-size: 0.9rem; }
  .shop-now h3 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.05; letter-spacing: 0.01em; color: var(--color-dark); margin: 0; }
