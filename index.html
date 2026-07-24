@@ -174,11 +174,6 @@
 
  .shop-now__actives-row { display: flex; gap: 8px; flex-wrap: wrap; }
  .shop-now__pill { display: inline-flex; align-items: center; padding: 6px 14px; border: 1px solid var(--color-border); border-radius: 999px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--color-dark); background: #fff; }
- .shop-now__pill--interactive { cursor: pointer; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease; font: inherit; font-weight: 600; font-size: 0.8rem; }
- .shop-now__pill--interactive:hover,
- .shop-now__pill--interactive.is-active { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
- .ingredient-benefit { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.5; color: var(--color-text-light); text-align: center; max-width: 340px; margin: 12px auto 0; min-height: 1.5em; opacity: 0; transform: translateY(-4px); transition: opacity 0.25s ease, transform 0.25s ease; }
- .ingredient-benefit.is-visible { opacity: 1; transform: translateY(0); }
 
  .shop-now__buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
  @media (max-width: 600px) { .shop-now__buttons { grid-template-columns: 1fr; } }
@@ -204,12 +199,11 @@
  <div class="shop-now__bottom">
  <div class="shop-now__block">
  <span class="shop-now__label">Ingredients</span>
- <div class="shop-now__actives-row" id="ingredient-pills">
- <button type="button" class="shop-now__pill shop-now__pill--interactive" data-benefit="Balances fluids and helps you absorb what you drink.">Sodium</button>
- <button type="button" class="shop-now__pill shop-now__pill--interactive" data-benefit="Powers muscles and supports recovery after sweat.">Potassium</button>
- <button type="button" class="shop-now__pill shop-now__pill--interactive" data-benefit="Calms the body and eases cramps and tension.">Magnesium</button>
+ <div class="shop-now__actives-row">
+ <span class="shop-now__pill">Sodium</span>
+ <span class="shop-now__pill">Potassium</span>
+ <span class="shop-now__pill">Magnesium</span>
  </div>
- <div class="ingredient-benefit" id="ingredient-benefit" aria-live="polite"></div>
  </div>
 
  <style>
@@ -221,7 +215,7 @@
  .subcard__price-strike { font-family: var(--font-body); font-size: 0.95rem; color: #aaa; text-decoration: line-through; }
  .subcard__price-unit { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); }
  .subcard__serving { font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-navy); }
- .shop-now__cta { display: block; width: 100%; text-align: center; padding: 18px 20px; margin-top: 16px; background: var(--color-navy); color: #fff; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.15s ease, transform 0.15s ease; }
+ .shop-now__cta { display: block; width: 100%; max-width: 360px; margin: 14px auto 0; text-align: center; padding: 13px 20px; background: var(--color-navy); color: #fff; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.15s ease, transform 0.15s ease; }
  .shop-now__cta:hover { background: var(--color-dark); transform: translateY(-1px); }
  .shop-now__cta:disabled { opacity: 0.7; pointer-events: none; }
  .shop-now__onetime { display: block; text-align: center; margin-top: 14px; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); text-decoration: underline; text-underline-offset: 4px; }
@@ -917,40 +911,6 @@
 
  <script src="js/main.js"></script>
  <script>
- (function() {
-   var pills = document.querySelectorAll('#ingredient-pills .shop-now__pill--interactive');
-   var out = document.getElementById('ingredient-benefit');
-   if (!pills.length || !out) return;
-   var pinned = null; // pill that was clicked (locks display until clicked out)
-   var isTouch = window.matchMedia('(hover: none)').matches;
-
-   function show(pill) {
-     pills.forEach(function(p) { p.classList.toggle('is-active', p === pill); });
-     out.textContent = pill.getAttribute('data-benefit');
-     out.classList.add('is-visible');
-   }
-   function clear() {
-     pills.forEach(function(p) { p.classList.remove('is-active'); });
-     out.classList.remove('is-visible');
-   }
-
-   pills.forEach(function(pill) {
-     pill.addEventListener('mouseenter', function() { if (!pinned) show(pill); });
-     pill.addEventListener('mouseleave', function() { if (!pinned) clear(); });
-     pill.addEventListener('click', function(e) {
-       e.stopPropagation();
-       if (pinned === pill) { pinned = null; clear(); }
-       else { pinned = pill; show(pill); }
-     });
-     pill.addEventListener('focus', function() { if (!pinned) show(pill); });
-     pill.addEventListener('blur', function() { if (!pinned) clear(); });
-   });
-
-   document.addEventListener('click', function(e) {
-     if (pinned && !e.target.closest('#ingredient-pills')) { pinned = null; clear(); }
-   });
- })();
-
  if (document.fonts && document.fonts.ready) {
  document.fonts.ready.then(function() {
  document.body.classList.remove('fonts-loading');
