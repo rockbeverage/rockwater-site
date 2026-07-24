@@ -4467,7 +4467,8 @@ body {
 }
 .product-stat {
   flex: 1;
-  background: #f5f3ef;
+  background: #fff;
+  border: 1px solid #eee;
   border-radius: 12px;
   padding: 12px 8px;
   display: flex;

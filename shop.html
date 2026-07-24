@@ -521,10 +521,31 @@
     <div class="close-cta__inner">
       <h2>Ready to Hydrate the Right Way?</h2>
       <div class="close-cta__buttons">
-        <a href="#pt-subscribe" class="close-cta__btn close-cta__btn--sub" onclick="document.getElementById('pt-subscribe')?.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(function(){document.getElementById('pt-subscribe')?.click();}, 600); return false;">
+        <a href="#" class="close-cta__btn close-cta__btn--sub" id="close-cta-subscribe">
           <span>Subscribe &amp; Save 30%</span>
           <span class="close-cta__btn-price">$23.80 · Monthly</span>
         </a>
+        <script>
+          document.getElementById('close-cta-subscribe').addEventListener('click', function(e) {
+            e.preventDefault();
+            var btn = this;
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.7';
+            var mutation = 'mutation { cartCreate(input:{lines:[{merchandiseId:"gid://shopify/ProductVariant/48041430679793", quantity:1, sellingPlanId:"gid://shopify/SellingPlan/5569478897"}]}) { cart { checkoutUrl } userErrors { message } } }';
+            fetch('https://rock-1234314.myshopify.com/api/2025-01/graphql.json', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': '03b89e7d424e00e12f09045648f5440a' },
+              body: JSON.stringify({ query: mutation })
+            }).then(function(r) { return r.json(); }).then(function(res) {
+              var url = res && res.data && res.data.cartCreate && res.data.cartCreate.cart && res.data.cartCreate.cart.checkoutUrl;
+              if (url) { window.location.href = url; }
+              else { btn.style.pointerEvents = ''; btn.style.opacity = ''; alert('Something went wrong. Please try again.'); }
+            }).catch(function() {
+              btn.style.pointerEvents = ''; btn.style.opacity = '';
+              alert('Something went wrong. Please try again.');
+            });
+          });
+        </script>
       </div>
     </div>
   </section>
