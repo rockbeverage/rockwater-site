@@ -222,14 +222,13 @@
  </div>
 
  <style>
- .subcard { border: 1.5px solid var(--color-navy); border-radius: 16px; padding: 18px 20px; background: #fff; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+ .subcard { border: 1.5px solid var(--color-navy); border-radius: 16px; padding: 22px 22px; background: #fff; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
  .subcard__save { position: absolute; top: -10px; left: 20px; background: #fdd835; color: var(--color-dark); font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; }
- .subcard__label { display: flex; flex-direction: column; gap: 4px; }
- .subcard__title { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: var(--color-dark); letter-spacing: 0.02em; }
- .subcard__sub { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-text-light); }
- .subcard__price { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
- .subcard__price-strike { font-family: var(--font-body); font-size: 0.85rem; color: #aaa; text-decoration: line-through; }
- .subcard__price-now { font-family: var(--font-body); font-size: 1.35rem; font-weight: 700; color: var(--color-dark); line-height: 1; }
+ .subcard__price { display: flex; align-items: baseline; gap: 8px; }
+ .subcard__price-now { font-family: var(--font-body); font-size: 2rem; font-weight: 700; color: var(--color-dark); line-height: 1; letter-spacing: -0.01em; }
+ .subcard__price-strike { font-family: var(--font-body); font-size: 0.95rem; color: #aaa; text-decoration: line-through; }
+ .subcard__price-unit { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); }
+ .subcard__serving { font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-navy); }
  .shop-now__cta { display: block; width: 100%; text-align: center; padding: 18px 20px; margin-top: 16px; background: var(--color-navy); color: #fff; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.15s ease, transform 0.15s ease; }
  .shop-now__cta:hover { background: var(--color-dark); transform: translateY(-1px); }
  .shop-now__cta:disabled { opacity: 0.7; pointer-events: none; }
@@ -238,14 +237,12 @@
  </style>
  <div class="subcard">
  <span class="subcard__save">Save 30%</span>
- <div class="subcard__label">
- <span class="subcard__title">Subscribe &amp; Save</span>
- <span class="subcard__sub">Deliver every month · Cancel anytime</span>
- </div>
  <div class="subcard__price">
- <span class="subcard__price-strike">$34.00</span>
  <span class="subcard__price-now">$23.80</span>
+ <span class="subcard__price-strike">$34</span>
+ <span class="subcard__price-unit">/mo</span>
  </div>
+ <span class="subcard__serving">$1.98 / can</span>
  </div>
  <button type="button" class="shop-now__cta" id="shop-now-subscribe">Subscribe &amp; Save 30%</button>
  <a href="https://rock-1234314.myshopify.com/cart/48041430679793:1" class="shop-now__onetime">One-time purchase $34.00</a>
