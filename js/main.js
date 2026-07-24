@@ -265,17 +265,7 @@
     // [Where to Buy] [Cart] [Hamburger]
     var menuToggle = actions.querySelector('.header__menu-toggle');
 
-    // "Where to Buy" link — first item on the right
-    if (!document.getElementById('global-wtb-link')) {
-      var prefix = (location.pathname.indexOf('/science/') !== -1) ? '../' : '';
-      var onWtbPage = /where-to-buy\.html$/i.test(location.pathname);
-      var wtb = document.createElement('a');
-      wtb.id = 'global-wtb-link';
-      wtb.href = prefix + 'where-to-buy.html';
-      wtb.className = 'header__wtb-link' + (onWtbPage ? ' active' : '');
-      wtb.textContent = 'Where to Buy';
-      actions.insertBefore(wtb, menuToggle || null);
-    }
+    // "Where to Buy" link removed from header per site update
 
     // Make sure shop page's existing cart-btn sits before the hamburger too
     var existingShopCart = document.getElementById('header-cart-btn');
@@ -295,15 +285,7 @@
 
     actions.insertBefore(btn, menuToggle || null);
 
-    // Ensure "Where to Buy" link exists in the mobile-nav too
-    var mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav && !mobileNav.querySelector('a[href$="where-to-buy.html"]')) {
-      var prefix2 = (location.pathname.indexOf('/science/') !== -1) ? '../' : '';
-      var mWtb = document.createElement('a');
-      mWtb.href = prefix2 + 'where-to-buy.html';
-      mWtb.textContent = 'Where to Buy';
-      mobileNav.appendChild(mWtb);
-    }
+    // "Where to Buy" no longer added to mobile-nav
 
     // Update badge from localStorage. Match the field names the shop page writes.
     var raw = localStorage.getItem('rockCart');
