@@ -7824,7 +7824,7 @@ body {
 .community-modal__image {
   background-image: url('../images/golfid.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-color: var(--color-cream);
   min-height: 100%;
 }
