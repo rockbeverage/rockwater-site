@@ -117,7 +117,7 @@
   --color-border: #e0dbd2;
 
   /* Typography */
-  --font-heading: 'Flapjack', cursive;
+  --font-heading: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Brooklyn', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
   --font-handwritten: 'Flapjack', 'Hamburg Hand', cursive;
