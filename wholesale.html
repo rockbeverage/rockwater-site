@@ -83,8 +83,10 @@
     .ws-hero__apply-wrap { display: flex; justify-content: center; margin-top: -32px; position: relative; z-index: 3; }
     .ws-hero__apply { background: #fff; color: var(--color-dark); border: none; border-radius: 999px; padding: 20px 48px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; box-shadow: 0 12px 32px rgba(0,0,0,0.18); transition: transform 0.2s ease, background 0.2s ease; }
     .ws-hero__apply:hover { transform: translateY(-2px); background: var(--color-navy); color: #fff; }
-    .ws-form-wrap { max-width: 480px; margin: var(--space-2xl) auto var(--space-3xl); display: none; }
+    .ws-form-wrap { max-width: 480px; margin: var(--space-2xl) auto var(--space-3xl); display: none; position: relative; }
     .ws-form-wrap.is-open { display: block; }
+    .ws-form-close { position: absolute; top: -8px; right: -8px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--color-border); background: #fff; color: var(--color-dark); font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.15s ease, background 0.15s ease; }
+    .ws-form-close:hover { transform: translateY(-1px); background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
     @media (max-width: 600px) {
       .ws-hero__apply { padding: 16px 36px; font-size: 0.85rem; }
       .ws-hero__apply-wrap { margin-top: -24px; }
@@ -103,6 +105,7 @@
       </div>
 
       <div class="ws-form-wrap" id="ws-form-wrap">
+        <button type="button" class="ws-form-close" id="ws-form-close" aria-label="Close application form">&times;</button>
         <form class="wf__form" id="wholesale-app-form" action="https://formspree.io/f/xlgpjvdn" method="POST">
           <div class="wf__field">
             <label class="wf__label" for="ws-email">Email <span class="wf__req">*</span></label>
@@ -330,16 +333,9 @@
           formWrap.classList.remove('is-open');
           applyBtn.style.display = '';
         }
-        applyBtn.addEventListener('click', function(e) { e.stopPropagation(); openForm(); });
-        formWrap.addEventListener('click', function(e) { e.stopPropagation(); });
-        document.addEventListener('click', function(e) {
-          if (formWrap.classList.contains('is-open') && !e.target.closest('#ws-form-wrap') && !e.target.closest('#ws-apply-btn')) {
-            closeForm();
-          }
-        });
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && formWrap.classList.contains('is-open')) closeForm();
-        });
+        applyBtn.addEventListener('click', openForm);
+        var closeBtn = document.getElementById('ws-form-close');
+        if (closeBtn) closeBtn.addEventListener('click', closeForm);
       }
 
       // ---- Wholesale form submit ----
