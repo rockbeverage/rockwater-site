@@ -172,7 +172,7 @@
   </section>
 
   <!-- ============ LEAVE FEEDBACK FORM ============ -->
-  <section class="section section--cream">
+  <section class="section" style="background: #fff;">
     <div class="container">
       <div class="review-cta fade-in">
         <!-- Button that reveals the form -->
@@ -188,27 +188,39 @@
           - Custom API: handle via fetch() in the submit handler below
           ==========================================
         -->
+        <style>
+          .star-rating { display: inline-flex; gap: 6px; direction: rtl; margin-top: 6px; }
+          .star-rating input { position: absolute; opacity: 0; pointer-events: none; }
+          .star-rating label { cursor: pointer; font-size: 32px; line-height: 1; color: #ddd; transition: color 0.15s ease; user-select: none; }
+          .star-rating label:hover, .star-rating label:hover ~ label,
+          .star-rating input:checked ~ label { color: #f5b301; }
+        </style>
         <form class="review-form" id="review-form" action="https://formspree.io/f/xzdjewza" method="POST" style="display: none;">
-          <h3 class="review-form__title">Where did you try Rock Water?</h3>
+          <h3 class="review-form__title">Leave a Review</h3>
 
-          <div class="review-form__row">
-            <div class="review-form__field">
-              <label class="review-form__label" for="review-name">Your Name</label>
-              <input type="text" id="review-name" name="name" class="review-form__input" placeholder="First name" required>
-            </div>
-            <div class="review-form__field">
-              <label class="review-form__label" for="review-email">Email <span style="color: var(--color-text-muted); font-weight: 400;">(optional)</span></label>
-              <input type="email" id="review-email" name="email" class="review-form__input" placeholder="your@email.com">
+          <div class="review-form__field">
+            <label class="review-form__label" for="review-name">Your Name</label>
+            <input type="text" id="review-name" name="name" class="review-form__input" placeholder="First name" required>
+          </div>
+
+          <div class="review-form__field">
+            <label class="review-form__label">Rating</label>
+            <div class="star-rating" role="radiogroup" aria-label="Rating out of 5">
+              <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
+              <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+              <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+              <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+              <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
             </div>
           </div>
 
           <div class="review-form__field">
-            <label class="review-form__label" for="review-title">Review Title</label>
-            <input type="text" id="review-title" name="title" class="review-form__input" placeholder="Give your review a title" required>
+            <label class="review-form__label" for="review-email">Email <span style="color: var(--color-text-muted); font-weight: 400;">(optional)</span></label>
+            <input type="email" id="review-email" name="email" class="review-form__input" placeholder="your@email.com">
           </div>
 
           <div class="review-form__field">
-            <label class="review-form__label" for="review-comment">Your Feedback</label>
+            <label class="review-form__label" for="review-comment">Comment</label>
             <textarea id="review-comment" name="feedback" class="review-form__input review-form__textarea" placeholder="What did you think?" rows="4" required></textarea>
           </div>
 
