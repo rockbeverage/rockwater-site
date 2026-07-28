@@ -257,58 +257,9 @@
   // GLOBAL CART ICON (all pages)
   // =========================
   function injectGlobalCartIcon() {
-    var actions = document.querySelector('.header__actions');
-    if (!actions) return;
-
-    // The hamburger toggle is in the HTML and should always be last.
-    // We insert WTB link and cart icon BEFORE it for consistent order:
-    // [Where to Buy] [Cart] [Hamburger]
-    var menuToggle = actions.querySelector('.header__menu-toggle');
-
-    // "Where to Buy" link removed from header per site update
-
-    // Make sure shop page's existing cart-btn sits before the hamburger too
-    var existingShopCart = document.getElementById('header-cart-btn');
-    if (existingShopCart && menuToggle && existingShopCart.nextElementSibling !== menuToggle) {
-      actions.insertBefore(existingShopCart, menuToggle);
-    }
-
-    if (document.getElementById('global-cart-btn')) return; // cart already exists
-    if (existingShopCart) return; // shop page has its own cart
-
-    var btn = document.createElement('a');
-    btn.id = 'global-cart-btn';
-    btn.href = 'shop.html?openCart=1';
-    btn.className = 'header__cart-btn';
-    btn.setAttribute('aria-label', 'View cart');
-    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="header__cart-count" id="global-cart-count" style="display: none;">0</span>';
-
-    actions.insertBefore(btn, menuToggle || null);
-
-    // "Where to Buy" no longer added to mobile-nav
-
-    // Update badge from localStorage. Match the field names the shop page writes.
-    var raw = localStorage.getItem('rockCart');
-    if (raw) {
-      try {
-        var data = JSON.parse(raw);
-        var total = (data.qty12pack || 0)
-                  + (data.qty8pack || 0)
-                  + (data.hatQty || 0)
-                  + (data.saunacapQty || 0);
-        // Expire carts older than 24h to prevent stale-badge desync.
-        var savedAt = data.savedAt || 0;
-        var isFresh = savedAt && (Date.now() - savedAt) < 24 * 60 * 60 * 1000;
-        if (data.checkoutUrl && total > 0 && isFresh) {
-          var count = document.getElementById('global-cart-count');
-          count.textContent = total;
-          count.style.display = 'flex';
-        } else if (!isFresh) {
-          // Auto-clear stale cart so badge doesn't lie.
-          localStorage.removeItem('rockCart');
-        }
-      } catch (e) {}
-    }
+    // Cart icons are now baked into each page's HTML header (login + cart before
+    // the hamburger). Nothing to inject at runtime. Keeping this as a no-op so
+    // callers below don't error.
   }
 
   document.addEventListener('DOMContentLoaded', function () {
