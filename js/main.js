@@ -624,9 +624,8 @@ document.addEventListener('DOMContentLoaded', function () {
     +   '<div class="community-modal__body">'
     +     '<h2 class="community-modal__title" id="community-modal-title">Join the Community</h2>'
     +     '<p class="community-modal__copy">Be first to know about new releases, retailer launches, and stories from the source.</p>'
-    +     '<form class="community-modal__form" action="https://formspree.io/f/xkoqjeje" method="POST">'
+    +     '<form class="community-modal__form" method="POST">'
     +       '<input type="email" name="email" class="community-modal__input" placeholder="Your email" aria-label="Email address" required>'
-    +       '<input type="hidden" name="source" value="community-modal">'
     +       '<button type="submit" class="community-modal__submit">Stay in Touch</button>'
     +     '</form>'
     +     '<button type="button" class="community-modal__decline" data-close>No thanks</button>'
@@ -658,25 +657,57 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Show "thanks" then auto-close on submit; honor the dismissed flag so it won't reappear
+  // Submit to Klaviyo (DTC Newsletter list) → triggers Welcome Series flow
+  var KLAVIYO_PUBLIC_KEY = 'VdzwjP';
+  var KLAVIYO_LIST_ID = 'WPGSRR';
   var form = modal.querySelector('.community-modal__form');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var data = new FormData(form);
+    var emailInput = form.querySelector('input[type="email"]');
+    var email = (emailInput.value || '').trim();
+    if (!email) return;
+
     var submitBtn = form.querySelector('.community-modal__submit');
     submitBtn.disabled = true;
     var originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
-    fetch(form.action, {
+
+    fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_PUBLIC_KEY, {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'revision': '2024-02-15'
+      },
+      body: JSON.stringify({
+        data: {
+          type: 'subscription',
+          attributes: {
+            custom_source: 'Community Modal (drinkrockwater.com)',
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  subscriptions: {
+                    email: { marketing: { consent: 'SUBSCRIBED' } }
+                  }
+                }
+              }
+            }
+          },
+          relationships: {
+            list: { data: { type: 'list', id: KLAVIYO_LIST_ID } }
+          }
+        }
+      })
     }).then(function (r) {
-      submitBtn.textContent = r.ok ? 'Thanks!' : originalText;
-      if (r.ok) {
+      if (r.ok || r.status === 202) {
+        submitBtn.textContent = 'Thanks!';
         try { localStorage.setItem(DISMISSED_KEY, 'true'); } catch (err) {}
         setTimeout(dismiss, 1200);
       } else {
+        submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       }
     }).catch(function () {
@@ -706,3 +737,78 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(trigger, 25000);
   }
 });
+
+/* ========== Footer Newsletter Forms → Klaviyo ========== */
+(function () {
+  var KLAVIYO_PUBLIC_KEY = 'VdzwjP';
+  var KLAVIYO_LIST_ID = 'WPGSRR';
+
+  function bindFooterForm(form) {
+    if (form.dataset.klaviyoBound === 'true') return;
+    form.dataset.klaviyoBound = 'true';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailInput = form.querySelector('input[type="email"]');
+      var email = emailInput ? (emailInput.value || '').trim() : '';
+      if (!email) return;
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_PUBLIC_KEY, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'revision': '2024-02-15'
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              custom_source: 'Footer Newsletter (drinkrockwater.com)',
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email: email,
+                    subscriptions: {
+                      email: { marketing: { consent: 'SUBSCRIBED' } }
+                    }
+                  }
+                }
+              }
+            },
+            relationships: {
+              list: { data: { type: 'list', id: KLAVIYO_LIST_ID } }
+            }
+          }
+        })
+      }).then(function (r) {
+        if (r.ok || r.status === 202) {
+          if (submitBtn) submitBtn.textContent = 'Subscribed!';
+          if (emailInput) emailInput.value = '';
+        } else {
+          if (submitBtn) { submitBtn.textContent = originalText; submitBtn.disabled = false; }
+        }
+      }).catch(function () {
+        if (submitBtn) { submitBtn.textContent = originalText; submitBtn.disabled = false; }
+      });
+    });
+  }
+
+  function initAll() {
+    document.querySelectorAll('.footer__newsletter-form').forEach(bindFooterForm);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
