@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Submit to Klaviyo (DTC Newsletter list) → triggers Welcome Series flow
   var KLAVIYO_PUBLIC_KEY = 'VdzwjP';
-  var KLAVIYO_LIST_ID = 'WPGSRR';
+  var KLAVIYO_LIST_ID = 'Ywwwa6';
   var form = modal.querySelector('.community-modal__form');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -741,7 +741,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /* ========== Footer Newsletter Forms → Klaviyo ========== */
 (function () {
   var KLAVIYO_PUBLIC_KEY = 'VdzwjP';
-  var KLAVIYO_LIST_ID = 'WPGSRR';
+  var KLAVIYO_LIST_ID = 'Ywwwa6';
 
   function bindFooterForm(form) {
     if (form.dataset.klaviyoBound === 'true') return;
