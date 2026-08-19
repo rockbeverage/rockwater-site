@@ -12,8 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .wsp { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
-    .wsp__eyebrow-row { text-align: center; margin-bottom: 40px; }
+    /* ============ MINIMAL HEADER ============ */
+    body { background: var(--color-white); }
+    .wsp-notice { background: var(--color-navy); color: var(--color-white); text-align: center; padding: 10px 20px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+    .wsp-hdr { border-bottom: 1px solid var(--color-border); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1240px; margin: 0 auto; }
+    .wsp-hdr__logo img { display: block; height: 32px; width: auto; }
+    .wsp-hdr__account { color: var(--color-navy); display: inline-flex; align-items: center; justify-content: center; }
+
+    /* ============ BUY AREA ============ */
+    .wsp { max-width: 1180px; margin: 0 auto; padding: 40px 24px 64px; }
+    .wsp__eyebrow-row { text-align: center; margin-bottom: 32px; }
     .wsp__badge { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
 
     .wsp__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
@@ -27,12 +35,15 @@
     .wsp__title { font-family: var(--font-heading); font-size: clamp(2.4rem, 5.5vw, 3.4rem); font-weight: 400; line-height: 1.02; color: var(--color-navy); margin: 0; letter-spacing: -0.005em; }
     .wsp__sub { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); margin: 0; letter-spacing: 0.02em; }
 
-    .wsp__pricestrip { display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-    .wsp__price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .wsp__pricestrip { display: flex; flex-direction: column; gap: 10px; padding: 24px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+    .wsp__price-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .wsp__retail { font-family: var(--font-body); font-size: 1.4rem; font-weight: 500; color: var(--color-text-muted); text-decoration: line-through; text-decoration-thickness: 1.5px; }
     .wsp__price { font-family: var(--font-heading); font-size: 3rem; font-weight: 400; color: var(--color-navy); line-height: 1; letter-spacing: -0.01em; }
     .wsp__price-unit { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); font-weight: 500; }
-    .wsp__ship { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; background: #e8f4ea; color: #166534; font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-    .wsp__percan { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-light); font-variant-numeric: tabular-nums; }
+    .wsp__meta-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .wsp__savings { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .wsp__ship { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: #e8f4ea; color: #166534; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .wsp__percan { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-light); font-variant-numeric: tabular-nums; margin: 0; }
     .wsp__percan b { color: var(--color-text); font-weight: 600; }
 
     .wsp__section { display: flex; flex-direction: column; gap: 12px; }
@@ -56,31 +67,39 @@
 
     .wsp__terms { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); text-align: center; margin: 0; line-height: 1.55; }
 
-    .wsp__benefits { margin-top: 72px; }
-    .wsp__benefits-title { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 400; color: var(--color-navy); text-align: center; margin: 0 0 32px; }
-    .wsp__benefits-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 720px) { .wsp__benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
-    .wsp__benefit { padding: 28px; background: var(--color-off-white); border-radius: 20px; }
-    .wsp__benefit h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; color: var(--color-navy); margin: 0 0 8px; letter-spacing: -0.005em; }
-    .wsp__benefit p { font-family: var(--font-body); font-size: 0.95rem; color: var(--color-text-light); margin: 0; line-height: 1.6; }
+    /* ============ MARQUEE ============ */
+    .wsp-marquee { background: var(--color-navy); color: var(--color-white); padding: 22px 0; overflow: hidden; margin-top: 40px; }
+    .wsp-marquee__track { display: inline-flex; gap: 40px; white-space: nowrap; font-family: var(--font-mono); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.24em; text-transform: uppercase; animation: wsp-marquee 45s linear infinite; will-change: transform; }
+    .wsp-marquee__track span { display: inline-block; }
+    @keyframes wsp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .wsp__how { margin-top: 72px; padding: 48px; background: var(--color-cream); border-radius: 24px; }
-    .wsp__how-title { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 400; color: var(--color-navy); text-align: center; margin: 0 0 32px; }
-    .wsp__how-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 560px; margin: 0 auto; }
-    @media (min-width: 720px) { .wsp__how-list { grid-template-columns: 1fr; } }
-    .wsp__how-item { display: flex; gap: 16px; align-items: flex-start; }
-    .wsp__how-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--color-navy); color: var(--color-white); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; }
-    .wsp__how-text { font-family: var(--font-body); font-size: 1rem; color: var(--color-text); line-height: 1.55; }
+    /* ============ CIRCULAR FACTS ============ */
+    .wsp-facts { background: var(--color-white); padding: 80px 24px; }
+    .wsp-facts__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    @media (min-width: 900px) { .wsp-facts__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+    .wsp-fact { aspect-ratio: 1 / 1; border: 2px solid var(--color-navy); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background: transparent; max-width: 240px; margin: 0 auto; width: 100%; text-align: center; }
+    .wsp-fact__label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500; color: var(--color-navy); margin-bottom: 10px; }
+    .wsp-fact__value { font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 400; color: var(--color-navy); line-height: 1; letter-spacing: -0.01em; }
+    .wsp-fact__note { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--color-navy); margin-top: 12px; line-height: 1.4; }
 
-    .wsp__whatsInside { margin-top: 72px; padding: 48px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-    .wsp__whatsInside-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 400; color: var(--color-navy); text-align: center; margin: 0 0 28px; }
-    .wsp__pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .wsp__pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: var(--color-white); border: 1.5px solid var(--color-navy); color: var(--color-navy); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-    .wsp__pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-navy); }
+    /* ============ ACCORDION ============ */
+    .wsp-faq { max-width: 780px; margin: 0 auto; padding: 40px 24px 80px; font-family: var(--font-body); }
+    .wsp-faq__title { text-align: center; font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 400; letter-spacing: -0.01em; color: var(--color-navy); margin: 0 0 32px; }
+    .wsp-faq__list { display: flex; flex-direction: column; gap: 0; }
+    .wsp-faq__item { border-top: 1px solid var(--color-border); }
+    .wsp-faq__item:last-child { border-bottom: 1px solid var(--color-border); }
+    .wsp-faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 22px 4px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; color: var(--color-text); }
+    .wsp-faq__item summary::-webkit-details-marker { display: none; }
+    .wsp-faq__item summary::after { content: '+'; font-size: 1.6rem; font-weight: 300; color: var(--color-navy); transition: transform 0.2s ease; line-height: 1; }
+    .wsp-faq__item[open] summary::after { content: '−'; }
+    .wsp-faq__item p { padding: 0 4px 22px; margin: 0; color: var(--color-text-light); font-size: 0.98rem; line-height: 1.65; }
+    .wsp-faq__item a { color: var(--color-navy); text-decoration: underline; }
 
-    .wsp__contact { margin-top: 72px; text-align: center; }
-    .wsp__contact p { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); margin: 0 0 8px; }
-    .wsp__contact a { color: var(--color-navy); text-decoration: underline; font-weight: 600; }
+    /* ============ FOOTER ============ */
+    .wsp-foot { background: var(--color-navy); color: var(--color-white); padding: 48px 24px; text-align: center; }
+    .wsp-foot p { font-family: var(--font-body); margin: 0 0 8px; font-size: 1rem; }
+    .wsp-foot a { color: var(--color-white); text-decoration: underline; font-weight: 600; }
+    .wsp-foot__brand { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin-top: 12px; }
   </style>
 
   <!-- Analytics -->
@@ -94,39 +113,18 @@
 </head>
 <body>
 
-  <!-- ============ ANNOUNCEMENT ============ -->
-  <div class="announcement-bar"><span class="announcement-bar__text">Approved retailers only — invitation link</span></div>
-
-  <!-- ============ HEADER ============ -->
-  <header class="header" id="header">
-    <div class="header__inner">
-      <a href="index.html" class="header__logo">
-        <img src="images/rock-logo.png" alt="ROCK" class="header__logo-img">
-      </a>
-      <nav class="header__nav">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="story.html">Our Story</a>
-        <a href="wholesale.html">Wholesale</a>
-      </nav>
-      <div class="header__actions">
-        <a href="https://rock-1234314.myshopify.com/account/login" class="header__cart-btn header__login-btn" aria-label="Account / Log In"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
-        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
+  <!-- ============ NOTICE + MINIMAL HEADER ============ -->
+  <div class="wsp-notice">Approved Retailers Only — Invitation Link</div>
+  <header class="wsp-hdr">
+    <a href="/wholesale-subscribe.html" class="wsp-hdr__logo" aria-label="ROCK Water">
+      <img src="images/rock-logo.png" alt="ROCK">
+    </a>
+    <a href="https://rock-1234314.myshopify.com/account" class="wsp-hdr__account" aria-label="Account">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
   </header>
 
-  <!-- ============ MOBILE NAV ============ -->
-  <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="story.html">Our Story</a>
-    <a href="wholesale.html">Wholesale</a>
-  </nav>
-
-  <!-- ============ WHOLESALE SUBSCRIBE ============ -->
+  <!-- ============ BUY AREA ============ -->
   <main class="wsp">
     <div class="wsp__eyebrow-row">
       <span class="wsp__badge">Wholesale · Monthly Delivery</span>
@@ -145,8 +143,12 @@
 
         <div class="wsp__pricestrip">
           <div class="wsp__price-row">
+            <span class="wsp__retail">$68</span>
             <span class="wsp__price">$36</span>
             <span class="wsp__price-unit">/case</span>
+          </div>
+          <div class="wsp__meta-row">
+            <span class="wsp__savings">Save 47% vs Retail</span>
             <span class="wsp__ship">Free Shipping</span>
           </div>
           <p class="wsp__percan">Wholesale rate <b>$1.50/can</b> · Delivered every month</p>
@@ -176,77 +178,96 @@
         </form>
 
         <p class="wsp__terms">
-          Recurring monthly delivery. Skip, pause, or cancel anytime from your account.<br>
-          By subscribing you agree to our <a href="terms.html" style="color:var(--color-navy);">Terms</a>.
+          Recurring monthly delivery. Skip, pause, or cancel anytime.
         </p>
       </section>
 
     </div>
-
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="wsp__how">
-      <h2 class="wsp__how-title">How it works</h2>
-      <ol class="wsp__how-list">
-        <li class="wsp__how-item">
-          <span class="wsp__how-num">1</span>
-          <span class="wsp__how-text">Choose how many cases you need each month. Adjust anytime from your account.</span>
-        </li>
-        <li class="wsp__how-item">
-          <span class="wsp__how-num">2</span>
-          <span class="wsp__how-text">Complete checkout with your shipping and billing info. First case ships within 3–5 business days.</span>
-        </li>
-        <li class="wsp__how-item">
-          <span class="wsp__how-num">3</span>
-          <span class="wsp__how-text">Your cases arrive every month, automatically. Free shipping on every recurring delivery.</span>
-        </li>
-        <li class="wsp__how-item">
-          <span class="wsp__how-num">4</span>
-          <span class="wsp__how-text">Skip a month, change quantity, or cancel anytime — no contracts.</span>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ============ BENEFITS ============ -->
-    <section class="wsp__benefits">
-      <h2 class="wsp__benefits-title">Why subscribe</h2>
-      <div class="wsp__benefits-grid">
-        <div class="wsp__benefit">
-          <h3>Never run out</h3>
-          <p>Your cases arrive automatically — no reorder emails, no phone calls, no downtime for your team or customers.</p>
-        </div>
-        <div class="wsp__benefit">
-          <h3>Free shipping</h3>
-          <p>Every recurring delivery ships free. Nationwide coverage.</p>
-        </div>
-        <div class="wsp__benefit">
-          <h3>Total control</h3>
-          <p>Skip a delivery, change quantity, pause, or cancel — right from your account. Zero commitments.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WHAT'S INSIDE ============ -->
-    <section class="wsp__whatsInside">
-      <h2 class="wsp__whatsInside-title">What's in every can</h2>
-      <div class="wsp__pills">
-        <span class="wsp__pill">7.8+ pH · Naturally alkaline</span>
-        <span class="wsp__pill">Sodium</span>
-        <span class="wsp__pill">Potassium</span>
-        <span class="wsp__pill">Magnesium</span>
-        <span class="wsp__pill">0 calories · 0 sugar</span>
-        <span class="wsp__pill">Aluminum · Recyclable</span>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="wsp__contact">
-      <p>Questions? Email <a href="mailto:support@rockbeverage.com">support@rockbeverage.com</a></p>
-      <p style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;">Rock Beverage LLC</p>
-    </section>
-
   </main>
 
-  <script src="js/main.js"></script>
+  <!-- ============ MARQUEE ============ -->
+  <section class="wsp-marquee" aria-hidden="true">
+    <div class="wsp-marquee__track">
+      <span>Naturally Alkaline</span><span>•</span>
+      <span>Trace Minerals</span><span>•</span>
+      <span>Infinitely Recyclable</span><span>•</span>
+      <span>No Plastic</span><span>•</span>
+      <span>Spring Sourced</span><span>•</span>
+      <span>Naturally Alkaline</span><span>•</span>
+      <span>Trace Minerals</span><span>•</span>
+      <span>Infinitely Recyclable</span><span>•</span>
+      <span>No Plastic</span><span>•</span>
+      <span>Spring Sourced</span><span>•</span>
+    </div>
+  </section>
+
+  <!-- ============ CIRCULAR FACTS ============ -->
+  <section class="wsp-facts">
+    <div class="wsp-facts__grid">
+      <div class="wsp-fact">
+        <div class="wsp-fact__label">pH</div>
+        <div class="wsp-fact__value">7.8+</div>
+        <div class="wsp-fact__note">Naturally Alkaline</div>
+      </div>
+      <div class="wsp-fact">
+        <div class="wsp-fact__label">Calories</div>
+        <div class="wsp-fact__value">0</div>
+        <div class="wsp-fact__note">Per Can</div>
+      </div>
+      <div class="wsp-fact">
+        <div class="wsp-fact__label">Plastic</div>
+        <div class="wsp-fact__value">0%</div>
+        <div class="wsp-fact__note">Ever</div>
+      </div>
+      <div class="wsp-fact">
+        <div class="wsp-fact__label">Electrolytes</div>
+        <div class="wsp-fact__value">3</div>
+        <div class="wsp-fact__note">Sodium · Potassium · Magnesium</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACCORDION ============ -->
+  <section class="wsp-faq">
+    <h2 class="wsp-faq__title">The Details</h2>
+    <div class="wsp-faq__list">
+      <details class="wsp-faq__item">
+        <summary>Spring Sourced</summary>
+        <p>Naturally sourced from artesian springs in the Smoky Mountains. Filtered through ancient limestone over thousands of years — not adjusted, not enhanced. Just water how it comes out of the ground.</p>
+      </details>
+      <details class="wsp-faq__item">
+        <summary>Real Minerals + Electrolytes</summary>
+        <p>Sodium, potassium, and magnesium — the three electrolytes your body actually needs after a workout, a long day, or a night out. No added sugars, no sweeteners, no fluff.</p>
+      </details>
+      <details class="wsp-faq__item">
+        <summary>Naturally Alkaline</summary>
+        <p>7.8+ pH straight from the source. Not adjusted. Not enhanced. Smoother taste, better mineral balance, and it helps with hydration efficiency.</p>
+      </details>
+      <details class="wsp-faq__item">
+        <summary>Exclusively in Aluminum</summary>
+        <p>Aluminum is infinitely recyclable and doesn't leach chemicals into the water. Better for the planet, better for you. Never plastic — not now, not ever.</p>
+      </details>
+      <details class="wsp-faq__item">
+        <summary>Third-Party Tested &amp; Certified</summary>
+        <p>NSF Certified for water quality and purity. Independently tested. Proud member of 1% for the Planet.</p>
+      </details>
+      <details class="wsp-faq__item">
+        <summary>How the subscription works</summary>
+        <p>Your cases ship every month, automatically. Skip a month, change quantity, pause, or cancel anytime from your account. Free shipping on every recurring delivery. First delivery arrives within 3–5 business days after your first order confirms.</p>
+      </details>
+      <details class="wsp-faq__item">
+        <summary>Delivery &amp; Returns</summary>
+        <p>Free delivery on every recurring shipment. Damaged cases are replaced at no charge — notify us within 48 hours of delivery.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="wsp-foot">
+    <p>Questions? <a href="mailto:support@rockbeverage.com">support@rockbeverage.com</a></p>
+    <p class="wsp-foot__brand">ROCK Beverage LLC</p>
+  </footer>
+
   <script>
     (function(){
       var PRICE_CENTS = 3600; // $36/case
