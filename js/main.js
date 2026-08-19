@@ -608,9 +608,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Don't re-show if already dismissed or subscribed
   if (localStorage.getItem(DISMISSED_KEY) === 'true') return;
 
-  // Skip on checkout-like pages
+  // Skip on checkout-like pages and retailer-only pages
   var path = (window.location.pathname || '').toLowerCase();
-  if (/cart|checkout|thank/.test(path)) return;
+  if (/cart|checkout|thank|wholesale-subscribe/.test(path)) return;
 
   // Build modal markup
   var modal = document.createElement('div');

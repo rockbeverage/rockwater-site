@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Wholesale Subscription — ROCK Water</title>
+  <meta name="description" content="Monthly wholesale delivery for approved ROCK Water retailers.">
+  <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .wsp { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
+    .wsp__eyebrow-row { text-align: center; margin-bottom: 40px; }
+    .wsp__badge { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+
+    .wsp__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+    @media (min-width: 900px) { .wsp__grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+
+    .wsp__media { background: var(--color-cream); border-radius: 24px; padding: 40px; display: flex; align-items: center; justify-content: center; min-height: 400px; }
+    .wsp__media img { max-width: 320px; width: 100%; height: auto; display: block; }
+
+    .wsp__buy { display: flex; flex-direction: column; gap: 24px; }
+    .wsp__eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-light); margin: 0; }
+    .wsp__title { font-family: var(--font-heading); font-size: clamp(2.4rem, 5.5vw, 3.4rem); font-weight: 400; line-height: 1.02; color: var(--color-navy); margin: 0; letter-spacing: -0.005em; }
+    .wsp__sub { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); margin: 0; letter-spacing: 0.02em; }
+
+    .wsp__pricestrip { display: flex; flex-direction: column; gap: 8px; padding: 24px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+    .wsp__price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .wsp__price { font-family: var(--font-heading); font-size: 3rem; font-weight: 400; color: var(--color-navy); line-height: 1; letter-spacing: -0.01em; }
+    .wsp__price-unit { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); font-weight: 500; }
+    .wsp__ship { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; background: #e8f4ea; color: #166534; font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .wsp__percan { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-light); font-variant-numeric: tabular-nums; }
+    .wsp__percan b { color: var(--color-text); font-weight: 600; }
+
+    .wsp__section { display: flex; flex-direction: column; gap: 12px; }
+    .wsp__label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-light); font-weight: 500; margin: 0; }
+
+    .wsp__qtyRow { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .wsp__qty { display: inline-flex; align-items: center; padding: 4px; background: var(--color-cream); border-radius: 999px; }
+    .wsp__qty button { appearance: none; border: 0; width: 48px; height: 48px; border-radius: 999px; background: var(--color-white); font-family: var(--font-body); font-size: 1.4rem; font-weight: 400; color: var(--color-text); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .wsp__qty button:hover { background: var(--color-off-white); }
+    .wsp__qty button:active { transform: scale(0.96); }
+    .wsp__qty input { width: 60px; text-align: center; border: 0; background: transparent; font-family: var(--font-body); font-size: 1.2rem; font-weight: 700; color: var(--color-text); font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
+    .wsp__qty input::-webkit-outer-spin-button, .wsp__qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+    .wsp__total { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .wsp__total-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-light); }
+    .wsp__total-value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; color: var(--color-navy); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+
+    .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 20px 28px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease; min-height: 60px; margin-top: 8px; }
+    .wsp__cta:hover { background: var(--color-navy-light); }
+    .wsp__cta:active { transform: scale(0.985); }
+
+    .wsp__terms { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); text-align: center; margin: 0; line-height: 1.55; }
+
+    .wsp__benefits { margin-top: 72px; }
+    .wsp__benefits-title { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 400; color: var(--color-navy); text-align: center; margin: 0 0 32px; }
+    .wsp__benefits-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 720px) { .wsp__benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+    .wsp__benefit { padding: 28px; background: var(--color-off-white); border-radius: 20px; }
+    .wsp__benefit h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; color: var(--color-navy); margin: 0 0 8px; letter-spacing: -0.005em; }
+    .wsp__benefit p { font-family: var(--font-body); font-size: 0.95rem; color: var(--color-text-light); margin: 0; line-height: 1.6; }
+
+    .wsp__how { margin-top: 72px; padding: 48px; background: var(--color-cream); border-radius: 24px; }
+    .wsp__how-title { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 400; color: var(--color-navy); text-align: center; margin: 0 0 32px; }
+    .wsp__how-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 560px; margin: 0 auto; }
+    @media (min-width: 720px) { .wsp__how-list { grid-template-columns: 1fr; } }
+    .wsp__how-item { display: flex; gap: 16px; align-items: flex-start; }
+    .wsp__how-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--color-navy); color: var(--color-white); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; }
+    .wsp__how-text { font-family: var(--font-body); font-size: 1rem; color: var(--color-text); line-height: 1.55; }
+
+    .wsp__whatsInside { margin-top: 72px; padding: 48px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+    .wsp__whatsInside-title { font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 400; color: var(--color-navy); text-align: center; margin: 0 0 28px; }
+    .wsp__pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .wsp__pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: var(--color-white); border: 1.5px solid var(--color-navy); color: var(--color-navy); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .wsp__pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-navy); }
+
+    .wsp__contact { margin-top: 72px; text-align: center; }
+    .wsp__contact p { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); margin: 0 0 8px; }
+    .wsp__contact a { color: var(--color-navy); text-decoration: underline; font-weight: 600; }
+  </style>
+
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NXY07BY92');
+  </script>
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT ============ -->
+  <div class="announcement-bar"><span class="announcement-bar__text">Approved retailers only — invitation link</span></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/rock-logo.png" alt="ROCK" class="header__logo-img">
+      </a>
+      <nav class="header__nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="story.html">Our Story</a>
+        <a href="wholesale.html">Wholesale</a>
+      </nav>
+      <div class="header__actions">
+        <a href="https://rock-1234314.myshopify.com/account/login" class="header__cart-btn header__login-btn" aria-label="Account / Log In"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="wholesale.html">Wholesale</a>
+  </nav>
+
+  <!-- ============ WHOLESALE SUBSCRIBE ============ -->
+  <main class="wsp">
+    <div class="wsp__eyebrow-row">
+      <span class="wsp__badge">Wholesale · Monthly Delivery</span>
+    </div>
+
+    <div class="wsp__grid">
+
+      <div class="wsp__media">
+        <img src="images/newproductshot.png" alt="ROCK Water — Spring Water with Electrolytes">
+      </div>
+
+      <section class="wsp__buy">
+        <p class="wsp__eyebrow">Wholesale Subscription</p>
+        <h1 class="wsp__title">Spring Water<br>+ Electrolytes</h1>
+        <p class="wsp__sub">24-Pack · 12oz Aluminum · Delivered monthly</p>
+
+        <div class="wsp__pricestrip">
+          <div class="wsp__price-row">
+            <span class="wsp__price">$36</span>
+            <span class="wsp__price-unit">/case</span>
+            <span class="wsp__ship">Free Shipping</span>
+          </div>
+          <p class="wsp__percan">Wholesale rate <b>$1.50/can</b> · Delivered every month</p>
+        </div>
+
+        <div class="wsp__section">
+          <p class="wsp__label">Cases per delivery</p>
+          <div class="wsp__qtyRow">
+            <div class="wsp__qty">
+              <button type="button" data-step="-1" aria-label="Decrease">−</button>
+              <input type="number" id="wsp-qty" value="2" min="1" inputmode="numeric">
+              <button type="button" data-step="1" aria-label="Increase">+</button>
+            </div>
+            <div class="wsp__total">
+              <span class="wsp__total-label">Monthly total</span>
+              <span class="wsp__total-value" id="wsp-total">$72.00</span>
+            </div>
+          </div>
+        </div>
+
+        <form action="https://wholesale.drinkrockwater.com/cart/add" method="POST" id="wsp-form">
+          <input type="hidden" name="id" value="48609406714097">
+          <input type="hidden" name="quantity" id="wsp-form-qty" value="2">
+          <input type="hidden" name="selling_plan" value="SEAL_PLAN_ID_HERE">
+          <input type="hidden" name="return_to" value="/checkout">
+          <button type="submit" class="wsp__cta">Subscribe Monthly →</button>
+        </form>
+
+        <p class="wsp__terms">
+          Recurring monthly delivery. Skip, pause, or cancel anytime from your account.<br>
+          By subscribing you agree to our <a href="terms.html" style="color:var(--color-navy);">Terms</a>.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="wsp__how">
+      <h2 class="wsp__how-title">How it works</h2>
+      <ol class="wsp__how-list">
+        <li class="wsp__how-item">
+          <span class="wsp__how-num">1</span>
+          <span class="wsp__how-text">Choose how many cases you need each month. Adjust anytime from your account.</span>
+        </li>
+        <li class="wsp__how-item">
+          <span class="wsp__how-num">2</span>
+          <span class="wsp__how-text">Complete checkout with your shipping and billing info. First case ships within 3–5 business days.</span>
+        </li>
+        <li class="wsp__how-item">
+          <span class="wsp__how-num">3</span>
+          <span class="wsp__how-text">Your cases arrive every month, automatically. Free shipping on every recurring delivery.</span>
+        </li>
+        <li class="wsp__how-item">
+          <span class="wsp__how-num">4</span>
+          <span class="wsp__how-text">Skip a month, change quantity, or cancel anytime — no contracts.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ BENEFITS ============ -->
+    <section class="wsp__benefits">
+      <h2 class="wsp__benefits-title">Why subscribe</h2>
+      <div class="wsp__benefits-grid">
+        <div class="wsp__benefit">
+          <h3>Never run out</h3>
+          <p>Your cases arrive automatically — no reorder emails, no phone calls, no downtime for your team or customers.</p>
+        </div>
+        <div class="wsp__benefit">
+          <h3>Free shipping</h3>
+          <p>Every recurring delivery ships free. Nationwide coverage.</p>
+        </div>
+        <div class="wsp__benefit">
+          <h3>Total control</h3>
+          <p>Skip a delivery, change quantity, pause, or cancel — right from your account. Zero commitments.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT'S INSIDE ============ -->
+    <section class="wsp__whatsInside">
+      <h2 class="wsp__whatsInside-title">What's in every can</h2>
+      <div class="wsp__pills">
+        <span class="wsp__pill">7.8+ pH · Naturally alkaline</span>
+        <span class="wsp__pill">Sodium</span>
+        <span class="wsp__pill">Potassium</span>
+        <span class="wsp__pill">Magnesium</span>
+        <span class="wsp__pill">0 calories · 0 sugar</span>
+        <span class="wsp__pill">Aluminum · Recyclable</span>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="wsp__contact">
+      <p>Questions? Email <a href="mailto:support@rockbeverage.com">support@rockbeverage.com</a></p>
+      <p style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;">Rock Beverage LLC</p>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function(){
+      var PRICE_CENTS = 3600; // $36/case
+      var qtyInput = document.getElementById('wsp-qty');
+      var formQty = document.getElementById('wsp-form-qty');
+      var totalEl = document.getElementById('wsp-total');
+      var steppers = document.querySelectorAll('.wsp__qty button[data-step]');
+
+      function readQty(){
+        var raw = qtyInput.value.trim();
+        if (raw === '') return 1;
+        var n = parseInt(raw, 10);
+        return isNaN(n) ? 1 : Math.max(1, n);
+      }
+      function render(){
+        var q = readQty();
+        var total = q * PRICE_CENTS;
+        totalEl.textContent = '$' + (total / 100).toFixed(2);
+        formQty.value = q;
+      }
+      steppers.forEach(function(b){
+        b.addEventListener('click', function(){
+          var next = Math.max(1, readQty() + parseInt(b.getAttribute('data-step'), 10));
+          qtyInput.value = next;
+          render();
+        });
+      });
+      qtyInput.addEventListener('input', render);
+      qtyInput.addEventListener('blur', function(){ if (readQty() < 1) qtyInput.value = 1; render(); });
+      render();
+    })();
+  </script>
+</body>
+</html>
