@@ -64,11 +64,12 @@
     .wsp__total-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-light); }
     .wsp__total-value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; color: var(--color-navy); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
 
-    .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 20px 28px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease; min-height: 60px; margin-top: 8px; }
-    .wsp__cta:hover { background: var(--color-navy-light); }
-    .wsp__cta:active { transform: scale(0.985); }
+    #wsp-form { margin: 0; padding: 0; }
+    .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 16px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease; min-height: 54px; box-shadow: 0 8px 20px rgba(27, 65, 116, 0.16); }
+    .wsp__cta:hover { background: var(--color-navy-light); box-shadow: 0 10px 24px rgba(27, 65, 116, 0.22); }
+    .wsp__cta:active { transform: scale(0.985); box-shadow: 0 4px 10px rgba(27, 65, 116, 0.14); }
 
-    .wsp__terms { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light); text-align: center; margin: 0; line-height: 1.55; }
+    .wsp__terms { font-family: var(--font-body); font-size: 0.82rem; color: var(--color-text-light); text-align: center; margin: 4px 0 0; line-height: 1.55; letter-spacing: 0.01em; }
 
     /* ============ MARQUEE ============ */
     .wsp-marquee { background: var(--color-navy); color: var(--color-white); padding: 22px 0; overflow: hidden; margin-top: 40px; }
