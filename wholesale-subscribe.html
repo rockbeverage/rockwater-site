@@ -30,8 +30,8 @@
     .wsp__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
     @media (min-width: 900px) { .wsp__grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
 
-    .wsp__media { background: var(--color-cream); border-radius: 24px; padding: 40px; display: flex; align-items: center; justify-content: center; min-height: 400px; }
-    .wsp__media img { max-width: 320px; width: 100%; height: auto; display: block; }
+    .wsp__media { background: transparent; border-radius: 0; padding: 0; display: flex; align-items: center; justify-content: center; }
+    .wsp__media img { max-width: 380px; width: 100%; height: auto; display: block; }
 
     .wsp__buy { display: flex; flex-direction: column; gap: 24px; }
     .wsp__eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-light); margin: 0; }
@@ -137,10 +137,6 @@
 
   <!-- ============ BUY AREA ============ -->
   <main class="wsp">
-    <div class="wsp__eyebrow-row">
-      <span class="wsp__badge">Wholesale · Monthly Delivery</span>
-    </div>
-
     <div class="wsp__grid">
 
       <div class="wsp__media">
@@ -185,7 +181,7 @@
           <input type="hidden" name="quantity" id="wsp-form-qty" value="2">
           <input type="hidden" name="selling_plan" value="SEAL_PLAN_ID_HERE">
           <input type="hidden" name="return_to" value="/checkout">
-          <button type="submit" class="wsp__cta">Subscribe Monthly →</button>
+          <button type="submit" class="wsp__cta">Add to Cart</button>
         </form>
 
         <p class="wsp__terms">
