@@ -13,14 +13,14 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ============ NAVY HEADER ============ */
-    body { background: var(--color-white); }
-    .wsp-hdr { background: var(--color-navy); padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; }
-    .wsp-hdr__logo img { display: block; height: 22px; width: auto; filter: brightness(0) invert(1); }
-    .wsp-hdr__actions { display: inline-flex; align-items: center; gap: 20px; }
+    html, body { margin: 0; padding: 0; background: var(--color-white); }
+    .wsp-hdr { background: var(--color-navy); padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; margin: 0; }
+    .wsp-hdr__logo img { display: block; height: 30px; width: auto; filter: brightness(0) invert(1); }
+    .wsp-hdr__actions { display: inline-flex; align-items: center; gap: 22px; }
     .wsp-hdr__icon { color: var(--color-white); display: inline-flex; align-items: center; justify-content: center; opacity: 0.95; transition: opacity 0.15s ease, transform 0.15s ease; text-decoration: none; }
     .wsp-hdr__icon:hover { opacity: 1; transform: translateY(-1px); }
     .wsp-hdr__icon svg { width: 22px; height: 22px; }
-    @media (max-width: 600px) { .wsp-hdr { padding: 14px 18px; } .wsp-hdr__logo img { height: 18px; } .wsp-hdr__actions { gap: 16px; } }
+    @media (max-width: 600px) { .wsp-hdr { padding: 16px 20px; } .wsp-hdr__logo img { height: 24px; } .wsp-hdr__actions { gap: 18px; } }
 
     /* ============ BUY AREA ============ */
     .wsp { max-width: 1180px; margin: 0 auto; padding: 40px 24px 64px; }
@@ -65,7 +65,7 @@
     .wsp__total-value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; color: var(--color-navy); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
 
     #wsp-form { margin: 0; padding: 0; }
-    .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 16px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease; min-height: 54px; box-shadow: 0 8px 20px rgba(27, 65, 116, 0.16); }
+    .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease; min-height: 54px; box-shadow: 0 8px 20px rgba(27, 65, 116, 0.16); }
     .wsp__cta:hover { background: var(--color-navy-light); box-shadow: 0 10px 24px rgba(27, 65, 116, 0.22); }
     .wsp__cta:active { transform: scale(0.985); box-shadow: 0 4px 10px rgba(27, 65, 116, 0.14); }
 
