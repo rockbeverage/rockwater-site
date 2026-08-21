@@ -12,12 +12,15 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ============ MINIMAL HEADER ============ */
+    /* ============ NAVY HEADER ============ */
     body { background: var(--color-white); }
-    .wsp-notice { background: var(--color-navy); color: var(--color-white); text-align: center; padding: 10px 20px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
-    .wsp-hdr { border-bottom: 1px solid var(--color-border); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1240px; margin: 0 auto; }
-    .wsp-hdr__logo img { display: block; height: 32px; width: auto; }
-    .wsp-hdr__account { color: var(--color-navy); display: inline-flex; align-items: center; justify-content: center; }
+    .wsp-hdr { background: var(--color-navy); padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; }
+    .wsp-hdr__logo img { display: block; height: 22px; width: auto; filter: brightness(0) invert(1); }
+    .wsp-hdr__actions { display: inline-flex; align-items: center; gap: 20px; }
+    .wsp-hdr__icon { color: var(--color-white); display: inline-flex; align-items: center; justify-content: center; opacity: 0.95; transition: opacity 0.15s ease, transform 0.15s ease; text-decoration: none; }
+    .wsp-hdr__icon:hover { opacity: 1; transform: translateY(-1px); }
+    .wsp-hdr__icon svg { width: 22px; height: 22px; }
+    @media (max-width: 600px) { .wsp-hdr { padding: 14px 18px; } .wsp-hdr__logo img { height: 18px; } .wsp-hdr__actions { gap: 16px; } }
 
     /* ============ BUY AREA ============ */
     .wsp { max-width: 1180px; margin: 0 auto; padding: 40px 24px 64px; }
@@ -96,10 +99,14 @@
     .wsp-faq__item a { color: var(--color-navy); text-decoration: underline; }
 
     /* ============ FOOTER ============ */
-    .wsp-foot { background: var(--color-navy); color: var(--color-white); padding: 48px 24px; text-align: center; }
-    .wsp-foot p { font-family: var(--font-body); margin: 0 0 8px; font-size: 1rem; }
-    .wsp-foot a { color: var(--color-white); text-decoration: underline; font-weight: 600; }
-    .wsp-foot__brand { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin-top: 12px; }
+    .wsp-foot { background: var(--color-navy); color: var(--color-white); padding: 72px 24px 68px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+    .wsp-foot__title { font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 6px; }
+    .wsp-foot__email { color: var(--color-white); text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: opacity 0.15s ease, transform 0.15s ease; }
+    .wsp-foot__email:hover { transform: translateY(-1px); opacity: 0.9; }
+    .wsp-foot__copy { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; opacity: 0.75; transition: transform 0.2s ease, opacity 0.15s ease, color 0.15s ease; }
+    .wsp-foot__copy svg { width: 100%; height: 100%; }
+    .wsp-foot__email:hover .wsp-foot__copy { opacity: 1; }
+    .wsp-foot__email.is-copied .wsp-foot__copy { color: #4ade80; opacity: 1; transform: scale(1.15); }
   </style>
 
   <!-- Analytics -->
@@ -113,15 +120,19 @@
 </head>
 <body>
 
-  <!-- ============ NOTICE + MINIMAL HEADER ============ -->
-  <div class="wsp-notice">Approved Retailers Only — Invitation Link</div>
+  <!-- ============ NAVY HEADER ============ -->
   <header class="wsp-hdr">
     <a href="/wholesale-subscribe.html" class="wsp-hdr__logo" aria-label="ROCK Water">
       <img src="images/rock-logo.png" alt="ROCK">
     </a>
-    <a href="https://rock-1234314.myshopify.com/account" class="wsp-hdr__account" aria-label="Account">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
+    <div class="wsp-hdr__actions">
+      <a href="https://rock-1234314.myshopify.com/account" class="wsp-hdr__icon" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a href="https://wholesale.drinkrockwater.com/cart" class="wsp-hdr__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </a>
+    </div>
   </header>
 
   <!-- ============ BUY AREA ============ -->
@@ -264,8 +275,13 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="wsp-foot">
-    <p>Questions? <a href="mailto:support@rockbeverage.com">support@rockbeverage.com</a></p>
-    <p class="wsp-foot__brand">ROCK Beverage LLC</p>
+    <p class="wsp-foot__title">Questions? We're here to help.</p>
+    <a href="#" class="wsp-foot__email" data-copy="support@rockbeverage.com" aria-label="Copy support email">
+      <span>SUPPORT@ROCKBEVERAGE.COM</span>
+      <span class="wsp-foot__copy" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </span>
+    </a>
   </footer>
 
   <script>
@@ -299,6 +315,27 @@
       qtyInput.addEventListener('blur', function(){ if (readQty() < 1) qtyInput.value = 1; render(); });
       render();
     })();
+
+    // Copy email to clipboard on footer click
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.wsp-foot__email');
+      if (!btn) return;
+      e.preventDefault();
+      var val = btn.getAttribute('data-copy');
+      function done(){
+        var ic = btn.querySelector('.wsp-foot__copy');
+        btn.classList.add('is-copied');
+        if (ic) ic.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      }
+      function undo(){
+        var ic = btn.querySelector('.wsp-foot__copy');
+        btn.classList.remove('is-copied');
+        if (ic) ic.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(val).then(function(){ done(); setTimeout(undo, 1800); }).catch(function(){});
+      }
+    });
   </script>
 </body>
 </html>
