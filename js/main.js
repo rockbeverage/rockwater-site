@@ -7,6 +7,37 @@
   'use strict';
 
   // =========================
+  // KLAVIYO ONSITE TRACKING
+  // Identifies email clickers and fires Viewed Product for browse abandonment
+  // =========================
+  (function () {
+    if (!window.klaviyo) {
+      window._klOnsite = window._klOnsite || [];
+      window.klaviyo = { push: function () { window._klOnsite.push.apply(window._klOnsite, arguments); } };
+    }
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://static.klaviyo.com/onsite/js/VdzwjP/klaviyo.js?company_id=VdzwjP';
+    document.head.appendChild(s);
+
+    var page = location.pathname.split('/').pop().replace('.html', '');
+    if (['shop', 'product', 'product-12oz', 'product-16oz'].indexOf(page) !== -1) {
+      window.klaviyo.push(['track', 'Viewed Product', {
+        ProductName: 'Spring Water + Electrolytes',
+        ProductID: '9552967631089',
+        ImageURL: 'https://cdn.shopify.com/s/files/1/0784/9888/9969/files/newproductshot.png',
+        URL: location.origin + location.pathname,
+        Price: 34,
+        Page: page
+      }]);
+    }
+  })();
+
+  function klaviyoIdentify(email) {
+    try { window.klaviyo.push(['identify', { email: email }]); } catch (err) {}
+  }
+
+  // =========================
   // CART SYSTEM
   // =========================
   const CART_KEY = 'rockwater_cart';
@@ -698,6 +729,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     }).then(function (r) {
       if (r.ok || r.status === 202) {
+        klaviyoIdentify(email);
         submitBtn.textContent = 'Thanks!';
         try { localStorage.setItem(DISMISSED_KEY, 'true'); } catch (err) {}
         setTimeout(dismiss, 1200);
@@ -781,6 +813,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
       }).then(function (r) {
         if (r.ok || r.status === 202) {
+          klaviyoIdentify(email);
           if (submitBtn) submitBtn.textContent = 'Subscribed!';
           if (emailInput) emailInput.value = '';
         } else {
