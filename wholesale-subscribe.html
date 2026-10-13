@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Wholesale Subscription — ROCK Water</title>
+  <title>Wholesale Subscription | ROCK Water</title>
   <meta name="description" content="Monthly wholesale delivery for approved ROCK Water retailers.">
   <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,6 +67,9 @@
     #wsp-form { margin: 0; padding: 0; }
     .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease; min-height: 54px; box-shadow: 0 8px 20px rgba(27, 65, 116, 0.16); }
     .wsp__cta:hover { background: var(--color-navy-light); box-shadow: 0 10px 24px rgba(27, 65, 116, 0.22); }
+    .wsp__onetime { appearance: none; display: block; margin: 12px auto 0; padding: 8px 18px; border: 1px solid var(--color-border, #e0dbd2); border-radius: 999px; background: transparent; color: var(--color-navy); font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+    .wsp__onetime:hover { background: var(--color-cream); }
+    .wsp__free { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: #166534; text-align: right; }
     .wsp__cta:active { transform: scale(0.985); box-shadow: 0 4px 10px rgba(27, 65, 116, 0.14); }
 
     .wsp__terms { font-family: var(--font-body); font-size: 0.82rem; color: var(--color-text-light); text-align: center; margin: 4px 0 0; line-height: 1.55; letter-spacing: 0.01em; }
@@ -141,25 +144,24 @@
     <div class="wsp__grid">
 
       <div class="wsp__media">
-        <img src="images/newproductshot.png" alt="ROCK Water — Spring Water with Electrolytes">
+        <img src="images/newproductshot.png" alt="ROCK Water, Spring Water with Electrolytes">
       </div>
 
       <section class="wsp__buy">
         <p class="wsp__eyebrow">Wholesale Subscription</p>
         <h1 class="wsp__title">Spring Water<br>+ Electrolytes</h1>
-        <p class="wsp__sub">24-Pack · 12oz Aluminum</p>
+        <p class="wsp__sub">12-Pack</p>
 
         <div class="wsp__pricestrip">
           <div class="wsp__price-row">
-            <span class="wsp__retail">$68</span>
-            <span class="wsp__price">$36</span>
+            <span class="wsp__price">$19.68</span>
             <span class="wsp__price-unit">/case</span>
           </div>
           <div class="wsp__meta-row">
-            <span class="wsp__savings">Save 47% vs Retail</span>
+            <span class="wsp__savings">Buy 3, Get 1 Free</span>
             <span class="wsp__ship">Free Shipping</span>
           </div>
-          <p class="wsp__percan">Wholesale rate <b>$1.50/can</b> · Delivered every month</p>
+          <p class="wsp__percan">Wholesale rate <b>$1.64/can</b> · Delivered every month</p>
         </div>
 
         <div class="wsp__section">
@@ -167,26 +169,28 @@
           <div class="wsp__qtyRow">
             <div class="wsp__qty">
               <button type="button" data-step="-1" aria-label="Decrease">−</button>
-              <input type="number" id="wsp-qty" value="2" min="1" inputmode="numeric">
+              <input type="number" id="wsp-qty" value="4" min="1" inputmode="numeric">
               <button type="button" data-step="1" aria-label="Increase">+</button>
             </div>
             <div class="wsp__total">
               <span class="wsp__total-label">Monthly total</span>
-              <span class="wsp__total-value" id="wsp-total">$72.00</span>
+              <span class="wsp__total-value" id="wsp-total">$59.04</span>
+              <span class="wsp__free" id="wsp-free">1 case free</span>
             </div>
           </div>
         </div>
 
         <form action="https://wholesale.drinkrockwater.com/cart/add" method="POST" id="wsp-form">
-          <input type="hidden" name="id" value="48450887123185">
-          <input type="hidden" name="quantity" id="wsp-form-qty" value="2">
-          <input type="hidden" name="selling_plan" value="5670240497">
+          <input type="hidden" name="id" value="67190867591409">
+          <input type="hidden" name="quantity" id="wsp-form-qty" value="4">
+          <input type="hidden" name="selling_plan" id="wsp-plan" value="5670240497">
           <input type="hidden" name="return_to" value="/checkout">
           <button type="submit" class="wsp__cta">Add to Cart</button>
+          <button type="button" class="wsp__onetime" id="wsp-onetime">One-time purchase</button>
         </form>
 
         <p class="wsp__terms">
-          Recurring monthly delivery. Skip, pause, or cancel anytime.
+          Recurring monthly delivery. Every 4th case is free. Skip, pause, or cancel anytime.
         </p>
       </section>
 
@@ -241,11 +245,11 @@
     <div class="wsp-faq__list">
       <details class="wsp-faq__item">
         <summary>Spring Sourced</summary>
-        <p>Naturally sourced from artesian springs in the Smoky Mountains. Filtered through ancient limestone over thousands of years — not adjusted, not enhanced. Just water how it comes out of the ground.</p>
+        <p>Naturally sourced from artesian springs in the Smoky Mountains. Filtered through ancient limestone over thousands of years. Not adjusted, not enhanced. Just water how it comes out of the ground.</p>
       </details>
       <details class="wsp-faq__item">
         <summary>Real Minerals + Electrolytes</summary>
-        <p>Sodium, potassium, and magnesium — the three electrolytes your body actually needs after a workout, a long day, or a night out. No added sugars, no sweeteners, no fluff.</p>
+        <p>Sodium, potassium and magnesium: the three electrolytes your body actually needs after a workout, a long day, or a night out. No added sugars, no sweeteners, no fluff.</p>
       </details>
       <details class="wsp-faq__item">
         <summary>Naturally Alkaline</summary>
@@ -253,7 +257,7 @@
       </details>
       <details class="wsp-faq__item">
         <summary>Exclusively in Aluminum</summary>
-        <p>Aluminum is infinitely recyclable and doesn't leach chemicals into the water. Better for the planet, better for you. Never plastic — not now, not ever.</p>
+        <p>Aluminum is infinitely recyclable and doesn't leach chemicals into the water. Better for the planet, better for you. Never plastic. Not now, not ever.</p>
       </details>
       <details class="wsp-faq__item">
         <summary>Third-Party Tested &amp; Certified</summary>
@@ -265,7 +269,7 @@
       </details>
       <details class="wsp-faq__item">
         <summary>Delivery &amp; Returns</summary>
-        <p>Free delivery on every recurring shipment. Damaged cases are replaced at no charge — notify us within 48 hours of delivery.</p>
+        <p>Free delivery on every recurring shipment. Damaged cases are replaced at no charge. Notify us within 48 hours of delivery.</p>
       </details>
     </div>
   </section>
@@ -283,10 +287,11 @@
 
   <script>
     (function(){
-      var PRICE_CENTS = 3600; // $36/case
+      var PRICE_CENTS = 1968; // $19.68/case, every 4th case free
       var qtyInput = document.getElementById('wsp-qty');
       var formQty = document.getElementById('wsp-form-qty');
       var totalEl = document.getElementById('wsp-total');
+      var freeEl = document.getElementById('wsp-free');
       var steppers = document.querySelectorAll('.wsp__qty button[data-step]');
 
       function readQty(){
@@ -297,8 +302,10 @@
       }
       function render(){
         var q = readQty();
-        var total = q * PRICE_CENTS;
+        var free = Math.floor(q / 4);
+        var total = (q - free) * PRICE_CENTS;
         totalEl.textContent = '$' + (total / 100).toFixed(2);
+        freeEl.textContent = free > 0 ? (free + (free === 1 ? ' case' : ' cases') + ' free') : 'Add ' + (4 - q) + ' more for a free case';
         formQty.value = q;
       }
       steppers.forEach(function(b){
@@ -311,6 +318,13 @@
       qtyInput.addEventListener('input', render);
       qtyInput.addEventListener('blur', function(){ if (readQty() < 1) qtyInput.value = 1; render(); });
       render();
+
+      document.getElementById('wsp-onetime').addEventListener('click', function(){
+        var plan = document.getElementById('wsp-plan');
+        if (plan) plan.remove();
+        render();
+        document.getElementById('wsp-form').submit();
+      });
     })();
 
     // Copy email to clipboard on footer click
