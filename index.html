@@ -4,6 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Premium Spring Water With Electrolytes, In A Can | ROCK Water - drinkrockwater.com</title>
+<link rel="preload" href="images/hero-first-frame.jpg" as="image">
  <meta name="description" content="Crisp, mineral-balanced spring water sourced from the Smoky Mountains. Naturally alkaline with electrolytes, in an infinitely recyclable can.">
  <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
 
@@ -131,7 +132,20 @@
  @media (max-width: 700px) { .hero-video { min-height: 520px; } .hero-video__cta { bottom: 36px; font-size: 0.85rem; } }
  </style>
  <section class="hero-video">
- <video class="hero-video__media" src="videos/shop-product.mp4" autoplay muted loop playsinline preload="metadata" poster="images/hero-image.png"></video>
+ <video class="hero-video__media" id="hero-video" src="videos/shop-product.mp4" autoplay muted loop playsinline preload="auto" poster="images/hero-first-frame.jpg"></video>
+<script>
+(function () {
+  var v = document.getElementById('hero-video');
+  if (!v) return;
+  v.muted = true;
+  function tryPlay() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  tryPlay();
+  v.addEventListener('canplay', tryPlay, { once: true });
+  ['touchstart', 'scroll', 'click'].forEach(function (evt) {
+    window.addEventListener(evt, function once() { if (v.paused) tryPlay(); window.removeEventListener(evt, once); }, { passive: true });
+  });
+})();
+</script>
  <div class="hero-video__overlay"></div>
  <a href="shop.html" class="hero-video__cta">[ Shop Now ]</a>
  </section>
