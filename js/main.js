@@ -38,6 +38,118 @@
   }
 
   // =========================
+  // PRESALE MODE
+  // Set PRESALE.on to false when the next run is in stock to go back to normal.
+  // Every water buy button shows a presale notice first, then continues to the
+  // same checkout. Water lines are tagged "Presale: Ships January 2027" so it
+  // shows in checkout, on the order and in the confirmation email.
+  // =========================
+  var PRESALE = { on: true, ship: 'January 2027' };
+  var WATER_GID = 'gid://shopify/ProductVariant/48041430679793';
+  var PRESALE_ACK_KEY = 'rock_presale_ack';
+  var presaleAck = false;
+  try { presaleAck = sessionStorage.getItem(PRESALE_ACK_KEY) === '1'; } catch (err) {}
+
+  if (PRESALE.on) {
+    var PRESALE_ATTR = { key: 'Presale', value: 'Ships ' + PRESALE.ship };
+
+    // Tag water lines on every Storefront cart call
+    var nativeFetch = window.fetch;
+    window.fetch = function (url, opts) {
+      try {
+        if (typeof url === 'string' && url.indexOf('myshopify.com/api/') !== -1 && opts && typeof opts.body === 'string' && opts.body.indexOf('48041430679793') !== -1) {
+          var payload = JSON.parse(opts.body);
+          if (payload.query) {
+            payload.query = payload.query.split('merchandiseId:"' + WATER_GID + '"').join('merchandiseId:"' + WATER_GID + '", attributes:[{key:"Presale",value:"' + PRESALE_ATTR.value + '"}]');
+          }
+          var v = payload.variables || {};
+          var lines = (v.input && v.input.lines) || v.lines || [];
+          lines.forEach(function (line) {
+            if (line.merchandiseId === WATER_GID) line.attributes = [PRESALE_ATTR];
+          });
+          opts = Object.assign({}, opts, { body: JSON.stringify(payload) });
+        }
+      } catch (err) {}
+      return nativeFetch.call(this, url, opts);
+    };
+
+    var GATED = '#buy-btn, #sticky-buy-btn, #close-cta-subscribe, #shop-now-subscribe, .shop-now__media, .shop-now__onetime, .add-to-cart-btn, #cart-checkout';
+
+    function cartHasWater() {
+      try {
+        var c = JSON.parse(localStorage.getItem('rockCart') || '{}');
+        return (c.qty12pack || 0) > 0;
+      } catch (err) { return true; }
+    }
+
+    function showPresaleNotice(onContinue) {
+      var wrap = document.createElement('div');
+      wrap.className = 'presale-notice';
+      wrap.setAttribute('role', 'dialog');
+      wrap.setAttribute('aria-modal', 'true');
+      wrap.setAttribute('aria-labelledby', 'presale-title');
+      wrap.innerHTML =
+        '<style>' +
+        '.presale-notice{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(20,24,32,.55)}' +
+        '.presale-notice__card{background:#fff;max-width:420px;width:100%;border-radius:18px;padding:32px 28px 24px;text-align:center;font-family:inherit;color:#231f20;box-shadow:0 20px 60px rgba(0,0,0,.25)}' +
+        '.presale-notice__eyebrow{margin:0 0 10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6b6560}' +
+        '.presale-notice h2{margin:0 0 14px;font-size:26px;line-height:1.2;font-weight:600;color:#1b3a6b}' +
+        '.presale-notice p{margin:0 0 12px;font-size:15px;line-height:1.6}' +
+        '.presale-notice__ship{display:inline-block;margin:4px 0 16px;padding:8px 16px;border-radius:999px;background:#f8f2e1;color:#1b3a6b;font-weight:600;font-size:14px}' +
+        '.presale-notice__small{font-size:13px!important;color:#6b6560}' +
+        '.presale-notice__go{display:block;width:100%;margin-top:8px;padding:15px 20px;border:0;border-radius:999px;background:#1b3a6b;color:#fff;font-size:15px;font-weight:700;letter-spacing:.03em;cursor:pointer;font-family:inherit}' +
+        '.presale-notice__no{display:block;width:100%;margin-top:8px;padding:10px;border:0;background:none;color:#6b6560;font-size:14px;cursor:pointer;font-family:inherit}' +
+        '</style>' +
+        '<div class="presale-notice__card">' +
+        '<p class="presale-notice__eyebrow">Presale</p>' +
+        '<h2 id="presale-title">This run is sold out.</h2>' +
+        '<p>You can still order today. Presale orders ship with our next run of ROCK.</p>' +
+        '<span class="presale-notice__ship">Ships ' + PRESALE.ship + '</span>' +
+        '<p class="presale-notice__small">Your card is charged at checkout. Choosing Subscribe and save? Billing starts today and repeats on the schedule you pick, with your first delivery in ' + PRESALE.ship + '.</p>' +
+        '<button type="button" class="presale-notice__go">Continue to presale</button>' +
+        '<button type="button" class="presale-notice__no">Not now</button>' +
+        '</div>';
+      document.body.appendChild(wrap);
+      var prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      function close() {
+        wrap.remove();
+        document.body.style.overflow = prevOverflow;
+        document.removeEventListener('keydown', onKey);
+      }
+      function onKey(e) { if (e.key === 'Escape') close(); }
+      document.addEventListener('keydown', onKey);
+      wrap.addEventListener('click', function (e) { if (e.target === wrap) close(); });
+      wrap.querySelector('.presale-notice__no').addEventListener('click', close);
+      wrap.querySelector('.presale-notice__go').addEventListener('click', function () {
+        presaleAck = true;
+        try { sessionStorage.setItem(PRESALE_ACK_KEY, '1'); } catch (err) {}
+        close();
+        onContinue();
+      });
+      wrap.querySelector('.presale-notice__go').focus();
+    }
+
+    // Cart permalinks (homepage) carry the presale note as a cart attribute
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="/cart/48041430679793"]').forEach(function (a) {
+        a.href += (a.href.indexOf('?') === -1 ? '?' : '&') + 'attributes[Presale]=' + encodeURIComponent(PRESALE_ATTR.value);
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (presaleAck) return;
+      var el = e.target.closest && e.target.closest(GATED);
+      if (!el) return;
+      if (el.id === 'cart-checkout' && !cartHasWater()) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      showPresaleNotice(function () { el.click(); });
+    }, true);
+  }
+
+  // =========================
   // CART SYSTEM
   // =========================
   const CART_KEY = 'rockwater_cart';
