@@ -169,20 +169,21 @@
           <div class="wsp__qtyRow">
             <div class="wsp__qty">
               <button type="button" data-step="-1" aria-label="Decrease">−</button>
-              <input type="number" id="wsp-qty" value="4" min="1" inputmode="numeric">
+              <input type="number" id="wsp-qty" value="3" min="1" inputmode="numeric">
               <button type="button" data-step="1" aria-label="Increase">+</button>
             </div>
             <div class="wsp__total">
               <span class="wsp__total-label">Monthly total</span>
               <span class="wsp__total-value" id="wsp-total">$59.04</span>
-              <span class="wsp__free" id="wsp-free">1 case free</span>
+              <span class="wsp__free" id="wsp-free">+1 free case included</span>
             </div>
           </div>
         </div>
 
         <form action="https://wholesale.drinkrockwater.com/cart/add" method="POST" id="wsp-form">
           <input type="hidden" name="id" value="67190867591409">
-          <input type="hidden" name="quantity" id="wsp-form-qty" value="4">
+          <input type="hidden" name="quantity" id="wsp-form-qty" value="3">
+          <input type="hidden" name="properties[Free case]" id="wsp-bonus" value="Include 1 bonus case">
           <input type="hidden" name="selling_plan" id="wsp-plan" value="5670240497">
           <input type="hidden" name="return_to" value="/checkout">
           <button type="submit" class="wsp__cta">Add to Cart</button>
@@ -190,7 +191,7 @@
         </form>
 
         <p class="wsp__terms">
-          Recurring monthly delivery. Every 4th case is free. Skip, pause, or cancel anytime.
+          Recurring monthly delivery. Order 3 or more cases and we add 1 free case to your delivery. Skip, pause, or cancel anytime.
         </p>
       </section>
 
@@ -287,7 +288,7 @@
 
   <script>
     (function(){
-      var PRICE_CENTS = 1968; // $19.68/case, every 4th case free
+      var PRICE_CENTS = 1968; // $19.68/case. Orders of 3+ get 1 bonus case added by hand.
       var qtyInput = document.getElementById('wsp-qty');
       var formQty = document.getElementById('wsp-form-qty');
       var totalEl = document.getElementById('wsp-total');
@@ -302,10 +303,17 @@
       }
       function render(){
         var q = readQty();
-        var free = Math.floor(q / 4);
-        var total = (q - free) * PRICE_CENTS;
+        var total = q * PRICE_CENTS;
         totalEl.textContent = '$' + (total / 100).toFixed(2);
-        freeEl.textContent = free > 0 ? (free + (free === 1 ? ' case' : ' cases') + ' free') : 'Add ' + (4 - q) + ' more for a free case';
+        freeEl.textContent = q >= 3 ? '+1 free case included' : 'Add ' + (3 - q) + ' more for a free case';
+        var bonus = document.getElementById('wsp-bonus');
+        if (q >= 3 && !bonus) {
+          bonus = document.createElement('input');
+          bonus.type = 'hidden'; bonus.name = 'properties[Free case]'; bonus.id = 'wsp-bonus'; bonus.value = 'Include 1 bonus case';
+          document.getElementById('wsp-form').appendChild(bonus);
+        } else if (q < 3 && bonus) {
+          bonus.remove();
+        }
         formQty.value = q;
       }
       steppers.forEach(function(b){
