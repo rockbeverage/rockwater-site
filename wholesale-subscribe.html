@@ -9,6 +9,12 @@
   <!-- Home screen icon: same ROCK tile for the store and office links (no start_url, so each keeps its own link) -->
   <link rel="apple-touch-icon" href="images/wholesale/icon-180.png">
   <link rel="manifest" href="wholesale.webmanifest">
+  <!-- Fonts load first so text never flashes in a fallback face -->
+  <link rel="preload" href="fonts/web/flapjack.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/web/brooklyn-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/web/brooklyn-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/web/brooklyn-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/web/caveat.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="apple-mobile-web-app-title" content="ROCK">
   <meta name="theme-color" content="#1b4174">
   <!-- Analytics -->
@@ -20,14 +26,13 @@
     gtag('config', 'G-8NXY07BY92');
   </script>
   <title>Wholesale | ROCK Water</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'Flapjack'; src: url('fonts/TAYFlapjack.otf') format('opentype'); font-display: swap; }
-@font-face { font-family: 'Brooklyn'; font-weight: 400; src: url('fonts/Brooklyn%20Normal%201.otf') format('opentype'); font-display: swap; }
-@font-face { font-family: 'Brooklyn'; font-weight: 600; src: url('fonts/Brooklyn%20SemiBold.otf') format('opentype'); font-display: swap; }
-@font-face { font-family: 'Brooklyn'; font-weight: 700; src: url('fonts/Brooklyn%20Bold%201.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Flapjack'; src: url('fonts/web/flapjack.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Brooklyn'; font-weight: 400; src: url('fonts/web/brooklyn-400.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Brooklyn'; font-weight: 600; src: url('fonts/web/brooklyn-600.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Brooklyn'; font-weight: 700; src: url('fonts/web/brooklyn-700.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Caveat'; font-weight: 400 700; src: url('fonts/web/caveat.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Nanum Pen Script'; src: url('fonts/web/nanum-pen.woff2') format('woff2'); font-display: swap; }
 
 /* Layout: phone-first single column, order card first; desktop pins the photo left. Single light brand look by choice. */
 :root {
@@ -960,6 +965,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
   $('sdec').addEventListener('click', function () { state.sq = Math.max(10, state.sq - 1); render(); });
   document.documentElement.setAttribute('data-kind', 'still');
 
+  window.addEventListener('load', function () { try { document.fonts.load('1em "Nanum Pen Script"'); } catch (e) {} });
   // note from our team: envelope shows after a little browsing, scratch card reveals the thank-you
   var env = $('env'), nm = $('nm'), sc = $('sc'), seen = false;
   try { seen = sessionStorage.getItem('rockNote') === '1'; } catch (e) {}
