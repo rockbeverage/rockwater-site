@@ -2,117 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
-  <title>Wholesale Subscription | ROCK Water</title>
-  <meta name="description" content="Monthly wholesale delivery for approved ROCK Water retailers.">
+  <meta name="description" content="Wholesale ordering for ROCK Water partners. Spring water with electrolytes, delivered monthly.">
   <link rel="icon" type="image/svg+xml" href="images/waveicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ============ NAVY HEADER ============ */
-    html, body { margin: 0; padding: 0; background: var(--color-white); }
-    .wsp-hdr { background: var(--color-navy); padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; margin: 0; }
-    .wsp-hdr__logo img { display: block; height: 30px; width: auto; filter: brightness(0) invert(1); }
-    .wsp-hdr__actions { display: inline-flex; align-items: center; gap: 22px; }
-    .wsp-hdr__icon { color: var(--color-white); display: inline-flex; align-items: center; justify-content: center; opacity: 0.95; transition: opacity 0.15s ease, transform 0.15s ease; text-decoration: none; }
-    .wsp-hdr__icon:hover { opacity: 1; transform: translateY(-1px); }
-    .wsp-hdr__icon svg { width: 22px; height: 22px; }
-    @media (max-width: 600px) { .wsp-hdr { padding: 16px 20px; } .wsp-hdr__logo img { height: 24px; } .wsp-hdr__actions { gap: 18px; } }
-
-    /* ============ BUY AREA ============ */
-    .wsp { max-width: 1180px; margin: 0 auto; padding: 40px 24px 64px; }
-    .wsp__eyebrow-row { text-align: center; margin-bottom: 32px; }
-    .wsp__badge { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-
-    .wsp__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
-    @media (min-width: 900px) { .wsp__grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
-
-    .wsp__media { background: transparent; border-radius: 0; padding: 0; display: flex; align-items: center; justify-content: center; }
-    .wsp__media img { max-width: 380px; width: 100%; height: auto; display: block; }
-
-    .wsp__buy { display: flex; flex-direction: column; gap: 24px; }
-    .wsp__eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-light); margin: 0; }
-    .wsp__title { font-family: var(--font-heading); font-size: clamp(2.4rem, 5.5vw, 3.4rem); font-weight: 400; line-height: 1.02; color: var(--color-navy); margin: 0; letter-spacing: -0.005em; }
-    .wsp__sub { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); margin: 0; letter-spacing: 0.02em; }
-
-    .wsp__pricestrip { display: flex; flex-direction: column; gap: 10px; padding: 24px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-    .wsp__price-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-    .wsp__retail { font-family: var(--font-body); font-size: 1.4rem; font-weight: 500; color: var(--color-text-muted); text-decoration: line-through; text-decoration-thickness: 1.5px; }
-    .wsp__price { font-family: var(--font-heading); font-size: 3rem; font-weight: 400; color: var(--color-navy); line-height: 1; letter-spacing: -0.01em; }
-    .wsp__price-unit { font-family: var(--font-body); font-size: 1rem; color: var(--color-text-light); font-weight: 500; }
-    .wsp__meta-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .wsp__savings { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
-    .wsp__ship { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; background: #e8f4ea; color: #166534; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-    .wsp__percan { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-light); font-variant-numeric: tabular-nums; margin: 0; }
-    .wsp__percan b { color: var(--color-text); font-weight: 600; }
-
-    .wsp__section { display: flex; flex-direction: column; gap: 12px; }
-    .wsp__label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-light); font-weight: 500; margin: 0; }
-
-    .wsp__qtyRow { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .wsp__qty { display: inline-flex; align-items: center; padding: 4px; background: var(--color-cream); border-radius: 999px; }
-    .wsp__qty button { appearance: none; border: 0; width: 48px; height: 48px; border-radius: 999px; background: var(--color-white); font-family: var(--font-body); font-size: 1.4rem; font-weight: 400; color: var(--color-text); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-    .wsp__qty button:hover { background: var(--color-off-white); }
-    .wsp__qty button:active { transform: scale(0.96); }
-    .wsp__qty input { width: 60px; text-align: center; border: 0; background: transparent; font-family: var(--font-body); font-size: 1.2rem; font-weight: 700; color: var(--color-text); font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
-    .wsp__qty input::-webkit-outer-spin-button, .wsp__qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-
-    .wsp__total { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
-    .wsp__total-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-light); }
-    .wsp__total-value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; color: var(--color-navy); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
-
-    #wsp-form { margin: 0; padding: 0; }
-    .wsp__cta { appearance: none; border: 0; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 999px; background: var(--color-navy); color: var(--color-white); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease; min-height: 54px; box-shadow: 0 8px 20px rgba(27, 65, 116, 0.16); }
-    .wsp__cta:hover { background: var(--color-navy-light); box-shadow: 0 10px 24px rgba(27, 65, 116, 0.22); }
-    .wsp__onetime { appearance: none; display: block; margin: 12px auto 0; padding: 8px 18px; border: 1px solid var(--color-border, #e0dbd2); border-radius: 999px; background: transparent; color: var(--color-navy); font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
-    .wsp__onetime:hover { background: var(--color-cream); }
-    .wsp__free { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: #166534; text-align: right; }
-    .wsp__cta:active { transform: scale(0.985); box-shadow: 0 4px 10px rgba(27, 65, 116, 0.14); }
-
-    .wsp__terms { font-family: var(--font-body); font-size: 0.82rem; color: var(--color-text-light); text-align: center; margin: 4px 0 0; line-height: 1.55; letter-spacing: 0.01em; }
-
-    /* ============ MARQUEE ============ */
-    .wsp-marquee { background: var(--color-navy); color: var(--color-white); padding: 22px 0; overflow: hidden; margin-top: 40px; }
-    .wsp-marquee__track { display: inline-flex; gap: 40px; white-space: nowrap; font-family: var(--font-mono); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.24em; text-transform: uppercase; animation: wsp-marquee 45s linear infinite; will-change: transform; }
-    .wsp-marquee__track span { display: inline-block; }
-    @keyframes wsp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ============ CIRCULAR FACTS ============ */
-    .wsp-facts { background: var(--color-white); padding: 80px 24px; }
-    .wsp-facts__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    @media (min-width: 900px) { .wsp-facts__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
-    .wsp-fact { aspect-ratio: 1 / 1; border: 2px solid var(--color-navy); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background: transparent; max-width: 240px; margin: 0 auto; width: 100%; text-align: center; }
-    .wsp-fact__label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500; color: var(--color-navy); margin-bottom: 10px; }
-    .wsp-fact__value { font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 400; color: var(--color-navy); line-height: 1; letter-spacing: -0.01em; }
-    .wsp-fact__note { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--color-navy); margin-top: 12px; line-height: 1.4; }
-
-    /* ============ ACCORDION ============ */
-    .wsp-faq { max-width: 780px; margin: 0 auto; padding: 40px 24px 80px; font-family: var(--font-body); }
-    .wsp-faq__title { text-align: center; font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 400; letter-spacing: -0.01em; color: var(--color-navy); margin: 0 0 32px; }
-    .wsp-faq__list { display: flex; flex-direction: column; gap: 0; }
-    .wsp-faq__item { border-top: 1px solid var(--color-border); }
-    .wsp-faq__item:last-child { border-bottom: 1px solid var(--color-border); }
-    .wsp-faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 22px 4px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; color: var(--color-text); }
-    .wsp-faq__item summary::-webkit-details-marker { display: none; }
-    .wsp-faq__item summary::after { content: '+'; font-size: 1.6rem; font-weight: 300; color: var(--color-navy); transition: transform 0.2s ease; line-height: 1; }
-    .wsp-faq__item[open] summary::after { content: '−'; }
-    .wsp-faq__item p { padding: 0 4px 22px; margin: 0; color: var(--color-text-light); font-size: 0.98rem; line-height: 1.65; }
-    .wsp-faq__item a { color: var(--color-navy); text-decoration: underline; }
-
-    /* ============ FOOTER ============ */
-    .wsp-foot { background: var(--color-navy); color: var(--color-white); padding: 72px 24px 68px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
-    .wsp-foot__title { font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 6px; }
-    .wsp-foot__email { color: var(--color-white); text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: opacity 0.15s ease, transform 0.15s ease; }
-    .wsp-foot__email:hover { transform: translateY(-1px); opacity: 0.9; }
-    .wsp-foot__copy { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; opacity: 0.75; transition: transform 0.2s ease, opacity 0.15s ease, color 0.15s ease; }
-    .wsp-foot__copy svg { width: 100%; height: 100%; }
-    .wsp-foot__email:hover .wsp-foot__copy { opacity: 1; }
-    .wsp-foot__email.is-copied .wsp-foot__copy { color: #4ade80; opacity: 1; transform: scale(1.15); }
-  </style>
-
+  <!-- Home screen icon: same ROCK tile for the store and office links (no start_url, so each keeps its own link) -->
+  <link rel="apple-touch-icon" href="images/wholesale/icon-180.png">
+  <link rel="manifest" href="wholesale.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="ROCK">
+  <meta name="theme-color" content="#1b4174">
   <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
   <script>
@@ -121,240 +19,1039 @@
     gtag('js', new Date());
     gtag('config', 'G-8NXY07BY92');
   </script>
+  <title>Wholesale | ROCK Water</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'Flapjack'; src: url('fonts/TAYFlapjack.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Brooklyn'; font-weight: 400; src: url('fonts/Brooklyn%20Normal%201.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Brooklyn'; font-weight: 600; src: url('fonts/Brooklyn%20SemiBold.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Brooklyn'; font-weight: 700; src: url('fonts/Brooklyn%20Bold%201.otf') format('opentype'); font-display: swap; }
+
+/* Layout: phone-first single column, order card first; desktop pins the photo left. Single light brand look by choice. */
+:root {
+  color-scheme: light;
+  --navy: #1b4174;
+  --navy-2: #2a5a9a;
+  --ink: #231f20;
+  --muted: #6b6560;
+  --faint: #9b9590;
+  --cream: #f8f2e1;
+  --paper: #faf8f3;
+  --line: #e0dbd2;
+  --white: #ffffff;
+  --green: #2f6b45;
+  --green-bg: #e7f1e9;
+  --marker: #ffe27a;
+  --tint: #f5f8fc;
+  --display: 'Flapjack', 'Brooklyn', Georgia, serif;
+  --body: 'Brooklyn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'Brooklyn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --hand: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  --pen: 'Nanum Pen Script', 'Bradley Hand', 'Segoe Print', cursive;
+  --ink-blue: #2b3a8f;
+  --legal: #fcf2b0;
+  --r: 18px;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+img { max-width: 100%; display: block; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--navy-2); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+.label { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0; font-weight: 600; }
+.hand { font-family: var(--hand); font-weight: 700; color: var(--navy); line-height: 1; }
+
+/* Highlighter: draws itself when scrolled into view */
+.mark { background-image: linear-gradient(100deg, transparent 0 1%, var(--marker) 2% 97%, transparent 99%); background-repeat: no-repeat; background-size: 100% 46%; background-position: 0 88%; padding: 0 3px; margin: 0 -3px; border-radius: 3px; }
+.js .mark { background-size: 0% 46%; transition: background-size .8s cubic-bezier(.3,.7,.2,1) .15s; }
+.js .mark.on { background-size: 100% 46%; }
+
+[data-aud="office"] .only-retail, [data-aud="retail"] .only-office { display: none !important; }
+
+/* Header */
+.hdr { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--navy); }
+.hdr .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; max-width: none; }
+@media (min-width: 920px) { .hdr .wrap { padding-inline: 32px; } }
+.hdr__logo { display: flex; align-items: center; gap: 16px; color: var(--white); text-decoration: none; }
+.hdr__logo img { height: 20px; width: auto; display: block; filter: brightness(0) invert(1); }
+@media (min-width: 920px) { .hdr__logo img { height: 24px; } }
+.hdr__tag { font-family: var(--mono); font-weight: 600; font-size: 10.5px; line-height: 20px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.75); border-left: 1px solid rgba(255,255,255,.3); padding-left: 12px; }
+.hdr__nav { display: flex; gap: 18px; align-items: center; }
+.hdr__nav a { color: var(--white); display: flex; opacity: .9; }
+.hdr__nav svg { width: 21px; height: 21px; }
+
+/* Deal ribbon under header */
+.ribbon { background: var(--navy-2); color: var(--white); overflow: hidden; white-space: nowrap; }
+.ribbon__track { display: inline-flex; gap: 34px; padding-right: 34px; padding: 8px 0; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; animation: slide 120s linear infinite;  font-weight: 600;}
+.ribbon__track b { color: var(--marker); font-weight: 700; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Buy area */
+.buy { padding-block: 22px 56px; }
+.buy__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }
+@media (min-width: 920px) { .buy__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; } }
+
+.media { position: relative; min-width: 0; }
+@media (min-width: 920px) { .media { position: sticky; top: 84px; } }
+/* Product gallery: swipe on phones, arrows on desktop */
+.gal { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: var(--r); aspect-ratio: 4 / 5; background: #c5b8ab; scrollbar-width: none; overscroll-behavior-x: contain; }
+.gal::-webkit-scrollbar { display: none; }
+.gal img, .gal video { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; scroll-snap-stop: always; }
+.gal__dots { display: flex; justify-content: center; gap: 6px; padding-top: 12px; }
+.gal__dots button { appearance: none; border: 0; padding: 0; width: 7px; height: 7px; border-radius: 999px; background: var(--line); cursor: pointer; transition: width .25s, background .25s; }
+.gal__dots button[aria-current="true"] { width: 22px; background: var(--navy); }
+.gal__arrow { position: absolute; top: calc(50% - 32px); width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: var(--navy); display: none; place-items: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+.gal__arrow svg { width: 18px; height: 18px; }
+.gal__arrow--l { left: 12px; } .gal__arrow--r { right: 12px; }
+@media (hover: hover) and (min-width: 920px) { .gal__arrow { display: grid; } }
+.sticker { position: absolute; right: 12px; bottom: 6px; width: 108px; height: 108px; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotate(-9deg); box-shadow: 0 10px 24px rgba(27,65,116,.3); animation: pop .7s cubic-bezier(.2,1.6,.4,1) .3s both; }
+.sticker.off { animation: none; opacity: 0; transition: opacity .2s; }
+.sticker small { font-family: var(--hand); font-size: 1.15rem; line-height: 1; opacity: .9; }
+.sticker b { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1; color: var(--marker); }
+.sticker span { font-family: var(--hand); font-size: 1.15rem; line-height: 1; }
+@keyframes pop { from { transform: rotate(-30deg) scale(.4); opacity: 0; } to { transform: rotate(-9deg) scale(1); opacity: 1; } }
+@media (min-width: 920px) { .sticker { width: 130px; height: 130px; right: -20px; bottom: auto; top: 28px; } .sticker b { font-size: 2.4rem; } }
+
+[data-kind="sparkling"] .only-still, :root:not([data-kind="sparkling"]) .only-spark { display: none !important; }
+.kind { display: inline-flex; align-self: flex-start; gap: 4px; padding: 4px; margin-top: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; }
+.kind button { appearance: none; border: 0; background: transparent; border-radius: 999px; padding: 9px 18px; font-weight: 600; font-size: .9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); transition: background .2s, color .2s; }
+.kind button[aria-pressed="true"] { background: var(--navy); color: var(--white); }
+.pre__min { margin: 0; font-family: var(--mono); font-weight: 700; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--navy); }
+.pre__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: .86rem; color: var(--muted); }
+.pre__list li { padding-left: 14px; position: relative; }
+.pre__list li::before { content: ''; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: var(--navy); }
+.pill--soon { background: var(--marker); color: var(--navy); }
+.pre { padding: 6px 18px 18px; display: flex; flex-direction: column; gap: 12px; }
+.pre__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 14px; border: 2px solid var(--navy); border-radius: 14px; background: var(--tint); }
+.pre__txt { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.pre__txt b { font-weight: 600; font-size: 1.04rem; }
+.pre__txt span { font-size: .82rem; color: var(--muted); }
+.panel { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.hello { display: flex; flex-direction: column; gap: 8px; }
+.hello { container-type: inline-size; }
+/* one line, scaled to the column: the title is about 16.6em wide */
+.title { font-family: var(--display); font-weight: 400; color: var(--navy); font-size: 1.2rem; font-size: min(5.9cqi, 2.6rem); line-height: 1.05; margin: 0; white-space: nowrap; }
+.sub { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 40ch; }
+.sub b { color: var(--ink); font-weight: 600; }
+
+/* Purchase type */
+.seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 4px; gap: 4px; }
+.seg button { appearance: none; border: 0; background: transparent; border-radius: 10px; padding: 10px 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 1px; transition: background .2s, box-shadow .2s; }
+.seg b { font-weight: 600; font-size: .95rem; }
+.seg span { font-size: .74rem; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--white); box-shadow: 0 1px 2px rgba(35,31,32,.08), 0 2px 10px rgba(27,65,116,.08); }
+.seg button[aria-pressed="true"] b { color: var(--navy); }
+
+/* Plan card (one grouped card, rows inside) */
+.plan-wrap { position: relative; padding-top: 30px; }
+.note { position: absolute; top: -2px; right: 6px; display: flex; align-items: flex-end; gap: 2px; font-size: 1.45rem; transform: rotate(-3deg); pointer-events: none; }
+.note svg { width: 34px; height: 30px; color: var(--navy); margin-bottom: -14px; }
+.plan { border: 1px solid var(--line); border-radius: 20px; background: var(--white); overflow: hidden; box-shadow: 0 1px 2px rgba(35,31,32,.04), 0 10px 30px rgba(27,65,116,.06); }
+.plan__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px 18px 6px; }
+.plan__head h2 { margin: 0; font-size: 1rem; font-weight: 600; }
+.pill { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: var(--green-bg); color: var(--green); white-space: nowrap;  font-weight: 600;}
+
+.row { display: grid; grid-template-columns: 22px 1fr auto; align-items: center; gap: 14px; width: 100%; padding: 16px 18px; background: transparent; border: 0; border-top: 1px solid var(--line); text-align: left; cursor: pointer; appearance: none; transition: background .2s; position: relative; }
+.row__dot { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #c4bfb5; display: grid; place-items: center; transition: border-color .2s; }
+.row__dot::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--navy); transform: scale(0); transition: transform .2s cubic-bezier(.2,1.6,.4,1); }
+.row[aria-checked="true"] { background: var(--tint); }
+.row[aria-checked="true"] .row__dot { border-color: var(--navy); }
+.row[aria-checked="true"] .row__dot::after { transform: scale(1); }
+.row__main { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.row__name { font-weight: 600; font-size: 1.04rem; }
+.row__name i { font-style: normal; color: var(--muted); font-weight: 400; }
+.row__meta { font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.row__meta .save { color: var(--green); font-weight: 600; }
+.row__price { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; font-variant-numeric: tabular-nums; }
+.row__price b { font-size: 1.12rem; font-weight: 600; }
+.row__price s { font-size: .8rem; color: var(--faint); }
+
+.row--best { margin: 6px 10px 10px; width: calc(100% - 20px); border: 2px solid var(--navy); border-radius: 14px; padding: 18px 14px 16px; }
+.row--best .row__price b { font-family: var(--display); font-weight: 400; font-size: 1.85rem; color: var(--navy); line-height: 1; }
+.row__flag { display: inline-flex; align-self: flex-start; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--navy); border-radius: 999px; padding: 3px 9px; margin-bottom: 4px;  font-weight: 600;}
+.row__perks { font-size: .78rem; color: var(--muted); }
+
+.more { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-top: 1px solid var(--line); transition: background .2s; }
+.more.on { background: var(--tint); }
+.more__txt { display: flex; flex-direction: column; min-width: 0; }
+.more__txt b { font-weight: 600; font-size: .98rem; }
+.more__txt span { font-size: .8rem; color: var(--muted); }
+.step { display: inline-flex; align-items: center; background: var(--paper); border-radius: 999px; padding: 3px; border: 1px solid var(--line); flex-shrink: 0; }
+.step button { appearance: none; border: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--white); cursor: pointer; font-size: 1.25rem; line-height: 1; box-shadow: 0 1px 2px rgba(0,0,0,.08); color: var(--navy); }
+.step output { min-width: 38px; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Price ladder */
+.ladder { display: flex; flex-direction: column; gap: 10px; }
+.ladder__track { position: relative; height: 6px; border-radius: 999px; background: var(--line); margin: 0 9px; }
+.ladder__fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--navy); width: 0; transition: width .5s cubic-bezier(.3,.7,.2,1); }
+.ladder__stops { display: grid; grid-template-columns: repeat(3, 1fr); font-variant-numeric: tabular-nums; }
+.ladder__stops span { display: flex; flex-direction: column; font-size: .78rem; color: var(--faint); }
+.ladder__stops span:nth-child(2) { align-items: center; }
+.ladder__stops span:nth-child(3) { align-items: flex-end; }
+.ladder__stops b { font-weight: 600; font-size: .92rem; color: var(--faint); transition: color .3s; }
+.ladder__stops span.on b { color: var(--navy); }
+.ladder__msg { margin: 0; font-size: .9rem; color: var(--muted); }
+.ladder__msg b { color: var(--navy); font-weight: 600; }
+
+/* Savings callout */
+.saved { display: flex; align-items: center; gap: 12px; background: var(--cream); border-radius: 14px; padding: 12px 14px; }
+.saved .hand { font-size: 1.6rem; }
+.saved p { margin: 0; font-size: .86rem; color: var(--muted); line-height: 1.35; }
+.saved svg { width: 30px; height: 30px; flex-shrink: 0; color: var(--navy); }
+
+/* Summary + CTA */
+.sum { display: flex; flex-direction: column; gap: 12px; }
+.sum__total { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; }
+.sum__total .k { font-weight: 600; display: flex; flex-direction: column; }
+.sum__total .k small { font-weight: 400; font-size: .8rem; color: var(--muted); }
+.sum__total .v { font-family: var(--display); font-size: 2.3rem; color: var(--navy); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sum__total .v small { font-family: var(--body); font-size: .85rem; color: var(--muted); margin-left: 3px; }
+.cta { appearance: none; border: 0; width: 100%; min-height: 58px; border-radius: 999px; background: var(--navy); color: var(--white); font-weight: 700; font-size: .88rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 10px 24px rgba(27,65,116,.22); transition: background .15s, transform .1s; position: relative; overflow: hidden; }
+.cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.22) 50%, transparent 70%); transform: translateX(-100%); animation: shine 4.5s ease-in-out 1.5s infinite; }
+@keyframes shine { 0%, 70% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.cta:hover { background: var(--navy-2); }
+.cta:active { transform: scale(.985); }
+.cta svg { width: 18px; height: 18px; }
+
+/* Sticky phone bar */
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: rgba(255,255,255,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 12px; transform: translateY(110%); transition: transform .3s ease; }
+.dock.show { transform: none; }
+.dock__info { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.dock__info b { font-weight: 600; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dock__info span { font-size: .78rem; color: var(--green); font-weight: 600; }
+.dock .cta { width: auto; min-height: 48px; padding: 0 22px; box-shadow: none; font-size: .8rem; flex-shrink: 0; }
+@media (min-width: 920px) { .dock { display: none; } }
+
+/* Sections */
+.sec { padding-block: 60px; }
+.sec--paper { background: var(--paper); }
+.sec__head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; max-width: 36rem; }
+.sec__title { font-family: var(--display); font-weight: 400; color: var(--navy); font-size: clamp(1.9rem, 7vw, 2.6rem); line-height: 1.04; margin: 0; text-wrap: balance; }
+.sec__lead { margin: 0; color: var(--muted); }
+
+/* Margin calculator + team planner share this box */
+.tool { display: grid; grid-template-columns: 1fr; gap: 22px; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+@media (min-width: 820px) { .tool { grid-template-columns: 1fr 1fr; padding: 32px; gap: 40px; } }
+.tool__ctl { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.tool__top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.tool__top output { font-family: var(--display); font-size: 2.4rem; color: var(--navy); line-height: 1; font-variant-numeric: tabular-nums; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(to right, var(--navy) var(--p, 40%), var(--line) var(--p, 40%)); margin: 8px 0; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; border-radius: 50%; background: var(--white); border: 2px solid var(--navy); box-shadow: 0 2px 8px rgba(0,0,0,.14); cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: var(--white); border: 2px solid var(--navy); cursor: pointer; }
+.ticks { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10.5px; color: var(--faint);  font-weight: 600;}
+.tool__note { font-size: .8rem; color: var(--faint); margin: 0; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); align-content: start; }
+@media (min-width: 820px) { .grid2 { border-top: 0; border-left: 1px solid var(--line); padding-left: 32px; } }
+.cell { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.cell:nth-child(odd) { padding-right: 12px; }
+.cell .n { font-size: 1.3rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cell--big { grid-column: 1 / -1; border-bottom: 0; position: relative; }
+.cell--big .n { font-family: var(--display); font-weight: 400; font-size: 3rem; color: var(--green); line-height: 1; }
+.cell--big .hand { position: absolute; right: 0; bottom: 18px; font-size: 1.5rem; transform: rotate(-5deg); color: var(--green); }
+
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.chips button { --can: var(--navy); --band: var(--white); appearance: none; border: 1.5px solid var(--line); background: var(--white); border-radius: 14px; padding: 14px 6px 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: background .2s, border-color .2s, transform .15s; }
+.chips button:hover { border-color: var(--navy-2); }
+.chips button:active { transform: scale(.97); }
+.chips b { font-weight: 600; font-size: .92rem; }
+.chip__sub { font-size: .72rem; color: var(--muted); }
+.cans { display: flex; gap: 4px; height: 30px; align-items: flex-end; margin-bottom: 6px; }
+.cans svg { width: 16px; height: 28px; fill: var(--can); opacity: .85; transition: transform .25s cubic-bezier(.2,1.6,.4,1); }
+.cans .can-band { fill: var(--band); }
+.chips button[aria-pressed="true"] { --can: var(--white); --band: var(--navy); background: var(--navy); border-color: var(--navy); color: var(--white); }
+.chips button[aria-pressed="true"] .chip__sub { color: rgba(255,255,255,.75); }
+.chips button[aria-pressed="true"] .cans svg { opacity: 1; transform: translateY(-3px); }
+.chips button[aria-pressed="true"] .cans svg:nth-child(2) { transition-delay: .05s; }
+.chips button[aria-pressed="true"] .cans svg:nth-child(3) { transition-delay: .1s; }
+.team__out { display: flex; flex-direction: column; gap: 12px; justify-content: center; border-top: 1px solid var(--line); padding-top: 20px; }
+@media (min-width: 820px) { .team__out { border-top: 0; border-left: 1px solid var(--line); padding: 0 0 0 32px; } }
+.team__big { font-family: var(--display); font-size: 3.4rem; line-height: 1; color: var(--navy); }
+.team__big small { font-family: var(--body); font-size: 1rem; color: var(--muted); margin-left: 8px; }
+.crates { display: flex; flex-wrap: wrap; gap: 5px; min-height: 22px; }
+.crates i { width: 30px; height: 22px; border-radius: 4px; background: var(--navy); color: var(--white); font: 600 9px/22px var(--body); text-align: center; font-style: normal; animation: cpop .35s cubic-bezier(.2,1.6,.4,1) both; }
+@keyframes cpop { from { transform: scale(.3); opacity: 0; } to { transform: none; opacity: 1; } }
+.crates i.more { background: none; color: var(--navy); width: auto; font-size: 12px; }
+.team__line { margin: 0; color: var(--muted); font-size: .95rem; font-variant-numeric: tabular-nums; }
+.team__line b { color: var(--ink); font-weight: 600; }
+.pp { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+.pp__note { font-size: 1.35rem; transform: rotate(-3deg); }
+.team__cta { margin-top: 4px; min-height: 52px; }
+.ghost { appearance: none; border: 1.5px solid var(--navy); background: transparent; color: var(--navy); border-radius: 999px; min-height: 50px; padding: 0 22px; font-weight: 700; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; align-self: flex-start; }
+.ghost:hover { background: var(--tint); }
+
+/* Centered section head, like the homepage */
+.center-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0 auto 34px; max-width: 36rem; }
+.center-head .label { color: var(--navy); font-weight: 700; letter-spacing: .18em; font-size: 12px; }
+
+/* Why it matters: photo + accordion */
+.edu { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+@media (min-width: 860px) { .edu { grid-template-columns: 1fr 1fr; gap: 72px; } }
+.edu__img img { width: 100%; height: 340px; object-fit: cover; border-radius: 14px; }
+@media (min-width: 860px) { .edu__img img { height: 540px; } }
+.acc details, .faq details { border-bottom: 1px solid var(--line); }
+.acc summary, .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 2px; font-family: var(--display); font-weight: 400; font-size: 1.2rem; letter-spacing: .01em; color: var(--ink); text-transform: uppercase; transition: color .2s; }
+.acc summary:hover, .faq summary:hover { color: var(--navy); }
+.acc summary::-webkit-details-marker, .faq summary::-webkit-details-marker { display: none; }
+.acc summary::after, .faq summary::after { content: '+'; font-family: var(--body); font-size: 1.5rem; font-weight: 400; color: var(--faint); line-height: 1; transition: transform .25s; flex-shrink: 0; }
+.acc details[open] summary::after, .faq details[open] summary::after { transform: rotate(45deg); }
+.acc p, .faq p { margin: 0; padding: 0 2px 22px; color: var(--muted); font-size: .95rem; line-height: 1.65; max-width: 46ch; }
+.faq { max-width: 780px; margin: 0 auto; }
+.faq details:first-child { border-top: 1px solid var(--line); }
+.faq p { max-width: 62ch; }
+
+/* Founder story: pinned while you scroll through 6 beats, like the ROCK deck */
+.story { position: relative; height: calc(var(--n) * 62svh + 100svh); background: var(--white); }
+.story__stage { position: sticky; top: 60px; height: calc(100svh - 60px); display: flex; align-items: center; overflow: hidden; }
+.story__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: center; width: 100%; }
+@media (min-width: 860px) { .story__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; } }
+.story__txt { min-width: 0; order: 2; }
+@media (min-width: 860px) { .story__txt { order: 1; } }
+.story__eyebrow { display: flex; align-items: center; gap: 14px; margin: 0 0 18px; }
+.story__eyebrow span { font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+.story__eyebrow i { flex: 1; max-width: 190px; height: 1px; background: var(--line); }
+.beats { display: grid; }
+.beat { grid-area: 1 / 1; display: flex; flex-direction: column; opacity: 0; transform: translateY(12px); transition: opacity .4s ease, transform .4s ease; pointer-events: none; }
+.beat.on { opacity: 1; transform: none; pointer-events: auto; }
+.bk { font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.bh { font-family: var(--display); font-weight: 400; color: var(--navy); font-size: clamp(1.55rem, 5.6vw, 2.35rem); line-height: 1.12; max-width: 22ch; text-wrap: balance; }
+.bs { margin-top: .7em; color: var(--muted); font-size: clamp(.92rem, 1.45vw, 1.06rem); line-height: 1.55; max-width: 48ch; }
+.bsig { display: block; margin-top: 1.1em; }
+.bsig img { width: clamp(140px, 18vw, 190px); height: auto; }
+.bsig i { display: block; font-style: normal; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-top: 6px; }
+.stepper { display: flex; align-items: center; gap: 5px; margin-top: 18px; }
+.stepper i { display: block; width: clamp(18px, 2.6vw, 28px); height: 3px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.stepper i b { display: block; height: 100%; width: 0; background: var(--navy); }
+.scount { font-size: 11.5px; color: var(--faint); margin-left: 10px; font-variant-numeric: tabular-nums; }
+.pols { position: relative; order: 1; height: clamp(190px, 33svh, 330px); display: grid; place-items: center; }
+@media (min-width: 860px) { .pols { order: 2; height: 440px; } }
+.pol { position: absolute; margin: 0; width: clamp(130px, min(44vw, 22svh), 214px); background: #fff; padding: 9px 9px 34px; border-radius: 2px; box-shadow: 0 10px 28px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.08); opacity: 0; transform: translate(50px, 24px) rotate(9deg) scale(.94); transition: opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
+@media (min-width: 860px) { .pol { width: 260px; padding: 11px 11px 42px; } }
+.pol img { width: 100%; aspect-ratio: 43 / 51; object-fit: cover; }
+.pol.on { opacity: 1; transform: rotate(var(--rot)); z-index: 5; }
+.pol.past { opacity: .3; z-index: 1; }
+.pol.past:nth-child(4n+1) { transform: translate(-16px, -13px) rotate(-5.5deg) scale(.95); }
+.pol.past:nth-child(4n+2) { transform: translate(14px, -9px) rotate(4.5deg) scale(.95); }
+.pol.past:nth-child(4n+3) { transform: translate(-11px, 11px) rotate(-2.5deg) scale(.95); }
+.pol.past:nth-child(4n+4) { transform: translate(17px, 12px) rotate(6deg) scale(.95); }
+/* hand marks: highlighter, underline, circle */
+.mk { position: relative; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.mk-hl { background-image: linear-gradient(100deg, transparent 0 1%, var(--marker) 2% 97%, transparent 99%); background-repeat: no-repeat; background-position: 0 85%; background-size: 0% 48%; transition: background-size .7s cubic-bezier(.3,.7,.2,1) .25s; }
+.mk-ul { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2,8 C42,3 82,11 122,5 C152,1 182,9 198,5' stroke='%231b4174' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% .42em; padding-bottom: .12em; transition: background-size .6s ease .25s; }
+.mk-circ { display: inline-block; padding: .05em .3em; }
+.mk-circ svg { position: absolute; inset: -26% -8% -24%; width: 116%; height: 150%; overflow: visible; pointer-events: none; }
+.mk-circ path { fill: none; stroke: var(--navy); stroke-width: 2.2; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 700; stroke-dashoffset: 700; transition: stroke-dashoffset .9s ease .25s; }
+.beat.on .mk-hl { background-size: 100% 48%; }
+.beat.on .mk-ul { background-size: 100% .42em; }
+.beat.on .mk-circ path { stroke-dashoffset: 0; }
+
+/* Reviews */
+.stars { color: #ffc043; letter-spacing: 4px; font-size: 1.1rem; }
+.stars--sm { font-size: .9rem; letter-spacing: 2px; }
+.rv-rating { margin: 0; color: var(--muted); font-size: .95rem; }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -20px; padding: 4px 20px 8px; scrollbar-width: none; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: center; }
+@media (min-width: 860px) { .rail { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; margin-inline: 0; padding-inline: 0; } }
+.rv__card { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.rv__card blockquote { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--ink); flex-grow: 1; }
+.rv__card figcaption { font-size: .9rem; font-weight: 600; padding-top: 12px; border-top: 1px solid var(--line); }
+
+/* Footer */
+.foot { background: var(--navy); color: var(--white); padding-block: 56px calc(96px + env(safe-area-inset-bottom, 0px)); text-align: center; }
+@media (min-width: 920px) { .foot { padding-bottom: 56px; } }
+.foot .wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.foot__tag { font-family: var(--display); font-size: 2rem; margin: 0; }
+.foot p { margin: 0; opacity: .8; font-size: .92rem; }
+.foot .foot__q { opacity: 1; font-weight: 700; font-size: .95rem; letter-spacing: .14em; text-transform: uppercase; }
+.copy { appearance: none; border: 1px solid rgba(255,255,255,.35); background: transparent; color: var(--white); border-radius: 999px; padding: 12px 20px; cursor: pointer; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;  font-weight: 600;}
+.copy:hover { background: rgba(255,255,255,.08); }
+
+/* Note from Brett: envelope tab + scratch card */
+.env { position: fixed; left: 16px; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); z-index: 45; appearance: none; border: 0; cursor: pointer; display: flex; align-items: center; gap: 10px; background: var(--white); color: var(--navy); padding: 10px 16px 10px 12px; border-radius: 999px; box-shadow: 0 10px 30px rgba(27,65,116,.22), 0 1px 3px rgba(0,0,0,.08); animation: envIn .6s cubic-bezier(.2,1.4,.4,1) both, wiggle 5s ease-in-out 2s infinite; }
+@media (min-width: 920px) { .env { bottom: 24px; left: 24px; } }
+.env svg { width: 30px; height: 21px; fill: var(--marker); stroke: var(--navy); stroke-width: 2; stroke-linejoin: round; }
+.env .hand { font-size: 1.3rem; }
+@keyframes envIn { from { transform: translateY(140%) rotate(-8deg); } to { transform: none; } }
+@keyframes wiggle { 0%, 88%, 100% { transform: rotate(0); } 91% { transform: rotate(-4deg); } 94% { transform: rotate(3deg); } 97% { transform: rotate(-2deg); } }
+.nm { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 20px; background: rgba(15,30,55,.45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); animation: fadeIn .25s ease both; }
+@keyframes fadeIn { from { opacity: 0; } }
+.nm__card { position: relative; width: min(400px, 100%); background: #fbfaf6; border-radius: 6px; padding: 30px 26px 22px; box-shadow: 0 30px 80px rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.08); transform: rotate(-1deg); animation: cardIn .5s cubic-bezier(.2,1.3,.4,1) both; }
+@keyframes cardIn { from { transform: translateY(40px) rotate(-6deg) scale(.92); opacity: 0; } }
+.nm__x { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--paper); color: var(--navy); font-size: 1.3rem; cursor: pointer; }
+.nm__hi { font-family: var(--pen); font-weight: 400; font-size: 1.85rem; line-height: 1; margin: 0 0 4px; padding-right: 26px; color: var(--ink-blue); }
+.nm__body { font-family: var(--pen); font-weight: 400; font-size: 1.6rem; line-height: 1.1; margin: 0 0 22px; color: var(--ink-blue); opacity: .85; }
+.scratch-wrap { position: relative; transform: rotate(1.2deg); }
+.scratch-wrap::before { content: ''; position: absolute; z-index: 3; top: -12px; left: 50%; width: 92px; height: 26px; margin-left: -46px; background: rgba(226,214,186,.75); transform: rotate(-3deg); box-shadow: 0 1px 2px rgba(0,0,0,.06); pointer-events: none; }
+.scratch { position: relative; height: 168px; border-radius: 2px; overflow: hidden; touch-action: none; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.scratch__prize { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-start; padding: 30px 18px 0 44px; text-align: left; background-color: var(--legal); background-image: linear-gradient(90deg, transparent 32px, rgba(214,80,80,.45) 32px 33.5px, transparent 33.5px), repeating-linear-gradient(transparent 0 29px, rgba(70,110,190,.28) 29px 30px); background-position: 0 0, 0 14px; }
+.scratch__prize p { margin: 0; font-family: var(--pen); font-weight: 400; font-size: 1.85rem; line-height: 30px; color: var(--ink-blue); }
+.scratch canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; transition: opacity .5s; }
+.scratch.done canvas { opacity: 0; pointer-events: none; }
+.nm__foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; }
+.nm__sig { width: 120px; height: auto; }
+.nm__claim { width: 100%; flex: 1; min-height: 50px; font-size: .78rem; }
+.nm__claim:disabled { background: var(--line); color: var(--muted); box-shadow: none; cursor: default; }
+.nm__claim:disabled::after { display: none; }
+
+/* Toast */
+.toast { position: fixed; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); opacity: 0; pointer-events: none; z-index: 70; background: var(--ink); color: var(--white); padding: 12px 18px; border-radius: 12px; font-size: .88rem; width: max-content; max-width: calc(100% - 32px); transition: opacity .25s, transform .25s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (min-width: 920px) { .toast { bottom: 28px; } }
+
+/* Scroll motion: sections rise in as they enter (browsers without support just show them) */
+@supports (animation-timeline: view()) {
+  .rise { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  @keyframes rise { from { transform: translateY(26px); opacity: .35; } to { transform: none; opacity: 1; } }
+}
+.bump { animation: bump .35s ease; }
+@keyframes bump { 40% { transform: scale(1.04); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .mark { background-size: 100% 46%; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ============ NAVY HEADER ============ -->
-  <header class="wsp-hdr">
-    <a href="/wholesale-subscribe.html" class="wsp-hdr__logo" aria-label="ROCK Water">
-      <img src="images/rock-logo.png" alt="ROCK">
+<header class="hdr">
+  <div class="wrap">
+    <a class="hdr__logo" href="/wholesale-subscribe.html" aria-label="ROCK Water">
+      <img src="images/wholesale/rock-logo-tight.png" alt="ROCK">
+      <span class="hdr__tag">Wholesale</span>
     </a>
-    <div class="wsp-hdr__actions">
-      <a href="https://rock-1234314.myshopify.com/account" class="wsp-hdr__icon" aria-label="Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <a href="https://wholesale.drinkrockwater.com/cart" class="wsp-hdr__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      </a>
-    </div>
-  </header>
+    <nav class="hdr__nav" aria-label="Account">
+      <a href="#faq" aria-label="Help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></a>
+      <a href="https://rock-1234314.myshopify.com/account" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      <a href="https://wholesale.drinkrockwater.com/cart" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+    </nav>
+  </div>
+</header>
+<div class="ribbon" aria-hidden="true"><div class="ribbon__track">
+  <span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span><span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span><span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span><span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span>
+  <span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span><span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span><span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span><span>4 cases <b>$1.50 a can</b></span><span>Free monthly delivery</span><span>Skip or pause anytime</span><span>Wholesale pricing</span>
+</div></div>
 
-  <!-- ============ BUY AREA ============ -->
-  <main class="wsp">
-    <div class="wsp__grid">
-
-      <div class="wsp__media">
-        <img src="images/newproductshot.png" alt="ROCK Water, Spring Water with Electrolytes">
+<main id="top">
+  <section class="buy">
+    <div class="wrap buy__grid">
+      <div class="media">
+        <div class="gal" id="gal" aria-roledescription="carousel" aria-label="Product photos"><img src="images/wholesale/sl_01-product.jpg" alt="A can of ROCK spring water with electrolytes"><img src="images/wholesale/sl_06-whats-in-the-can.jpg" alt="What's in the can: 0 sugar, 0 calories, 3 electrolytes, 7.8+ pH" loading="lazy"><img src="images/wholesale/sl_02-long-game.jpg" alt="Hydration for the long game" loading="lazy"><img src="images/wholesale/sl_04-thats-it.jpg" alt="Made for the Arizona sun." loading="lazy"><img src="images/wholesale/sl_03-whats-inside.jpg" alt="Natural spring water, 3 key electrolytes, 7.8+ pH" loading="lazy"><img src="images/wholesale/sl_07-never-plastic.jpg" alt="Infinitely recyclable. Never plastic." loading="lazy"><video src="images/wholesale/sl_08-reel.mp4" poster="images/wholesale/sl_08-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="ROCK by the pool"></video></div>
+        <button type="button" class="gal__arrow gal__arrow--l" id="gal-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" class="gal__arrow gal__arrow--r" id="gal-next" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <div class="gal__dots" id="gal-dots"><button type="button" aria-label="Photo 1" aria-current="true"></button><button type="button" aria-label="Photo 2"></button><button type="button" aria-label="Photo 3"></button><button type="button" aria-label="Photo 4"></button><button type="button" aria-label="Photo 5"></button><button type="button" aria-label="Photo 6"></button><button type="button" aria-label="Video"></button></div>
+        <div class="sticker" id="st-still" aria-hidden="true"><small>as low as</small><b>$1.50</b><span>a can</span></div>
+        <div class="sticker off" id="st-spark" aria-hidden="true"><small>pre-order</small><b>NEW</b><span>sparkling</span></div>
       </div>
 
-      <section class="wsp__buy">
-        <p class="wsp__eyebrow">Wholesale Subscription</p>
-        <h1 class="wsp__title">Spring Water<br>+ Electrolytes</h1>
-        <p class="wsp__sub">12-Pack</p>
-
-        <div class="wsp__pricestrip">
-          <div class="wsp__price-row">
-            <span class="wsp__price">$19.68</span>
-            <span class="wsp__price-unit">/case</span>
-          </div>
-          <div class="wsp__meta-row">
-            <span class="wsp__savings">Buy 3, Get 1 Free</span>
-            <span class="wsp__ship">Free Shipping</span>
-          </div>
-          <p class="wsp__percan">Wholesale rate <b>$1.64/can</b> · Delivered every month</p>
-        </div>
-
-        <div class="wsp__section">
-          <p class="wsp__label">Cases per delivery</p>
-          <div class="wsp__qtyRow">
-            <div class="wsp__qty">
-              <button type="button" data-step="-1" aria-label="Decrease">−</button>
-              <input type="number" id="wsp-qty" value="3" min="1" inputmode="numeric">
-              <button type="button" data-step="1" aria-label="Increase">+</button>
-            </div>
-            <div class="wsp__total">
-              <span class="wsp__total-label">Monthly total</span>
-              <span class="wsp__total-value" id="wsp-total">$59.04</span>
-              <span class="wsp__free" id="wsp-free">+1 free case included</span>
-            </div>
+      <div class="panel">
+        <div class="hello">
+          
+          <h1 class="title">Natural Spring Water + Electrolytes</h1>
+          <div class="kind" role="group" aria-label="Choose still or sparkling">
+            <button type="button" id="k-still" aria-pressed="true">Still</button>
+            <button type="button" id="k-spark" aria-pressed="false">Sparkling</button>
           </div>
         </div>
 
-        <form action="https://wholesale.drinkrockwater.com/cart/add" method="POST" id="wsp-form">
-          <input type="hidden" name="id" value="67190867591409">
-          <input type="hidden" name="quantity" id="wsp-form-qty" value="3">
-          <input type="hidden" name="properties[Free case]" id="wsp-bonus" value="Include 1 bonus case">
-          <input type="hidden" name="selling_plan" id="wsp-plan" value="5670240497">
-          <input type="hidden" name="return_to" value="/checkout">
-          <button type="submit" class="wsp__cta">Add to Cart</button>
-          <button type="button" class="wsp__onetime" id="wsp-onetime">One-time purchase</button>
-        </form>
 
-        <p class="wsp__terms">
-          Recurring monthly delivery. Order 3 or more cases and we add 1 free case to your delivery. Skip, pause, or cancel anytime.
-        </p>
-      </section>
+        <div class="plan-wrap only-still">
+          <div class="note hand" aria-hidden="true">best price per can<svg viewBox="0 0 40 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4c14 0 26 6 28 24"/><path d="M25 22l7 7 5-9"/></svg></div>
+          <div class="plan" role="radiogroup" aria-label="Choose your order">
+            <div class="plan__head"><h2><span class="only-retail" id="plan-retail">Subscription</span><span class="only-office" id="plan-office">Office Subscription</span></h2><span class="pill">Free delivery</span></div>
+            <button type="button" class="row row--best" role="radio" aria-checked="true" data-q="4">
+              <span class="row__dot"></span>
+              <span class="row__main">
+                <span class="row__flag">Best value</span>
+                <span class="row__name">4 cases <i>· 48 cans</i></span>
+                <span class="row__meta">$1.50/can · <span class="save">Save $6.72</span></span>
+                <span class="row__perks" id="perk">Free monthly delivery</span>
+              </span>
+              <span class="row__price"><b>$72.00</b><s>$78.72</s></span>
+            </button>
+            <button type="button" class="row" role="radio" aria-checked="false" data-q="2">
+              <span class="row__dot"></span>
+              <span class="row__main"><span class="row__name">2 cases <i>· 24 cans</i></span><span class="row__meta">$1.60/can · <span class="save">Save $0.96</span></span></span>
+              <span class="row__price"><b>$38.40</b></span>
+            </button>
+            <button type="button" class="row" role="radio" aria-checked="false" data-q="1">
+              <span class="row__dot"></span>
+              <span class="row__main"><span class="row__name">1 case <i>· 12 cans</i></span><span class="row__meta">$1.64/can</span></span>
+              <span class="row__price"><b>$19.68</b></span>
+            </button>
+            <div class="more" id="more">
+              <div class="more__txt"><b>Need more?</b><span id="more-sub">5+ cases, still $1.50/can</span></div>
+              <div class="step">
+                <button type="button" id="dec" aria-label="One less case">−</button>
+                <output id="qty" aria-live="polite">4</output>
+                <button type="button" id="inc" aria-label="One more case">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    </div>
-  </main>
+        <div class="plan-wrap only-spark">
+          <div class="note hand" aria-hidden="true">first batch, limited<svg viewBox="0 0 40 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4c14 0 26 6 28 24"/><path d="M25 22l7 7 5-9"/></svg></div>
+          <div class="plan">
+            <div class="plan__head"><h2>Preorder</h2></div>
+            <div class="pre">
+              <div class="pre__row">
+                <div class="pre__txt"><b id="sp-name">10 cases · 120 cans</b><span>$1.50/can · same price as still</span></div>
+                <div class="step">
+                  <button type="button" id="sdec" aria-label="One less case">−</button>
+                  <output id="sqty" aria-live="polite">10</output>
+                  <button type="button" id="sinc" aria-label="One more case">+</button>
+                </div>
+              </div>
+              <p class="pre__min">10 case minimum</p>
+              <ul class="pre__list">
+                <li>Paid today, ships free with our first sparkling batch</li>
+                <li>Be the first in your area to carry it</li>
+                <li>We email you the ship date as soon as it's set</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-  <!-- ============ MARQUEE ============ -->
-  <section class="wsp-marquee" aria-hidden="true">
-    <div class="wsp-marquee__track">
-      <span>Naturally Alkaline</span><span>•</span>
-      <span>Trace Minerals</span><span>•</span>
-      <span>Infinitely Recyclable</span><span>•</span>
-      <span>No Plastic</span><span>•</span>
-      <span>Spring Sourced</span><span>•</span>
-      <span>Naturally Alkaline</span><span>•</span>
-      <span>Trace Minerals</span><span>•</span>
-      <span>Infinitely Recyclable</span><span>•</span>
-      <span>No Plastic</span><span>•</span>
-      <span>Spring Sourced</span><span>•</span>
-    </div>
-  </section>
+        <div class="ladder only-still" aria-live="polite">
+          <div class="ladder__track"><div class="ladder__fill" id="fill"></div></div>
+          <div class="ladder__stops" id="stops">
+            <span data-at="1"><b>$1.64</b>1 case</span>
+            <span data-at="2"><b>$1.60</b>2 cases</span>
+            <span data-at="4"><b>$1.50</b>4+ cases</span>
+          </div>
+          <p class="ladder__msg" id="ladder-msg">You are at the lowest price per can.</p>
+        </div>
 
-  <!-- ============ CIRCULAR FACTS ============ -->
-  <section class="wsp-facts">
-    <div class="wsp-facts__grid">
-      <div class="wsp-fact">
-        <div class="wsp-fact__label">pH</div>
-        <div class="wsp-fact__value">7.8+</div>
-        <div class="wsp-fact__note">Naturally Alkaline</div>
+        <div class="seg only-still" role="group" aria-label="Purchase type">
+          <button type="button" id="mode-sub" aria-pressed="true"><b>Monthly delivery</b><span>Skip or pause anytime</span></button>
+          <button type="button" id="mode-one" aria-pressed="false"><b>One-time order</b><span>Order once</span></button>
+        </div>
+
+        <div class="saved only-still" id="saved">
+          <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16l6 6L24 8"/></svg>
+          <div><div class="hand" id="saved-big">You save $6.72</div><p id="saved-sub">every month. That is <span class="mark">$80.64 a year</span> back in your pocket.</p></div>
+        </div>
+
+        <div class="sum">
+          <div class="sum__total"><span class="k"><span id="t-label">Monthly total</span><small id="t-cans">48 cans · $1.50 a can</small></span><span class="v"><span id="t-val">$72.00</span><small id="t-per">/mo</small></span></div>
+          <button type="button" class="cta" id="cta"><span id="cta-txt">Start monthly delivery</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
       </div>
-      <div class="wsp-fact">
-        <div class="wsp-fact__label">Calories</div>
-        <div class="wsp-fact__value">0</div>
-        <div class="wsp-fact__note">Per Can</div>
-      </div>
-      <div class="wsp-fact">
-        <div class="wsp-fact__label">Plastic</div>
-        <div class="wsp-fact__value">0%</div>
-        <div class="wsp-fact__note">Ever</div>
-      </div>
-      <div class="wsp-fact">
-        <div class="wsp-fact__label">Electrolytes</div>
-        <div class="wsp-fact__value">3</div>
-        <div class="wsp-fact__note">Sodium · Potassium · Magnesium</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ACCORDION ============ -->
-  <section class="wsp-faq">
-    <h2 class="wsp-faq__title">The Details</h2>
-    <div class="wsp-faq__list">
-      <details class="wsp-faq__item">
-        <summary>Spring Sourced</summary>
-        <p>Naturally sourced from artesian springs in the Smoky Mountains. Filtered through ancient limestone over thousands of years. Not adjusted, not enhanced. Just water how it comes out of the ground.</p>
-      </details>
-      <details class="wsp-faq__item">
-        <summary>Real Minerals + Electrolytes</summary>
-        <p>Sodium, potassium and magnesium: the three electrolytes your body actually needs after a workout, a long day, or a night out. No added sugars, no sweeteners, no fluff.</p>
-      </details>
-      <details class="wsp-faq__item">
-        <summary>Naturally Alkaline</summary>
-        <p>7.8+ pH straight from the source. Not adjusted. Not enhanced. Smoother taste, better mineral balance, and it helps with hydration efficiency.</p>
-      </details>
-      <details class="wsp-faq__item">
-        <summary>Exclusively in Aluminum</summary>
-        <p>Aluminum is infinitely recyclable and doesn't leach chemicals into the water. Better for the planet, better for you. Never plastic. Not now, not ever.</p>
-      </details>
-      <details class="wsp-faq__item">
-        <summary>Third-Party Tested &amp; Certified</summary>
-        <p>NSF Certified for water quality and purity. Independently tested. Proud member of 1% for the Planet.</p>
-      </details>
-      <details class="wsp-faq__item">
-        <summary>How the subscription works</summary>
-        <p>Your cases ship every month, automatically. Skip a month, change quantity, pause, or cancel anytime from your account. Free shipping on every recurring delivery. First delivery arrives within 3–5 business days after your first order confirms.</p>
-      </details>
-      <details class="wsp-faq__item">
-        <summary>Delivery &amp; Returns</summary>
-        <p>Free delivery on every recurring shipment. Damaged cases are replaced at no charge. Notify us within 48 hours of delivery.</p>
-      </details>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="wsp-foot">
-    <p class="wsp-foot__title">Questions? We're here to help.</p>
-    <a href="#" class="wsp-foot__email" data-copy="support@rockbeverage.com" aria-label="Copy support email">
-      <span>SUPPORT@ROCKBEVERAGE.COM</span>
-      <span class="wsp-foot__copy" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-      </span>
-    </a>
-  </footer>
+  <section class="sec sec--paper only-retail">
+    <div class="wrap">
+      <div class="sec__head rise">
+        <p class="label">Your margin</p>
+        <h2 class="sec__title">What a delivery earns you.</h2>
+        <p class="sec__lead">Slide to your shelf price. The math uses the order you picked above.</p>
+      </div>
+      <div class="tool rise">
+        <div class="tool__ctl">
+          <div class="tool__top"><label class="label" for="shelf">Your price per can</label><output id="shelf-out">$2.99</output></div>
+          <input type="range" id="shelf" min="1.99" max="4.99" step="0.25" value="2.99" aria-describedby="shelf-note">
+          <div class="ticks"><span>$1.99</span><span>$3.49</span><span>$4.99</span></div>
+          <p class="tool__note" id="shelf-note">An estimate for planning. Your real margin depends on pricing and sell-through.</p>
+        </div>
+        <div class="grid2">
+          <div class="cell"><span class="label">Cans</span><span class="n" id="c-cans">48</span></div>
+          <div class="cell"><span class="label">Your cost</span><span class="n" id="c-cost">$72.00</span></div>
+          <div class="cell"><span class="label">Shelf sales</span><span class="n" id="c-rev">$143.52</span></div>
+          <div class="cell"><span class="label">Margin</span><span class="n" id="c-pct">50%</span></div>
+          <div class="cell cell--big"><span class="label">Profit per delivery</span><span class="n" id="c-profit">$71.52</span><span class="hand" id="c-mult">2x your money</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    (function(){
-      var PRICE_CENTS = 1968; // $19.68/case. Orders of 3+ get 1 bonus case added by hand.
-      var qtyInput = document.getElementById('wsp-qty');
-      var formQty = document.getElementById('wsp-form-qty');
-      var totalEl = document.getElementById('wsp-total');
-      var freeEl = document.getElementById('wsp-free');
-      var steppers = document.querySelectorAll('.wsp__qty button[data-step]');
+  <section class="sec sec--paper only-office">
+    <div class="wrap">
+      <div class="sec__head rise">
+        <p class="label">Plan your order</p>
+        <h2 class="sec__title">How much does your team need?</h2>
+        <p class="sec__lead">Set your team size and how often people grab a can. We suggest a monthly order.</p>
+      </div>
+      <div class="tool rise">
+        <div class="tool__ctl">
+          <div class="tool__top"><label class="label" for="people">People in the office</label><output id="people-out">10</output></div>
+          <input type="range" id="people" min="5" max="50" step="5" value="10">
+          <div class="ticks"><span>5</span><span>25</span><span>50</span></div>
+          <p class="label">Each person drinks</p>
+          <div class="chips" role="group" aria-label="Cans per person">
+            <button type="button" data-r="1" aria-pressed="true"><span class="cans"><svg viewBox="0 0 16 28" aria-hidden="true"><rect x="3" y="0.5" width="10" height="4" rx="1.5"/><rect x="1" y="3.5" width="14" height="24" rx="3.2"/><rect class="can-band" x="3.5" y="12" width="9" height="3" rx="1"/></svg></span><b>1 a week</b><span class="chip__sub">A treat</span></button>
+            <button type="button" data-r="2" aria-pressed="false"><span class="cans"><svg viewBox="0 0 16 28" aria-hidden="true"><rect x="3" y="0.5" width="10" height="4" rx="1.5"/><rect x="1" y="3.5" width="14" height="24" rx="3.2"/><rect class="can-band" x="3.5" y="12" width="9" height="3" rx="1"/></svg><svg viewBox="0 0 16 28" aria-hidden="true"><rect x="3" y="0.5" width="10" height="4" rx="1.5"/><rect x="1" y="3.5" width="14" height="24" rx="3.2"/><rect class="can-band" x="3.5" y="12" width="9" height="3" rx="1"/></svg></span><b>2 a week</b><span class="chip__sub">Regulars</span></button>
+            <button type="button" data-r="3" aria-pressed="false"><span class="cans"><svg viewBox="0 0 16 28" aria-hidden="true"><rect x="3" y="0.5" width="10" height="4" rx="1.5"/><rect x="1" y="3.5" width="14" height="24" rx="3.2"/><rect class="can-band" x="3.5" y="12" width="9" height="3" rx="1"/></svg><svg viewBox="0 0 16 28" aria-hidden="true"><rect x="3" y="0.5" width="10" height="4" rx="1.5"/><rect x="1" y="3.5" width="14" height="24" rx="3.2"/><rect class="can-band" x="3.5" y="12" width="9" height="3" rx="1"/></svg><svg viewBox="0 0 16 28" aria-hidden="true"><rect x="3" y="0.5" width="10" height="4" rx="1.5"/><rect x="1" y="3.5" width="14" height="24" rx="3.2"/><rect class="can-band" x="3.5" y="12" width="9" height="3" rx="1"/></svg></span><b>3 a week</b><span class="chip__sub">Fans</span></button>
+          </div>
+        </div>
+        <div class="team__out">
+          <p class="label">Suggested monthly order</p>
+          <div class="team__big" id="t-cases">4<small>cases</small></div>
+          <div class="crates" id="t-crates" aria-hidden="true"></div>
+          <p class="team__line" id="t-line">48 cans for <b>$72.00</b> a month</p>
+          <div class="pp"><span class="hand pp__note" id="t-note">only $1.50 a can</span></div>
+          <button type="button" class="cta team__cta" id="t-use">Use this order</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      function readQty(){
-        var raw = qtyInput.value.trim();
-        if (raw === '') return 1;
-        var n = parseInt(raw, 10);
-        return isNaN(n) ? 1 : Math.max(1, n);
-      }
-      function render(){
-        var q = readQty();
-        var total = q * PRICE_CENTS;
-        totalEl.textContent = '$' + (total / 100).toFixed(2);
-        freeEl.textContent = q >= 3 ? '+1 free case included' : 'Add ' + (3 - q) + ' more for a free case';
-        var bonus = document.getElementById('wsp-bonus');
-        if (q >= 3 && !bonus) {
-          bonus = document.createElement('input');
-          bonus.type = 'hidden'; bonus.name = 'properties[Free case]'; bonus.id = 'wsp-bonus'; bonus.value = 'Include 1 bonus case';
-          document.getElementById('wsp-form').appendChild(bonus);
-        } else if (q < 3 && bonus) {
-          bonus.remove();
-        }
-        formQty.value = q;
-      }
-      steppers.forEach(function(b){
-        b.addEventListener('click', function(){
-          var next = Math.max(1, readQty() + parseInt(b.getAttribute('data-step'), 10));
-          qtyInput.value = next;
-          render();
-        });
-      });
-      qtyInput.addEventListener('input', render);
-      qtyInput.addEventListener('blur', function(){ if (readQty() < 1) qtyInput.value = 1; render(); });
-      render();
+  <section class="sec">
+    <div class="wrap">
+      <div class="center-head rise">
+        <p class="label">Why it matters</p>
+        <h2 class="sec__title">Not all water is the same</h2>
+      </div>
+      <div class="edu">
+        <div class="edu__img rise"><img src="images/wholesale/s_hslide2.jpg" alt="Jumping into the lake" loading="lazy"></div>
+        <div class="acc" id="acc">
+          <details><summary>Spring sourced</summary><p>From a protected spring deep in the Smoky Mountains. Naturally filtered through ancient limestone for thousands of years.</p></details>
+          <details><summary>Real minerals + electrolytes</summary><p>Naturally occurring trace minerals from the source, plus added electrolytes for enhanced hydration.</p></details>
+          <details><summary>Naturally alkaline</summary><p>Naturally alkaline 7.8+ pH. Filtered through ancient limestone deep in the Smoky Mountains.</p></details>
+          <details><summary>Exclusively in aluminum</summary><p>Infinitely recyclable aluminum cans. No plastic, no microplastics, no compromise. Better for you and better for the planet.</p></details>
+          <details><summary>Third-party tested &amp; certified</summary><p>Our water is independently tested to meet the highest standards for purity and quality. Certified clean, so you never have to wonder what's in your water.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      document.getElementById('wsp-onetime').addEventListener('click', function(){
-        var plan = document.getElementById('wsp-plan');
-        if (plan) plan.remove();
-        render();
-        document.getElementById('wsp-form').submit();
-      });
-    })();
+  <section class="story" id="story" style="--n:6">
+    <div class="story__stage">
+      <div class="wrap story__grid">
+        <div class="story__txt">
+          <p class="story__eyebrow"><span>Meet the founder</span><i></i></p>
+          <div class="beats">
+          <div class="beat on"><span class="bk">Where it started</span><span class="bh">I couldn't find a water brand I actually connected with.</span><span class="bs">Not one that matched how I live, how I move, or what I care about. Everything on the shelf was cluttered, with <span class="mk mk-ul">no soul behind it</span>.</span></div>
+          <div class="beat"><span class="bk">What we believe</span><span class="bh">Everyone has a brand they are loyal to. <span class="mk mk-hl">Nobody has one for water.</span></span><span class="bs">A car, a watch, a pair of shoes. Yet the thing you put in your body every day is the one thing nobody feels anything about.</span></div>
+          <div class="beat"><span class="bk">The decision</span><span class="bh">It didn't exist. <span class="mk mk-circ"><svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M104,7 C44,5 8,21 7,40 C6,61 46,75 106,74 C166,73 195,57 194,37 C193,19 158,4 94,8 C68,10 48,15 34,23"/></svg>So we built it.</span></span><span class="bs">Something people are proud to hold. A daily reminder to live fully, take care of the people around you, and build your life on a solid foundation.</span></div>
+          <div class="beat"><span class="bk">Why me</span><span class="bh">Athlete. Traveler. Creator.</span><span class="bs">At ASU I set out to build the largest and most actively engaged club on campus. I sold that vision to a team, and together we took it <span class="mk mk-hl">from fifteen students to more than five hundred</span>, creating jobs and internships for students and running educational trips around the country. I trained for and finished a full Ironman while we did it.</span></div>
+          <div class="beat"><span class="bk">The commitment</span><span class="bh">I dropped out of my master's in AI to <span class="mk mk-ul">go all in</span>.</span><span class="bs">On a mission to improve millions of lives through products, communities and experiences.</span></div>
+          <div class="beat"><span class="bk">The vision</span><span class="bh">I want to build a movement.</span><span class="bs">Where drinking water feels <span class="mk mk-hl">as connected to your identity and lifestyle as the clothes you wear</span> and the community you are part of.</span><span class="bsig"><img src="images/wholesale/st_sig.png" alt="Brett Yanofsky"><i>Founder</i></span></div>
+          </div>
+          <div class="stepper" id="stepper"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><span class="scount" id="scount">1 / 6</span></div>
+        </div>
+        <div class="pols">
+        <figure class="pol on" style="--rot:-1.6deg"><img src="images/wholesale/st_cv1.jpg" alt=""></figure>
+        <figure class="pol" style="--rot:1.4deg"><img src="images/wholesale/st_cv2.jpg" alt="" loading="lazy"></figure>
+        <figure class="pol" style="--rot:-1.1deg"><img src="images/wholesale/st_cv3.jpg" alt="" loading="lazy"></figure>
+        <figure class="pol" style="--rot:1.8deg"><img src="images/wholesale/st_jump.jpg" alt="" loading="lazy"></figure>
+        <figure class="pol" style="--rot:-1.4deg"><img src="images/wholesale/st_cv6.jpg" alt="" loading="lazy"></figure>
+        <figure class="pol" style="--rot:1.2deg"><img src="images/wholesale/st_cv5.jpg" alt="" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    // Copy email to clipboard on footer click
-    document.addEventListener('click', function(e){
-      var btn = e.target.closest('.wsp-foot__email');
-      if (!btn) return;
-      e.preventDefault();
-      var val = btn.getAttribute('data-copy');
-      function done(){
-        var ic = btn.querySelector('.wsp-foot__copy');
-        btn.classList.add('is-copied');
-        if (ic) ic.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-      }
-      function undo(){
-        var ic = btn.querySelector('.wsp-foot__copy');
-        btn.classList.remove('is-copied');
-        if (ic) ic.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(val).then(function(){ done(); setTimeout(undo, 1800); }).catch(function(){});
-      }
+  <section class="sec reviews">
+    <div class="wrap">
+      <div class="center-head rise">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <h2 class="sec__title">What people are saying</h2>
+      </div>
+      <div class="rv rail">
+        <figure class="rv__card"><span class="stars stars--sm" aria-label="5 stars">★★★★★</span><blockquote>"Super clean taste. It feels elevated compared to most bottled water. You can tell the source matters."</blockquote><figcaption>Sarah M.</figcaption></figure>
+        <figure class="rv__card"><span class="stars stars--sm" aria-label="5 stars">★★★★★</span><blockquote>"Loved the branding, but the water itself really stood out. Smooth, crisp, and genuinely refreshing."</blockquote><figcaption>James T.</figcaption></figure>
+        <figure class="rv__card"><span class="stars stars--sm" aria-label="5 stars">★★★★★</span><blockquote>"You can tell this was built with intention. Everything from the can to the taste feels thought through."</blockquote><figcaption>Maya R.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--paper" id="faq">
+    <div class="wrap">
+      <div class="center-head"><h2 class="sec__title">FAQ</h2></div>
+      <div class="faq">
+        <details><summary>How does the pricing work?</summary><p>The more cases you order, the less you pay per can. 1 case is $1.64 a can, 2 cases is $1.60, and 4 or more cases is $1.50.</p></details>
+        <details><summary>Is there a minimum order?</summary><p>No. You can order as little as 1 case.</p></details>
+        <details><summary>Can I change or skip a month?</summary><p>Yes. Skip a month, change how many cases, pause, or cancel anytime from your account.</p></details>
+        <details class="only-office"><summary>Do you deliver to offices?</summary><p>Yes. Cases ship free to your office address. Skip any month the team is out.</p></details>
+        <details><summary>When will my order arrive?</summary><p>Your first delivery arrives 3 to 5 business days after your order confirms. Delivery is always free.</p></details>
+        <details><summary>What if a case arrives damaged?</summary><p>Let us know within 48 hours of delivery and we replace it at no charge.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__q">Questions about your order?</p>
+    <button type="button" class="copy" id="copy">support@rockbeverage.com</button>
+  </div>
+</footer>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <div class="dock__info"><b id="d-main">4 cases · 48 cans</b><span id="d-sub">$72.00/mo · $1.50 a can</span></div>
+  <button type="button" class="cta" id="d-cta" tabindex="-1">Check out</button>
+</div>
+
+<button type="button" class="env" id="env" hidden aria-label="Open a note from our team">
+  <svg viewBox="0 0 40 28" aria-hidden="true"><rect x="1.5" y="1.5" width="37" height="25" rx="3"/><path d="M2 3l18 13L38 3"/></svg>
+  <span class="hand">a note from our team</span>
+</button>
+
+<div class="nm" id="nm" hidden>
+  <div class="nm__card" role="dialog" aria-modal="true" aria-labelledby="nm-t">
+    <button type="button" class="nm__x" id="nm-x" aria-label="Close">×</button>
+    <p class="nm__hi" id="nm-t">Thanks for the support.</p>
+    <p class="nm__body">Scratch below for a little note.</p>
+    <div class="scratch-wrap"><div class="scratch" id="scratch">
+      <div class="scratch__prize"><p id="nm-msg"></p></div>
+      <canvas id="sc" aria-label="Scratch to reveal"></canvas>
+    </div></div>
+    <div class="nm__foot">
+      <button type="button" class="cta nm__claim" id="nm-claim" disabled>Scratch to reveal</button>
+    </div>
+  </div>
+</div>
+
+<form id="buy" action="https://wholesale.drinkrockwater.com/cart/add" method="POST" hidden>
+  <input type="hidden" name="id" id="buy-id">
+  <input type="hidden" name="quantity" id="buy-qty">
+  <input type="hidden" name="return_to" value="/checkout">
+</form>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var BASE = 19.68, CANS = 12;
+  var state = { q: 4, sub: true, spark: false, sq: 10 };
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return '$' + n.toFixed(2); };
+
+  // Tiered pricing: 1 case $19.68, 2 cases $38.40, 4+ cases $18.00 each ($1.50/can)
+  function price(q) {
+    if (q === 1) return 19.68;
+    if (q === 2) return 38.40;
+    if (q === 3) return 3 * 19.20;
+    return q * 18.00;
+  }
+  function perCan(q) { return price(q) / (q * CANS); }
+  function saving(q) { return q * BASE - price(q); }
+
+  // count-up animation for prices
+  var tweens = {};
+  function tween(el, to) {
+    var from = parseFloat((el.textContent || '0').replace(/[^0-9.]/g, '')) || 0;
+    if (Math.abs(from - to) < .005) { el.textContent = money(to); return; }
+    var t0 = performance.now(), id = el.id;
+    cancelAnimationFrame(tweens[id]);
+    (function step(t) {
+      var k = Math.min(1, (t - t0) / 380), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = money(from + (to - from) * e);
+      if (k < 1) tweens[id] = requestAnimationFrame(step);
+    })(t0);
+  }
+  function bump(el) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+
+  function render() {
+    var q = state.q, p = price(q), s = saving(q), cans = q * CANS;
+    document.querySelectorAll('.row').forEach(function (r) { r.setAttribute('aria-checked', String(+r.dataset.q === q)); });
+    $('more').classList.toggle('on', q > 4);
+    $('qty').textContent = q;
+    $('more-sub').textContent = q > 4 ? q + ' cases · ' + cans + ' cans · ' + money(p) : '5+ cases, still $1.50/can';
+
+    var pos = q >= 4 ? 100 : q >= 2 ? 50 : 0;
+    $('fill').style.width = pos + '%';
+    $('stops').querySelectorAll('span').forEach(function (sp) { sp.classList.toggle('on', q >= +sp.dataset.at); });
+    $('ladder-msg').innerHTML = q >= 4 ? 'You are at the <b>lowest price per can</b>.'
+      : 'Add <b>' + (4 - q) + ' more case' + (4 - q > 1 ? 's' : '') + '</b> and pay <b>$1.50 a can</b>.';
+
+    var saved = $('saved');
+    saved.hidden = s < .01;
+    if (s >= .01) {
+      $('saved-big').textContent = 'You save ' + money(s);
+      $('saved-sub').innerHTML = state.sub
+        ? 'every month. That is <span class="mark on">' + money(s * 12) + ' a year</span> back in your pocket.'
+        : 'on this order compared to buying single cases.';
+      bump(saved);
+    }
+
+    $('plan-retail').textContent = state.sub ? 'Subscription' : 'One-Time Order';
+    $('plan-office').textContent = state.sub ? 'Office Subscription' : 'Office Order';
+    $('perk').textContent = state.sub ? 'Free monthly delivery' : 'Free delivery';
+    $('t-label').textContent = state.sub ? 'Monthly total' : 'Order total';
+    $('t-cans').textContent = cans + ' cans · ' + money(perCan(q)) + ' a can';
+    tween($('t-val'), p);
+    $('t-per').textContent = state.sub ? '/mo' : '';
+    $('cta-txt').textContent = state.sub ? 'Start monthly delivery' : 'Check out';
+    $('d-main').textContent = q + ' case' + (q > 1 ? 's' : '') + ' · ' + cans + ' cans';
+    $('d-sub').textContent = money(p) + (state.sub ? '/mo' : '') + ' · ' + money(perCan(q)) + ' a can';
+    if (state.spark) {
+      var sq = state.sq, sp = sq * 18;
+      $('sqty').textContent = sq;
+      $('sdec').disabled = sq <= 10;
+      $('sp-name').textContent = sq + ' cases · ' + sq * CANS + ' cans';
+      $('t-label').textContent = 'Pre-order total';
+      $('t-cans').textContent = sq * CANS + ' cans · $1.50 a can';
+      tween($('t-val'), sp);
+      $('t-per').textContent = '';
+      $('cta-txt').textContent = 'Order sparkling';
+      $('d-main').textContent = 'Sparkling · ' + sq + ' cases';
+      $('d-sub').textContent = money(sp) + ' · pre-order';
+    }
+    calc(); team();
+  }
+
+  function calc() {
+    var q = state.q, cans = q * CANS, cost = price(q);
+    var el = $('shelf'), sp = parseFloat(el.value), rev = cans * sp, profit = rev - cost;
+    $('shelf-out').textContent = money(sp);
+    $('c-cans').textContent = cans;
+    $('c-cost').textContent = money(cost);
+    $('c-rev').textContent = money(rev);
+    $('c-pct').textContent = Math.round(profit / rev * 100) + '%';
+    tween($('c-profit'), profit);
+    var mult = rev / cost;
+    $('c-mult').textContent = mult >= 1.95 ? (Math.round(mult * 10) / 10) + 'x your money' : '';
+    el.style.setProperty('--p', ((sp - el.min) / (el.max - el.min) * 100) + '%');
+  }
+
+  // office planner: rate = cans per person per week, about 4.33 weeks a month
+  var rate = 1, suggest = 4;
+  function team() {
+    var el = $('people'), p = +el.value, cans = Math.round(p * rate * 4.33);
+    el.style.setProperty('--p', ((p - el.min) / (el.max - el.min) * 100) + '%');
+    $('people-out').textContent = p;
+    var q = Math.max(1, Math.ceil(cans / CANS));
+    if (q === 3) q = 4; // 4 cases costs less per can than 3
+    suggest = q;
+    $('t-cases').innerHTML = q + '<small>' + (q > 1 ? 'cases' : 'case') + ' a month</small>';
+    var show = Math.min(q, 12), crates = '';
+    for (var c = 0; c < show; c++) crates += '<i style="animation-delay:' + (c * 25) + 'ms">12</i>';
+    if (q > show) crates += '<i class="more">+' + (q - show) + ' more</i>';
+    $('t-crates').innerHTML = crates;
+    $('t-line').innerHTML = (q * CANS) + ' cans for <b>' + money(price(q)) + '</b>' + (state.sub ? ' a month' : '');
+    $('t-note').textContent = 'only ' + money(perCan(q)) + ' a can';
+  }
+
+  document.querySelectorAll('.row').forEach(function (r) {
+    r.addEventListener('click', function () { state.q = +r.dataset.q; render(); });
+  });
+  $('inc').addEventListener('click', function () { state.q = Math.max(5, state.q + 1); render(); });
+  $('dec').addEventListener('click', function () { state.q = state.q > 5 ? state.q - 1 : 4; render(); });
+  $('shelf').addEventListener('input', calc);
+  $('people').addEventListener('input', team);
+  document.querySelectorAll('.chips button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      rate = +b.dataset.r;
+      document.querySelectorAll('.chips button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      team();
     });
-  </script>
+  });
+
+  function setMode(sub) {
+    state.sub = sub;
+    $('mode-sub').setAttribute('aria-pressed', String(sub));
+    $('mode-one').setAttribute('aria-pressed', String(!sub));
+    render();
+  }
+  $('mode-sub').addEventListener('click', function () { setMode(true); });
+  $('mode-one').addEventListener('click', function () { setMode(false); });
+
+  // highlighter draws when it scrolls into view
+  var mo = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); mo.unobserve(e.target); } });
+  }, { threshold: .8 }) : null;
+  function observeMarks() {
+    document.querySelectorAll('.mark:not(.on)').forEach(function (m) { if (mo) mo.observe(m); else m.classList.add('on'); });
+  }
+
+  function setAud(a) {
+    document.documentElement.setAttribute('data-aud', a);
+    observeMarks();
+  }
+
+  var tt;
+  function toast(msg) {
+    var t = $('toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(tt); tt = setTimeout(function () { t.classList.remove('show'); }, 2600);
+  }
+  // Shopify variants: 1 case, 2-case price, 4+ case price, sparkling preorder
+  var V = { one: '67190867591409', two: '67221330657521', four: '67221331083505', spark: '67221331443953' };
+  var PLAN = '5670240497'; // Seal: WHOLESALE SUBSCRIPTION, monthly
+  function setField(name, value) {
+    var f = $('buy'), el = f.querySelector('[name="' + name + '"]');
+    if (value == null) { if (el) el.remove(); return; }
+    if (!el) { el = document.createElement('input'); el.type = 'hidden'; el.name = name; f.appendChild(el); }
+    el.value = value;
+  }
+  function checkout() {
+    var id, qty, plan = null, note = null;
+    if (state.spark) { id = V.spark; qty = state.sq; note = 'Sparkling preorder'; }
+    else {
+      qty = state.q;
+      id = qty === 1 ? V.one : qty === 2 ? V.two : V.four;
+      if (state.sub) plan = PLAN;
+    }
+    $('buy-id').value = id; $('buy-qty').value = qty;
+    setField('selling_plan', plan);
+    setField('properties[Preorder]', note);
+    if (window.gtag) gtag('event', 'begin_checkout', { value: state.spark ? qty * 18 : price(qty), currency: 'USD', items: [{ item_id: id, quantity: qty }] });
+    $('buy').submit();
+  }
+  $('cta').addEventListener('click', checkout);
+  $('d-cta').addEventListener('click', checkout);
+  $('t-use').addEventListener('click', function () {
+    state.q = suggest; render();
+    document.querySelector('.plan').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    toast('Order set to ' + suggest + ' case' + (suggest > 1 ? 's' : '') + '.');
+  });
+
+  // sticky dock once the main button scrolls past
+  var dock = $('dock');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      var e = es[0], show = !e.isIntersecting && e.boundingClientRect.top < 0;
+      dock.classList.toggle('show', show);
+      dock.setAttribute('aria-hidden', String(!show));
+      $('d-cta').tabIndex = show ? 0 : -1;
+    }).observe($('cta'));
+  }
+
+  $('copy').addEventListener('click', function () {
+    var b = this, v = 'support@rockbeverage.com';
+    function ok() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = v; }, 1600); }
+    function sel() { var r = document.createRange(); r.selectNodeContents(b); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(v).then(ok, sel); } catch (e) { sel(); }
+  });
+
+  // why-it-matters accordion: one open at a time
+  document.querySelectorAll('#acc details').forEach(function (d, i, all) {
+    d.addEventListener('toggle', function () { if (d.open) all.forEach(function (o) { if (o !== d) o.open = false; }); });
+  });
+  // gallery dots + arrows follow the swipe position
+  var gal = $('gal'), dotsEl = $('gal-dots').children, gi = 0;
+  function galGo(i) { i = Math.max(0, Math.min(dotsEl.length - 1, i)); gal.scrollTo({ left: i * gal.clientWidth, behavior: 'smooth' }); }
+  gal.addEventListener('scroll', function () {
+    var i = Math.round(gal.scrollLeft / gal.clientWidth);
+    if (i === gi) return; gi = i;
+    for (var k = 0; k < dotsEl.length; k++) dotsEl[k].setAttribute('aria-current', String(k === i));
+    $('st-still').classList.toggle('off', i !== 0 || state.spark);
+    $('st-spark').classList.toggle('off', i !== 0 || !state.spark);
+  }, { passive: true });
+  Array.prototype.forEach.call(dotsEl, function (b, i) { b.addEventListener('click', function () { galGo(i); }); });
+  $('gal-prev').addEventListener('click', function () { galGo(gi - 1); });
+  $('gal-next').addEventListener('click', function () { galGo(gi + 1); });
+
+  // still / sparkling
+  var firstSlide = gal.querySelector('img'), stillSrc = firstSlide.src, stillAlt = firstSlide.alt;
+  function setKind(spark) {
+    state.spark = spark;
+    document.documentElement.setAttribute('data-kind', spark ? 'sparkling' : 'still');
+    $('k-still').setAttribute('aria-pressed', String(!spark));
+    $('k-spark').setAttribute('aria-pressed', String(spark));
+    firstSlide.src = spark ? 'images/wholesale/sp_can.jpg' : stillSrc;
+    firstSlide.alt = spark ? 'ROCK sparkling spring water can' : stillAlt;
+    gal.scrollTo({ left: 0 });
+    $('st-still').classList.toggle('off', spark);
+    $('st-spark').classList.toggle('off', !spark);
+    render();
+  }
+  $('k-still').addEventListener('click', function () { setKind(false); });
+  $('k-spark').addEventListener('click', function () { setKind(true); });
+  $('sinc').addEventListener('click', function () { state.sq++; render(); });
+  $('sdec').addEventListener('click', function () { state.sq = Math.max(10, state.sq - 1); render(); });
+  document.documentElement.setAttribute('data-kind', 'still');
+
+  // note from our team: envelope shows after a little browsing, scratch card reveals the thank-you
+  var env = $('env'), nm = $('nm'), sc = $('sc'), seen = false;
+  try { seen = sessionStorage.getItem('rockNote') === '1'; } catch (e) {}
+  function showEnv() { if (!seen && env.hidden && nm.hidden && !scratched) env.hidden = false; }
+  if (!seen) {
+    setTimeout(showEnv, 6000);
+    window.addEventListener('scroll', function onS() { if (scrollY > innerHeight * .8) { showEnv(); window.removeEventListener('scroll', onS); } }, { passive: true });
+  }
+  var ctx, painted = false, scratched = false;
+  function paintCover() {
+    var r = sc.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    sc.width = r.width * d; sc.height = r.height * d; ctx = sc.getContext('2d'); ctx.scale(d, d);
+    var g = ctx.createLinearGradient(0, 0, r.width, r.height);
+    g.addColorStop(0, '#1b4174'); g.addColorStop(.5, '#2a5a9a'); g.addColorStop(1, '#1b4174');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, r.width, r.height);
+    ctx.fillStyle = 'rgba(255,255,255,.08)';
+    for (var x = -r.height; x < r.width; x += 14) { ctx.beginPath(); ctx.moveTo(x, r.height); ctx.lineTo(x + r.height, 0); ctx.lineTo(x + r.height + 6, 0); ctx.lineTo(x + 6, r.height); ctx.fill(); }
+    ctx.fillStyle = '#fcf2b0'; ctx.font = '400 36px "Nanum Pen Script", cursive'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('scratch here', r.width / 2, r.height / 2);
+    ctx.globalCompositeOperation = 'destination-out'; painted = true;
+  }
+  var NOTES = [
+    "Thank you for believing in us this early. We don't take it lightly.",
+    "You took a chance on a small brand. We'll keep earning it.",
+    "Every order keeps this dream going. Thank you.",
+    "You're helping build something from the ground up. That means everything.",
+    "Every can on your shelf is a small vote for better water. Thank you.",
+    "Proudly built in Arizona. Thanks for being part of it.",
+    "Fun fact: our water filters through ancient limestone for thousands of years.",
+    "Nothing is more basic to the quality of life than the quality of the water you drink."
+  ];
+  $('nm-msg').textContent = NOTES[Math.floor(Math.random() * NOTES.length)];
+  function openNote() {
+    env.hidden = true; nm.hidden = false;
+    try { sessionStorage.setItem('rockNote', '1'); } catch (e) {}
+    requestAnimationFrame(function () { if (!painted) paintCover(); });
+  }
+  function closeNote() { nm.hidden = true; if (!scratched) env.hidden = false; }
+  env.addEventListener('click', openNote);
+  $('nm-x').addEventListener('click', closeNote);
+  nm.addEventListener('click', function (e) { if (e.target === nm) closeNote(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !nm.hidden) closeNote(); });
+  var down = false, last = null, moves = 0;
+  function pt(e) { var r = sc.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  function scratchAt(p) {
+    ctx.lineWidth = 38; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo((last || p).x, (last || p).y); ctx.lineTo(p.x, p.y); ctx.stroke(); last = p;
+    if (++moves % 8 === 0) checkDone();
+  }
+  function checkDone() {
+    var data = ctx.getImageData(0, 0, sc.width, sc.height).data, clear = 0, n = 0;
+    for (var i = 3; i < data.length; i += 4 * 40) { n++; if (data[i] === 0) clear++; }
+    if (clear / n > .45) reveal();
+  }
+  function reveal() {
+    if (scratched) return; scratched = true;
+    $('scratch').classList.add('done');
+    var b = $('nm-claim'); b.disabled = false; b.textContent = 'Start my order';
+  }
+  sc.addEventListener('pointerdown', function (e) { down = true; last = null; sc.setPointerCapture(e.pointerId); scratchAt(pt(e)); });
+  sc.addEventListener('pointermove', function (e) { if (down) scratchAt(pt(e)); });
+  sc.addEventListener('pointerup', function () { down = false; last = null; checkDone(); });
+  $('nm-claim').addEventListener('click', function () {
+    nm.hidden = true; env.hidden = true;
+    var target = state.spark ? document.querySelector('.plan-wrap.only-spark .plan') : document.querySelector('.plan-wrap.only-still .plan');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // founder story: scroll position picks the beat
+  var story = $('story'), beatsEl = story.querySelectorAll('.beat'), polsEl = story.querySelectorAll('.pol'),
+      bars = story.querySelectorAll('.stepper b'), N = beatsEl.length, cur = -1, ticking = false;
+  function storyScroll() {
+    ticking = false;
+    var r = story.getBoundingClientRect(), stage = story.firstElementChild.offsetHeight;
+    var p = Math.min(1, Math.max(0, -r.top / Math.max(1, story.offsetHeight - stage)));
+    var f = p * N, i = Math.min(N - 1, Math.floor(f));
+    for (var k = 0; k < N; k++) bars[k].style.width = (k < i ? 100 : k === i ? Math.min(100, (f - i) * 100) : 0) + '%';
+    if (i === cur) return; cur = i;
+    for (var j = 0; j < N; j++) {
+      beatsEl[j].classList.toggle('on', j === i);
+      polsEl[j].classList.toggle('on', j === i);
+      polsEl[j].classList.toggle('past', j < i);
+    }
+    $('scount').textContent = (i + 1) + ' / ' + N;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(storyScroll); } }, { passive: true });
+  window.addEventListener('resize', storyScroll);
+  storyScroll();
+
+  setAud(/[?&]for=office\b/.test(location.search) || location.hash === '#office' ? 'office' : 'retail');
+  render();
+})();
+</script>
 </body>
 </html>
