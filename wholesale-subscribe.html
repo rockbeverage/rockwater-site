@@ -463,7 +463,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
         <div class="plan-wrap only-still">
           <div class="note hand" aria-hidden="true">best price per can<svg viewBox="0 0 40 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4c14 0 26 6 28 24"/><path d="M25 22l7 7 5-9"/></svg></div>
           <div class="plan" role="radiogroup" aria-label="Choose your order">
-            <div class="plan__head"><h2><span class="only-retail" id="plan-retail">Subscription</span><span class="only-office" id="plan-office">Office Subscription</span></h2><span class="pill">Free delivery</span></div>
+            <div class="plan__head"><h2><span class="only-retail" id="plan-retail">Subscription</span><span class="only-office" id="plan-office">Subscription</span></h2><span class="pill">Free delivery</span></div>
             <button type="button" class="row row--best" role="radio" aria-checked="true" data-q="4">
               <span class="row__dot"></span>
               <span class="row__main">
@@ -774,7 +774,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
     }
 
     $('plan-retail').textContent = state.sub ? 'Subscription' : 'One-Time Order';
-    $('plan-office').textContent = state.sub ? 'Office Subscription' : 'Office Order';
+    $('plan-office').textContent = state.sub ? 'Subscription' : 'One-Time Order';
     $('perk').textContent = state.sub ? 'Free monthly delivery' : 'Free delivery';
     $('t-label').textContent = state.sub ? 'Monthly total' : 'Order total';
     $('t-cans').textContent = cans + ' cans · ' + money(perCan(q)) + ' a can';
