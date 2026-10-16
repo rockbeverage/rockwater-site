@@ -226,6 +226,10 @@ button { font: inherit; color: inherit; }
 /* Sticky phone bar */
 .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: rgba(255,255,255,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 12px; transform: translateY(110%); transition: transform .3s ease; }
 .dock.show { transform: none; }
+.textbtn { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 41; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px 12px 14px; border-radius: 999px; background: var(--navy); color: var(--white); text-decoration: none; font-weight: 600; font-size: .9rem; letter-spacing: .02em; box-shadow: 0 8px 22px rgba(27,65,116,.28); transition: bottom .3s ease, transform .15s ease; }
+.textbtn svg { width: 20px; height: 20px; }
+.textbtn:active { transform: scale(.97); }
+.textbtn.lift { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
 .dock__info { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
 .dock__info b { font-weight: 600; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dock__info span { font-size: .78rem; color: var(--green); font-weight: 600; }
@@ -431,6 +435,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
       <span class="hdr__tag">Wholesale</span>
     </a>
     <nav class="hdr__nav" aria-label="Account">
+      <a href="sms:+14802532829?&amp;body=Hi%20Brett%2C%20question%20about%20our%20ROCK%20order%3A%20" class="js-text" aria-label="Text Brett"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.5-5A8.5 8.5 0 1 1 21 12Z"/></svg></a>
       <a href="#faq" aria-label="Help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></a>
       <a href="https://rock-1234314.myshopify.com/account" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
       <a href="https://wholesale.drinkrockwater.com/cart" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
@@ -689,6 +694,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
   </div>
 </footer>
 
+<a href="sms:+14802532829?&amp;body=Hi%20Brett%2C%20question%20about%20our%20ROCK%20order%3A%20" class="textbtn js-text" id="textbtn" aria-label="Text Brett"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.5-5A8.5 8.5 0 1 1 21 12Z"/></svg><span>Text us</span></a>
 <div class="dock" id="dock" aria-hidden="true">
   <div class="dock__info"><b id="d-main">4 cases · 48 cans</b><span id="d-sub">$72.00/mo · $1.50 a can</span></div>
   <button type="button" class="cta" id="d-cta" tabindex="-1">Check out</button>
@@ -915,6 +921,7 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
     new IntersectionObserver(function (es) {
       var e = es[0], show = !e.isIntersecting && e.boundingClientRect.top < 0;
       dock.classList.toggle('show', show);
+      var tb = document.getElementById('textbtn'); if (tb) tb.classList.toggle('lift', show);
       dock.setAttribute('aria-hidden', String(!show));
       $('d-cta').tabIndex = show ? 0 : -1;
     }).observe($('cta'));
@@ -1057,6 +1064,13 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
 
   setAud(/[?&]for=office\b/.test(location.search) || location.hash === '#office' ? 'office' : 'retail');
   render();
+})();
+</script>
+<script>
+(function () {
+  if (!/[?&]for=office/.test(location.search)) return;
+  var body = encodeURIComponent('Hi Brett, question about our office ROCK order: ');
+  document.querySelectorAll('.js-text').forEach(function (a) { a.href = 'sms:+14802532829?&body=' + body; });
 })();
 </script>
 </body>
