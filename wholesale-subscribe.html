@@ -226,7 +226,7 @@ button { font: inherit; color: inherit; }
 /* Sticky phone bar */
 .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: rgba(255,255,255,.97); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 12px; transform: translateY(110%); transition: transform .3s ease; }
 .dock.show { transform: none; }
-.textbtn { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 41; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px 12px 14px; border-radius: 999px; background: var(--navy); color: var(--white); text-decoration: none; font-weight: 600; font-size: .9rem; letter-spacing: .02em; box-shadow: 0 8px 22px rgba(27,65,116,.28); transition: bottom .3s ease, transform .15s ease; }
+.textbtn { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 41; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px 12px 14px; border-radius: 999px; background: var(--navy); color: var(--white); text-decoration: none; font-weight: 600; font-size: .9rem; letter-spacing: .02em; box-shadow: 0 8px 22px rgba(27,65,116,.28); transition: bottom .3s ease, transform .15s ease; }
 .textbtn svg { width: 20px; height: 20px; }
 .textbtn:active { transform: scale(.97); }
 @media (max-width: 480px) { .hdr__nav .js-text { display: none; } }
