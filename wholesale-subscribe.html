@@ -955,12 +955,15 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
 
   // still / sparkling
   var firstSlide = gal.querySelector('img'), stillSrc = firstSlide.src, stillAlt = firstSlide.alt;
+  var SPARK_SRC = 'images/wholesale/sp_can_v2.jpg';
+  // load the sparkling can in the background so the switch is instant
+  window.addEventListener('load', function () { var pre = new Image(); pre.src = SPARK_SRC; });
   function setKind(spark) {
     state.spark = spark;
     document.documentElement.setAttribute('data-kind', spark ? 'sparkling' : 'still');
     $('k-still').setAttribute('aria-pressed', String(!spark));
     $('k-spark').setAttribute('aria-pressed', String(spark));
-    firstSlide.src = spark ? 'images/wholesale/sp_can.jpg' : stillSrc;
+    firstSlide.src = spark ? SPARK_SRC : stillSrc;
     firstSlide.alt = spark ? 'ROCK sparkling spring water can' : stillAlt;
     gal.scrollTo({ left: 0 });
     $('st-still').classList.toggle('off', spark);
