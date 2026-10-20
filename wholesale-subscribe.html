@@ -16,6 +16,9 @@
   <link rel="preload" href="fonts/web/brooklyn-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/web/caveat.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="apple-mobile-web-app-title" content="ROCK">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#1b4174">
   <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
@@ -420,6 +423,58 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
 }
 .bump { animation: bump .35s ease; }
 @keyframes bump { 40% { transform: scale(1.04); } }
+
+/* ============ iOS feel ============ */
+/* iOS sheet/spring curve: fast start, long soft settle, no overshoot (critically damped feel) */
+:root { --ios: cubic-bezier(.32,.72,0,1); }
+a, button, summary, input, label { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+/* Header: navy glass, reaches up under the status bar when opened from the home screen */
+.hdr { top: 0; padding-top: env(safe-area-inset-top, 0px); background: rgba(27,65,116,.96); -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); }
+.story__stage { top: calc(60px + env(safe-area-inset-top, 0px)); height: calc(100svh - 60px - env(safe-area-inset-top, 0px)); }
+
+/* Press feedback on touch-down (instant in, soft release) */
+.row, .seg button, .kind button, .step button, .ghost, .copy, .hdr__nav a, .gal__arrow, .textbtn, .env, .nm__x, .acc summary, .faq summary { transition-property: background, color, border-color, box-shadow, transform, opacity; transition-duration: .35s; transition-timing-function: var(--ios); }
+.row:active { background: #eef2f8; transition-duration: 0s; }
+.row:active .row__main, .row:active .row__price { transform: scale(.985); transition: transform .1s ease-out; }
+.seg button:active, .kind button:active { transform: scale(.96); transition-duration: .1s; }
+.step button:active { transform: scale(.88); background: var(--paper); transition-duration: .08s; }
+.ghost:active, .copy:active, .gal__arrow:active, .nm__x:active { transform: scale(.95); transition-duration: .1s; }
+.hdr__nav a:active { opacity: .45; transition-duration: .05s; }
+.acc summary:active, .faq summary:active { opacity: .55; transition-duration: .05s; }
+.cta { transition: background .15s, transform .35s var(--ios); }
+.cta:active { transform: scale(.97); transition-duration: .1s; }
+
+/* Segmented controls: a thumb that slides between options, like iOS */
+.seg, .kind { position: relative; isolation: isolate; }
+.seg__thumb { position: absolute; z-index: -1; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 10px; background: var(--white); box-shadow: 0 1px 2px rgba(35,31,32,.08), 0 3px 10px rgba(27,65,116,.10); transition: transform .45s var(--ios), width .45s var(--ios); pointer-events: none; }
+.kind .seg__thumb { border-radius: 999px; background: var(--navy); box-shadow: 0 2px 8px rgba(27,65,116,.25); }
+.has-thumb button[aria-pressed="true"] { background: transparent !important; box-shadow: none !important; }
+.no-anim .seg__thumb { transition: none; }
+
+/* Hairline separators on retina screens */
+@media (min-resolution: 2dppx) {
+  .row, .more, .sum__total { border-top-width: .5px; }
+  .plan { border-width: .5px; }
+  .acc details, .faq details { border-bottom-width: .5px; }
+}
+
+/* Bottom bar: frosted material, slides on the iOS curve, same path in and out */
+.dock { background: rgba(255,255,255,.72); -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); border-top: .5px solid rgba(35,31,32,.14); transition: transform .5s var(--ios); }
+.textbtn { transition: bottom .5s var(--ios), transform .35s var(--ios); }
+
+/* Toast: dark material, rises from where it lives */
+.toast { background: rgba(30,30,32,.86); -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); border-radius: 14px; transition: opacity .3s var(--ios), transform .45s var(--ios); }
+
+/* Restraint: attention loops play briefly, then rest */
+.cta::after { animation-iteration-count: 2; }
+.env { animation: envIn .6s var(--ios) both, wiggle 5s ease-in-out 2s 2; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .hdr { background: var(--navy); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .dock { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .toast { background: var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -1075,6 +1130,30 @@ input[type=range]::-moz-range-thumb { width: 28px; height: 28px; border-radius: 
   if (!/[?&]for=office/.test(location.search)) return;
   var body = encodeURIComponent('Hi Brett, question about our office ROCK order: ');
   document.querySelectorAll('.js-text').forEach(function (a) { a.href = 'sms:+14802532829?&body=' + body; });
+})();
+</script>
+<script>
+/* Segmented controls: slide a thumb under whichever option is pressed */
+(function () {
+  function setup(group) {
+    var thumb = document.createElement('span');
+    thumb.className = 'seg__thumb'; thumb.setAttribute('aria-hidden', 'true');
+    group.insertBefore(thumb, group.firstChild);
+    group.classList.add('has-thumb', 'no-anim');
+    function place() {
+      var on = group.querySelector('button[aria-pressed="true"]');
+      if (!on || !on.offsetWidth) return;
+      thumb.style.width = on.offsetWidth + 'px';
+      thumb.style.transform = 'translateX(' + on.offsetLeft + 'px)';
+    }
+    place();
+    requestAnimationFrame(function () { requestAnimationFrame(function () { group.classList.remove('no-anim'); }); });
+    new MutationObserver(place).observe(group, { subtree: true, attributes: true, attributeFilter: ['aria-pressed'] });
+    window.addEventListener('resize', function () { group.classList.add('no-anim'); place(); requestAnimationFrame(function () { group.classList.remove('no-anim'); }); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    if ('ResizeObserver' in window) new ResizeObserver(place).observe(group);
+  }
+  document.querySelectorAll('.seg, .kind').forEach(setup);
 })();
 </script>
 </body>

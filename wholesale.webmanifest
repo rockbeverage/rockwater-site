@@ -6,6 +6,7 @@
     { "src": "images/wholesale/icon-512.png", "sizes": "512x512", "type": "image/png" },
     { "src": "images/wholesale/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
+  "display": "standalone",
   "background_color": "#254071",
   "theme_color": "#1b4174"
 }
