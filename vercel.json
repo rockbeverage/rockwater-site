@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/journal/wholesale-water-cafes-phoenix.html", "destination": "/journal/wholesale-water-for-cafes-phoenix.html", "permanent": true },
+    { "source": "/journal/wholesale-water-cafes-phoenix", "destination": "/journal/wholesale-water-for-cafes-phoenix.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/fonts/web/(.*)",
