@@ -12,20 +12,13 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- ============ Analytics & Tracking ============ -->
   <!-- Google Analytics 4 -->
+  <script src="/js/consent.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NXY07BY92"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-8NXY07BY92');
-  </script>
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wrlc23b7w0");
   </script>
   <!-- ============ End Analytics ============ -->
 
@@ -70,7 +63,7 @@
       <div class="text-block fade-in">
         <span class="text-eyebrow">Legal</span>
         <h1 style="font-size: var(--text-4xl);">Privacy Policy</h1>
-        <p style="color: var(--color-text-light); margin-top: var(--space-sm);">Last updated October 26, 2026</p>
+        <p style="color: var(--color-text-light); margin-top: var(--space-sm);">Last updated November 13, 2026</p>
       </div>
     </div>
   </section>
@@ -111,8 +104,8 @@
       <hr style="border: none; border-top: 1px solid var(--color-border); margin: var(--space-2xl) 0;">
 
       <div class="policy-section fade-in">
-        <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-md);">Cookies and Service Providers</h2>
-        <p style="color: var(--color-text-light); line-height: 1.8;">We use service providers to run our store and communications, such as our website host, payment and checkout providers, and our email and text messaging platform (Klaviyo), which may use cookies to understand how visitors use our site. We do not sell your personal information. You can block or delete cookies in your browser settings.</p>
+        <h2 id="cookies" style="font-size: var(--text-xl); margin-bottom: var(--space-md);">Cookies and Service Providers</h2>
+        <p style="color: var(--color-text-light); line-height: 1.8;">We use service providers to run our store and communications, such as our website host, payment and checkout providers (Shopify), and our email and text messaging platform (Klaviyo), which uses cookies to run our signup forms and remember your preferences. We also use Google Analytics and Microsoft Clarity to understand how visitors use our site. Analytics cookies are set only if you choose &ldquo;Accept&rdquo; in our cookie banner. If you choose &ldquo;Decline&rdquo;, or your browser sends a Global Privacy Control signal, Google Analytics and Clarity cookies are not set and the site works the same. You can change your choice at any time with the &ldquo;Cookie Settings&rdquo; link at the bottom of every page, or block and delete cookies in your browser settings. We do not sell your personal information.</p>
       </div>
 
       <hr style="border: none; border-top: 1px solid var(--color-border); margin: var(--space-2xl) 0;">
@@ -171,6 +164,7 @@
               <a href="faq.html">FAQs</a>
               <a href="ambassadors.html">Ambassadors</a>
               <a href="privacy.html">Privacy Policy</a>
+ <a href="#" data-cookie-settings>Cookie Settings</a>
               <a href="terms.html">Terms &amp; Conditions</a>
               <a href="journal/" data-journal-link>Journal</a>
             </div>
